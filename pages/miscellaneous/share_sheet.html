@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial Share Sheet</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#161e2e", // Slightly lighter than bg-dark for the sheet
+                        "divider": "rgba(255, 255, 255, 0.08)",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar hiding for clean horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="font-display bg-black text-white antialiased overflow-hidden h-screen w-screen flex flex-col items-center justify-end">
+    <!-- Background Simulation: This represents the app content behind the overlay -->
+    <div class="fixed inset-0 z-0 bg-cover bg-center opacity-40 blur-sm scale-105"
+        data-alt="Abstract cinematic dark movie poster background"
+        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3t_pNbOmzzg5fzb1aFDIbnkidoPgyZzVYxNVKdIU7l0h-Xlhr6L_49jZlcsnTCcJgDT4CrIJlx9E21---QtNCWFnM6YsQpITSvFvc7vDE_Z0NFcJywxFhpmknAD-_BfpIFYc6DNl8dTwuB6V-ZLQwEDzaanCsUMRoMVnbfKkMIRXzMsAMqBMMPjprV9AQ4o-tZEQPOKDM4yPKAOIXb4ScSZTZJGSuI-ovA8jepKlSwnzaa_EwEDTYcnfKleTPS0iKF6m9KDQfbIWp');">
+    </div>
+    <div class="fixed inset-0 z-0 bg-black/60"></div>
+    <!-- Bottom Sheet Container -->
+    <div
+        class="relative z-10 w-full max-w-md bg-surface-dark rounded-t-3xl shadow-2xl flex flex-col max-h-[90vh] overflow-hidden border-t border-white/5 ring-1 ring-white/5">
+        <!-- Drag Handle Area -->
+        <div class="flex flex-col items-center pt-3 pb-2 w-full cursor-grab active:cursor-grabbing">
+            <div class="h-1.5 w-12 rounded-full bg-white/20 mb-2"></div>
+            <h4 class="text-gray-400 text-xs font-bold uppercase tracking-widest">Share Movie</h4>
+        </div>
+        <!-- Scrollable Content -->
+        <div class="flex-1 overflow-y-auto no-scrollbar pb-6">
+            <!-- Movie Preview Card -->
+            <div class="px-5 pt-2 pb-6">
+                <div class="bg-background-dark/50 border border-white/5 rounded-xl p-3 flex gap-4 items-center">
+                    <div class="w-16 h-24 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative shadow-lg">
+                        <img alt="Movie Poster" class="w-full h-full object-cover"
+                            data-alt="Dune Part Two movie poster thumbnail"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Wpxbn-MeWn4QD3eqDaQ1aFvEhQ6coW7grt2xq2XtBeEOOyLOmgVLZPD9ubO_PpThRgtlMfwZaGfH1Hdhv5obonWIjepyniwLfyzmqOZOyR4jKSCQF39dBEVNo5hkHj7YZ8YlgGB43C65TX3hlp2HGQlDOYBKQqd-DQaDiU6yVCf_7HbMO06YHMe2YfSkQYHPaMX8aUnyZ1t7S0COwoLKSxGOU2iy_sU9K2lFYvNFg9glKQSymP-pNzf6-A6pzkXClFsWOnpzPhXH" />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="text-white text-lg font-bold leading-tight">Dune: Part Two</h3>
+                        <p class="text-gray-400 text-sm font-medium">Denis Villeneuve • 2024</p>
+                        <div class="flex items-center gap-1 mt-1">
+                            <span class="material-symbols-outlined text-primary text-[16px]">star</span>
+                            <span class="text-primary text-xs font-bold">8.9</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="h-px w-full bg-divider"></div>
+            <!-- Quick Share Section (Internal) -->
+            <div class="pt-6 pb-2">
+                <div class="px-5 mb-4 flex justify-between items-end">
+                    <h3 class="text-white text-base font-semibold tracking-wide">Quick Share</h3>
+                    <span class="text-xs text-primary font-medium cursor-pointer">Edit Groups</span>
+                </div>
+                <div class="flex overflow-x-auto no-scrollbar px-5 gap-4 pb-4">
+                    <!-- Add to Story Action -->
+                    <div class="flex flex-col items-center gap-2 group cursor-pointer min-w-[72px]">
+                        <div
+                            class="w-[60px] h-[60px] rounded-full bg-background-dark border-2 border-dashed border-primary/50 group-hover:border-primary flex items-center justify-center transition-colors">
+                            <div
+                                class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined text-2xl">add_circle</span>
+                            </div>
+                        </div>
+                        <span class="text-xs font-medium text-white text-center">My Story</span>
+                    </div>
+                    <!-- Friend 1 -->
+                    <div class="flex flex-col items-center gap-2 cursor-pointer min-w-[72px]">
+                        <div class="relative w-[60px] h-[60px]">
+                            <img alt="Sarah"
+                                class="w-full h-full rounded-full object-cover border-2 border-transparent hover:border-primary transition-colors"
+                                data-alt="Portrait of Sarah"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1WsMsXUkeCdwtoBAgdr8IKk4UxFjjaaRpqknwFshMxPY2KuUuRHno-CSu1UDOWGvi6-u9iw40Hb2f3xwHIiB5oLavFoJgV0SkwRDLAmnd6m-uuvA55SozxCZkhCUIwVdy2f2MREpYeD9EhdeV2tfZixP0JMYoALPlMQkkAhlTBRMYnZDQ28KIs8tRsy7vL46LVwKgSykirBos3ePnx59LKl1mDQeAJxmiHDouY5ENoSxUQUx9TxwlFuQTOKt9VjxPqnZDn-0Sk1Vn" />
+                            <div
+                                class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-surface-dark rounded-full">
+                            </div>
+                        </div>
+                        <span class="text-xs font-medium text-gray-300 text-center">Sarah</span>
+                    </div>
+                    <!-- Friend 2 -->
+                    <div class="flex flex-col items-center gap-2 cursor-pointer min-w-[72px]">
+                        <div class="relative w-[60px] h-[60px]">
+                            <img alt="David"
+                                class="w-full h-full rounded-full object-cover border-2 border-transparent hover:border-primary transition-colors"
+                                data-alt="Portrait of David"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuHCntE49e26HJAxCz57ZT6mI3COH9LpsVdTFmCaiTBf-XsKLa3uBx9ihO7Y3i_uv7-9D1saXfl2x9H3oQ_VP1qb-vyDCDYnhj7aO9hLeCvhx6svMnvwrQjwkkoQTfEGmoF0Bmid-8yiwoa4NcdM7ZFzUjV9Bl7Y5My6ziul9DBce6U4RDMiL7mUvTSs20XpQPT9N7ewQV3H4yeMeB4HXDoTkREdzrp9d7biZnnGnJWhNVaU-dBqTc_EGC_Y-mtw9u2AVpMcng4wyX" />
+                        </div>
+                        <span class="text-xs font-medium text-gray-300 text-center">David</span>
+                    </div>
+                    <!-- Group -->
+                    <div class="flex flex-col items-center gap-2 cursor-pointer min-w-[72px]">
+                        <div
+                            class="w-[60px] h-[60px] rounded-full bg-gray-800 border-2 border-transparent hover:border-primary flex items-center justify-center overflow-hidden">
+                            <div class="grid grid-cols-2 gap-0.5 w-full h-full p-2">
+                                <div class="bg-gray-600 rounded-sm"></div>
+                                <div class="bg-gray-500 rounded-sm"></div>
+                                <div class="bg-gray-500 rounded-sm"></div>
+                                <div class="bg-gray-600 rounded-sm"></div>
+                            </div>
+                        </div>
+                        <span class="text-xs font-medium text-gray-300 text-center">Sci-Fi Fans</span>
+                    </div>
+                    <!-- Friend 3 -->
+                    <div class="flex flex-col items-center gap-2 cursor-pointer min-w-[72px]">
+                        <div class="relative w-[60px] h-[60px]">
+                            <img alt="Elena"
+                                class="w-full h-full rounded-full object-cover border-2 border-transparent hover:border-primary transition-colors"
+                                data-alt="Portrait of Elena"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq0rmteZh8GvcHI3pWYMhiWDmrI6DaEoOjSOzFZX1v9HSn76NlNZGF9DoUFMW6UN9OAN_SUo3LsiYp40MHphIt5SvyWf_Wa_Gz4sPjzwv4z5u6VSWnccKX4M0jeooX9E-26DkFf6mulVLUxg4xYKJ8C5pBFiXKosp_aWoDjyzLyFkK1WD-JnV901mhMaeYLA0yubm-f7l24FlzxbR__QihT5WQA7fTlBHRB0jAKda8pwjbkGfOoGdUf_hiePZiyKpboz8UBKUP_fQy" />
+                        </div>
+                        <span class="text-xs font-medium text-gray-300 text-center">Elena</span>
+                    </div>
+                </div>
+            </div>
+            <div class="h-px w-full bg-divider my-2"></div>
+            <!-- External Apps List -->
+            <div class="px-4 py-2 flex flex-col gap-1">
+                <!-- Copy Link -->
+                <button
+                    class="flex items-center gap-4 w-full p-3 rounded-xl hover:bg-white/5 active:bg-white/10 transition-colors group text-left">
+                    <div
+                        class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-xl">link</span>
+                    </div>
+                    <div class="flex-1">
+                        <span class="text-sm font-medium text-white block">Copy Link</span>
+                    </div>
+                    <span class="material-symbols-outlined text-gray-500 text-lg">chevron_right</span>
+                </button>
+                <!-- Instagram -->
+                <button
+                    class="flex items-center gap-4 w-full p-3 rounded-xl hover:bg-white/5 active:bg-white/10 transition-colors group text-left">
+                    <div
+                        class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:via-red-500 group-hover:to-purple-500 transition-all">
+                        <span class="material-symbols-outlined text-xl">photo_camera</span>
+                    </div>
+                    <div class="flex-1">
+                        <span class="text-sm font-medium text-white block">Instagram Stories</span>
+                    </div>
+                    <span class="material-symbols-outlined text-gray-500 text-lg">chevron_right</span>
+                </button>
+                <!-- Messages -->
+                <button
+                    class="flex items-center gap-4 w-full p-3 rounded-xl hover:bg-white/5 active:bg-white/10 transition-colors group text-left">
+                    <div
+                        class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white group-hover:bg-green-500 transition-colors">
+                        <span class="material-symbols-outlined text-xl">sms</span>
+                    </div>
+                    <div class="flex-1">
+                        <span class="text-sm font-medium text-white block">Messages</span>
+                    </div>
+                    <span class="material-symbols-outlined text-gray-500 text-lg">chevron_right</span>
+                </button>
+                <!-- More -->
+                <button
+                    class="flex items-center gap-4 w-full p-3 rounded-xl hover:bg-white/5 active:bg-white/10 transition-colors group text-left">
+                    <div
+                        class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white group-hover:bg-gray-700 transition-colors">
+                        <span class="material-symbols-outlined text-xl">more_horiz</span>
+                    </div>
+                    <div class="flex-1">
+                        <span class="text-sm font-medium text-white block">More Options</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <!-- Cancel/Close Button -->
+        <div class="px-5 pt-2 pb-8 bg-surface-dark border-t border-white/5">
+            <button
+                class="w-full py-3.5 rounded-xl bg-background-dark border border-white/10 text-white font-semibold text-sm hover:bg-white/5 transition-colors">
+                Cancel
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

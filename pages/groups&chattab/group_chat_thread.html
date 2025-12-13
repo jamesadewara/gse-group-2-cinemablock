@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial - Group Chat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#050505", /* Deep black as requested */
+                        "surface-dark": "#121212",
+                        "bubble-in": "#1e1e1e",
+                        "bubble-out": "#0d59f2", /* Primary color for user bubble */
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "md": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Blur effect for header */
+        .backdrop-blur-md {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased overflow-hidden h-screen w-full flex flex-col selection:bg-primary selection:text-white">
+<!-- Top App Bar -->
+<header class="fixed top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-white/5">
+<div class="flex items-center justify-between px-4 h-16 pt-2">
+<button class="text-gray-900 dark:text-white flex size-10 shrink-0 items-center justify-center hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<div class="flex flex-col items-center flex-1 mx-2 cursor-pointer">
+<h2 class="text-gray-900 dark:text-white text-base font-semibold leading-tight tracking-tight">The Film Club</h2>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-normal">8 members • Online</p>
+</div>
+<button class="text-gray-900 dark:text-white flex size-10 shrink-0 items-center justify-center hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-2xl">info</span>
+</button>
+</div>
+</header>
+<!-- Chat Area -->
+<main class="flex-1 overflow-y-auto no-scrollbar pt-20 pb-24 px-4 flex flex-col gap-6">
+<!-- Timestamp -->
+<div class="flex justify-center w-full py-2">
+<span class="text-gray-500 dark:text-gray-500 text-[11px] font-medium tracking-wide uppercase">Today, 10:23 AM</span>
+</div>
+<!-- Message: Sarah (Incoming) -->
+<div class="flex items-end gap-3 group">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 border border-white/10" data-alt="Portrait of Sarah" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA6vcfJwXoBBeS7uZfFOt4jhQJXxXeabcVGY_1VKQLM7vi3eiG6xDwYnBucPFyPECsi5oa10GlaaDT2H4QthCd1S5ikZ4u-8h5fNd28GetVLbRmsgkEcsfITKCcWbdtMK9GbQkzGrWK6niWMte4P90NG7ge0Wel-8zhWnY1Q5am783CTrGtt2yDjYTGQl0Ie_JAFoaGZcLmIpVOSOBwW0e7vkB2rbyMP8gJ9k7Tody3eoQnCFcp895xQKvYyVVXdRObtWp6_U_hpGG2");'></div>
+<div class="flex flex-col gap-1 items-start max-w-[75%]">
+<span class="text-gray-500 dark:text-gray-400 text-[11px] font-medium ml-1">Sarah</span>
+<div class="bg-white dark:bg-bubble-in text-gray-900 dark:text-gray-100 px-4 py-2.5 rounded-2xl rounded-bl-sm shadow-sm dark:shadow-none text-[15px] leading-relaxed">
+                    Anyone seen the new sci-fi flick yet?
+                </div>
+</div>
+</div>
+<!-- Message: Mike (Incoming with Media) -->
+<div class="flex items-end gap-3 group">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 border border-white/10" data-alt="Portrait of Mike" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuALppBoB6vfN2AZclr4IP7v3bc4W9P9bhIq3vw6SeJ1DZ0fbDORu5SQXspwWsSUd4vqZ964f4Z88foJsx1kPHqZw-h-6Mi5JF97ZkUopOGOcDdWOae5KFuqubHovK-kbYOs8OJK8Apm3I48URqABXcdUKq4rhhoGaaU-KEb74vUbMUA8P_lz6X5lgrBPT2mcOA9zm3vMoLTZ94AM9ogGj8Pa_THyMdnPaxMkEyGxFVYoTSQgqLKSn5YXn1wsLE8hiH8GefSic8OyVRW");'></div>
+<div class="flex flex-col gap-1 items-start max-w-[75%]">
+<span class="text-gray-500 dark:text-gray-400 text-[11px] font-medium ml-1">Mike</span>
+<div class="bg-white dark:bg-bubble-in text-gray-900 dark:text-gray-100 px-4 py-2.5 rounded-2xl rounded-bl-sm shadow-sm dark:shadow-none text-[15px] leading-relaxed">
+                    Yeah, just got back. The cinematography is mind-blowing.
+                </div>
+<!-- Shared Media -->
+<div class="mt-1 relative rounded-xl overflow-hidden shadow-lg border border-white/5 w-48 aspect-[2/3]">
+<img alt="Movie poster with dark sci-fi aesthetic" class="object-cover w-full h-full hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmJza4L6KjnjiszxW00xP3BKrhNQlpPU6spejA7_8A2JsJUQjz0tGxvlyfTPgM8jyXRCo03Ah4eu8vImdT1vzhU-9N8dVEOSJfIlfU8Md5mmxuZm3vEEm2GjCW9vkD19GIC8EPMt3hZlXkoV1L15ZYiSXL--VR1OnU32W5FE6_7bChWrrXwTdPyMsjxrjzqXFCIfJp9SvmknyVp9IPr4R3psNW-ajyF5LKGn5JB1fVd9OeokJ3Nzk46bv6WO3x9SNyu8GvVn2pPFq6"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3">
+<span class="text-white text-xs font-bold">Interstellar Void</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Message: Me (Outgoing) -->
+<div class="flex items-end gap-3 justify-end group">
+<div class="flex flex-col gap-1 items-end max-w-[75%]">
+<div class="bg-primary text-white px-4 py-2.5 rounded-2xl rounded-br-sm shadow-md shadow-primary/20 text-[15px] leading-relaxed">
+                    I'm free this Friday. Let's book it! 🍿
+                </div>
+<span class="text-gray-400 dark:text-gray-600 text-[10px] font-medium mr-1">Read 10:45 AM</span>
+</div>
+</div>
+<!-- Message: Jessica (Incoming) -->
+<div class="flex items-end gap-3 group">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 border border-white/10" data-alt="Portrait of Jessica" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDztSb3USKpBvSLJMJP2qf0O-vukyU5P2DBzsVQMX8FTg5nEJSPH6fBu2ZTagYVsFPNvAKFyKlPwJFUyhm_0LMsmDZt_N7BhhwM104O2h8fI8RVS-F4CiFTTU2MaWzyWpqzJJSvpLpH730iJaVSHk77dqoxJ93cp17nHmuUZoWNCVLTk3-sCFahREBFM6YqKSotnZ5SRMParWWcwvsc4MKSTInzsCjvh8xCFAHNCdmzwg7MhSbecxMKT87NGg91sScMnDyF9MXDUU8E");'></div>
+<div class="flex flex-col gap-1 items-start max-w-[75%]">
+<span class="text-gray-500 dark:text-gray-400 text-[11px] font-medium ml-1">Jessica</span>
+<div class="bg-white dark:bg-bubble-in text-gray-900 dark:text-gray-100 px-4 py-2.5 rounded-2xl rounded-bl-sm shadow-sm dark:shadow-none text-[15px] leading-relaxed">
+                    Count me in! I heard the IMAX sound design is crucial for this one.
+                </div>
+</div>
+</div>
+<!-- System Message: Booking Shared -->
+<div class="flex flex-col items-center gap-2 py-4">
+<div class="bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5 rounded-xl p-3 flex items-center gap-3 max-w-xs w-full">
+<div class="size-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-xl">local_activity</span>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-gray-900 dark:text-white text-sm font-semibold truncate">Group Booking Started</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs truncate">Friday, 8:00 PM • IMAX Hall 4</p>
+</div>
+<button class="bg-primary hover:bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full transition-colors">
+                    Join
+                </button>
+</div>
+</div>
+<!-- Message: Me (Outgoing - Response) -->
+<div class="flex items-end gap-3 justify-end group">
+<div class="flex flex-col gap-1 items-end max-w-[75%]">
+<div class="bg-primary text-white px-4 py-2.5 rounded-2xl rounded-br-sm shadow-md shadow-primary/20 text-[15px] leading-relaxed">
+                    Joined! Can't wait.
+                </div>
+</div>
+</div>
+</main>
+<!-- Input Area -->
+<footer class="fixed bottom-0 w-full bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-white/5 p-2 pb-6 backdrop-blur-lg safe-area-bottom">
+<div class="flex items-end gap-2 px-2 max-w-screen-xl mx-auto">
+<!-- Attachment Button -->
+<button class="size-10 flex items-center justify-center rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors shrink-0">
+<span class="material-symbols-outlined text-2xl">add_circle</span>
+</button>
+<!-- Input Field -->
+<div class="flex-1 bg-white dark:bg-surface-dark border border-gray-200 dark:border-white/10 rounded-full flex items-center px-4 py-2 min-h-[44px]">
+<textarea class="w-full bg-transparent border-none focus:ring-0 p-0 text-gray-900 dark:text-white placeholder-gray-400 text-base resize-none font-normal leading-6" placeholder="Discuss the film..." rows="1" style="min-height: 24px; max-height: 100px;"></textarea>
+<button class="ml-2 text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">sentiment_satisfied</span>
+</button>
+</div>
+<!-- Send Button -->
+<button class="size-10 flex items-center justify-center rounded-full bg-primary text-white hover:bg-blue-600 transition-colors shadow-lg shadow-primary/30 shrink-0">
+<span class="material-symbols-outlined text-[20px] ml-0.5">send</span>
+</button>
+</div>
+</footer>
+<script>
+        // Simple script to auto-resize textarea
+        const textarea = document.querySelector('textarea');
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+    </script>
+</body></html>

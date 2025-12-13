@@ -1,0 +1,12 @@
+ body {
+     min-height: max(884px, 100dvh);
+ }
+
+ /* Custom utilities for glow effects not covered by standard Tailwind */
+ .glow-text {
+     text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+ }
+
+ .glow-box {
+     box-shadow: 0 0 40px -10px rgba(13, 89, 242, 0.4);
+ }

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial - Continue Watching</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Utility for hiding scrollbar while maintaining functionality */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Mobile Viewport Container -->
+<div class="relative w-full max-w-md mx-auto min-h-screen bg-background-light dark:bg-background-dark overflow-hidden border-x border-gray-800/20">
+<!-- Top spacing/simulation of content above -->
+<div class="h-24 w-full bg-gradient-to-b from-background-dark/0 to-background-dark/0 flex items-end px-4 pb-4">
+<!-- Simulated previous section content -->
+<div class="w-full h-px bg-white/5"></div>
+</div>
+<!-- Continue Watching Section -->
+<section class="flex flex-col w-full py-4">
+<!-- Section Header -->
+<div class="flex items-center justify-between px-4 mb-4">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Continue Watching</h3>
+<button class="flex items-center text-primary text-sm font-semibold hover:text-primary/80 transition-colors">
+                    See All
+                    <span class="material-symbols-outlined text-[16px] ml-0.5">chevron_right</span>
+</button>
+</div>
+<!-- Horizontal Scroll Row -->
+<!-- 
+                 - overflow-x-auto: Enables horizontal scrolling
+                 - snap-x snap-mandatory: Creates the snap effect for cards
+                 - scrollbar-hide: Custom class to hide the scrollbar for clean aesthetic
+            -->
+<div class="flex overflow-x-auto gap-4 px-4 pb-8 snap-x snap-mandatory scrollbar-hide w-full">
+<!-- Card 1: Dune Part Two (40%) -->
+<div class="relative flex-none w-[160px] aspect-[2/3] rounded-lg overflow-hidden group cursor-pointer snap-start bg-gray-800 ring-1 ring-white/5 shadow-2xl">
+<!-- Image -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Cinematic desert landscape with warm orange tones representing Dune" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBX-kZqgg-rjJIihIaUO39YHAMiHhMM_4i7HlaMkM4JsIcg6rfkYWNwQX-DyARJ_IqporUyIrhq1hvJHVrtdSWivjbyKt1geEM_u_sbBfYyqZpJbskM7w9sRAJslb6tcY6QXyCxO_2SP1i4EpXEFobJTRkNoBwcZLMc_wc36amIkFw0mASR_ZHtYZzcxuCjqVM7YvLpj84oLM77GL2xlKsdAGkN5tcUlUSUAckOe1y1-dve8YNpoOUB07ozHzpvUDk8n9G-nUk8pjg8');">
+</div>
+<!-- Gradient Overlay for legibility and cinematic feel -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+<!-- Play Overlay (Appears on touch/hover) -->
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 shadow-lg">
+<span class="material-symbols-outlined text-white text-3xl filled">play_arrow</span>
+</div>
+</div>
+<!-- Progress Bar Component -->
+<div class="absolute bottom-0 left-0 w-full z-10">
+<!-- Info Text (Screen Reader only mostly, but visible for context if needed) -->
+<div class="px-3 pb-2">
+<p class="text-xs text-white/90 font-medium truncate">Dune: Part Two</p>
+<p class="text-[10px] text-gray-400">1h 12m remaining</p>
+</div>
+<!-- Bar -->
+<div class="w-full h-1 bg-white/20 backdrop-blur-sm">
+<div class="h-full bg-primary shadow-[0_0_10px_rgba(17,82,212,0.6)]" style="width: 40%"></div>
+</div>
+</div>
+</div>
+<!-- Card 2: Oppenheimer (85%) -->
+<div class="relative flex-none w-[160px] aspect-[2/3] rounded-lg overflow-hidden group cursor-pointer snap-start bg-gray-800 ring-1 ring-white/5 shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Dark abstract moody background with fire sparks representing Oppenheimer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCLyxlBRT1mbTqwvGhEXaLi6S_a9Ta0_Qy5fVvPcP3tgL7i4DPvDMdP4guxdDDmExQihSNgcoN1rnJue1y-EadPhS--2MqLbllxQr2ue9ph2-AHj21ibrZe1gkvSybo5QlJmgfd2VOe38AcApixN11M73cYirXukExEBsLFKXbL4t9AzrJ9Fpog1CjKxTFpK_zP27_9jd6_XdEzU9VR3MfnstXE0DNQ8l62n05CKm_FxtV5NuoItJwY8tStDeELL546iafhavMrDiWT');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 shadow-lg">
+<span class="material-symbols-outlined text-white text-3xl filled">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full z-10">
+<div class="px-3 pb-2">
+<p class="text-xs text-white/90 font-medium truncate">Oppenheimer</p>
+<p class="text-[10px] text-gray-400">24m remaining</p>
+</div>
+<div class="w-full h-1 bg-white/20 backdrop-blur-sm">
+<div class="h-full bg-primary shadow-[0_0_10px_rgba(17,82,212,0.6)]" style="width: 85%"></div>
+</div>
+</div>
+</div>
+<!-- Card 3: Past Lives (10%) -->
+<div class="relative flex-none w-[160px] aspect-[2/3] rounded-lg overflow-hidden group cursor-pointer snap-start bg-gray-800 ring-1 ring-white/5 shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Soft urban city lights at dusk with blue tones representing Past Lives" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBDkhD6m6bvf8ky0JSzCCaenDyY68nuU5z86_0v3xuSuBZ2cSarzgOCwRehPv8m6XRMz0S4UZC9kJSxajK2RPITrOOHaoCPd5PD3nw9szlkfSZUsiQmeR9QeXYckmG9yBa-YDZjXs87OupCRUqdO6njNV472YbPEm62VUBFRrckXVroP0jqOLo9BkRPDMTeXm5WYHri0uQa9ZAgREXYQFVwDyqc41MigjnK1tVB_Ii-j0wetruCQ1GKOOWaLETsrJomBfpCdQiNhzka');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 shadow-lg">
+<span class="material-symbols-outlined text-white text-3xl filled">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full z-10">
+<div class="px-3 pb-2">
+<p class="text-xs text-white/90 font-medium truncate">Past Lives</p>
+<p class="text-[10px] text-gray-400">1h 35m remaining</p>
+</div>
+<div class="w-full h-1 bg-white/20 backdrop-blur-sm">
+<div class="h-full bg-primary shadow-[0_0_10px_rgba(17,82,212,0.6)]" style="width: 10%"></div>
+</div>
+</div>
+</div>
+<!-- Card 4: Spider-Verse (95%) -->
+<div class="relative flex-none w-[160px] aspect-[2/3] rounded-lg overflow-hidden group cursor-pointer snap-start bg-gray-800 ring-1 ring-white/5 shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Vibrant glitch art with red and blue colors representing Spider-Verse" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBEyc2Lju-5LJbMhZRQMtT4I44LAXP9lCHbUe5wiqzzyuP1kvWWF3LpntSHaBzFCRaWjC-LtUuemEqz0mJXoK4g1137dkmfm0NGVnpehOMakneEmKp_heuhop70ZfTV4YMcf6-yuhiQmqK_nJDb3A8fhjdlpI1dy_xSqpKHaYrNQBbZi0zhlo_RvBnKzBI6kVxERZrpL0ev_IS0yvDPzivFybb7U3emxP0r-ijoqwe8CIcjV0FUx0tS2_h-zo_5FcmNBEaact81WxUm');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 shadow-lg">
+<span class="material-symbols-outlined text-white text-3xl filled">replay</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full z-10">
+<div class="px-3 pb-2">
+<p class="text-xs text-white/90 font-medium truncate">Spider-Man: Across...</p>
+<p class="text-[10px] text-gray-400">5m remaining</p>
+</div>
+<div class="w-full h-1 bg-white/20 backdrop-blur-sm">
+<div class="h-full bg-primary shadow-[0_0_10px_rgba(17,82,212,0.6)]" style="width: 95%"></div>
+</div>
+</div>
+</div>
+<!-- Ghost Card (to indicate more content) -->
+<div class="relative flex-none w-[40px] aspect-[2/3] rounded-l-lg overflow-hidden opacity-30">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Dark mysterious movie poster background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8FKnUfoZWGbLEH77DFoK_uuy-uojMPOLDzHzRMaQSX8dXPZf2SccGiIAUHRxZsJYBbu2Qcqljrf15SN8jcsZbvlYMejX9pMijJPj5M0MvzfL0iba8Pta20jfceio3PWRQoDRh86rbCnw3Nx9NErStFrCyZguGP_B_MyXYnB26J90B2VJfrFQ-AOr1374QhbPIEol8fDO1nkAS9izP94J_tMQw5wO1z7PBihU9a1OMkGbRU0y6yaAyp2SIMwptGPof5cCDCLs0b_jQ');"></div>
+</div>
+</div>
+</section>
+<!-- Simulated Next Section Header -->
+<div class="px-4 pt-2">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] opacity-50">Trending Now</h3>
+</div>
+<!-- Bottom Navigation Simulation (Context) -->
+<div class="absolute bottom-0 w-full bg-[#101622]/90 backdrop-blur-xl border-t border-white/5 h-20 flex justify-around items-center px-2 pb-4 z-50">
+<div class="flex flex-col items-center gap-1 p-2 text-primary">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 p-2 text-gray-500">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Discover</span>
+</div>
+<div class="flex flex-col items-center gap-1 p-2 text-gray-500">
+<span class="material-symbols-outlined">local_activity</span>
+<span class="text-[10px] font-medium">Tickets</span>
+</div>
+<div class="flex flex-col items-center gap-1 p-2 text-gray-500">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</div>
+</body></html>

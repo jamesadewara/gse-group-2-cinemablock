@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Privacy &amp; Safety - CineSocial</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2979FF", 
+                        "background-dark": "#000000",
+                        "surface-card": "#0F0F0F",
+                        "border-subtle": "#1F1F1F",
+                        "text-main": "#F2F2F2",
+                        "text-muted": "#666666",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+        .toggle-checkbox {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        .toggle-track {
+            width: 44px;
+            height: 24px;
+            background-color: #27272a; 
+            border-radius: 9999px;
+            position: relative;
+            transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .toggle-knob {
+            height: 20px;
+            width: 20px;
+            background-color: #71717a;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        .toggle-checkbox:checked + .toggle-track {
+            background-color: #2979FF; 
+        }
+        .toggle-checkbox:checked + .toggle-track .toggle-knob {
+            transform: translateX(20px);
+            background-color: #ffffff;
+        }
+        .toggle-checkbox:focus-visible + .toggle-track {
+            outline: 2px solid #2979FF;
+            outline-offset: 2px;
+        }
+        body {
+            background-color: #000000;
+        }
+    </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }.nav-blur {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid #1F1F1F;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display text-text-main antialiased min-h-screen selection:bg-primary/30 pb-24">
+<div class="max-w-md mx-auto min-h-screen relative flex flex-col">
+<div class="sticky top-0 z-30 bg-background-dark/80 backdrop-blur-xl border-b border-border-subtle pt-12 pb-4 px-6 flex items-center justify-between">
+<button class="group flex items-center justify-center -ml-2 p-2 rounded-full text-white/70 hover:text-white hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined font-light text-[24px]">arrow_back</span>
+</button>
+<h1 class="text-[17px] font-semibold tracking-wide text-white absolute left-1/2 -translate-x-1/2">Privacy &amp; Safety</h1>
+<button class="group flex items-center justify-center -mr-2 p-2 rounded-full text-white/70 hover:text-white hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined font-light text-[24px]">help</span>
+</button>
+</div>
+<div class="flex-1 px-5 py-6 flex flex-col gap-8">
+<div class="bg-surface-card rounded-2xl p-5 border border-border-subtle shadow-2xl shadow-black relative overflow-hidden">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex items-center justify-between relative z-10">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[15px] font-medium text-white">Private Account</span>
+<span class="text-[13px] text-text-muted">Only followers can see your activity</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+</div>
+<section>
+<h3 class="text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-3 px-1">Blocked Users</h3>
+<div class="bg-surface-card rounded-2xl border border-border-subtle overflow-hidden">
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors border-b border-border-subtle">
+<div class="flex items-center gap-3">
+<div class="size-9 rounded-full bg-white/10 flex items-center justify-center text-white/40">
+<span class="material-symbols-outlined text-[18px]">person_off</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-[14px] font-medium text-white/90">Alex Chen</span>
+<span class="text-[11px] text-text-muted">Blocked Jan 12</span>
+</div>
+</div>
+<button class="text-[12px] font-medium text-white/60 hover:text-white border border-white/10 hover:border-white/30 px-3 py-1.5 rounded-full transition-all">
+                            Unblock
+                        </button>
+</div>
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors border-b border-border-subtle">
+<div class="flex items-center gap-3">
+<div class="size-9 rounded-full bg-white/10 flex items-center justify-center text-white/40">
+<span class="material-symbols-outlined text-[18px]">person_off</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-[14px] font-medium text-white/90">MovieBuff99</span>
+<span class="text-[11px] text-text-muted">Blocked Dec 04</span>
+</div>
+</div>
+<button class="text-[12px] font-medium text-white/60 hover:text-white border border-white/10 hover:border-white/30 px-3 py-1.5 rounded-full transition-all">
+                            Unblock
+                        </button>
+</div>
+<div class="p-3 bg-white/[0.02] flex items-center justify-center">
+<button class="flex items-center gap-2 text-[13px] text-primary hover:text-primary/80 transition-colors py-1">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+                            Block New User
+                        </button>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-3 px-1">Content Preferences</h3>
+<div class="bg-surface-card rounded-2xl border border-border-subtle overflow-hidden">
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors border-b border-border-subtle">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-muted text-[20px]">visibility_off</span>
+<div class="flex flex-col gap-0.5">
+<span class="text-[15px] font-medium">Spoiler Protection</span>
+<span class="text-[12px] text-text-muted">Blur major plot details in feed</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors border-b border-border-subtle">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-muted text-[20px]">explicit</span>
+<div class="flex flex-col gap-0.5">
+<span class="text-[15px] font-medium">Sensitive Content</span>
+<span class="text-[12px] text-text-muted">Filter mature audience ratings</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-muted text-[20px]">recommend</span>
+<div class="flex flex-col gap-0.5">
+<span class="text-[15px] font-medium">Personalization</span>
+<span class="text-[12px] text-text-muted">Use watch history for suggestions</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-3 px-1">Discoverability</h3>
+<div class="bg-surface-card rounded-2xl border border-border-subtle overflow-hidden">
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors border-b border-border-subtle last:border-0">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-muted text-[20px]">contacts</span>
+<div class="flex flex-col gap-0.5">
+<span class="text-[15px] font-medium">Sync Contacts</span>
+<span class="text-[12px] text-text-muted">Find friends from address book</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors last:border-0">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-muted text-[20px]">alternate_email</span>
+<div class="flex flex-col gap-0.5">
+<span class="text-[15px] font-medium">Allow Mentions</span>
+<span class="text-[12px] text-text-muted">From everyone, not just friends</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+</div>
+</section>
+<div class="mt-2 text-center">
+<a class="text-[13px] text-primary hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5" href="#">
+                    View Privacy Policy
+                </a>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 z-50 nav-blur pb-6 pt-2">
+<div class="max-w-md mx-auto flex items-center justify-around px-2">
+<button class="flex flex-col items-center gap-1 p-2 text-text-muted hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">movie</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 text-text-muted hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">confirmation_number</span>
+<span class="text-[10px] font-medium">Tickets</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 text-text-muted hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">search</span>
+<span class="text-[10px] font-medium">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 text-primary">
+<span class="material-symbols-outlined text-[24px] fill-current">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</div>
+</div>
+
+</body></html>

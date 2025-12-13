@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial - Ticket Detail</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .ticket-tear-line {
+            background-image: linear-gradient(to right, #334155 50%, rgba(255,255,255,0) 0%);
+            background-position: bottom;
+            background-size: 16px 2px;
+            background-repeat: repeat-x;
+        }
+        
+        /* Hide scrollbar for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden selection:bg-primary selection:text-white">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto shadow-2xl overflow-hidden">
+<!-- Top App Bar -->
+<header class="flex items-center justify-between p-4 z-20">
+<button class="flex size-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors text-white">
+<span class="material-symbols-outlined text-xl">arrow_back_ios_new</span>
+</button>
+<h1 class="text-white text-lg font-bold tracking-tight">My Ticket</h1>
+<button class="flex size-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors text-white">
+<span class="material-symbols-outlined text-xl">more_horiz</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto no-scrollbar pb-24 px-4 pt-2">
+<!-- Ticket Component -->
+<div class="relative w-full flex flex-col items-center">
+<!-- Ticket Top Section -->
+<div class="w-full bg-white dark:bg-surface-dark rounded-t-xl overflow-hidden shadow-lg relative">
+<!-- Movie Poster Header -->
+<div class="h-48 w-full relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Dune Part Two movie scene with desert landscape" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAa-e7CIu253xpDVpIwEzYL4aGSmkYLGq-iMujcBzBZf9Rx1oRnIr8XOUnNIWdRs_6DcuGU2Gepb58n35yazEMyl97YW8Cg87I0LyCKpvVieb5t7qDedWIO1UkDuIchgiSIQvNiHdGFUgjQh9AiJLoU2n9XitagdmoRa9q7wb382Auy7f3zFP5boLqDY7jYSGJZWcR5zDaJUHRK0mdtHxgPRi_oldgFjyy5OC56O_zPDRW-W5gcpqW-6ox4GHqwbowe2fpRSnMNnTu_');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dark to-transparent opacity-90"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<h2 class="text-2xl font-bold text-white uppercase leading-tight drop-shadow-md">Dune: Part Two</h2>
+<p class="text-slate-300 text-sm mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-base">movie</span>
+                                Sci-Fi / Adventure
+                            </p>
+</div>
+</div>
+<!-- Ticket Details Grid -->
+<div class="p-5 pb-8 space-y-5">
+<div class="flex justify-between items-start border-b border-slate-700/50 pb-4">
+<div class="flex flex-col">
+<span class="text-slate-400 text-xs uppercase tracking-wider mb-1">Date</span>
+<span class="text-white font-semibold text-base">Oct 24, 2023</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-slate-400 text-xs uppercase tracking-wider mb-1">Time</span>
+<span class="text-white font-semibold text-base">19:30</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-400 text-xs uppercase tracking-wider mb-1">Cinema</span>
+<span class="text-white font-semibold text-base">ODEON Luxe Leicester Square</span>
+<span class="text-slate-400 text-sm mt-0.5">Hall 4, Dolby Atmos</span>
+</div>
+</div>
+</div>
+<!-- Ticket Connector (Tear Line) -->
+<div class="w-full bg-white dark:bg-surface-dark relative h-6 flex items-center overflow-hidden">
+<!-- Left Cutout -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background-light dark:bg-background-dark shadow-inner"></div>
+<!-- Right Cutout -->
+<div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-8 h-8 rounded-full bg-background-light dark:bg-background-dark shadow-inner"></div>
+<!-- Dashed Line -->
+<div class="w-full mx-5 h-[2px] ticket-tear-line"></div>
+</div>
+<!-- Ticket Bottom Section (QR & Seats) -->
+<div class="w-full bg-white dark:bg-surface-dark rounded-b-xl p-5 pt-2 shadow-lg flex flex-col items-center gap-6">
+<!-- Seat Pill -->
+<div class="w-full flex justify-between items-center bg-[#232f48] rounded-xl p-3 border border-slate-700/30">
+<div class="flex items-center gap-3">
+<div class="bg-primary/20 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">chair</span>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-400 text-xs uppercase">Seat Number</span>
+<span class="text-white font-bold">Row G, Seat 12</span>
+</div>
+</div>
+<div class="bg-green-500/10 text-green-400 text-xs font-bold px-2 py-1 rounded">
+                            CONFIRMED
+                        </div>
+</div>
+<!-- QR Code -->
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="bg-white p-4 rounded-xl shadow-sm w-48 h-48 flex items-center justify-center">
+<!-- Simulated QR Code -->
+<img alt="Ticket QR Code" class="w-full h-full mix-blend-multiply opacity-90" data-alt="Black and white QR code pattern for ticket scanning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXV663hPIqKj6E9V2RKYWda0qBfL1gaaN38u28_vdo-0XM7EfmQ9K-DqSmoqSWMpTW5K1nXJ4BY_slghMXQvlDW38U5j4_LxHBPuOSxvwz2UpuEJthEFfr44f1spmUbxkfKffrlKxR6c6QFttLLcsH_-467W1WR8y066rJkFwmnT-DwZYcSVP5_f4EeYPoDIXXMDeKFDwXK6dX3VcNm_HPYYSZcl6aP4Dg7zK79imVBruG5CyCeXHUJtfGaBhSOSZdO_vJzoR7prQI"/>
+</div>
+<div class="text-center mt-2">
+<p class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Order ID: #839201</p>
+<p class="text-[10px] text-slate-600 mt-1">Scan this code at the cinema entrance</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="mt-6 flex items-center gap-3 w-full">
+<button class="flex-1 h-12 bg-[#1e1e1e] hover:bg-[#2c2c2c] active:scale-95 transition-all text-white rounded-xl flex items-center justify-center gap-2 border border-slate-700 shadow-md">
+<span class="material-symbols-outlined text-xl">wallet</span>
+<span class="text-sm font-semibold">Apple Wallet</span>
+</button>
+<button class="flex-1 h-12 bg-primary/10 hover:bg-primary/20 active:scale-95 transition-all text-primary border border-primary/20 rounded-xl flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">share</span>
+<span class="text-sm font-semibold">Share Ticket</span>
+</button>
+</div>
+<div class="h-8"></div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="absolute bottom-0 w-full bg-background-dark/80 backdrop-blur-lg border-t border-slate-800 pb-safe pt-2 z-30">
+<div class="flex justify-around items-center h-16">
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">search</span>
+<span class="text-[10px] font-medium">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl fill-1">confirmation_number</span>
+<span class="text-[10px] font-medium">Tickets</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</nav>
+</div>
+</body></html>

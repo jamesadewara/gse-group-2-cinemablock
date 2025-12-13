@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Data &amp; Storage - CineSocial</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#256af4",
+              "background-light": "#f5f6f8",
+              "background-dark": "#000000", /* Modified to True Black for OLED/Cinematic feel */
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+                "DEFAULT": "0.25rem", 
+                "lg": "0.5rem", 
+                "xl": "0.75rem", 
+                "2xl": "1rem",
+                "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom scrollbar for webkit to ensure minimalist look if scrolling happens */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #333;
+            border-radius: 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-white transition-colors duration-300">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto overflow-hidden bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<header class="flex items-center justify-between px-4 py-6 sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors group">
+<span class="material-symbols-outlined text-slate-900 dark:text-[#256af4]" style="font-size: 28px;">chevron_left</span>
+</button>
+<h2 class="text-lg font-semibold tracking-wide text-center flex-1 pr-10 text-slate-900 dark:text-white">Data &amp; Storage</h2>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col items-center px-6 pt-8 pb-10">
+<!-- Usage Visualization -->
+<div class="flex flex-col items-center justify-center py-10 w-full animate-fade-in">
+<!-- Circular decorative element behind text (subtle glow) -->
+<div class="relative flex flex-col items-center">
+<div class="absolute -inset-10 bg-primary/10 rounded-full blur-3xl opacity-50 dark:opacity-30 pointer-events-none"></div>
+<h1 class="relative text-6xl font-bold tracking-tighter text-slate-900 dark:text-white mb-2">
+                        1.2 <span class="text-3xl font-medium text-slate-500 dark:text-slate-400">GB</span>
+</h1>
+<p class="relative text-sm font-medium text-slate-500 dark:text-slate-400 tracking-wide uppercase">Total Space Used</p>
+</div>
+</div>
+<!-- Storage Breakdown List -->
+<div class="w-full mt-8 space-y-1">
+<div class="flex justify-between items-center py-4 px-2 border-b border-slate-200 dark:border-white/10 group">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-slate-200 dark:bg-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-[18px]">smartphone</span>
+</div>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-300">App Size</p>
+</div>
+<p class="text-sm font-semibold text-slate-900 dark:text-white">140 MB</p>
+</div>
+<div class="flex justify-between items-center py-4 px-2 border-b border-slate-200 dark:border-white/10 group">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-slate-200 dark:bg-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-[18px]">cached</span>
+</div>
+<div class="flex flex-col">
+<p class="text-sm font-medium text-slate-700 dark:text-slate-300">Media Cache</p>
+<p class="text-[10px] text-slate-400 dark:text-slate-500">Trailers, Posters, Thumbnails</p>
+</div>
+</div>
+<p class="text-sm font-semibold text-primary">1.06 GB</p>
+</div>
+<div class="flex justify-between items-center py-4 px-2 border-b border-slate-200 dark:border-white/10 group">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-slate-200 dark:bg-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</div>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-300">Documents</p>
+</div>
+<p class="text-sm font-semibold text-slate-900 dark:text-white">24 MB</p>
+</div>
+</div>
+<div class="flex-1"></div>
+<!-- Action Area -->
+<div class="w-full mt-12 mb-4">
+<button class="w-full relative overflow-hidden rounded-xl bg-primary hover:bg-primary/90 active:scale-[0.98] transition-all duration-200 shadow-[0_0_20px_rgba(37,106,244,0.3)] group">
+<div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="px-6 py-4 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-white text-[20px]">delete_sweep</span>
+<span class="text-white text-base font-bold tracking-wide">Clear Cache</span>
+</div>
+</button>
+<p class="text-xs text-center text-slate-400 dark:text-slate-600 mt-4 leading-relaxed px-4">
+                    Clearing cache frees up space without removing your saved movies, watchlist, or account preferences.
+                </p>
+</div>
+</main>
+</div>
+</body></html>

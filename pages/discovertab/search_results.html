@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - Search Results</title>
+    <!-- Google Fonts: Spline Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS with Config -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#1C2333",
+                        "text-secondary": "#9ca6ba",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white flex flex-col h-screen overflow-hidden selection:bg-primary/30 selection:text-white">
+    <!-- Header Section: Search & Tabs -->
+    <header
+        class="flex-none z-20 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-white/5 pt-safe-top">
+        <!-- Status Bar Spacer (Simulated) -->
+        <div class="h-2 w-full"></div>
+        <!-- Search Bar -->
+        <div class="px-4 py-2">
+            <div
+                class="flex w-full items-center rounded-xl bg-white dark:bg-surface-dark h-11 transition-all focus-within:ring-2 focus-within:ring-primary/50 shadow-sm">
+                <div class="flex items-center justify-center pl-3 text-text-secondary">
+                    <span class="material-symbols-outlined text-[20px]">search</span>
+                </div>
+                <input
+                    class="flex w-full min-w-0 flex-1 resize-none bg-transparent border-none focus:ring-0 text-base font-normal text-slate-900 dark:text-white placeholder:text-text-secondary px-3"
+                    placeholder="Search titles, people..." value="Interstellar" />
+                <button
+                    class="flex items-center justify-center pr-3 text-text-secondary hover:text-slate-900 dark:hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-[20px] filled">cancel</span>
+                </button>
+            </div>
+        </div>
+        <!-- Tabs -->
+        <div class="flex items-center gap-8 px-4 overflow-x-auto no-scrollbar pt-2">
+            <button
+                class="flex flex-col items-center justify-center border-b-[2px] border-primary text-slate-900 dark:text-white pb-3 min-w-max">
+                <span class="text-sm font-bold tracking-wide">Movies</span>
+            </button>
+            <button
+                class="flex flex-col items-center justify-center border-b-[2px] border-transparent text-text-secondary hover:text-slate-900 dark:hover:text-white pb-3 min-w-max transition-colors">
+                <span class="text-sm font-medium tracking-wide">People</span>
+            </button>
+            <button
+                class="flex flex-col items-center justify-center border-b-[2px] border-transparent text-text-secondary hover:text-slate-900 dark:hover:text-white pb-3 min-w-max transition-colors">
+                <span class="text-sm font-medium tracking-wide">Groups</span>
+            </button>
+            <button
+                class="flex flex-col items-center justify-center border-b-[2px] border-transparent text-text-secondary hover:text-slate-900 dark:hover:text-white pb-3 min-w-max transition-colors">
+                <span class="text-sm font-medium tracking-wide">Hashtags</span>
+            </button>
+        </div>
+    </header>
+    <!-- Main Content: Scrollable List -->
+    <main class="flex-1 overflow-y-auto overflow-x-hidden pb-24">
+        <div class="flex flex-col divide-y divide-gray-200 dark:divide-white/5">
+            <!-- Result 1 -->
+            <button
+                class="group flex items-center gap-4 px-4 py-4 w-full text-left hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                <div class="relative shrink-0">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-lg w-16 aspect-[2/3] shadow-lg ring-1 ring-black/10 dark:ring-white/10"
+                        data-alt="Movie poster for Interstellar showing astronauts in space"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCe-0L0oSTAoSKgYej1XnwQmycrftHcDLK0aV2TAK68tUqKQsnB9thpU7eCAu_H3YkLzMBRe-Z_XoenVqWQmkMSOmnwLCxDSc_SXGFgVkMkxMUd3yIG38GzWHLCTHxzjYk5Z4JluOJW742rz-GqqtsmR38cKyLslkbarUEan3VL3F9VDUxGLXZV_FzZJhMhZ66Dxhbcjm-Xj0yBW2-OjLUKwYWmkIo29DcLhfkZ74tJkpROXRc4NwpHXqZMyfID7lPTJBbOv2s18QZN");'>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-1 justify-center min-w-0 gap-1">
+                    <p
+                        class="text-slate-900 dark:text-white text-base font-semibold leading-tight truncate group-hover:text-primary transition-colors">
+                        Interstellar</p>
+                    <div class="flex items-center gap-2 text-text-secondary text-sm">
+                        <span>2014</span>
+                        <span class="size-1 rounded-full bg-text-secondary/50"></span>
+                        <span class="truncate">Christopher Nolan</span>
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5">
+                        <span class="material-symbols-outlined text-yellow-500 text-[16px] fill-1"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-xs font-medium text-slate-700 dark:text-gray-300">8.7</span>
+                    </div>
+                </div>
+                <div class="shrink-0 text-text-secondary group-hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </div>
+            </button>
+            <!-- Result 2 -->
+            <button
+                class="group flex items-center gap-4 px-4 py-4 w-full text-left hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                <div class="relative shrink-0">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-lg w-16 aspect-[2/3] shadow-lg ring-1 ring-black/10 dark:ring-white/10"
+                        data-alt="Abstract dark nebula space background for documentary poster"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEi3i8-iIEw-rrBQ9NtJ6XmGvhllsAeFvtFG2rKt6sBP5J2Ocr6NYGY5wA3zDLoyDwgspGNlmXmTC8C1ICMZDRmnqt2OdG4Sjg-1q9_gUq1GzrCLOphi_c0_bRvyXNTGKn9T5KxBCpFjLcxl-M0NaZCRYydiJTA031pLbrVH_f2Xa8QVqN55vQ4V1WtInhc9iMdQeaoktI3fLfUqBJe6K-1ACMEd72l8EM4Hi-MnK5Xo1mRpdt0K2d1MQMZP2mpy1q1TcNU26ut0WA");'>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-1 justify-center min-w-0 gap-1">
+                    <p
+                        class="text-slate-900 dark:text-white text-base font-semibold leading-tight truncate group-hover:text-primary transition-colors">
+                        Interstellar: Beyond Time</p>
+                    <div class="flex items-center gap-2 text-text-secondary text-sm">
+                        <span>2015</span>
+                        <span class="size-1 rounded-full bg-text-secondary/50"></span>
+                        <span class="truncate">Documentary</span>
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5">
+                        <span class="material-symbols-outlined text-yellow-500 text-[16px] fill-1"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-xs font-medium text-slate-700 dark:text-gray-300">7.4</span>
+                    </div>
+                </div>
+                <div class="shrink-0 text-text-secondary group-hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </div>
+            </button>
+            <!-- Result 3 -->
+            <button
+                class="group flex items-center gap-4 px-4 py-4 w-full text-left hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                <div class="relative shrink-0">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-lg w-16 aspect-[2/3] shadow-lg ring-1 ring-black/10 dark:ring-white/10"
+                        data-alt="Film set camera behind the scenes imagery"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDMQejXsY9TgOX5fZbuVmoSTODH5yRyaB_UjOf43WJfDQj-N_W7dkboWIbpcpUanq8RCwhr9hWw7DDJ3xKpt1tYcuQq4CLV3V2w8Nt5J0asQg84nibfzt_ZvbC9q8r45ZzBGjX6br-iYL9Oi53OkeZGxofzgURH8RHcvcV_DRx2XiVIvYxmoBI1XHHv7z7sSH7UkrVmBbaWw2PFnWuTs7uOwzn3PZqZsWuC8C3BIPjHhMkO_JHmP_tI1K0T5s_70JIzSE_JEQuurybS");'>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-1 justify-center min-w-0 gap-1">
+                    <p
+                        class="text-slate-900 dark:text-white text-base font-semibold leading-tight truncate group-hover:text-primary transition-colors">
+                        The Making of Interstellar</p>
+                    <div class="flex items-center gap-2 text-text-secondary text-sm">
+                        <span>2014</span>
+                        <span class="size-1 rounded-full bg-text-secondary/50"></span>
+                        <span class="truncate">Behind the Scenes</span>
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5">
+                        <span class="material-symbols-outlined text-text-secondary text-[16px]"
+                            style="font-variation-settings: 'FILL' 0;">star</span>
+                        <span class="text-xs font-medium text-text-secondary">No Rating</span>
+                    </div>
+                </div>
+                <div class="shrink-0 text-text-secondary group-hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </div>
+            </button>
+            <!-- Result 4: Soundtrack (Added for fullness) -->
+            <button
+                class="group flex items-center gap-4 px-4 py-4 w-full text-left hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                <div class="relative shrink-0">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-lg w-16 aspect-[2/3] shadow-lg ring-1 ring-black/10 dark:ring-white/10"
+                        data-alt="Minimalist sound wave pattern for soundtrack cover"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBGgIAWLBommeuX8tUMBQf5pLowpXIQtmEuWHnKYq11viYzkyCuHIOcjBLFcjD36kinNpZ6ER84dNdbJUG9yile-3KcuFFU53p3on67UVoFeeNzPzrEX4W-59bdnmop8zJ0NTXtcUsweZ2HSUIrf87ZT592STF_jIt-8vULxaH6bCYClIVLTH28sRPQjCMLJB2CpUrHKsSFIQxKMaH6RQ9UvOvtptaKMT-OJgSXW7KRh-lfhY-3fl4BJyDN6qtQp_fYBcLqucLnwmDl");'>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-1 justify-center min-w-0 gap-1">
+                    <p
+                        class="text-slate-900 dark:text-white text-base font-semibold leading-tight truncate group-hover:text-primary transition-colors">
+                        Interstellar (Original Motion Picture Soundtrack)</p>
+                    <div class="flex items-center gap-2 text-text-secondary text-sm">
+                        <span>2014</span>
+                        <span class="size-1 rounded-full bg-text-secondary/50"></span>
+                        <span class="truncate">Hans Zimmer</span>
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5">
+                        <span class="material-symbols-outlined text-yellow-500 text-[16px] fill-1"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-xs font-medium text-slate-700 dark:text-gray-300">9.2</span>
+                    </div>
+                </div>
+                <div class="shrink-0 text-text-secondary group-hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </div>
+            </button>
+            <!-- Result 5: Book (Added for fullness) -->
+            <button
+                class="group flex items-center gap-4 px-4 py-4 w-full text-left hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                <div class="relative shrink-0">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-lg w-16 aspect-[2/3] shadow-lg ring-1 ring-black/10 dark:ring-white/10"
+                        data-alt="Science of Interstellar book cover abstract physics"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOSInTLg75L11dZAKQdpcf0ZGQb3GTAXzDjALE_Gs7X_A1bKyCjUIhyma1nqqSQkyMrp3J9ccMrBf9tDT1ANIESp1O1CRTBlb6jooueYoACYJSseT2_Mx4ee6wbjcSRtwybXB0oQH9T7llVSy9GWBdbR9v5cVUnPV40WZfilFFcE-ZxgoWY1Gu_ut9U2rPxs3y7Vsx-ID8bppVlWhcdtOlvKBTg09KcsOwsWEyoQqm4kF7zvs7TbUO_zpHFCg5tTvxT9iPQZjJ1ET2");'>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-1 justify-center min-w-0 gap-1">
+                    <p
+                        class="text-slate-900 dark:text-white text-base font-semibold leading-tight truncate group-hover:text-primary transition-colors">
+                        The Science of Interstellar</p>
+                    <div class="flex items-center gap-2 text-text-secondary text-sm">
+                        <span>2014</span>
+                        <span class="size-1 rounded-full bg-text-secondary/50"></span>
+                        <span class="truncate">Kip Thorne</span>
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5">
+                        <span class="material-symbols-outlined text-yellow-500 text-[16px] fill-1"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-xs font-medium text-slate-700 dark:text-gray-300">8.9</span>
+                    </div>
+                </div>
+                <div class="shrink-0 text-text-secondary group-hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </div>
+            </button>
+        </div>
+    </main>
+    <!-- Bottom Navigation Bar -->
+    <nav
+        class="flex-none bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-gray-200 dark:border-white/5 pb-6 pt-3 px-6 z-30 fixed bottom-0 w-full">
+        <div class="flex items-center justify-between">
+            <a class="flex flex-col items-center gap-1 text-text-secondary hover:text-slate-900 dark:hover:text-white transition-colors w-16"
+                href="#">
+                <span class="material-symbols-outlined text-[24px]">home</span>
+                <span class="text-[10px] font-medium">Home</span>
+            </a>
+            <a class="flex flex-col items-center gap-1 text-primary w-16" href="#">
+                <span class="material-symbols-outlined text-[24px] filled"
+                    style="font-variation-settings: 'FILL' 1;">search</span>
+                <span class="text-[10px] font-medium">Search</span>
+            </a>
+            <a class="flex flex-col items-center gap-1 text-text-secondary hover:text-slate-900 dark:hover:text-white transition-colors w-16"
+                href="#">
+                <span class="material-symbols-outlined text-[24px] -rotate-45">confirmation_number</span>
+                <span class="text-[10px] font-medium">Tickets</span>
+            </a>
+            <a class="flex flex-col items-center gap-1 text-text-secondary hover:text-slate-900 dark:hover:text-white transition-colors w-16"
+                href="#">
+                <div class="size-6 rounded-full bg-gray-300 dark:bg-gray-700 overflow-hidden bg-cover bg-center"
+                    data-alt="User profile avatar placeholder"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAPvNZJ9aQKYo2hC0OJz98L7SXEsNn20tvZHVhJWSasZrCAizcobPryj6o_h403NjESUMMYf4n-_eDEa2q8Ovyef5zsPNRn-lYz_Tunr8hisjYCLVvp_0QqzFjZPw9aWnxNyhEk-7Ye3TkzWtqI4v2pERF1mbDAVbbHZcVq2XNroUTLaXAgcuGdJx1HR1CZIi4DTuACQ7WwNDhYSrIgZF0sKv1pnnNdqTqC18ADp1p-A-Sco0IDmNmNm9H9AXr26q1_YriSV8nJkwzZ");'>
+                </div>
+                <span class="text-[10px] font-medium">Profile</span>
+            </a>
+        </div>
+    </nav>
+</body>
+
+</html>

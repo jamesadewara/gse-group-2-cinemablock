@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial Splash Screen</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Configuration -->
+    <script id="tailwind-config" src="./assets/js/tailwind.config.js">
+    </script>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body class="bg-deep-black font-display text-white overflow-hidden h-screen w-screen selection:bg-primary/30">
+    <!-- Main Container -->
+    <div class="flex h-100 w-full flex-col items-center justify-center">
+        <!-- Ambient Background Glow -->
+        <!-- A subtle blue gradient in the background to lift the deep black and hint at the brand color -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none">
+        </div>
+        <!-- Content Wrapper -->
+        <div class="flex flex-col items-center gap-8">
+            <!-- Logo Mark -->
+            <!-- Using a gradient border and subtle inner glow to make it feel premium and cinematic -->
+            <div class="group relative flex items-center justify-center">
+                <!-- Outer Glow Ring (Decorative) -->
+                <div class="absolute inset-0 rounded-2xl bg-primary/20 blur-xl opacity-60"></div>
+                <!-- Icon Container -->
+                <div
+                    class="relative flex items-center justify-center w-28 h-28 rounded-2xl bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border border-white/10 glow-box">
+                    <!-- Cinematic Icon -->
+                    <img src="./assets/images/Logo.png" class="w-24" />
+                    <!-- Shine Effect Overlay -->
+                    <div
+                        class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none">
+                    </div>
+                </div>
+            </div>
+            <!-- App Title -->
+            <div class="flex flex-col items-center gap-1">
+                <h1 class="text-2xl font-bold tracking-[0.25em] uppercase text-white glow-text">
+                    CineSocial
+                </h1>
+                <!-- Tagline / Decorator -->
+                <div class="h-[2px] w-8 bg-primary rounded-full opacity-60 mt-2"></div>
+            </div>
+        </div>
+        <!-- Bottom Safe Area / Footer Hint -->
+        <div class="absolute bottom-10 flex flex-col items-center opacity-40">
+            <span class="text-[10px] tracking-widest text-white/60 uppercase">Cinematic Experience</span>
+        </div>
+    </div>
+</body>
+
+</html>

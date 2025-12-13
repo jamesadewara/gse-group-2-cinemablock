@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial - Network Error</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display selection:bg-primary selection:text-white">
+<div class="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden p-6 group/design-root">
+<!-- Ambient Background Glow for Cinematic Effect -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none dark:bg-primary/10"></div>
+<div class="relative z-10 flex flex-col items-center gap-10 max-w-[480px] w-full">
+<!-- Central Illustration -->
+<div class="relative flex items-center justify-center">
+<!-- Outer Ring Pulse -->
+<div class="absolute inset-0 -m-4 rounded-full border border-primary/20 dark:border-primary/30 animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+<!-- Icon Container -->
+<div class="flex h-32 w-32 items-center justify-center rounded-full bg-white shadow-xl dark:bg-[#1a2233] dark:shadow-black/50 border border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined text-[64px] text-primary">wifi_off</span>
+</div>
+</div>
+<!-- Text Content -->
+<div class="flex flex-col items-center gap-3 text-center w-full">
+<h1 class="text-slate-900 dark:text-white text-3xl font-extrabold leading-tight tracking-tight">
+                    You're Offline
+                </h1>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal leading-relaxed max-w-[320px]">
+                    CineSocial needs an internet connection to load the latest movies. Check your connection.
+                </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex w-full flex-col gap-4 pt-2">
+<!-- Primary Action -->
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-wide shadow-lg shadow-primary/20 hover:bg-blue-600 active:scale-[0.98] transition-all duration-200">
+<span class="truncate">Retry Connection</span>
+</button>
+<!-- Secondary Action -->
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-transparent border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-base font-medium leading-normal tracking-wide hover:bg-slate-100 dark:hover:bg-white/5 active:scale-[0.98] transition-all duration-200">
+<span class="truncate">View My Tickets</span>
+</button>
+</div>
+</div>
+<!-- Optional: Status bar spacing if needed for PWA/App context, typically handled by native padding but good for spacing visual -->
+<div class="absolute bottom-6 left-0 w-full text-center">
+<p class="text-xs text-slate-400 dark:text-slate-600 font-medium">Error Code: CS-503</p>
+</div>
+</div>
+</body></html>

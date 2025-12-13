@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>CineSocial - Offline Downloads</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1152d4",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+            "surface-dark": "#182132",
+          },
+          fontFamily: {
+            "display": ["Be Vietnam Pro", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary/30">
+  <div class="relative flex h-full min-h-screen w-full flex-col overflow-hidden pb-24">
+    <!-- Top App Bar -->
+    <header
+      class="sticky top-0 z-20 flex items-center bg-background-dark/90 backdrop-blur-md p-4 pb-2 justify-between border-b border-white/5">
+      <button
+        class="text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-white/5 transition-colors">
+        <span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span>
+      </button>
+      <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Downloads</h2>
+      <button
+        class="flex w-10 items-center justify-center text-primary text-base font-bold leading-normal tracking-[0.015em] shrink-0 hover:text-primary/80 transition-colors">
+        Edit
+      </button>
+    </header>
+    <!-- Storage Status Section -->
+    <section class="flex flex-col gap-3 px-4 py-6 bg-gradient-to-b from-surface-dark to-transparent">
+      <div class="flex gap-6 justify-between items-end">
+        <p class="text-white text-base font-medium leading-normal">Storage Used</p>
+        <p class="text-[#92a4c9] text-xs font-normal leading-normal">4.2GB / 10GB</p>
+      </div>
+      <div class="relative w-full h-2 rounded-full bg-[#324467]/50">
+        <!-- Usage Bar -->
+        <div class="absolute top-0 left-0 h-2 rounded-full bg-primary shadow-[0_0_12px_rgba(17,82,212,0.6)]"
+          style="width: 42%;"></div>
+      </div>
+    </section>
+    <!-- Downloads List -->
+    <main class="flex flex-col px-4 space-y-2">
+      <!-- List Item 1: Completed -->
+      <div
+        class="group flex items-center gap-4 bg-surface-dark/40 hover:bg-surface-dark/80 transition-colors rounded-xl p-3 justify-between cursor-pointer border border-transparent hover:border-white/5">
+        <div class="flex items-center gap-4">
+          <div class="bg-center bg-no-repeat aspect-[2/3] bg-cover rounded-lg w-16 shadow-lg"
+            data-alt="Dune Part Two movie poster with orange desert tones"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKDfjPfdB_Y0nK2tDH3NJd20iawS7CoWYz1qWbVcc4vkmKKTh_sRWXog8t426CteN3FfVpq-9dVpGIHNKfhX6G6VpK0YcmPliyemNef00Ja9Wwrg0XhLLyenRWr04-7-UGbVBAU5UGYZt7hIAZRhiYcrBoZU-PZoqQtc1-1g-oicDLCItqUQS4vJ_8dOUxoSe1ITKbIPKLKDOEdekTkaoABYquuljvMSg4b949TJOoieNMAaMOQUiVc45IeVmO2L2pCrjf73m6dG4v");'>
+          </div>
+          <div class="flex flex-col justify-center gap-1">
+            <p class="text-white text-base font-bold leading-normal line-clamp-1">Dune: Part Two</p>
+            <div class="flex items-center gap-2">
+              <span class="text-[#92a4c9] text-xs font-medium bg-white/5 px-1.5 py-0.5 rounded">2h 46m</span>
+              <span class="text-[#92a4c9] text-xs font-normal">3.2 GB</span>
+            </div>
+          </div>
+        </div>
+        <div class="shrink-0 pr-1">
+          <button
+            class="text-primary flex size-10 items-center justify-center rounded-full bg-primary/10 hover:bg-primary hover:text-white transition-all">
+            <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+          </button>
+        </div>
+      </div>
+      <!-- List Item 2: Downloading -->
+      <div
+        class="group flex items-center gap-4 bg-surface-dark/40 hover:bg-surface-dark/80 transition-colors rounded-xl p-3 justify-between border border-primary/20">
+        <div class="flex items-center gap-4 flex-1">
+          <div class="bg-center bg-no-repeat aspect-[2/3] bg-cover rounded-lg w-16 shadow-lg relative overflow-hidden"
+            data-alt="Space themed movie poster for Interstellar"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBrdjVmPBXs_FTVeevvKp_vw1bZiD_o20t6csLrm8FbSKKbMeYXq8FliN8lJAFXhe19CWBaapTPeGbpJqvRbL9G-q6ONrMjGg7RqxNBucjo574J4ASo6RMCWdWB5bspK1KWXnlJrbxkzUnBi5HeZOwh9D2NvwNzkKdQCkrIBJvqEoWY2Pjq06iBB9z7hfOm78dovmUF8skFZ7-MSkXEDV6cEf-vLhR6wKZqnEeNEPJn86JuSCS1Z91_AxCTdmAhUuO6_B9vEhecXsoz");'>
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <span class="material-symbols-outlined text-white/80 animate-pulse">downloading</span>
+            </div>
+          </div>
+          <div class="flex flex-col justify-center gap-2 w-full pr-4">
+            <div class="flex justify-between items-center w-full">
+              <p class="text-white text-base font-bold leading-normal line-clamp-1">Interstellar</p>
+              <p class="text-primary text-xs font-bold">45%</p>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-[#324467]">
+              <div class="h-1.5 rounded-full bg-primary animate-pulse" style="width: 45%;"></div>
+            </div>
+            <p class="text-[#92a4c9] text-xs font-normal leading-normal">1.1 GB / 2.4 GB</p>
+          </div>
+        </div>
+        <div class="shrink-0 flex flex-col gap-2">
+          <button class="text-[#92a4c9] hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-[20px]">pause_circle</span>
+          </button>
+        </div>
+      </div>
+      <!-- List Item 3: Paused -->
+      <div
+        class="group flex items-center gap-4 bg-surface-dark/40 hover:bg-surface-dark/80 transition-colors rounded-xl p-3 justify-between opacity-80 hover:opacity-100">
+        <div class="flex items-center gap-4">
+          <div class="bg-center bg-no-repeat aspect-[2/3] bg-cover rounded-lg w-16 grayscale shadow-lg"
+            data-alt="Dark moody Batman movie poster abstract"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDD_Hvt2Y6V4KIpnFoxlQpq17LcOcT1_lG91dxCyzd4bvqsg2N5-b2f_CGrSdEwUTCRnVoFmRs2ma_nWzXqoWxuy-7VIV-nUh-uXFrfMOnwm8wBp1q7cfOSE6e-mDqzq8x6r0gNh6Iqmtp9Y8ax5P1SJqKPfeT1NnG2zRfw6R90AK-zYoRp8UvBNbjy_SaToeBn6bbfwVhIp80yxc_W30CkrsSJ4bSBEToYfuTCDQ6IJCYcTc09rQIJPVZ5oUpwTScwfqocjIneeFiE");'>
+          </div>
+          <div class="flex flex-col justify-center gap-1">
+            <p class="text-white text-base font-bold leading-normal line-clamp-1 text-white/70">The Batman</p>
+            <div class="flex items-center gap-2 text-yellow-500/80">
+              <span class="material-symbols-outlined text-[14px]">pause</span>
+              <p class="text-xs font-medium leading-normal">Paused • 800 MB</p>
+            </div>
+          </div>
+        </div>
+        <div class="shrink-0 pr-1">
+          <button
+            class="text-white flex size-10 items-center justify-center rounded-full hover:bg-white/10 transition-all">
+            <span class="material-symbols-outlined text-[26px]">refresh</span>
+          </button>
+        </div>
+      </div>
+      <!-- List Item 4: Completed -->
+      <div
+        class="group flex items-center gap-4 bg-surface-dark/40 hover:bg-surface-dark/80 transition-colors rounded-xl p-3 justify-between cursor-pointer border border-transparent hover:border-white/5">
+        <div class="flex items-center gap-4">
+          <div class="bg-center bg-no-repeat aspect-[2/3] bg-cover rounded-lg w-16 shadow-lg"
+            data-alt="Abstract colorful surreal poster for a movie"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8yo50L-Wm8JqGuzRldVRRD661hOib7v7n_rN_bvgQXMWJ2DW5CXDZIpCDZw23LnW-jiZEswXCsHNbUxGbOAmDUXC2FI-Hg3kgVhYS5s3ll_l74wp9ubly6yssyoJFLKqyLWokkM_JM3-iVziElYntyLd6HlX0ax2JWXUd_hcg4sGReTmZw5sftcyukvtJYPyNL3xfp1mPuaswHnfJU3fjgmQgExPCjeI1NyxDUvNU5LUwph12mt-ZJMQrQtSLrNgKMOG1Zj09ZLI7");'>
+          </div>
+          <div class="flex flex-col justify-center gap-1">
+            <p class="text-white text-base font-bold leading-normal line-clamp-1">Everything Everywhere...</p>
+            <div class="flex items-center gap-2">
+              <span class="text-[#92a4c9] text-xs font-medium bg-white/5 px-1.5 py-0.5 rounded">2h 19m</span>
+              <span class="text-[#92a4c9] text-xs font-normal">1.8 GB</span>
+            </div>
+          </div>
+        </div>
+        <div class="shrink-0 pr-1">
+          <button
+            class="text-primary flex size-10 items-center justify-center rounded-full bg-primary/10 hover:bg-primary hover:text-white transition-all">
+            <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+          </button>
+        </div>
+      </div>
+      <!-- List Item 5: Completed -->
+      <div
+        class="group flex items-center gap-4 bg-surface-dark/40 hover:bg-surface-dark/80 transition-colors rounded-xl p-3 justify-between cursor-pointer border border-transparent hover:border-white/5">
+        <div class="flex items-center gap-4">
+          <div class="bg-center bg-no-repeat aspect-[2/3] bg-cover rounded-lg w-16 shadow-lg"
+            data-alt="Pink minimalist movie poster"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAP7bnz2GVGZuDp3iBvS9bFHnAvEAsEhHFCWmDmGMYz57ViiWoGcjF2Uauf7W8um89CfGLx54b2GP-NTW4X2XAib4AyUNqHC1_1sVL9_I6GNnIXG2pFrXMUxFd-m7ZNqmTsCQuI5jM7cpG0ZS68LT-SQ1XpQMvq2Ol5Qsm47LSTGyI8v0OxzztB3Enipp-ZXyc0o28CFLxyJWwZhENRERwfpdcfVPIg_pV5oC8UaoBuahg5PayAXD6KgNslFQI0wX9Br7L1yHkj0_au");'>
+          </div>
+          <div class="flex flex-col justify-center gap-1">
+            <p class="text-white text-base font-bold leading-normal line-clamp-1">Barbie</p>
+            <div class="flex items-center gap-2">
+              <span class="text-[#92a4c9] text-xs font-medium bg-white/5 px-1.5 py-0.5 rounded">1h 54m</span>
+              <span class="text-[#92a4c9] text-xs font-normal">1.4 GB</span>
+            </div>
+          </div>
+        </div>
+        <div class="shrink-0 pr-1">
+          <button
+            class="text-primary flex size-10 items-center justify-center rounded-full bg-primary/10 hover:bg-primary hover:text-white transition-all">
+            <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+          </button>
+        </div>
+      </div>
+    </main>
+    <!-- Bottom Navigation -->
+    <nav
+      class="fixed bottom-0 left-0 right-0 z-30 bg-[#111722]/85 backdrop-blur-xl border-t border-white/5 pb-6 pt-2 px-8">
+      <ul class="flex justify-between items-center">
+        <li>
+          <a class="flex flex-col items-center gap-1 text-[#92a4c9] hover:text-white transition-colors group" href="#">
+            <span class="material-symbols-outlined group-hover:scale-110 transition-transform">home</span>
+            <span class="text-[10px] font-medium">Home</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex flex-col items-center gap-1 text-[#92a4c9] hover:text-white transition-colors group" href="#">
+            <span class="material-symbols-outlined group-hover:scale-110 transition-transform">search</span>
+            <span class="text-[10px] font-medium">Search</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex flex-col items-center gap-1 text-primary transition-colors" href="#">
+            <div class="bg-primary/20 px-4 py-1 rounded-full flex items-center justify-center mb-0.5">
+              <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">download</span>
+            </div>
+            <span class="text-[10px] font-bold">Downloads</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex flex-col items-center gap-1 text-[#92a4c9] hover:text-white transition-colors group" href="#">
+            <span class="material-symbols-outlined group-hover:scale-110 transition-transform">person</span>
+            <span class="text-[10px] font-medium">Profile</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</body>
+
+</html>

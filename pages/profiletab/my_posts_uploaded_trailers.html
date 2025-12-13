@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - My Library</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar hiding for cleaner look */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary selection:text-white">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden pb-24">
+        <!-- Top App Bar with Glassmorphism -->
+        <header
+            class="sticky top-0 z-40 flex w-full items-center justify-between border-b border-gray-200 dark:border-gray-800 bg-background-light/80 dark:bg-background-dark/80 px-4 py-3 backdrop-blur-md">
+            <div class="flex-1">
+                <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">My Library</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="group flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 transition-colors hover:bg-primary/20 active:scale-95">
+                    <span class="material-symbols-outlined text-primary"
+                        style="font-variation-settings: 'wght' 600;">add</span>
+                </button>
+            </div>
+        </header>
+        <!-- Tabs -->
+        <div class="sticky top-[65px] z-30 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+            <div class="flex w-full border-b border-gray-200 dark:border-gray-800">
+                <a class="flex flex-1 flex-col items-center justify-center border-b-2 border-primary py-3 transition-colors hover:bg-gray-100 dark:hover:bg-white/5"
+                    href="#">
+                    <span class="text-sm font-bold tracking-wide text-primary">All</span>
+                </a>
+                <a class="flex flex-1 flex-col items-center justify-center border-b-2 border-transparent py-3 transition-colors hover:bg-gray-100 dark:hover:bg-white/5"
+                    href="#">
+                    <span class="text-sm font-medium tracking-wide text-slate-500 dark:text-gray-400">Trailers</span>
+                </a>
+                <a class="flex flex-1 flex-col items-center justify-center border-b-2 border-transparent py-3 transition-colors hover:bg-gray-100 dark:hover:bg-white/5"
+                    href="#">
+                    <span class="text-sm font-medium tracking-wide text-slate-500 dark:text-gray-400">Reviews</span>
+                </a>
+            </div>
+        </div>
+        <!-- Content Grid (3 Columns) -->
+        <main class="w-full p-1">
+            <div class="grid grid-cols-3 gap-1">
+                <!-- Item 1: Trailer (Video) -->
+                <div class="group relative aspect-square w-full cursor-pointer overflow-hidden rounded bg-gray-800">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Dark cinematic movie scene with red lighting"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCAIKqUnYdbAlI3nHmcZ8yLT5MxrasxS4JKbuKga2soinFPf59GF2PQzfeOOXMwhD0onUKIUKb708PZsbARpNYYq_G9f0-icexDKT90arktW-CGqxWYMsC3qe9isAlcUm8dF7BarsOCqWLa4-4cs6gRzYHBM7_5qlwemZj_XrWrdTaB_ecQWvTO_NdI-WYUc1ifU-3nVR-F4W1PEcK4Eb4Ruxvo05qHXx6PL8VkgQdnGAR3d-Myl9fVr7_0V0hBE66HlgLKrRziusG');">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                    <div class="absolute right-2 top-2 z-10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white drop-shadow-md"
+                            style="font-size: 20px; font-variation-settings: 'FILL' 1;">movie</span>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-90">
+                        <span class="material-symbols-outlined text-4xl text-white drop-shadow-lg"
+                            style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                    </div>
+                    <div class="absolute bottom-2 left-2">
+                        <span class="text-[10px] font-bold text-white drop-shadow-md">24.5K views</span>
+                    </div>
+                </div>
+                <!-- Item 2: Image Review -->
+                <div class="group relative aspect-square w-full cursor-pointer overflow-hidden rounded bg-gray-800">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Cinema theater interior with red seats"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4y_A-eai1zIA5blyrbvEeccczTrznFd5nfedr_VdQ00_zyx67srQ-vIOUehG27cbMezo1Rw4eFtFxqoLqPw9acVLf2Q-IDx3JX1pZq0f6BrWOR9kTg7flCummNMZ-jDo6PEXqSXp2JJ8gmOqB326CzfSTHQhY2lYxANepbKcZ2RqIs6pwtzzhF0QIJucI0xIWvWwPoN69zW_UuG00hx3_Sdi160Z7b3u4vO7RY1UDK09Gf5xv2iKuw7PLe8Qdc5uBWPLhy-zmbQQ-');">
+                    </div>
+                    <div class="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/0"></div>
+                    <div class="absolute bottom-2 left-2 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px] text-white"
+                            style="font-variation-settings: 'FILL' 1;">favorite</span>
+                        <span class="text-[10px] font-bold text-white">1.2K</span>
+                    </div>
+                </div>
+                <!-- Item 3: Trailer -->
+                <div class="group relative aspect-square w-full cursor-pointer overflow-hidden rounded bg-gray-800">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Action movie explosion scene with fire"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJcaFUgpxcHZPxC39r17Wi1KJcMNzEnRKL0mjNSVkFQK_v_GnODYQG_PXZ9n6JGHh1gqzn1ze_BOoCpbByfyh6FBmSZrSrTgaAh4ljMuWQtzbmG6Ga6jqzUyyrGRGZD9gbisOcKObOCYMLNAc_5hNohB0QZXOtBvsWr98pSTuGeWzWwwkddymmAhL3_ysuIk3aRFOcy1XZf38FauCbd18qnZiPSHljJVz2-s9wavo9bN5gBaM73t__dqoH0D4aS1owTDyuOk8VX_C5');">
+                    </div>
+                    <div class="absolute right-2 top-2 z-10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white drop-shadow-md"
+                            style="font-size: 20px; font-variation-settings: 'FILL' 1;">movie</span>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-90">
+                        <span class="material-symbols-outlined text-4xl text-white drop-shadow-lg"
+                            style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                    </div>
+                </div>
+                <!-- Item 4: Image -->
+                <div class="group relative aspect-square w-full cursor-pointer overflow-hidden rounded bg-gray-800">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Abstract neon blue and purple lights"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfuG-QwiFgVYO12q1jftOEB0hotHmMXqUpaspVt9iwOKQ6z6PG9MrUQyozB69cybVg_rfssmI60N9cVJSCBUMhdkl9v7WkRkISsYNBvydgZ0xHOzvsJcNibY_HuGmBj8Fq8OwlJsA55eIGK-Nw26zqXFCWjz_0R8UKtyWf6Y6HrlDwCdlQyOQsMGEHaBvLCERSwS1UuHfNoT8JO1EyczBseBvO3OvYDZqsr2vOsQ-VPtn4go5WPIhUBEap3x5NKVH0qF1Mn0xXZdHx');">
+                    </div>
+                </div>
+                <!-- Item 5: Image -->
+                <div class="group relative aspect-square w-full cursor-pointer overflow-hidden rounded bg-gray-800">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Close up of a vintage film projector lens"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPm3S4xi8bp5Jp-NThtK51fZyCgZWO4uVfWqyKZS7xcLG97KzaIOBC1wC_v0mFMua50lTUGW07pTZC6uKBXKacoJf5_55uj2IWpqWW_9DOFUAOHEaCbQmOZq6OSDGr5TX8RAkLlM1gtMYnePCDWxWhij7jLgemRFLvVHME9Hrd34QgitTKaRkAqDLjZbLX7cVeS_yqizOWvH-1Q5fpWTPDvoocFnqHUXj6AhaRzAtyKFhPqsRaX_whMQoDkE2dk5Iyo2jRPxfPioO6');">
+                    </div>
+                    <div class="absolute right-2 top-2 z-10">
+                        <span class="material-symbols-outlined text-white drop-shadow-md"
+                            style="font-size: 20px;">collections</span>
+                    </div>
+                </div>
+                <!-- Item 6: Trailer -->
+                <div class="group relative aspect-square w-full cursor-pointer overflow-hidden rounded bg-gray-800">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Silhouette of person in front of bright stage lights"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmjN80C51nIK40qMZJci30ScF0Se9jpJV7e1ziqVs1bn6ZHjDeKupCgBBgs8yqhP028Ny9yIlmQerkvKYdi36kwPCWRwUXZmBuf-NHOsRQrCflW6ZQNYOqVW1AOVJ0jIYrJSeFo5GUBFoiJx0g-8OI5jg3uJqgsqAlszL6JnoZ8AybafGMtldhH3DJ4wMkVc_1CMnsjW41Wh0R0Wqw8lMS-aCvGLSCuA_JwyOruFW9IvK9WOTH-QPZyWgVwXgncfFLzeZJBYHsvWre');">
+                    </div>
+                    <div class="absolute right-2 top-2 z-10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white drop-shadow-md"
+                            style="font-size: 20px; font-variation-settings: 'FILL' 1;">movie</span>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-90">
+                        <span class="material-symbols-outlined text-4xl text-white drop-shadow-lg"
+                            style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                    </div>
+                </div>
+                <!-- Item 7: Trailer -->
+                <div class="group relative aspect-square w-full cursor-pointer overflow-hidden rounded bg-gray-800">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Science fiction futuristic hallway"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDWld_YlruSF6L0nypizIk8jDUc5GhAchNVJAPlmQ4jZfqwT8VFA-Aa8El-OBp1VZlhXqHlOmw-BbhAtNiSM8c46RWMHtR6rLx8RAGjlpc4prdrAp_idDBQlHWv1T950hSh8jProCGNK3dn8RtRyhSwOVDBBMS1VixjrZBSobK7kXmlNvsHxq7tgsVu-DVsaFEgAx80QK8vlIEV4QSnZtYzRCmqqO93om6k5MlRTVy65hZWrVZMs6FbTgkxURzA4reGiy52RKsYT2-');">
+                    </div>
+                    <div class="absolute right-2 top-2 z-10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white drop-shadow-md"
+                            style="font-size: 20px; font-variation-settings: 'FILL' 1;">movie</span>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-90">
+                        <span class="material-symbols-outlined text-4xl text-white drop-shadow-lg"
+                            style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                    </div>
+                </div>
+                <!-- Item 8: Image -->
+                <div class="group relative aspect-square w-full cursor-pointer overflow-hidden rounded bg-gray-800">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Actress on red carpet with flashes"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvbyR8u3kPCSpdJfoRY-zC4aV12gDnD7QDsxi6PudUsLgCvvUq_V500GRWgdsI39z65VbNAUB6lIwzCaRmvX0acmiK1QPGakLGv2j6wgH9Q0pkSMRDk9nD0TvIDaX3Zxmkfe11y-yrAqYCe50wcnd3fCpGP4D-ZoeWuP3u1xfgcfkbvjM2LhwSJ8JVI6Lc1vBdOuP-agoIK2-BAaJXpVqUfypzrooJj4qPTlYwTH31WVYHvyMbSi_cpzAsNfZNKf0-yY463gq8a9py');">
+                    </div>
+                </div>
+                <!-- Item 9: Image -->
+                <div class="group relative aspect-square w-full cursor-pointer overflow-hidden rounded bg-gray-800">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Film clapper board on dark background"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAKVx4pTrfEmxOHPdBdij9DkEC0fPhwLevpda_v4IzaND-U4gy4yYVPg4FxTqi5XB1I5jWKp8mvp4Md_PcPvF9wXIiiV5Kc3Rjro0jeONiGHV3yROy8W_mPju0ojW8BVcnJoxQ7pNGiZmzJ6LEmN-tIy2oFMbm-Il_YPMKy8rfPsL6lWh6u0T5acmDw27-zdo7s5EiKoSQY3BG1JbTGgeTRsX0IapuBPG_6v57id2LrXYp7XnVqlBeGQDF9owjlgOvbl2pHTOMgRUV5');">
+                    </div>
+                </div>
+                <!-- Item 10: Trailer -->
+                <div class="group relative aspect-square w-full cursor-pointer overflow-hidden rounded bg-gray-800">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Dark moody forest scene from horror movie"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCN9fwQEnrQrdd_iLJDeNWVSmft4P0V68gWUtY1k-6xy55uAoh_o2-m_j2gmitbdkYIl_D9XXnkHivu1XiTZNiVi4aWKyhsxy7nhYGSOtOLi3QUBiiMjWP2G0ZbUR6mUJZ9D4glbu8wzD8s1ALEqX8xIXBOFOMSR8AUkIB_vEux6XwcMKU7my3_eCm9E2Hid55CCzXoXPWx1ww26Yu1x-QCozeko3ODiJkdNdwmm0p3cXj-cpPppyZF9CL_LK7GXYAENuG0cs2_zhEg');">
+                    </div>
+                    <div class="absolute right-2 top-2 z-10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white drop-shadow-md"
+                            style="font-size: 20px; font-variation-settings: 'FILL' 1;">movie</span>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-90">
+                        <span class="material-symbols-outlined text-4xl text-white drop-shadow-lg"
+                            style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                    </div>
+                    <div class="absolute bottom-2 left-2">
+                        <span class="text-[10px] font-bold text-white drop-shadow-md">2M views</span>
+                    </div>
+                </div>
+                <!-- Item 11: Image -->
+                <div class="group relative aspect-square w-full cursor-pointer overflow-hidden rounded bg-gray-800">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Audience watching movie in theater"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6vDUuS3Yfff4-0K-wr-ySUcvQzJnlIC8pJBZc2RncGGRseE6mL4b3HHlQN9OMtnOtkJs7RdSW8-rGGxFNATM7V9ry5hVuE9GOQQxCL9DLM5pc9Rbm3TqdO7PYlPd3P_dG2I6wv7QCsk2h_dmFutzMmBaIBnYQ9-r4CGihvTi8ns73Kb7E9wJ70p3N1pEsjTI0W1Ok91is7IXePIOV44GyPYf1FXWN7M5ZpjL_LsACHLpJC6zGGzzfHNtPgJ-A6bNHr-Xmeb9EE5gH');">
+                    </div>
+                </div>
+                <!-- Item 12: Trailer -->
+                <div class="group relative aspect-square w-full cursor-pointer overflow-hidden rounded bg-gray-800">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Noir style silhouette of man in trench coat"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC34IQR752HO-qPjtx7KtP-1Gl_kygfP2chjkqB6mOqS-1N79VPAasbNHxFs-aumqRWlYHStX2Ve1ygNmVhqKb09gsHrdjAlDzAZ9ko2VDlmNU7JsRYmG5jD0uwmyYf5wzUPQKcaqvt52quVTX80240UGOlk8Uwt2L_BWbirM39tRHZeA8zddpemr7WUm05tFAbRO0CXK0S0sa_lP5hfg40WeFJ30jd1SWiFbGUkgW3E_Gwpspyd2dUt8_eLkIDYsPm2i6rYHzOSncF');">
+                    </div>
+                    <div class="absolute right-2 top-2 z-10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white drop-shadow-md"
+                            style="font-size: 20px; font-variation-settings: 'FILL' 1;">movie</span>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-90">
+                        <span class="material-symbols-outlined text-4xl text-white drop-shadow-lg"
+                            style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Bottom Navigation Bar -->
+        <nav
+            class="fixed bottom-0 z-50 w-full border-t border-gray-200 dark:border-white/10 bg-background-light/90 dark:bg-background-dark/90 pb-8 pt-2 backdrop-blur-xl">
+            <div class="flex items-center justify-around px-2">
+                <a class="group flex flex-col items-center justify-center gap-1 p-2 text-slate-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="#">
+                    <span
+                        class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">home</span>
+                    <span class="text-[10px] font-medium">Home</span>
+                </a>
+                <a class="group flex flex-col items-center justify-center gap-1 p-2 text-slate-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="#">
+                    <span
+                        class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">search</span>
+                    <span class="text-[10px] font-medium">Search</span>
+                </a>
+                <a class="group flex flex-col items-center justify-center gap-1 p-2 text-slate-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="#">
+                    <span
+                        class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">confirmation_number</span>
+                    <span class="text-[10px] font-medium">Booking</span>
+                </a>
+                <a class="group flex flex-col items-center justify-center gap-1 p-2 text-slate-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                    href="#">
+                    <span
+                        class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">groups</span>
+                    <span class="text-[10px] font-medium">Social</span>
+                </a>
+                <a class="group flex flex-col items-center justify-center gap-1 p-2 text-primary" href="#">
+                    <span class="material-symbols-outlined text-2xl transition-transform"
+                        style="font-variation-settings: 'FILL' 1;">account_circle</span>
+                    <span class="text-[10px] font-medium">Profile</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

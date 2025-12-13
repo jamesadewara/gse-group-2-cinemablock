@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Edit Profile - CineSocial</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#050505", // Deep cinematic black
+                        "surface-dark": "#121212",
+                        "border-dark": "#333333",
+                        "text-secondary": "#888888",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555555;
+        }
+
+        /* Remove default input styles */
+        .form-input:focus {
+            box-shadow: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary/30 selection:text-white">
+    <div
+        class="relative flex h-full min-h-screen w-full max-w-md mx-auto flex-col overflow-x-hidden border-x border-border-dark/30 shadow-2xl shadow-black">
+        <!-- Header -->
+        <header
+            class="sticky top-0 z-50 flex items-center justify-between bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md px-4 py-3 border-b border-border-dark/50">
+            <button
+                class="flex items-center justify-center text-white/70 hover:text-white transition-colors p-2 -ml-2 rounded-full hover:bg-white/5">
+                <span class="text-base font-medium">Cancel</span>
+            </button>
+            <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Edit Profile</h2>
+            <button
+                class="flex items-center justify-center text-primary hover:text-blue-400 transition-colors p-2 -mr-2 rounded-full hover:bg-primary/10">
+                <span class="text-base font-bold">Done</span>
+            </button>
+        </header>
+        <main class="flex-1 flex flex-col items-center pt-6 pb-20 px-6 w-full">
+            <!-- Avatar Section -->
+            <div class="flex flex-col items-center gap-4 mb-8 w-full group cursor-pointer">
+                <div class="relative">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full h-28 w-28 border-2 border-border-dark shadow-xl shadow-black/50 group-hover:border-primary transition-all duration-300"
+                        data-alt="User profile avatar showing a moody portrait"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAdWdrl63NllZTMtie3LjvqDE7jF8jk59L0wedE7YcoouSMNSq0knubISobyz3WeJ4P0N_htStJE1Mx3KP7Ekt2qHHboWUuE7IQOJS-TGD628aitc3cwrVe1XnXhIw5xz-8ksxdALY8Cjfj6MRH4m5bfLqYlWrgcK9ZV5z3v6ACI5P_6Qn1QUJ9HhRxZmLWIFFI4fvuxrjUty7qUlpQZU6Mk8OsN6MHKxvlpJQZlb7LL990GzRoLshlUn2yg9cDbCEVGhjYmDrZOclG");'>
+                    </div>
+                    <div
+                        class="absolute inset-0 rounded-full bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="material-symbols-outlined text-white text-3xl">photo_camera</span>
+                    </div>
+                </div>
+                <p class="text-primary text-sm font-semibold tracking-wide hover:text-blue-400 transition-colors">Change
+                    Profile Photo</p>
+            </div>
+            <!-- Public Info Form -->
+            <div class="w-full flex flex-col gap-5">
+                <!-- Name Field -->
+                <div class="flex flex-col gap-2 group/field">
+                    <label
+                        class="text-text-secondary text-xs font-semibold uppercase tracking-wider pl-1 group-focus-within/field:text-primary transition-colors">Name</label>
+                    <div class="relative">
+                        <input
+                            class="form-input w-full bg-transparent border-b border-border-dark px-1 py-3 text-white placeholder-text-secondary/30 focus:border-primary focus:ring-0 transition-colors text-base font-normal rounded-t-sm"
+                            placeholder="Your full name" type="text" value="Alex Morgan" />
+                    </div>
+                </div>
+                <!-- Username Field -->
+                <div class="flex flex-col gap-2 group/field">
+                    <label
+                        class="text-text-secondary text-xs font-semibold uppercase tracking-wider pl-1 group-focus-within/field:text-primary transition-colors">Username</label>
+                    <div class="relative">
+                        <span class="absolute left-1 top-3.5 text-text-secondary select-none">@</span>
+                        <input
+                            class="form-input w-full bg-transparent border-b border-border-dark pl-6 pr-1 py-3 text-white placeholder-text-secondary/30 focus:border-primary focus:ring-0 transition-colors text-base font-normal rounded-t-sm"
+                            placeholder="username" type="text" value="alex_m" />
+                    </div>
+                </div>
+                <!-- Website Field -->
+                <div class="flex flex-col gap-2 group/field">
+                    <label
+                        class="text-text-secondary text-xs font-semibold uppercase tracking-wider pl-1 group-focus-within/field:text-primary transition-colors">Website</label>
+                    <div class="relative">
+                        <input
+                            class="form-input w-full bg-transparent border-b border-border-dark px-1 py-3 text-white placeholder-text-secondary/30 focus:border-primary focus:ring-0 transition-colors text-base font-normal rounded-t-sm"
+                            placeholder="https://" type="url" value="alexmorgan.film" />
+                    </div>
+                </div>
+                <!-- Bio Field -->
+                <div class="flex flex-col gap-2 group/field">
+                    <div class="flex justify-between items-end pl-1">
+                        <label
+                            class="text-text-secondary text-xs font-semibold uppercase tracking-wider group-focus-within/field:text-primary transition-colors">Bio</label>
+                        <span class="text-[10px] text-text-secondary/50">42/150</span>
+                    </div>
+                    <textarea
+                        class="form-input w-full bg-transparent border border-border-dark rounded-lg px-3 py-3 text-white placeholder-text-secondary/30 focus:border-primary focus:ring-0 transition-colors text-base font-normal min-h-[100px] resize-none leading-relaxed"
+                        placeholder="Write something about your taste in movies...">Film enthusiast. Sci-fi lover. 
+Based in NYC.</textarea>
+                </div>
+                <!-- Divider -->
+                <div class="h-px bg-border-dark/50 w-full my-4"></div>
+                <!-- Private Information Section -->
+                <h3 class="text-white text-base font-bold mb-2">Private Information</h3>
+                <!-- Email Field -->
+                <div class="flex flex-col gap-2 group/field opacity-90">
+                    <label
+                        class="text-text-secondary text-xs font-semibold uppercase tracking-wider pl-1 group-focus-within/field:text-primary transition-colors">Email</label>
+                    <div class="relative">
+                        <input
+                            class="form-input w-full bg-transparent border-b border-border-dark px-1 py-3 text-white placeholder-text-secondary/30 focus:border-primary focus:ring-0 transition-colors text-base font-normal rounded-t-sm"
+                            type="email" value="alex.morgan@example.com" />
+                        <span
+                            class="material-symbols-outlined absolute right-1 top-3 text-text-secondary/50 text-[18px]">lock</span>
+                    </div>
+                </div>
+                <!-- Phone Field -->
+                <div class="flex flex-col gap-2 group/field opacity-90">
+                    <label
+                        class="text-text-secondary text-xs font-semibold uppercase tracking-wider pl-1 group-focus-within/field:text-primary transition-colors">Phone</label>
+                    <div class="relative">
+                        <input
+                            class="form-input w-full bg-transparent border-b border-border-dark px-1 py-3 text-white placeholder-text-secondary/30 focus:border-primary focus:ring-0 transition-colors text-base font-normal rounded-t-sm"
+                            type="tel" value="+1 (555) 012-3456" />
+                        <span
+                            class="material-symbols-outlined absolute right-1 top-3 text-text-secondary/50 text-[18px]">lock</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Danger Zone (Optional but good for UX) -->
+            <div class="w-full mt-10 mb-4">
+                <button
+                    class="w-full py-3 text-red-500/80 text-sm font-medium hover:text-red-500 hover:bg-red-500/5 rounded-lg transition-all">
+                    Switch to Professional Account
+                </button>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

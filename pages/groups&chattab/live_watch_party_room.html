@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial - Live Watch Party</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0d59f2",
+            "background-light": "#f5f6f8",
+            "background-dark": "#101622",
+          },
+          fontFamily: {
+            "display": ["Spline Sans", "Noto Sans", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    /* Custom scrollbar to keep it minimal */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-white font-display overflow-hidden h-screen w-screen selection:bg-primary/30">
+<!-- Main Container: Full screen Landscape Layout -->
+<div class="relative w-full h-full flex overflow-hidden group/design-root bg-black">
+<!-- Video Background Layer (Simulating the movie player) -->
+<div class="absolute inset-0 z-0 bg-black">
+<!-- Cinematic Video Placeholder -->
+<div class="absolute inset-0 bg-cover bg-center opacity-70 transition-opacity duration-1000" data-alt="Cinematic wide shot of a futuristic spaceship interior with neon blue lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOxXCPaGVLrYztQC7y7DzX-zcw5xePcSWu-FWIOW9OauQSlk9REbqd4Nh3AIgmWFZNvKmlMEgxIB5BNRzIsyK2ICYvWTlnH7I3J_hud3cOyY5CzdHpOKWnsLvGRu4Q5y7oG8M3sEDaTbDOqW6VGP3h9K0WidC-ZlOz4QksxYKAsmRdnn7PDr16Qbjv0m-w8jS1d4x-rRMrKX5Tsgcu1AqcFEGVTeu6JMZMUBI7HwsYYSNoYFtCVUFlZRDAZaUdbZ6YeMNX0freTJ1R');">
+</div>
+<!-- Gradient Overlays for UI Readability -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-black/90 pointer-events-none"></div>
+<!-- Right side gradient to back the chat -->
+<div class="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-black/90 to-transparent pointer-events-none"></div>
+</div>
+<!-- Left/Center Content: Video Controls & Header -->
+<div class="relative flex-1 flex flex-col justify-between z-10 h-full">
+<!-- Collapsible Header -->
+<div class="flex items-start justify-between p-6 opacity-100 transition-opacity duration-300 hover:opacity-100">
+<!-- Close / Back -->
+<button class="flex items-center justify-center size-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md transition-all text-white border border-white/5">
+<span class="material-symbols-outlined" style="font-size: 24px;">close</span>
+</button>
+<!-- Title & Live Status -->
+<div class="flex flex-col items-center">
+<h1 class="text-xl md:text-2xl font-bold tracking-tight text-white/95 drop-shadow-lg">Interstellar</h1>
+<div class="flex items-center gap-2 mt-1 px-3 py-1 rounded-full bg-black/40 backdrop-blur-sm border border-white/5">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+</span>
+<span class="text-xs font-medium text-white/80 tracking-wide uppercase">Live • 12 Watching</span>
+</div>
+</div>
+<!-- Empty div to balance flex layout visually or extra actions -->
+<div class="w-10"></div>
+</div>
+<!-- Central Play/Pause (Hidden by default, appears on tap/hover interaction) -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover/design-root:opacity-100 transition-opacity duration-500">
+<div class="size-20 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center border border-white/10 shadow-2xl">
+<span class="material-symbols-outlined text-white fill-1" style="font-size: 48px;">play_arrow</span>
+</div>
+</div>
+<!-- Bottom Playback Controls -->
+<div class="px-8 pb-10 w-full opacity-100 md:opacity-0 md:group-hover/design-root:opacity-100 transition-opacity duration-300">
+<!-- Timeline -->
+<div class="flex flex-col gap-2 group/timeline cursor-pointer mb-4">
+<div class="relative h-1 bg-white/20 rounded-full overflow-hidden hover:h-2 transition-all duration-200">
+<div class="absolute top-0 left-0 h-full w-[35%] bg-primary shadow-[0_0_10px_rgba(13,89,242,0.8)] rounded-full"></div>
+</div>
+<div class="flex justify-between text-xs font-medium text-white/60 font-mono">
+<span>34:20</span>
+<span>-1:45:10</span>
+</div>
+</div>
+<!-- Controls Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="text-white/60 hover:text-white transition-colors"><span class="material-symbols-outlined" style="font-size: 28px;">skip_previous</span></button>
+<button class="text-white hover:scale-110 transition-transform"><span class="material-symbols-outlined fill-1" style="font-size: 44px;">pause_circle</span></button>
+<button class="text-white/60 hover:text-white transition-colors"><span class="material-symbols-outlined" style="font-size: 28px;">skip_next</span></button>
+<!-- Volume Slider -->
+<div class="flex items-center gap-3 ml-4 group/volume hidden sm:flex">
+<span class="material-symbols-outlined text-white/70" style="font-size: 20px;">volume_up</span>
+<div class="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="w-[70%] h-full bg-white/80 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-5">
+<button class="text-white/60 hover:text-white transition-colors"><span class="material-symbols-outlined">subtitles</span></button>
+<button class="text-white/60 hover:text-white transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<button class="text-white/60 hover:text-white transition-colors"><span class="material-symbols-outlined">cast</span></button>
+<!-- Toggle Chat Button (Mobile) -->
+<button class="md:hidden text-primary hover:text-primary/80 transition-colors"><span class="material-symbols-outlined fill-1">chat_bubble</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Chat Overlay (Glassmorphism Drawer) -->
+<div class="hidden md:flex relative w-[380px] h-full shrink-0 z-20 flex-col border-l border-white/5 bg-[#101622]/80 backdrop-blur-xl shadow-2xl">
+<!-- Chat Header -->
+<div class="h-16 shrink-0 flex items-center justify-between px-5 border-b border-white/5 bg-white/[0.02]">
+<h3 class="text-xs font-bold tracking-widest uppercase text-white/50">Party Chat</h3>
+<!-- Avatar Group -->
+<div class="flex -space-x-2 items-center">
+<div class="size-8 rounded-full border-2 border-[#151b2d] bg-cover bg-center" data-alt="Viewer avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKMUsFZ-Ul7rId3PlXyHQuCcANSegzCulDpbFY4vgZFwPD4ByK677vGT_3jR7QyQG1dwgeFjqLUbLNPrdzbzC1HxreLH50Fc3upbML44h2yPFvaGiYUUn0CRWQkP5veZCnqcitSvRetwhOWTmLNJ__CqFG4-wIKLk2d-yW8yu6Jg3jR3DhCdDABk9oXbj2RzvFDrt-HtJkLaw_XaWiuVNJgMSMNuvlEQ1naE4ObQ1-HCjveUlA5doO-SimgSsJMHgfm0PZW7MIeUXB');"></div>
+<div class="size-8 rounded-full border-2 border-[#151b2d] bg-cover bg-center" data-alt="Viewer avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCaTZrd1cAxXk2Eu_fHvKQ7JQD8f9SSmL2Qk9CIGtvaXSmgxomTagEibDdKSscTCqK9nkQVdnapM3M_hyaTjALHk9MM_kXM755k3orTnoLa9CyngJVKI4_bvAgu7LbxTpnM7jRacKihY_NMl2rgQvIeTEHjAX_unwHekqqpWuAQ_8e2MAP9sVgMfG17nzhNFe_-wkeLcuoVcb7V1quPxnvb-W4IkL1rIu-E7T0EcQG4-90KqQ4DZHN5OZgdQmzlqxziwXB4m0RA3hfG');"></div>
+<div class="size-8 rounded-full border-2 border-[#151b2d] bg-[#222f49] flex items-center justify-center text-[10px] text-white font-bold tracking-tighter">+9</div>
+</div>
+</div>
+<!-- Messages Stream -->
+<div class="flex-1 overflow-y-auto px-4 py-4 space-y-6 scrollbar-hide flex flex-col-reverse mask-image-linear-gradient">
+<!-- Message 1 -->
+<div class="flex items-end gap-3 group animate-in slide-in-from-bottom-2 duration-500 fade-in">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 border border-white/10" data-alt="Alex avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2UkWtljYpVg4PDHoebvYgHEbDAzH0dUQucjNYJn1JI-3smiy88mBRRBq8LsmSx567x4ZPd5WGlb6r6ju2waXS3dv6XwWc5VkxmLuI9N1-2jgoouaxHknCp3OFYZ9ej3FQb626yqQiD3epQZ69D1N_5h1AcTI6M-USE7AFlseq-WcDpL062V9ub0rWgCKooWLa8GlaJ4PioyFBW0HIg4Tr4GXpkfBmYgJScPNvoTLFcLEfHdChMis1ax8ER-vYLn5cH2At8YlnjfP-');"></div>
+<div class="flex flex-col gap-1 max-w-[85%]">
+<span class="text-[11px] font-bold text-white/40 ml-1">Alex</span>
+<div class="px-4 py-2.5 rounded-2xl rounded-bl-none bg-white/10 backdrop-blur-md text-sm text-white/90 leading-relaxed border border-white/5 shadow-sm">
+                        This soundtrack... Hans Zimmer never misses. 🎹
+                     </div>
+</div>
+</div>
+<!-- Message 2 -->
+<div class="flex items-end gap-3 group animate-in slide-in-from-bottom-2 duration-500 fade-in delay-100">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 border border-white/10" data-alt="Jordan avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAp3vkcKRBtyfwdkCQXF91LZaYUlQNB7ZxI5mAGrdnHnTsVWsJUmCX8S27t78f1V8kt9Cjk5VPRl-fNaxFtwGdUBf-29mPaaEj8YHsYZ-Jaj8EX3UtjkTHMgUOINw2vFrZ1eqSyv-dK-MRIIFMWgBpPPos-ZS0SvMjuvdnqXs7IljAqJ8_mdoLYJFIBgOGUKTdTXanmKGAvcvBBiZnAT-SyI6Dr5Z2sBo-1FVekOc9kfVTrfCl_NJVg9MWOctmHfItY6PmnqoETrk_1');"></div>
+<div class="flex flex-col gap-1 max-w-[85%]">
+<span class="text-[11px] font-bold text-white/40 ml-1">Jordan</span>
+<div class="px-4 py-2.5 rounded-2xl rounded-bl-none bg-white/10 backdrop-blur-md text-sm text-white/90 leading-relaxed border border-white/5 shadow-sm">
+                        Wait for the docking scene!
+                     </div>
+</div>
+</div>
+<!-- System Message -->
+<div class="flex justify-center py-2 opacity-60">
+<span class="px-3 py-1 rounded-full bg-white/5 text-[10px] font-medium text-white/50 tracking-wide uppercase border border-white/5">Sarah joined the room</span>
+</div>
+<!-- Message 3 -->
+<div class="flex items-end gap-3 group animate-in slide-in-from-bottom-2 duration-500 fade-in delay-200">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 border border-white/10" data-alt="Mike avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDVu66dwncHxjMhSlyV26WBt11slyF2RV5pqYzOm_xzmHG7MycSjx17VjjRBRKvq36X_MiOQ-CGEJVF8u9R-4tlP9V2XJez-_EF4Pa07MEK-rYJpTTVILL93NM_vV-KFyFk2Cq_wox-5nRevZHh9Rjsz_Cf1eGF6dvsekqz69RgIsFIFRmhwjzDLC5F_k3RTN6eknF3yBH2pnAFUbuLXXn6meI5pBZiP8l17S-SiTp4mVxJ8V0QkUTiXvhFVcHooG6plilYDktdxY3Q');"></div>
+<div class="flex flex-col gap-1 max-w-[85%]">
+<span class="text-[11px] font-bold text-white/40 ml-1">Mike</span>
+<div class="px-4 py-2.5 rounded-2xl rounded-bl-none bg-white/10 backdrop-blur-md text-sm text-white/90 leading-relaxed border border-white/5 shadow-sm">
+                        Is everyone's stream syncing okay?
+                     </div>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-4 pt-2 bg-gradient-to-t from-[#101622] to-transparent shrink-0">
+<div class="relative flex items-center gap-2">
+<!-- Emoji Button -->
+<button class="absolute left-1.5 p-2 rounded-full text-white/40 hover:text-white/80 hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">sentiment_satisfied</span>
+</button>
+<!-- Text Input -->
+<input class="w-full bg-black/20 hover:bg-black/40 focus:bg-black/50 transition-colors border border-white/10 rounded-full py-3 pl-10 pr-12 text-sm text-white placeholder-white/30 focus:ring-1 focus:ring-primary/50 focus:border-primary/50 backdrop-blur-sm outline-none" placeholder="Send a message..." type="text"/>
+<!-- Send Button -->
+<button class="absolute right-1.5 p-1.5 bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center transition-all shadow-[0_0_15px_rgba(13,89,242,0.4)]">
+<span class="material-symbols-outlined" style="font-size: 18px;">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

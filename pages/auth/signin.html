@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - Sign In</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom utilities for glassmorphism and centering placeholder */
+        .glass-panel {
+            background: rgba(27, 31, 39, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .placeholder-center::placeholder {
+            text-align: center;
+        }
+
+        /* Hide scrollbar for immersive feel */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="relative flex min-h-screen w-full flex-col items-center justify-center bg-background-dark font-display overflow-hidden text-white selection:bg-primary selection:text-white">
+    <!-- Cinematic Background with Overlay -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <!-- Abstract gradient base -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#050505] via-[#101622] to-[#0a0e17]"></div>
+        <!-- Subtle texture/image -->
+        <div class="absolute inset-0 opacity-40 mix-blend-overlay"
+            data-alt="Abstract blurred dark cinema theater seats and lights texture"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYqtNtxMQtjTd0AzdEqc1dGQdBlMwYHzD-PrFPMWgG59pKk4IYnS81o0kd5S3fhr4CUgoxsCW9FGs4YaapScShCDsPymym2-SztlnNfHnAfxTB4z3-ugtLSmDouHfti6nuVUxHrrOjLXa-5LFBgWb20eOoDoXsgsGaFeMXAMg4IPVCNltDHV8uJSYSGvwQPfIhJPg4SWuf-akc8xEvo0Fa6liZ20H7MMWsGeMRZhYs6eKmVtb9FVl9FRFsIRIrZs7R_XgJAnKV8FPV'); background-size: cover; background-position: center;">
+        </div>
+        <!-- Vignette -->
+        <div class="absolute inset-0 bg-radial-gradient from-transparent via-background-dark/50 to-background-dark">
+        </div>
+    </div>
+    <!-- Main Content Container -->
+    <div class="relative z-10 w-full max-w-[400px] px-6 py-8 flex flex-col gap-6 animate-fade-in">
+        <!-- Header -->
+        <div class="flex flex-col items-center justify-center space-y-3 pb-4">
+            <div
+                class="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 shadow-[0_0_15px_rgba(13,89,242,0.3)]">
+                <span class="material-symbols-outlined text-primary" style="font-size: 24px;">movie_filter</span>
+            </div>
+            <div class="text-center">
+                <h1 class="text-3xl font-bold tracking-tight text-white drop-shadow-md">CineSocial</h1>
+                <p class="text-gray-400 text-sm font-normal mt-1 tracking-wide">Welcome back to the movies</p>
+            </div>
+        </div>
+        <!-- Glass Card Form -->
+        <div class="glass-panel w-full rounded-2xl border border-white/10 p-1 shadow-2xl">
+            <div class="p-6 space-y-5">
+                <!-- Input Fields Group -->
+                <div class="space-y-4">
+                    <!-- Email -->
+                    <div class="relative group">
+                        <input
+                            class="form-input block w-full rounded-xl border border-white/20 bg-white/5 py-3.5 px-4 text-center text-white placeholder-gray-500 focus:border-primary focus:bg-white/10 focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 placeholder-center"
+                            placeholder="Email Address" type="email" />
+                    </div>
+                    <!-- Password -->
+                    <div class="relative group">
+                        <input
+                            class="form-input block w-full rounded-xl border border-white/20 bg-white/5 py-3.5 px-10 text-center text-white placeholder-gray-500 focus:border-primary focus:bg-white/10 focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-300 placeholder-center"
+                            placeholder="Password" type="password" />
+                        <!-- Eye Icon Positioned absolutely but not interfering with centered text visually too much -->
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                            <button class="text-gray-500 hover:text-white transition-colors" type="button">
+                                <span class="material-symbols-outlined text-[20px]">visibility_off</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Forgot Password -->
+                <div class="text-center">
+                    <a class="text-xs font-medium text-gray-500 hover:text-primary transition-colors underline decoration-transparent hover:decoration-primary/50 underline-offset-4"
+                        href="#">
+                        Forgot Password?
+                    </a>
+                </div>
+                <!-- Primary Button -->
+                <button
+                    class="w-full rounded-xl bg-primary py-3.5 px-4 text-sm font-bold text-white shadow-[0_0_20px_rgba(13,89,242,0.4)] hover:shadow-[0_0_30px_rgba(13,89,242,0.6)] hover:bg-blue-600 active:scale-[0.98] transition-all duration-200"
+                    type="button">
+                    Sign In
+                </button>
+            </div>
+            <!-- Social Divider Section -->
+            <div class="px-6 pb-6 pt-2">
+                <div class="relative flex items-center justify-center py-4">
+                    <div class="border-t border-white/10 w-full absolute"></div>
+                    <span
+                        class="relative bg-[#181c24] px-3 text-[10px] uppercase tracking-widest text-gray-500 font-semibold rounded-full border border-white/5">
+                        Or continue with
+                    </span>
+                </div>
+                <!-- Social Login Group (iOS List Style) -->
+                <div class="overflow-hidden rounded-xl border border-white/10 bg-white/5">
+                    <!-- Apple -->
+                    <button
+                        class="flex w-full items-center justify-center gap-3 py-3.5 px-4 hover:bg-white/10 transition-colors group relative">
+                        <img alt="Apple logo"
+                            class="h-5 w-5 invert opacity-70 group-hover:opacity-100 transition-opacity"
+                            data-alt="Apple logo icon"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbbm_RibDAmVUOOg8q-mG38q6FvqBjxhtXHeA1sKQ6HTD5rp6sREdQnCuKkHgCzoRBSiHMsOmbOzZL4nYFlp069YpOC_D5sZx5NSJvxN478xfnDOakbQoXuHXwT1lDLfHzRrnrV924zU4ATMioDakH1w3X6tJlo_PGUr-dAiwmCFzuklXbNfADzbq5r0Y7ajVOHXQc59URu2uGiQFCZTwnr2vvf6mzNZ7fhwSdoWGjR-kafUpyR4PZby3ZuwAX5JkGwHBOFxhP4CA1" />
+                        <span class="text-sm font-medium text-gray-300 group-hover:text-white">Apple</span>
+                    </button>
+                    <!-- Divider -->
+                    <div class="h-px w-full bg-white/10"></div>
+                    <!-- Google -->
+                    <button
+                        class="flex w-full items-center justify-center gap-3 py-3.5 px-4 hover:bg-white/10 transition-colors group relative">
+                        <img alt="Google logo" class="h-5 w-5 opacity-70 group-hover:opacity-100 transition-opacity"
+                            data-alt="Google logo icon"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfYnWXJUrXzcy7vTOJlJoDnC6NbHfakm3zAPAYmvK94i8bcUfAI2JEYpsNvv7Vgcx4DAc09JJIb3A5CK87kLqOmlnOvcNxj4_flgm_sDKpnc60j53XWsO2Z043Vec_qplxlREByFt82zZ4lFfZ-Eu0V9VwswdzwyqqIKGDgTwZiBiM3whrsTPUC3ZVmyq0czDzjULxmtxfuu18-vW_IfuQcz57eEC7Fu-W9TJ2NTRSK-Ob7-gGd6SjFe_xbUwsVHh9Mg4_Nr2BMvs2" />
+                        <span class="text-sm font-medium text-gray-300 group-hover:text-white">Google</span>
+                    </button>
+                    <!-- Divider -->
+                    <div class="h-px w-full bg-white/10"></div>
+                    <!-- Phone -->
+                    <button
+                        class="flex w-full items-center justify-center gap-3 py-3.5 px-4 hover:bg-white/10 transition-colors group relative">
+                        <span
+                            class="material-symbols-outlined h-5 w-5 text-gray-400 group-hover:text-white transition-colors text-[20px]">smartphone</span>
+                        <span class="text-sm font-medium text-gray-300 group-hover:text-white">Phone Number</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="text-center">
+            <p class="text-sm text-gray-500">
+                Don't have an account?
+                <a class="font-semibold text-white hover:text-primary transition-colors" href="#">Sign Up</a>
+            </p>
+        </div>
+        <div class="h-8"></div> <!-- Spacing for safe area -->
+    </div>
+</body>
+
+</html>

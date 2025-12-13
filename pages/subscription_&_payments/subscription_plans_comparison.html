@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial - Subscription Plans</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f42525",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#221010",
+                        "card-dark": "#2f1515",
+                        "card-border": "#4a2323"
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-white selection:bg-primary selection:text-white">
+<div class="relative flex min-h-screen w-full flex-col overflow-hidden pb-24">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md p-4 pb-2 transition-all duration-300">
+<button aria-label="Go Back" class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h2 class="flex-1 text-center text-lg font-bold leading-tight tracking-tight pr-10 uppercase">Select Your Pass</h2>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-4 pt-2">
+<!-- HeadlineText -->
+<div class="mb-6 flex flex-col items-center">
+<h1 class="text-3xl font-bold leading-tight tracking-tight text-center mt-4 mb-2">Unlock the Full Experience</h1>
+<p class="text-base font-normal leading-normal text-slate-500 dark:text-gray-400 text-center max-w-xs">
+                    Choose the plan that fits your viewing habits.
+                </p>
+</div>
+<!-- PricingCards (Vertical Stack) -->
+<div class="flex flex-col gap-4">
+<!-- Plan 1: Free -->
+<label class="group relative cursor-pointer">
+<input class="peer sr-only" name="plan" type="radio" value="free"/>
+<div class="relative flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-card-border bg-white dark:bg-card-dark p-5 transition-all duration-300 peer-checked:border-primary peer-checked:ring-1 peer-checked:ring-primary dark:peer-checked:border-primary">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<h3 class="text-lg font-bold uppercase tracking-wide">Free</h3>
+<p class="flex items-baseline gap-1">
+<span class="text-3xl font-black tracking-tight">$0</span>
+<span class="text-sm font-medium text-gray-500 dark:text-gray-400">/mo</span>
+</p>
+</div>
+<!-- Radio Indicator -->
+<div class="flex size-6 items-center justify-center rounded-full border-2 border-gray-300 dark:border-gray-500 transition-colors group-hover:border-primary peer-checked:bg-primary peer-checked:border-primary">
+<span class="material-symbols-outlined text-white text-[16px] opacity-0 peer-checked:opacity-100 scale-0 peer-checked:scale-100 transition-all">check</span>
+</div>
+<!-- Visual placeholder for the checked state logic above since input is sibling to div, we handle visuals via peer-checked inside the div if we structure differently, or use JS. Since no JS, let's use the layout trick: input is OUTSIDE the div but sibling. The div content needs to react to the input.
+                            Correct CSS structure for Tailwind peer: Input first, then Sibling. 
+                            The indicator needs to be a child of the label but react to the input.
+                            Let's use a cleaner approach for the radio circle:
+                            -->
+<div class="absolute right-5 top-5 size-6 rounded-full border-2 border-gray-400 dark:border-gray-600 bg-transparent peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+<div class="size-2.5 rounded-full bg-white opacity-0 peer-checked:opacity-100"></div>
+</div>
+</div>
+<div class="h-px w-full bg-gray-100 dark:bg-card-border"></div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check</span>
+                                Social profile
+                            </div>
+<div class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check</span>
+                                Basic booking
+                            </div>
+</div>
+</div>
+</label>
+<!-- Plan 2: Cinephile (Recommended/Selected) -->
+<label class="group relative cursor-pointer">
+<input checked="" class="peer sr-only" name="plan" type="radio" value="cinephile"/>
+<!-- Added ring/border for pre-selected state simulation in design -->
+<div class="relative flex flex-col gap-4 rounded-xl border border-primary bg-white dark:bg-card-dark p-5 shadow-lg shadow-black/20 ring-1 ring-primary/50 peer-checked:border-primary peer-checked:ring-1 peer-checked:ring-primary">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-lg font-bold uppercase tracking-wide text-primary">Cinephile</h3>
+<span class="rounded-full bg-primary px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
+                                        Best Value
+                                    </span>
+</div>
+<p class="flex items-baseline gap-1">
+<span class="text-3xl font-black tracking-tight">$9.99</span>
+<span class="text-sm font-medium text-gray-500 dark:text-gray-400">/mo</span>
+</p>
+</div>
+<!-- Custom Radio Visual -->
+<div class="absolute right-5 top-5 size-6 rounded-full border-2 border-gray-400 dark:border-gray-600 bg-transparent peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+<div class="size-2.5 rounded-full bg-white opacity-0 peer-checked:opacity-100"></div>
+</div>
+</div>
+<div class="h-px w-full bg-gray-100 dark:bg-card-border"></div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check</span>
+                                No booking fees
+                            </div>
+<div class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check</span>
+                                Priority seats
+                            </div>
+<div class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check</span>
+                                Exclusive reviews
+                            </div>
+</div>
+</div>
+</label>
+<!-- Plan 3: Director's Cut -->
+<label class="group relative cursor-pointer">
+<input class="peer sr-only" name="plan" type="radio" value="director"/>
+<div class="relative flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-card-border bg-white dark:bg-card-dark p-5 transition-all duration-300 peer-checked:border-primary peer-checked:ring-1 peer-checked:ring-primary dark:peer-checked:border-primary">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<h3 class="text-lg font-bold uppercase tracking-wide">Director's Cut</h3>
+<p class="flex items-baseline gap-1">
+<span class="text-3xl font-black tracking-tight">$19.99</span>
+<span class="text-sm font-medium text-gray-500 dark:text-gray-400">/mo</span>
+</p>
+</div>
+<!-- Custom Radio Visual -->
+<div class="absolute right-5 top-5 size-6 rounded-full border-2 border-gray-400 dark:border-gray-600 bg-transparent peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+<div class="size-2.5 rounded-full bg-white opacity-0 peer-checked:opacity-100"></div>
+</div>
+</div>
+<div class="h-px w-full bg-gray-100 dark:bg-card-border"></div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check</span>
+                                Premiere invites
+                            </div>
+<div class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check</span>
+                                Private screenings
+                            </div>
+<div class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check</span>
+                                Free concessions
+                            </div>
+</div>
+</div>
+</label>
+</div>
+<!-- MetaText -->
+<div class="mt-8 mb-4">
+<p class="text-[#cb9090] text-xs font-normal leading-normal text-center opacity-80">Cancel anytime. Terms apply.</p>
+</div>
+<div class="h-10"></div> <!-- Spacer for footer -->
+</main>
+<!-- Sticky Footer CTA -->
+<div class="fixed bottom-0 left-0 z-40 w-full p-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark dark:to-transparent pt-10">
+<button class="w-full rounded-lg bg-primary py-3.5 px-4 text-center text-white font-bold text-lg shadow-lg shadow-primary/30 active:scale-[0.98] transition-all hover:bg-primary/90">
+                Confirm Plan
+            </button>
+</div>
+</div>
+</body></html>

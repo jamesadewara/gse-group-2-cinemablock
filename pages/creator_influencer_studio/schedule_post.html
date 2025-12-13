@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Schedule Post Modal - CineSocial</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#161e2e",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar hiding */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Gradient mask for the wheel picker fade effect */
+        .picker-fade-mask {
+            mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-dark text-white font-display antialiased overflow-hidden selection:bg-primary selection:text-white">
+    <!-- Screen Wrapper: Simulates the app context behind the modal -->
+    <div class="relative flex h-screen w-full flex-col bg-background-dark overflow-hidden">
+        <!-- Background Content (Simulating the movie feed behind the modal) -->
+        <div class="absolute inset-0 z-0">
+            <div class="relative h-full w-full">
+                <!-- Abstract cinematic background -->
+                <img class="h-full w-full object-cover opacity-60 grayscale-[50%]"
+                    data-alt="Dark moody cinema theater interior with blurred lights"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0MWOkQnScCioDdmikVtWnn5XrR9xbT4Ztz7Tl49d7BGbOXBpXE_PXEPMCt5OUnFEye9xLPTzj0r-QM8JxdlcoQzYRgddVNOV1rsyHaSEC7IDor_CCx2qYEk4FUh98e-TNfhHKtkBn683ZoIHQXGsjcFesayKo4l7y6ipY3ccCeewY09xJbb2jF09greaxhlfR980U8klx94LrTAlzrSvScbuNb8XBFitdmFBME7oUEFd_Ns4HSn0SnkWyfjKzXza6F-aL6f9tVowM" />
+                <!-- Dark overlay to ensure contrast -->
+                <div class="absolute inset-0 bg-background-dark/80 backdrop-blur-sm"></div>
+            </div>
+        </div>
+        <!-- Modal Overlay Container -->
+        <div class="relative z-10 flex h-full w-full flex-col items-center justify-end sm:justify-center p-0 sm:p-4">
+            <!-- Modal Card -->
+            <div
+                class="w-full max-w-md bg-[#111722] dark:bg-background-dark rounded-t-[32px] sm:rounded-[32px] shadow-2xl border-t border-white/5 sm:border border-white/10 flex flex-col max-h-[90vh]">
+                <!-- BottomSheet Handle -->
+                <div class="flex w-full flex-col items-center pt-3 pb-1 cursor-grab active:cursor-grabbing">
+                    <div class="h-1.5 w-12 rounded-full bg-[#324467]"></div>
+                </div>
+                <!-- Top App Bar / Header -->
+                <div class="flex items-center justify-between px-6 pt-2 pb-2">
+                    <!-- Spacer for layout balance -->
+                    <div class="w-16"></div>
+                    <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] text-center flex-1">
+                        Schedule Post</h2>
+                    <div class="flex w-16 items-center justify-end">
+                        <button
+                            class="group flex items-center justify-center p-2 -mr-2 rounded-full hover:bg-white/5 transition-colors">
+                            <span
+                                class="text-[#92a4c9] text-base font-bold leading-normal tracking-[0.015em] group-hover:text-white transition-colors">Cancel</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Body Description -->
+                <div class="px-6 pb-2">
+                    <p class="text-[#92a4c9] text-sm font-normal leading-normal text-center">
+                        Choose a date and time for your review to go live.
+                    </p>
+                </div>
+                <!-- Picker Section -->
+                <div class="flex-1 flex flex-col justify-center py-6 px-4 space-y-6">
+                    <!-- Date Picker Wheel -->
+                    <div class="relative h-36 w-full select-none">
+                        <!-- Active Indicator Bar -->
+                        <div class="absolute top-1/2 left-0 w-full -translate-y-1/2 h-11 bg-[#232f48]/50 rounded-lg border border-[#324467]/30 pointer-events-none z-0 mx-2"
+                            style="width: calc(100% - 16px);"></div>
+                        <div class="flex h-full w-full picker-fade-mask relative z-10">
+                            <!-- Month Column -->
+                            <div class="flex-1 flex flex-col items-center justify-center space-y-0 text-center">
+                                <p
+                                    class="text-[#455d8c] text-sm font-semibold h-11 flex items-center justify-center w-full transition-opacity opacity-50">
+                                    September</p>
+                                <p
+                                    class="text-primary text-base font-bold h-11 flex items-center justify-center w-full">
+                                    October</p>
+                                <p
+                                    class="text-[#455d8c] text-sm font-semibold h-11 flex items-center justify-center w-full transition-opacity opacity-50">
+                                    November</p>
+                            </div>
+                            <!-- Day Column -->
+                            <div class="flex-1 flex flex-col items-center justify-center space-y-0 text-center">
+                                <p
+                                    class="text-[#455d8c] text-sm font-semibold h-11 flex items-center justify-center w-full transition-opacity opacity-50">
+                                    27</p>
+                                <p class="text-white text-base font-bold h-11 flex items-center justify-center w-full">
+                                    28</p>
+                                <p
+                                    class="text-[#455d8c] text-sm font-semibold h-11 flex items-center justify-center w-full transition-opacity opacity-50">
+                                    29</p>
+                            </div>
+                            <!-- Year Column -->
+                            <div class="flex-1 flex flex-col items-center justify-center space-y-0 text-center">
+                                <p
+                                    class="text-[#455d8c] text-sm font-semibold h-11 flex items-center justify-center w-full transition-opacity opacity-50">
+                                    2023</p>
+                                <p class="text-white text-base font-bold h-11 flex items-center justify-center w-full">
+                                    2024</p>
+                                <p
+                                    class="text-[#455d8c] text-sm font-semibold h-11 flex items-center justify-center w-full transition-opacity opacity-50">
+                                    2025</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Time Picker Wheel -->
+                    <div class="relative h-36 w-full select-none">
+                        <!-- Active Indicator Bar -->
+                        <div class="absolute top-1/2 left-0 w-full -translate-y-1/2 h-11 bg-[#232f48]/50 rounded-lg border border-[#324467]/30 pointer-events-none z-0 mx-2"
+                            style="width: calc(100% - 16px);"></div>
+                        <div class="flex h-full w-full picker-fade-mask relative z-10">
+                            <!-- Hour Column -->
+                            <div class="flex-1 flex flex-col items-center justify-center space-y-0 text-center">
+                                <p
+                                    class="text-[#455d8c] text-sm font-semibold h-11 flex items-center justify-center w-full transition-opacity opacity-50">
+                                    07</p>
+                                <p class="text-white text-base font-bold h-11 flex items-center justify-center w-full">
+                                    08</p>
+                                <p
+                                    class="text-[#455d8c] text-sm font-semibold h-11 flex items-center justify-center w-full transition-opacity opacity-50">
+                                    09</p>
+                            </div>
+                            <!-- Minute Column -->
+                            <div class="flex-1 flex flex-col items-center justify-center space-y-0 text-center">
+                                <p
+                                    class="text-[#455d8c] text-sm font-semibold h-11 flex items-center justify-center w-full transition-opacity opacity-50">
+                                    15</p>
+                                <p class="text-white text-base font-bold h-11 flex items-center justify-center w-full">
+                                    30</p>
+                                <p
+                                    class="text-[#455d8c] text-sm font-semibold h-11 flex items-center justify-center w-full transition-opacity opacity-50">
+                                    45</p>
+                            </div>
+                            <!-- AM/PM Column -->
+                            <div class="flex-1 flex flex-col items-center justify-center space-y-0 text-center">
+                                <p
+                                    class="text-[#455d8c] text-sm font-semibold h-11 flex items-center justify-center w-full transition-opacity opacity-50">
+                                    AM</p>
+                                <p class="text-white text-base font-bold h-11 flex items-center justify-center w-full">
+                                    PM</p>
+                                <!-- Placeholder to maintain alignment with 3-row structure of other columns -->
+                                <p class="h-11 w-full"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer Section -->
+                <div class="px-6 pb-8 pt-2 bg-[#111722] dark:bg-background-dark z-20">
+                    <!-- Time Zone Info -->
+                    <div class="flex items-center justify-center mb-6 space-x-2">
+                        <span class="material-symbols-outlined text-[#455d8c] text-lg">public</span>
+                        <p class="text-[#455d8c] text-xs font-bold uppercase tracking-wider">Local Time (GMT-5)</p>
+                    </div>
+                    <!-- Confirm Button -->
+                    <button
+                        class="flex w-full items-center justify-center rounded-xl bg-primary h-14 shadow-[0_0_20px_rgba(17,82,212,0.3)] hover:shadow-[0_0_25px_rgba(17,82,212,0.5)] active:scale-[0.99] transition-all duration-200">
+                        <span class="text-white text-base font-bold tracking-wide">Confirm Schedule</span>
+                    </button>
+                    <div class="h-4"></div> <!-- Safe area spacing -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

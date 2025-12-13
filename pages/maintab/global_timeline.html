@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial - Global Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex flex-col min-h-screen w-full mx-auto max-w-md bg-background-light dark:bg-background-dark border-x border-white/5 shadow-2xl">
+<!-- Header / Toggle -->
+<header class="sticky top-0 z-30 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-white/5 px-4 py-3 transition-colors">
+<div class="flex items-center justify-center">
+<div class="flex w-full max-w-[280px] h-9 items-center rounded-lg bg-gray-200 dark:bg-[#1C2333] p-1">
+<label class="flex cursor-pointer h-full flex-1 items-center justify-center rounded-md transition-all has-[:checked]:bg-white dark:has-[:checked]:bg-primary has-[:checked]:shadow-sm has-[:checked]:text-black dark:has-[:checked]:text-white text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">
+<span class="truncate">For You</span>
+<input checked="" class="invisible w-0 h-0 absolute" name="feed-toggle" type="radio" value="For You"/>
+</label>
+<label class="flex cursor-pointer h-full flex-1 items-center justify-center rounded-md transition-all has-[:checked]:bg-white dark:has-[:checked]:bg-primary has-[:checked]:shadow-sm has-[:checked]:text-black dark:has-[:checked]:text-white text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">
+<span class="truncate">Following</span>
+<input class="invisible w-0 h-0 absolute" name="feed-toggle" type="radio" value="Following"/>
+</label>
+</div>
+</div>
+</header>
+<!-- Main Feed -->
+<main class="flex-1 pb-24 space-y-2">
+<!-- Post 1: Review -->
+<article class="flex flex-col border-b border-gray-200 dark:border-white/5 pb-4">
+<!-- User Header -->
+<div class="flex items-center justify-between px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-9 w-9 ring-1 ring-white/10" data-alt="Portrait of a user with neon lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEap2tQfvlQkgWj1dxNKl99Y4Tdos_tUImhA4MgXkynqVWU02nE8XCuqTtLVoZkzZrmhB2oREztKlFVQubieFm5myL16QmBsAu18V4raUW10ZNdSmfk6n23xLCJW2G2AAE2BKr4Jcj8Xc_ePkN_9-iONhiDG5gc4HimpFt2_QT6s-SKU3MtVYEi1OiUbqNfwlVmcU5fv0rMy8fDTkLGTKH8FrhA1V2MqnM8YH28YwnC-h6OJGSZ6NIsf56unFoKGxZZLCdw58U334a");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold leading-tight">Cinephile_99</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">2h ago</span>
+</div>
+</div>
+<button class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">more_horiz</span>
+</button>
+</div>
+<!-- Media -->
+<div class="relative w-full aspect-[4/5] bg-gray-900 overflow-hidden">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 hover:scale-105" data-alt="Dramatic desert landscape scene from Dune movie with a character walking in distance" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCoTytxAv8mQCRGR1A7cEKpsLLpjFssy9xkiRWyP68lqn3FLAdll9cRFT6yo035WqBUs9Q8j9KkqSgPak5t5JDZkviPD4yXgup6Q2wLhBVFrIGOVbLap0s0oRaAaz7Uns-itt_QAsZDwYJjo0kjGYrpQx45GYnajXGo-qqpPiqZR3P-OfUhytkeHyN1IkkfDH0vKdW0RlQ9VzBoVG6KRZ38UJiXNdKEbtxKeSnBndUaJvoxHZuModx8UWg04WsM4EXn-Q3FkCAxqxYy");'>
+</div>
+<!-- Tag on Image -->
+<div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
+<p class="text-white text-xs font-medium">Dune: Part Two</p>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+<div class="flex items-center gap-5">
+<button class="group flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[26px] group-hover:text-red-500 transition-colors dark:text-white">favorite</span>
+</button>
+<button class="group flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[26px] group-hover:text-primary transition-colors dark:text-white">chat_bubble</span>
+</button>
+<button class="group flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[26px] group-hover:text-primary transition-colors dark:text-white">send</span>
+</button>
+</div>
+<button class="text-gray-500 dark:text-gray-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[26px]">bookmark</span>
+</button>
+</div>
+<!-- Content & Review -->
+<div class="px-4 space-y-2">
+<div class="flex items-center gap-2 mb-1">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm fill-current" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm fill-current" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm fill-current" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm fill-current" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm fill-current" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-xs font-bold bg-primary/20 text-primary px-1.5 py-0.5 rounded">Masterpiece</span>
+</div>
+<p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+<span class="font-bold text-black dark:text-white">Cinephile_99</span> Visually stunning. Villeneuve has done it again. The sound design alone deserves an Oscar. <span class="text-gray-500 dark:text-gray-400">...more</span>
+</p>
+<button class="mt-2 w-full py-2 rounded-lg bg-gray-100 dark:bg-white/5 hover:bg-primary/10 hover:text-primary text-xs font-medium text-gray-600 dark:text-gray-300 transition-colors">
+                        View Movie Details
+                    </button>
+</div>
+</article>
+<!-- Post 2: News / Promo -->
+<article class="flex flex-col border-b border-gray-200 dark:border-white/5 pb-4">
+<div class="flex items-center justify-between px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-9 w-9 ring-1 ring-white/10" data-alt="A24 logo on a black background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCn08tGh5wJUidg6IHzTgERkK2FG6metWwRuNWC_d92vjkRhz83rHowGAeedPzyh2odOxUrFlqd1WV_413A1zzkSH0s7hsh9UQBQ97lLT2btpAhYlFZZC3lD9Sn_oo-CoC4h2GglQZIDcbINiDVo44jc31MYdwL76bVRwpzjsYdrr3UxHv5DRROq6MgR03p04RrHYx5cNULAGsKrEK72G2dkqU0VhYlVFbvdjxEoADscAjqshiW9a-ebK8SKojhmMsPSOeL9Ojp7CMH");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold leading-tight">A24_Official</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">Sponsored</span>
+</div>
+</div>
+<button class="text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-xl">more_horiz</span>
+</button>
+</div>
+<!-- Media -->
+<div class="relative w-full aspect-video bg-gray-900">
+<div class="w-full h-full bg-center bg-cover opacity-90" data-alt="Abstract red and black gradient texture resembling a horror movie poster" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAxdytCi_c2UF4CGhayIihnUulZvbdIU3wDx_qvfL1IIgW4UOciiMchZCAjQaGoAi9TvhXZl8ne7cSGiHEOleXxul51TesaYGgKOiuJGstTPFwvSsENG25FDWRGFFP4Ibhm4au1rFjTkqcPzApo5JOYfM2EQagSNiN0j1EhjSlbVneiy-lnVnnMbaXyq2rA8tOlc31t4ncOKfspBn2jZ35U7OU7tMBZn6vOXhZHq6kAk9bzn2Ej1g2-Oqdak5MjIXAnE5cS23GKin4S");'>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20">
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl fill-current" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+<div class="flex items-center gap-5">
+<button class="group flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[26px] group-hover:text-red-500 transition-colors dark:text-white">favorite_border</span>
+</button>
+<button class="group flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[26px] group-hover:text-primary transition-colors dark:text-white">chat_bubble</span>
+</button>
+<button class="group flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[26px] group-hover:text-primary transition-colors dark:text-white">send</span>
+</button>
+</div>
+</div>
+<div class="px-4 space-y-1">
+<p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+<span class="font-bold text-black dark:text-white">A24_Official</span> The unknown is coming. Watch the first trailer for our new psychological thriller now.
+                    </p>
+<p class="text-xs text-gray-500 dark:text-gray-500 mt-1 uppercase tracking-wider font-medium">Coming Soon</p>
+</div>
+</article>
+<!-- Post 3: Friend Activity -->
+<article class="flex flex-col pb-4">
+<div class="flex items-center justify-between px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-9 w-9 ring-1 ring-white/10" data-alt="Selfie of a smiling woman" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBIXgo9l7Ed1rdzzfTy5Lsj72EnhfsSRXZN411JXAoycS5VF0LGp1bQ6xEHyG9HD3fht0JYZR9yZg_-ChER2U8gHFld6k4dAwBwRtL3p5AvDZ320znA_XaKYScKdzbahlCrSr_-e9kcI49TwJEihwJJ9aO6z9XeRUeyt1NnouQJS40dY047rlM5hC1o-V7ZqQDNfAkx6_rvuktrH4eqiXFjDSPtqpcWs9SHMbzc3bGTw8Z_oCngzC8KbvuBvCqyZR__cfV2cS4VhRfP");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold leading-tight">Sarah.mov</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">12m ago</span>
+</div>
+</div>
+<button class="text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-xl">more_horiz</span>
+</button>
+</div>
+<div class="px-4">
+<div class="relative w-full rounded-xl overflow-hidden aspect-[2/1] bg-gray-800 group">
+<div class="absolute inset-0 bg-center bg-cover opacity-60 group-hover:opacity-40 transition-opacity" data-alt="Explosive scene from Oppenheimer movie with bright orange fire" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBzWPlOHYm_r_HzUQe70HugReFMohJkTYmXQuEpEe4kkw8EP4A_slbZBvVQ8R2gTnF_MuFuipDDFmRA0g0uom3GoLd0HgKi6xSGKMAVeD8K-DYqL6PZ0x9UWjN3exFWgn-NTate3330GC6EfD3e-eHovKlAGC4yYR6L4r5QLkE9leUnGijHrJyMkcKnRSF76IzHla8ZJWCEHvaSjtC04BMGJU2rq76UK8F-mb1rgw83jH-hQjIlHfop6lB1HUkc70uOWZ4vxogjwauy");'></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/80 to-transparent"></div>
+<div class="relative h-full flex flex-col justify-center px-6">
+<p class="text-gray-400 text-xs font-medium uppercase tracking-wider mb-1">Ticket Purchased</p>
+<h3 class="text-white text-xl font-bold mb-2">Oppenheimer</h3>
+<div class="flex items-center gap-2 text-gray-300 text-xs mb-4">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Sat, 14 Oct • 7:00 PM</span>
+<span class="w-1 h-1 bg-gray-500 rounded-full mx-1"></span>
+<span>IMAX</span>
+</div>
+<button class="w-fit px-4 py-1.5 bg-primary text-white text-xs font-medium rounded-md shadow-lg shadow-primary/20 hover:bg-blue-600 transition-colors">
+                                Get Tickets
+                            </button>
+</div>
+</div>
+</div>
+<div class="px-4 pt-3 flex items-center justify-between">
+<div class="flex items-center gap-5">
+<button class="group flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[26px] group-hover:text-red-500 transition-colors dark:text-white">favorite</span>
+</button>
+<button class="group flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[26px] group-hover:text-primary transition-colors dark:text-white">chat_bubble</span>
+</button>
+</div>
+</div>
+<div class="px-4 mt-1">
+<p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+<span class="font-bold text-black dark:text-white">Sarah.mov</span> Finally going to see this in IMAX! 🍿🔥
+                    </p>
+</div>
+</article>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 z-50 w-full max-w-md border-t border-gray-200 dark:border-white/5 bg-background-light/90 dark:bg-[#101622]/90 backdrop-blur-xl pb-safe pt-2">
+<div class="flex justify-around items-center px-2 pb-4 pt-2">
+<a class="flex flex-col items-center gap-1 w-16 group" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-primary text-[28px] fill-current" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full"></span>
+</div>
+<span class="text-[10px] font-medium text-primary">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16 group" href="#">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors text-[28px]">search</span>
+<span class="text-[10px] font-medium text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">Search</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16 group" href="#">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors text-[28px]">confirmation_number</span>
+<span class="text-[10px] font-medium text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">Tickets</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16 group" href="#">
+<div class="w-7 h-7 rounded-full bg-gray-300 dark:bg-gray-700 overflow-hidden ring-2 ring-transparent group-hover:ring-primary transition-all">
+<div class="w-full h-full bg-center bg-cover" data-alt="User profile avatar small" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDIQv0J1ZZNqdU5EL_KjoCI9TapRG15Fq8QBkQV3eeimx2aB7irtEjh5bRDL2hNOzcZ0nLY3eAFzimoyqN4DOiPAIz31olU5r_4zEe_20Qz-p7bO-SavzOKythM_4XPo5Ymi9kf5axWLSUZdSP1haA2QXtVAC6BcXezuYoUgH7ckKMlWE_f3Tdg1IhNL7SBIJ2-VOCQ_cIENPQXe_iiOJKdgC6xdxwO-lyo4wDSb0CgTdXr2u51PVUg1p6Rig1DCnQAGjhcxw9IqTzX");'></div>
+</div>
+<span class="text-[10px] font-medium text-gray-400 dark:text-gray-500 group-hover:text-primary transition-colors">Profile</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Cinema List - CineSocial</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "card-dark": "#1a2233",
+                        "text-secondary": "#90a4cb",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for clean look */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none
+        }
+
+        /* Map placeholder styling */
+        .map-container {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuB2Wcm084jbIc9gUJyFqoy8cux_1XHrSRUK4QJrKb66lvFFnvCfchUGCQemXzqlOmeV6UJpZIU5XJnEP_LX7mPQg003liwRFLzPaGyK2CbMtz6Th4LJ08DtaMAOROd_jyO-AshmkRzLGtSFFTVHbamBDYQTj10nCfeynN00BgFFoMNfuuyMT-cCy2heczylrhBSgMgN6Cy1sz-IEv9BvN5I7sO0PctITheqxmOgPjN2NRptEUvlLyKkmIIcOR1mvRvWNbOirH-3rLRx);
+            background-size: cover;
+            background-position: center
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary selection:text-white overflow-hidden">
+    <div
+        class="relative flex h-screen w-full flex-col max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
+        <!-- Header Section -->
+        <header class="flex-none bg-background-light dark:bg-background-dark z-20 pt-safe-top">
+            <!-- Top App Bar -->
+            <div class="flex items-center p-4 pb-2 justify-between">
+                <button
+                    class="text-slate-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                    <span class="material-symbols-outlined">arrow_back_ios_new</span>
+                </button>
+                <h2
+                    class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">
+                    Nearby Cinemas</h2>
+            </div>
+            <!-- Segmented Control -->
+            <div class="px-4 py-3">
+                <div
+                    class="flex h-12 flex-1 items-center justify-center rounded-xl bg-slate-200 dark:bg-[#222f49] p-1 relative">
+                    <!-- Radio Inputs for Segmented Control Logic (Visual only for this demo) -->
+                    <label
+                        class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-medium leading-normal transition-all duration-200 bg-white dark:bg-background-dark shadow-sm text-slate-900 dark:text-white z-10">
+                        <span class="material-symbols-outlined mr-2 text-[20px]">format_list_bulleted</span>
+                        <span class="truncate">List View</span>
+                        <input checked="" class="invisible w-0 absolute" name="view-toggle" type="radio"
+                            value="List View" />
+                    </label>
+                    <label
+                        class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 text-slate-500 dark:text-[#90a4cb] hover:text-slate-700 dark:hover:text-white text-sm font-medium leading-normal transition-all duration-200">
+                        <span class="material-symbols-outlined mr-2 text-[20px]">map</span>
+                        <span class="truncate">Map View</span>
+                        <input class="invisible w-0 absolute" name="view-toggle" type="radio" value="Map View" />
+                    </label>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content Area: List View -->
+        <main class="flex-1 overflow-y-auto hide-scrollbar relative pb-[80px]">
+            <!-- List Content -->
+            <div class="flex flex-col gap-4 px-4 py-2">
+                <!-- Card 1 -->
+                <div
+                    class="group relative overflow-hidden rounded-xl bg-white dark:bg-card-dark shadow-sm border border-slate-200 dark:border-transparent transition-transform active:scale-[0.99]">
+                    <div class="flex items-stretch justify-between p-3 gap-3">
+                        <div class="w-24 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 aspect-[3/4]"
+                            data-alt="Dark moody cinema entrance with neon lights"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACIc5jxU__NzLQ9557fZRmuKzp07VSNApC3UqyW0f5Jq3rAqiJIrWsjfSgOBbX6GVKIswiP54iT-A5C-WF-rIKiysHmipB58ovsYILSVZycpIqsRTGvrDQm6jP8ok0mMwJWaI27GMcYk7n5NoRiQw1LGcptyW6p7Wu5xLINW-P8-A42whwQO2vS3fRzvu0KaqCk0e65s4QICjZfLcrY2AjK9dFo-sSxx7JXMoOhHb-RfwzYhGnzwqW6HUZKdT4R1Ew9SAnyu4IcvuY");'>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-between py-1">
+                            <div class="flex flex-col gap-1">
+                                <div class="flex items-center justify-between">
+                                    <span
+                                        class="inline-flex items-center gap-1 text-xs font-medium text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded-full">
+                                        <span class="material-symbols-outlined text-[14px] fill-1">star</span> 4.9
+                                        Superb
+                                    </span>
+                                    <span class="text-xs text-text-secondary font-medium">0.4 mi</span>
+                                </div>
+                                <h3
+                                    class="text-slate-900 dark:text-white text-base font-bold leading-tight mt-1 line-clamp-2">
+                                    Odeon Luxe Leicester Square</h3>
+                                <p class="text-text-secondary text-xs font-normal leading-normal line-clamp-1">Leicester
+                                    Square, London WC2H 7LQ</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-3">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] uppercase tracking-wider text-text-secondary">Next
+                                        Showing</span>
+                                    <span class="text-sm font-semibold text-primary">14:30 <span
+                                            class="text-slate-400 dark:text-slate-600 font-normal">| IMAX
+                                            3D</span></span>
+                                </div>
+                                <button
+                                    class="flex items-center justify-center rounded-lg h-8 px-4 bg-primary text-white text-sm font-medium hover:bg-primary/90 transition-colors">
+                                    Book
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="group relative overflow-hidden rounded-xl bg-white dark:bg-card-dark shadow-sm border border-slate-200 dark:border-transparent transition-transform active:scale-[0.99]">
+                    <div class="flex items-stretch justify-between p-3 gap-3">
+                        <div class="w-24 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 aspect-[3/4]"
+                            data-alt="Classic cinema marquee at night"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDpkraD1FKO5S-Syqydhbmb3f1njJMBaswW5hpEKU1LZ4PDmdua63VTdLu2jEnVFWtEGvCvNNBG2rr2SFyPeUOBYWACoYC4LniAxZwtWcjhIHjvCKOWRzZTy1vrBqPZCcKYRJKsFOMgmw1gHJPQo44eLbhMxtchcLZBiWSgq1c2Z8_RbXwH_4zQBJuMYoP0vig0OUWdWzE01eL8f7GHPHhGKXTyexf4uEnG3Nz_lZjwd2iKp5fWE7BPsRDSzwy0EYMUp1khtiVs9mrC");'>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-between py-1">
+                            <div class="flex flex-col gap-1">
+                                <div class="flex items-center justify-between">
+                                    <span
+                                        class="inline-flex items-center gap-1 text-xs font-medium text-text-secondary bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
+                                        <span
+                                            class="material-symbols-outlined text-[14px] text-amber-500 fill-1">star</span>
+                                        4.7 Excellent
+                                    </span>
+                                    <span class="text-xs text-text-secondary font-medium">0.6 mi</span>
+                                </div>
+                                <h3
+                                    class="text-slate-900 dark:text-white text-base font-bold leading-tight mt-1 line-clamp-2">
+                                    Prince Charles Cinema</h3>
+                                <p class="text-text-secondary text-xs font-normal leading-normal line-clamp-1">7
+                                    Leicester Pl, London WC2H 7BY</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-3">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] uppercase tracking-wider text-text-secondary">Next
+                                        Showing</span>
+                                    <span class="text-sm font-semibold text-primary">15:00 <span
+                                            class="text-slate-400 dark:text-slate-600 font-normal">| 35mm</span></span>
+                                </div>
+                                <button
+                                    class="flex items-center justify-center rounded-lg h-8 px-4 bg-primary text-white text-sm font-medium hover:bg-primary/90 transition-colors">
+                                    Book
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="group relative overflow-hidden rounded-xl bg-white dark:bg-card-dark shadow-sm border border-slate-200 dark:border-transparent transition-transform active:scale-[0.99]">
+                    <div class="flex items-stretch justify-between p-3 gap-3">
+                        <div class="w-24 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 aspect-[3/4]"
+                            data-alt="Modern cinema interior with blue lighting"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDMyK1Hql7_Phjq6AtxTe_1IoZuLLQtc57e6SZL0MgYNStw8LvKjwG48MPN96uKaaxq7aUK_e-KVNUZ3zvLYk2FFOOcBeE5wI0BQGk9rauU-EMnoujxhCkH5VYhM7ZokLMuWaHm5DOothUZHzEjSGYv4H6pytaQWO5KDfdcI91CHHjXkk8L4UKYHU4BDXmf_2CUWZ9I4-orVh9UwQP6-VyG70ysk90O3PEv5Q1PmVktB1OGgn-4BMkkFHFyjMSw1pCaAZmApixSIzC6");'>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-between py-1">
+                            <div class="flex flex-col gap-1">
+                                <div class="flex items-center justify-between">
+                                    <span
+                                        class="inline-flex items-center gap-1 text-xs font-medium text-text-secondary bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
+                                        <span
+                                            class="material-symbols-outlined text-[14px] text-amber-500 fill-1">star</span>
+                                        4.2 Very Good
+                                    </span>
+                                    <span class="text-xs text-text-secondary font-medium">1.1 mi</span>
+                                </div>
+                                <h3
+                                    class="text-slate-900 dark:text-white text-base font-bold leading-tight mt-1 line-clamp-2">
+                                    Vue West End</h3>
+                                <p class="text-text-secondary text-xs font-normal leading-normal line-clamp-1">3
+                                    Cranbourn St, Leicester Square</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-3">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] uppercase tracking-wider text-text-secondary">Next
+                                        Showing</span>
+                                    <span class="text-sm font-semibold text-primary">14:45 <span
+                                            class="text-slate-400 dark:text-slate-600 font-normal">| Dolby</span></span>
+                                </div>
+                                <button
+                                    class="flex items-center justify-center rounded-lg h-8 px-4 bg-primary text-white text-sm font-medium hover:bg-primary/90 transition-colors">
+                                    Book
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="group relative overflow-hidden rounded-xl bg-white dark:bg-card-dark shadow-sm border border-slate-200 dark:border-transparent transition-transform active:scale-[0.99]">
+                    <div class="flex items-stretch justify-between p-3 gap-3">
+                        <div class="w-24 bg-center bg-no-repeat bg-cover rounded-lg shrink-0 aspect-[3/4]"
+                            data-alt="Retro neon cinema sign"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD6H5joNQDhuwHHN0eOwkwG3f4FXt6kx-8b4tWvwGb59i0ZKTYGez6bJwWOdF9NQhnn7t74XqIGo3V2GgvLgkgV4SIrO_PnRvMjK8_SGxkp93BqRdgAO5uJwssghBCRRpvvBaVbEofaSpuJtXLR-PtjBPeIEapk2i-N6y-5Jc2r-wY-SeqjA-eNktG-yBv6ZmYI-nP_5o8tQvRzeLAZFKAEYkyEqHb45BArBnkXym-KvQHyIsk2ISMJLEhQAraMFQhxXX65hz7w1Uxt");'>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-between py-1">
+                            <div class="flex flex-col gap-1">
+                                <div class="flex items-center justify-between">
+                                    <span
+                                        class="inline-flex items-center gap-1 text-xs font-medium text-text-secondary bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
+                                        <span
+                                            class="material-symbols-outlined text-[14px] text-amber-500 fill-1">star</span>
+                                        4.5 Great
+                                    </span>
+                                    <span class="text-xs text-text-secondary font-medium">1.8 mi</span>
+                                </div>
+                                <h3
+                                    class="text-slate-900 dark:text-white text-base font-bold leading-tight mt-1 line-clamp-2">
+                                    Everyman Cinema</h3>
+                                <p class="text-text-secondary text-xs font-normal leading-normal line-clamp-1">5 Rosslyn
+                                    Hill, London NW3</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-3">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] uppercase tracking-wider text-text-secondary">Next
+                                        Showing</span>
+                                    <span class="text-sm font-semibold text-primary">16:15 <span
+                                            class="text-slate-400 dark:text-slate-600 font-normal">|
+                                            Standard</span></span>
+                                </div>
+                                <button
+                                    class="flex items-center justify-center rounded-lg h-8 px-4 bg-primary text-white text-sm font-medium hover:bg-primary/90 transition-colors">
+                                    Book
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-6 w-full flex items-center justify-center mt-2">
+                    <span class="text-xs text-text-secondary">End of list</span>
+                </div>
+            </div>
+            <!-- Map View Overlay (Hidden by default in this layout, visual representation of potential toggle) -->
+            <!-- In a real app, this would toggle visibility with the list -->
+            <div class="hidden absolute inset-0 z-0 map-container" data-alt="Dark themed map of London streets"
+                data-location="London"
+                style="https://lh3.googleusercontent.com/aida-public/AB6AXuDdn8YsqJzZaum5fkOZqmNm1djaHwp7eN_e_KGQz4HSAShl9ihf1JtSpvQew8SGk3InwTeKbhDgVypChaP_eLCtfCrADhCuuGnK8Jl8KsN3UEMf4AeNwWbIuYXa50_I1zbnkLgkbIdHzpyCJHE5mKbYMG9RjCBg8t7zecKknr2SgRuXvBUEVGrv1K8kiJU5kwXGDZHC5hE0Z8Ew2XTg8jCmI-zJiVogcDTW66JSFG7ubpj3PQ3jIbWaTQYWNVBcBWnKx-uzJpsxqULo">
+                <!-- Pins -->
+                <div class="absolute top-[30%] left-[45%]">
+                    <div class="relative flex flex-col items-center">
+                        <div
+                            class="w-10 h-10 bg-primary rounded-full border-4 border-background-dark shadow-lg flex items-center justify-center text-white transform hover:scale-110 transition-transform cursor-pointer z-10">
+                            <span class="material-symbols-outlined text-sm">movie</span>
+                        </div>
+                        <div class="absolute bottom-full mb-2 w-32 bg-card-dark p-2 rounded-lg shadow-xl text-center">
+                            <p class="text-xs font-bold text-white">Odeon Luxe</p>
+                            <p class="text-[10px] text-text-secondary">0.4 mi</p>
+                        </div>
+                        <div class="w-1 h-3 bg-primary rounded-full mt-[-2px]"></div>
+                    </div>
+                </div>
+                <div class="absolute top-[45%] left-[60%]">
+                    <div
+                        class="w-8 h-8 bg-card-dark rounded-full border-2 border-slate-600 shadow-md flex items-center justify-center text-white cursor-pointer hover:bg-primary hover:border-primary transition-colors">
+                        <span class="material-symbols-outlined text-xs">theaters</span>
+                    </div>
+                </div>
+                <div class="absolute top-[25%] left-[20%]">
+                    <div
+                        class="w-8 h-8 bg-card-dark rounded-full border-2 border-slate-600 shadow-md flex items-center justify-center text-white cursor-pointer hover:bg-primary hover:border-primary transition-colors">
+                        <span class="material-symbols-outlined text-xs">theaters</span>
+                    </div>
+                </div>
+                <!-- Floating Bottom Card for Map Selection -->
+                <div
+                    class="absolute bottom-24 left-4 right-4 bg-card-dark rounded-xl p-3 shadow-2xl border border-slate-800 flex items-center gap-3">
+                    <div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-lg shrink-0"
+                        data-alt="Thumbnail of Odeon Cinema"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATX-iAojoJNBgM4WlSx0nv6j-MY_KnCUexoe_T7K0BQaSAjAJhKfM_w6c31j-p2pnl4fFMci6UDic4v00IyHIR7KJz5bTZ8Eq4sXH66y-p466W0dIqUhrrcEbhS7QqQEN7JNL-JksLj6Da0mER1wYRAWq48AokzJpL5mTX6emUj4uCWUT3SSIbKpn5QvxHWdxykh9YE5xGoCKOdpR5BrM5x-0y0KRzLk9Jsktd3QHM2G2JiJtn_GPAZOtfQqVSNDt8gI75B6piZlVj");'>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-white font-bold text-sm truncate">Odeon Luxe Leicester Square</h4>
+                        <p class="text-text-secondary text-xs truncate">Next: 14:30 • 0.4 mi away</p>
+                        <div class="flex gap-1 mt-1">
+                            <span class="text-[10px] text-amber-500">★ 4.9</span>
+                        </div>
+                    </div>
+                    <button class="bg-primary h-8 px-3 rounded-lg text-xs font-bold text-white shrink-0">Book</button>
+                </div>
+            </div>
+        </main>
+        <!-- Bottom Navigation Bar -->
+        <nav
+            class="absolute bottom-0 left-0 right-0 h-[80px] bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-t border-slate-200 dark:border-white/5 z-30">
+            <div class="grid grid-cols-5 h-full pb-4 items-center">
+                <a class="flex flex-col items-center justify-center gap-1 group" href="#">
+                    <span
+                        class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300 transition-colors">home</span>
+                    <span
+                        class="text-[10px] font-medium text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300">Home</span>
+                </a>
+                <a class="flex flex-col items-center justify-center gap-1 group" href="#">
+                    <span
+                        class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300 transition-colors">search</span>
+                    <span
+                        class="text-[10px] font-medium text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300">Search</span>
+                </a>
+                <a class="flex flex-col items-center justify-center gap-1 group relative" href="#">
+                    <div
+                        class="absolute -top-1 w-8 h-1 bg-primary rounded-b-full shadow-[0_0_10px_rgba(13,89,242,0.6)]">
+                    </div>
+                    <span class="material-symbols-outlined text-primary fill-1">movie</span>
+                    <span class="text-[10px] font-medium text-primary">Cinemas</span>
+                </a>
+                <a class="flex flex-col items-center justify-center gap-1 group" href="#">
+                    <span
+                        class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300 transition-colors">confirmation_number</span>
+                    <span
+                        class="text-[10px] font-medium text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300">Tickets</span>
+                </a>
+                <a class="flex flex-col items-center justify-center gap-1 group" href="#">
+                    <span
+                        class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300 transition-colors">person</span>
+                    <span
+                        class="text-[10px] font-medium text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300">Profile</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

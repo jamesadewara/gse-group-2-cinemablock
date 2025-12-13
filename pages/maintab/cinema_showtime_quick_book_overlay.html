@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Cinema Showtime Quick Book</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark overflow-hidden">
+    <!-- Main Screen Container -->
+    <div class="relative flex h-screen w-full flex-col overflow-hidden">
+        <!-- Background Image (Poster) -->
+        <div class="absolute inset-0 z-0">
+            <img alt="Movie background" class="h-full w-full object-cover opacity-60 blur-sm"
+                data-alt="Abstract moody cinematic movie scene with dark lighting"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaVNzdrJgIRunSu1c9y7zqrz8-Ot1Vt4EGRHDwWfhc5GfSaqHO2d9K1KW4ib4mroRMhEfB-vWNjMnlAJC1Dt6yifpfeimVffCbxG3yNE72_YhHI1Q0YGnb7KeNok4-xWBprcHOquJLzaCrCZ5UNAfbDmT7SY-8-a6Vt5FWf8gTN0DK4bSea0hxUP3O3tsAEA8Yf6WzmT9k6IFutxWh09UXNXkyQTOXLNQ3Zsg1fJpj-IVsJsTUwsfHqovyAAa-8X1S19PHiEQPEzE3" />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-background-dark"></div>
+        </div>
+        <!-- Content Placeholder (Behind Modal) -->
+        <div class="relative z-10 flex flex-1 flex-col p-6 text-white pt-20 opacity-80 pointer-events-none">
+            <h1 class="text-4xl font-bold leading-tight mb-2">Dune: Part Two</h1>
+            <div class="flex items-center gap-2 text-sm text-gray-300 mb-6">
+                <span class="bg-white/20 px-2 py-0.5 rounded text-xs">PG-13</span>
+                <span>2h 46m</span>
+                <span>•</span>
+                <span>Sci-Fi, Adventure</span>
+            </div>
+            <p class="text-gray-300 line-clamp-3 leading-relaxed">
+                Paul Atreides unites with Chani and the Fremen while on a warpath of revenge against the conspirators
+                who destroyed his family.
+            </p>
+        </div>
+        <!-- Bottom Sheet Modal -->
+        <div
+            class="relative z-20 mt-auto w-full flex flex-col rounded-t-3xl bg-background-dark border-t border-white/5 shadow-[0_-10px_40px_rgba(0,0,0,0.8)] animate-slide-up">
+            <!-- Handle -->
+            <div class="flex w-full items-center justify-center pt-4 pb-2">
+                <div class="h-1.5 w-12 rounded-full bg-white/20"></div>
+            </div>
+            <!-- Date Selector Section -->
+            <div class="flex flex-col pt-2 pb-4">
+                <div class="flex items-center justify-between px-6 pb-4">
+                    <h2 class="text-white text-xl font-bold leading-tight">Select Date</h2>
+                    <span class="material-symbols-outlined text-white/40">calendar_month</span>
+                </div>
+                <!-- Scrollable Dates -->
+                <div class="flex gap-3 px-6 overflow-x-auto no-scrollbar pb-2">
+                    <!-- Active State -->
+                    <div
+                        class="flex h-16 w-[4.5rem] shrink-0 flex-col items-center justify-center rounded-2xl bg-primary shadow-[0_0_15px_rgba(13,89,242,0.4)] border border-primary text-white cursor-pointer transition-transform active:scale-95">
+                        <p class="text-xs font-medium uppercase opacity-80">Today</p>
+                        <p class="text-xl font-bold">14</p>
+                    </div>
+                    <!-- Inactive States -->
+                    <div
+                        class="flex h-16 w-[4.5rem] shrink-0 flex-col items-center justify-center rounded-2xl bg-[#1c2333] border border-white/5 text-gray-400 hover:bg-[#252d40] cursor-pointer transition-colors">
+                        <p class="text-xs font-medium uppercase opacity-60">Fri</p>
+                        <p class="text-xl font-bold text-white">15</p>
+                    </div>
+                    <div
+                        class="flex h-16 w-[4.5rem] shrink-0 flex-col items-center justify-center rounded-2xl bg-[#1c2333] border border-white/5 text-gray-400 hover:bg-[#252d40] cursor-pointer transition-colors">
+                        <p class="text-xs font-medium uppercase opacity-60">Sat</p>
+                        <p class="text-xl font-bold text-white">16</p>
+                    </div>
+                    <div
+                        class="flex h-16 w-[4.5rem] shrink-0 flex-col items-center justify-center rounded-2xl bg-[#1c2333] border border-white/5 text-gray-400 hover:bg-[#252d40] cursor-pointer transition-colors">
+                        <p class="text-xs font-medium uppercase opacity-60">Sun</p>
+                        <p class="text-xl font-bold text-white">17</p>
+                    </div>
+                    <div
+                        class="flex h-16 w-[4.5rem] shrink-0 flex-col items-center justify-center rounded-2xl bg-[#1c2333] border border-white/5 text-gray-400 hover:bg-[#252d40] cursor-pointer transition-colors">
+                        <p class="text-xs font-medium uppercase opacity-60">Mon</p>
+                        <p class="text-xl font-bold text-white">18</p>
+                    </div>
+                </div>
+            </div>
+            <div class="h-px w-full bg-white/5 mx-auto"></div>
+            <!-- Cinema Header -->
+            <div class="px-6 py-4">
+                <div class="flex items-center gap-2 text-white/50 text-xs font-medium uppercase tracking-wider mb-1">
+                    <span class="material-symbols-outlined text-[14px]">near_me</span>
+                    <span>Closest Cinema</span>
+                </div>
+                <div class="flex justify-between items-end">
+                    <h2 class="text-white text-lg font-bold leading-tight">AMC Lincoln Square</h2>
+                    <p class="text-primary text-sm font-medium">0.4 mi</p>
+                </div>
+            </div>
+            <!-- Showtimes List -->
+            <div class="flex flex-col gap-3 px-6 pb-6"
+                style="--radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(13,89,242)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%274%27/%3e%3c/svg%3e');">
+                <!-- Option 1: Selected -->
+                <label
+                    class="group relative flex items-center gap-4 rounded-xl border border-primary bg-primary/10 p-4 cursor-pointer transition-all">
+                    <input checked=""
+                        class="peer h-5 w-5 border-2 border-primary bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-primary"
+                        name="showtime" type="radio" />
+                    <div class="flex grow flex-col">
+                        <div class="flex justify-between items-center mb-1">
+                            <p class="text-white text-lg font-bold leading-none">18:30</p>
+                            <span class="text-white font-bold">$22.00</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-primary text-xs font-bold uppercase tracking-wide">IMAX Laser</span>
+                            <span class="h-1 w-1 rounded-full bg-white/20"></span>
+                            <span class="text-white/40 text-xs">Almost Full</span>
+                        </div>
+                    </div>
+                    <!-- Glow effect for active card -->
+                    <div class="absolute inset-0 rounded-xl bg-primary/5 opacity-100 pointer-events-none"></div>
+                </label>
+                <!-- Option 2 -->
+                <label
+                    class="group flex items-center gap-4 rounded-xl border border-white/10 bg-[#1c2333] p-4 cursor-pointer hover:border-white/20 transition-all">
+                    <input
+                        class="peer h-5 w-5 border-2 border-white/20 bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-primary"
+                        name="showtime" type="radio" />
+                    <div class="flex grow flex-col">
+                        <div class="flex justify-between items-center mb-1">
+                            <p
+                                class="text-white text-lg font-medium leading-none group-hover:text-white transition-colors">
+                                19:15</p>
+                            <span class="text-white/70 font-medium">$18.00</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-white/40 text-xs font-medium uppercase tracking-wide">Standard</span>
+                            <span class="h-1 w-1 rounded-full bg-white/20"></span>
+                            <span class="text-white/40 text-xs">Available</span>
+                        </div>
+                    </div>
+                </label>
+                <!-- Option 3 -->
+                <label
+                    class="group flex items-center gap-4 rounded-xl border border-white/10 bg-[#1c2333] p-4 cursor-pointer hover:border-white/20 transition-all">
+                    <input
+                        class="peer h-5 w-5 border-2 border-white/20 bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-primary"
+                        name="showtime" type="radio" />
+                    <div class="flex grow flex-col">
+                        <div class="flex justify-between items-center mb-1">
+                            <p
+                                class="text-white text-lg font-medium leading-none group-hover:text-white transition-colors">
+                                20:00</p>
+                            <span class="text-white/70 font-medium">$24.00</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-white/40 text-xs font-medium uppercase tracking-wide">Dolby Cinema</span>
+                            <span class="h-1 w-1 rounded-full bg-white/20"></span>
+                            <span class="text-white/40 text-xs">Filling Fast</span>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            <!-- Footer Actions -->
+            <div class="p-6 pt-2 bg-background-dark pb-8">
+                <button
+                    class="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-4 text-white font-bold text-base shadow-lg shadow-primary/25 active:scale-[0.98] transition-all">
+                    <span>Book 1 Seat</span>
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                </button>
+                <div class="mt-4 flex justify-center">
+                    <button
+                        class="text-sm font-medium text-white/50 hover:text-white transition-colors flex items-center gap-1">
+                        View all 12 showtimes
+                        <span class="material-symbols-outlined text-[16px]">expand_more</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+</body>
+
+</html>

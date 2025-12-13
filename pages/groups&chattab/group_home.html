@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - Group Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#1a2230",
+                        "bubble-dark": "#222f49",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for webkit to keep it clean */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 3px;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark h-screen w-full flex flex-col font-display overflow-hidden text-slate-900 dark:text-white antialiased selection:bg-primary selection:text-white">
+    <!-- Top Header Area: Sticky -->
+    <header
+        class="shrink-0 z-30 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-white/5 transition-colors">
+        <!-- Main Top Bar -->
+        <div class="flex items-center justify-between px-4 py-3">
+            <button
+                class="flex items-center justify-center w-10 h-10 -ml-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                <span class="material-symbols-outlined text-slate-700 dark:text-slate-200">arrow_back_ios_new</span>
+            </button>
+            <div class="flex flex-col items-center">
+                <h1 class="text-lg font-bold leading-tight tracking-tight">Sci-Fi Sundays</h1>
+                <span class="text-xs font-medium text-slate-500 dark:text-slate-400">128 Members • Online</span>
+            </div>
+            <button
+                class="flex items-center justify-center w-10 h-10 -mr-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                <span class="material-symbols-outlined text-slate-700 dark:text-slate-200">info</span>
+            </button>
+        </div>
+        <!-- Pinned Post Section -->
+        <div class="px-4 pb-3">
+            <div
+                class="flex items-center gap-3 bg-white dark:bg-surface-dark p-3 rounded-xl shadow-sm border border-slate-200 dark:border-white/5 cursor-pointer hover:bg-slate-50 dark:hover:bg-[#252d3d] transition-colors">
+                <div class="flex items-center justify-center shrink-0 w-8 h-8 rounded-lg bg-primary/10 text-primary">
+                    <span class="material-symbols-outlined text-[20px]">push_pin</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-semibold truncate text-slate-800 dark:text-slate-100">Vote for next week's
+                        movie!</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Poll closes in 2 hours. Current
+                        leader: Dune 2</p>
+                </div>
+                <span class="material-symbols-outlined text-slate-400 text-[20px]">chevron_right</span>
+            </div>
+        </div>
+    </header>
+    <!-- Chat Stream: Scrollable -->
+    <main class="flex-1 overflow-y-auto w-full p-4 space-y-6 bg-background-light dark:bg-background-dark">
+        <!-- Date Separator -->
+        <div class="flex justify-center">
+            <span
+                class="text-xs font-medium text-slate-400 dark:text-slate-500 py-1 px-3 bg-slate-200/50 dark:bg-white/5 rounded-full">Today,
+                7:30 PM</span>
+        </div>
+        <!-- Message: Alice -->
+        <div class="flex items-end gap-3 group">
+            <div class="w-8 h-8 rounded-full bg-cover bg-center shrink-0 border border-slate-200 dark:border-white/10"
+                data-alt="Portrait of a woman named Alice"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA03DEkh6nXnLPR7LRJREeyYxHMTIDkw4eZTqxZh5QAE7OrMeWJPCEthUdu9BJMcKGT8p-vAe1Uijr7802K1QSs0ERuLF1H8_4muZHRSJ7ul7-Kt4wuy-B-x8aXxGN0CGP5wiSPIQoL7QZf8-O00vR8-HYUSlLQjfnkygKD3eL38BPZJXarbeB7_LzQw7EhOoQBRXopjiWMOToxTC-IRlbUyY5HABJM8f12ZFP9KYBN4XMQv_fyddSeOk4VEQej6vLV672jE0oXDbzj');">
+            </div>
+            <div class="flex flex-col gap-1 max-w-[75%]">
+                <span class="text-[11px] text-slate-500 dark:text-slate-400 ml-1">Alice</span>
+                <div
+                    class="p-3 bg-white dark:bg-bubble-dark rounded-2xl rounded-bl-none shadow-sm text-sm sm:text-base text-slate-800 dark:text-slate-100 leading-snug border border-slate-200 dark:border-transparent">
+                    Are we still on for 8 PM? I'm grabbing popcorn 🍿
+                </div>
+            </div>
+        </div>
+        <!-- Message: Bob -->
+        <div class="flex items-end gap-3 group">
+            <div class="w-8 h-8 rounded-full bg-cover bg-center shrink-0 border border-slate-200 dark:border-white/10"
+                data-alt="Portrait of a man named Bob"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcHzCPUXwOHPOaaxs5rkJHJswDtcDuItM37p5b-IDXvs6BLQxcPy2QZlkBMIKXTMTNJWW_uI6dIpwGLh3BszyzeNC5sj94wdFbQnSnLp__DbDl_XWKxkwj1OB5Pfq4eKqruSRh9yWWEL2TKFOONIeNYAE3s3JsPZC1LRkjtrK2yMngJtOcHRE2gmMmilYl8-xoJZL_UHudn_-ddpPllbQcwl7815Niy2GB-325UvSrpML3OpBh3CK9zMe5WcetuoLmSXvv-nsCE_Tx');">
+            </div>
+            <div class="flex flex-col gap-1 max-w-[75%]">
+                <span class="text-[11px] text-slate-500 dark:text-slate-400 ml-1">Bob</span>
+                <div
+                    class="p-3 bg-white dark:bg-bubble-dark rounded-2xl rounded-bl-none shadow-sm text-sm sm:text-base text-slate-800 dark:text-slate-100 leading-snug border border-slate-200 dark:border-transparent">
+                    Yes, tickets are booked. Row F, seats 12-15.
+                </div>
+            </div>
+        </div>
+        <!-- Message: Sarah (Rich Media Link) -->
+        <div class="flex items-end gap-3 group">
+            <div class="w-8 h-8 rounded-full bg-cover bg-center shrink-0 border border-slate-200 dark:border-white/10"
+                data-alt="Portrait of a woman named Sarah"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuGwcMAe5xTim8D0kv4tdho8oC9eBc97-igeIJKSJXsO9Q8DJn76pbTpzdSxPhckd51UqLuvn6ibs36XZ30Gk_UxhXdmpkg3BjjvJqgiQd77c6Rchdb9SUZI8E6iW4umRQ_96jTPoe1eqZoskc6S0y9RXnXmd4K5sr74v81hajDXLVIDAsgavugZHxgc_zHQ-KvrfIFwC7heYExgCyscUDmdoZ8YIinhQVms_BQZdhYNipSGybIOEncJzTYm530e6xiz4zak8erY5_');">
+            </div>
+            <div class="flex flex-col gap-1 max-w-[85%]">
+                <span class="text-[11px] text-slate-500 dark:text-slate-400 ml-1">Sarah</span>
+                <div
+                    class="overflow-hidden bg-white dark:bg-bubble-dark rounded-2xl rounded-bl-none shadow-sm border border-slate-200 dark:border-transparent">
+                    <div class="relative h-32 w-full bg-cover bg-center"
+                        data-alt="Cinematic movie poster background dark moody"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDA-vmQkU073GEjdq3jZ4ZTkHG2WCFkrUncsJ-ao7gv3WfAcy-mA27rQNN2UA8pybfVjIaSfUzgB_PmbkBEyOhPsZDX3K6DgzwNX28lxSWrinDgpph6kWa4K-kw9_QsVHJn8mlB13kD5T98fvpS3D7jDLxoA8ryfrYdeBMXLfPgHtf-KF3sjxzbIySGPJMyCNwfeAK4SAPeu8K4Epl7f4Ucceh8_sWXU8jFN5So0rYSN-8U2gMZjSZTtb5C6HqIyS6Zz5pZIIXgl8Mo');">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white text-4xl opacity-80">play_circle</span>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <p class="font-bold text-sm text-slate-900 dark:text-white">Dune: Part Two - Official Trailer
+                        </p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">The saga continues as
+                            Paul Atreides unites with Chani and the Fremen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Message: Me (Outgoing) -->
+        <div class="flex flex-col items-end gap-1 w-full">
+            <div class="flex items-end justify-end gap-2 max-w-[75%]">
+                <div
+                    class="p-3 bg-primary text-white rounded-2xl rounded-br-none shadow-md text-sm sm:text-base leading-snug">
+                    Can't wait to see the IMAX version! That trailer looks insane. 🤯
+                </div>
+            </div>
+            <span class="text-[10px] text-slate-400 mr-1">Read 7:42 PM</span>
+        </div>
+        <!-- Spacer for input area visibility -->
+        <div class="h-4"></div>
+    </main>
+    <!-- Input Area: Fixed Bottom -->
+    <div
+        class="shrink-0 z-30 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-white/5 pb-[calc(env(safe-area-inset-bottom)+5rem)]">
+        <div class="px-4 py-3 w-full max-w-4xl mx-auto flex items-end gap-3">
+            <button
+                class="shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-slate-200 dark:bg-surface-dark text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">
+                <span class="material-symbols-outlined text-[22px]">add</span>
+            </button>
+            <div class="flex-1 relative">
+                <input
+                    class="w-full pl-4 pr-10 py-3 bg-slate-100 dark:bg-surface-dark border-none rounded-2xl text-sm focus:ring-1 focus:ring-primary placeholder:text-slate-500 dark:placeholder:text-slate-500 text-slate-900 dark:text-white transition-all shadow-inner"
+                    placeholder="Discuss the film..." type="text" />
+                <button
+                    class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <span class="material-symbols-outlined text-[20px]">confirmation_number</span>
+                </button>
+            </div>
+            <button
+                class="shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white shadow-lg shadow-primary/30 hover:bg-blue-600 transition-colors">
+                <span class="material-symbols-outlined text-[20px] ml-0.5">send</span>
+            </button>
+        </div>
+    </div>
+    <!-- Bottom Navigation: Fixed -->
+    <nav
+        class="fixed bottom-0 left-0 right-0 z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-lg border-t border-slate-200 dark:border-white/5 pb-[env(safe-area-inset-bottom)]">
+        <div class="flex justify-around items-center h-16">
+            <button class="flex flex-col items-center justify-center w-16 gap-1 group">
+                <span
+                    class="material-symbols-outlined text-[26px] text-slate-400 group-hover:text-primary transition-colors">home</span>
+                <span class="text-[10px] font-medium text-slate-400 group-hover:text-primary">Home</span>
+            </button>
+            <button class="flex flex-col items-center justify-center w-16 gap-1">
+                <span class="material-symbols-outlined text-[26px] text-primary">groups</span>
+                <span class="text-[10px] font-medium text-primary">Groups</span>
+            </button>
+            <button class="flex flex-col items-center justify-center w-16 gap-1 group">
+                <span
+                    class="material-symbols-outlined text-[26px] text-slate-400 group-hover:text-primary transition-colors">local_activity</span>
+                <span class="text-[10px] font-medium text-slate-400 group-hover:text-primary">Tickets</span>
+            </button>
+            <button class="flex flex-col items-center justify-center w-16 gap-1 group">
+                <span
+                    class="material-symbols-outlined text-[26px] text-slate-400 group-hover:text-primary transition-colors">person</span>
+                <span class="text-[10px] font-medium text-slate-400 group-hover:text-primary">Profile</span>
+            </button>
+        </div>
+    </nav>
+</body>
+
+</html>

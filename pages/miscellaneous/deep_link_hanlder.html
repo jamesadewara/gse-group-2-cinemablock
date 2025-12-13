@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deep Link Handler - CineSocial</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased">
+<!-- Main Container -->
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden">
+<!-- Ambient Background Glow (Cinematic Effect) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] pointer-events-none dark:block hidden"></div>
+<!-- Content Wrapper -->
+<div class="relative z-10 flex flex-col items-center gap-12 p-6 animate-in fade-in duration-700">
+<!-- Logo Section -->
+<div class="flex flex-col items-center gap-6">
+<div class="relative group">
+<!-- Glow behind logo -->
+<div class="absolute -inset-4 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 dark:block hidden animate-pulse"></div>
+<!-- App Icon / Logo -->
+<div class="relative flex items-center justify-center h-24 w-24 rounded-2xl bg-white shadow-xl dark:bg-transparent dark:shadow-none">
+<!-- Using a Material Symbol to represent the logo as requested -->
+<span class="material-symbols-outlined text-5xl text-primary dark:text-white" style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">
+                            movie_filter
+                        </span>
+</div>
+</div>
+<!-- App Name (Optional branding reinforcement) -->
+<h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white hidden">
+                    CineSocial
+                </h1>
+</div>
+<!-- Loading Indicator & Status -->
+<div class="flex flex-col items-center gap-5">
+<!-- Custom Circular Spinner using Theme Primary Color -->
+<div class="relative h-12 w-12">
+<div class="absolute inset-0 rounded-full border-[3px] border-slate-200 dark:border-slate-800"></div>
+<div class="absolute inset-0 rounded-full border-[3px] border-primary border-t-transparent animate-spin"></div>
+</div>
+<!-- Status Text -->
+<div class="flex flex-col items-center gap-1">
+<p class="text-sm font-medium tracking-wide text-slate-600 dark:text-slate-300">
+                        Opening movie details...
+                    </p>
+<p class="text-xs text-slate-400 dark:text-slate-600">
+                        Please wait while we connect
+                    </p>
+</div>
+</div>
+</div>
+<!-- Invisible Hit Area for "Blocking" interactions -->
+<div class="absolute inset-0 z-50 cursor-wait"></div>
+<!-- Fallback/Error State (Hidden by default, structure ready for JS toggle) -->
+<!-- This section reuses the style from EmptyState but minimalized for this context -->
+<div class="hidden absolute inset-0 z-20 flex flex-col items-center justify-center bg-background-light dark:bg-background-dark p-6">
+<div class="flex flex-col items-center gap-6 text-center max-w-xs">
+<div class="h-16 w-16 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 mb-2">
+<span class="material-symbols-outlined text-3xl">link_off</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-lg font-semibold dark:text-white">Link Expired</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        The movie link you are trying to access is no longer valid or has expired.
+                    </p>
+</div>
+<button class="mt-4 px-6 py-2.5 rounded-full bg-primary text-white text-sm font-medium hover:bg-primary/90 transition-colors w-full shadow-lg shadow-primary/20">
+                    Go to Home
+                </button>
+</div>
+</div>
+</div>
+</body></html>

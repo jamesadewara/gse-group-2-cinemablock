@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Billing History - CineSocial</title>
+<!-- Material Symbols Link -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f42525",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#0a0a0a", /* Deep black as per plan */
+                        "surface-dark": "#161616", /* Slightly lighter for cards */
+                        "surface-highlight": "#232323", /* Highlight state */
+                        "text-secondary": "#A0A0A0",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem", 
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem", 
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased selection:bg-primary selection:text-white overflow-hidden">
+<div class="relative flex h-full max-h-screen w-full flex-col overflow-hidden max-w-md mx-auto shadow-2xl bg-white dark:bg-background-dark">
+<!-- Top App Bar -->
+<header class="flex items-center px-4 py-4 justify-between bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800/50">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-gray-100 dark:hover:bg-surface-highlight transition-colors text-gray-800 dark:text-white">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Billing History</h1>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto no-scrollbar pb-24">
+<!-- Total Spent Stats -->
+<section class="p-4 pt-6">
+<div class="flex flex-col gap-1 rounded-2xl p-6 bg-gray-50 dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm relative overflow-hidden group">
+<div class="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+<p class="text-gray-500 dark:text-text-secondary text-sm font-medium uppercase tracking-wider z-10">Total Spent (Oct)</p>
+<div class="flex items-baseline gap-2 z-10">
+<p class="text-gray-900 dark:text-white text-3xl font-bold tracking-tight">$40.49</p>
+<span class="text-primary text-xs font-medium bg-primary/10 px-2 py-0.5 rounded-full">+12% vs Sept</span>
+</div>
+</div>
+</section>
+<!-- Month Chips -->
+<section class="w-full overflow-x-auto no-scrollbar pl-4 pb-4">
+<div class="flex gap-3 pr-4 min-w-max">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-5 pr-5 shadow-lg shadow-primary/20 transition-transform active:scale-95">
+<span class="text-white text-sm font-medium leading-normal">All Time</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 pl-5 pr-5 hover:bg-gray-50 dark:hover:bg-surface-highlight transition-colors">
+<span class="text-gray-600 dark:text-gray-300 text-sm font-medium leading-normal">October 2023</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 pl-5 pr-5 hover:bg-gray-50 dark:hover:bg-surface-highlight transition-colors">
+<span class="text-gray-600 dark:text-gray-300 text-sm font-medium leading-normal">September 2023</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 pl-5 pr-5 hover:bg-gray-50 dark:hover:bg-surface-highlight transition-colors">
+<span class="text-gray-600 dark:text-gray-300 text-sm font-medium leading-normal">August 2023</span>
+</button>
+</div>
+</section>
+<!-- Transactions List -->
+<section class="flex flex-col px-4 gap-3">
+<h3 class="text-gray-500 dark:text-gray-500 text-xs font-semibold uppercase tracking-widest pl-1 mt-2 mb-1">Recent Transactions</h3>
+<!-- Item 1: Movie Ticket -->
+<div class="flex items-center gap-4 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800/60 rounded-xl p-3 shadow-sm hover:bg-gray-50 dark:hover:bg-surface-highlight transition-colors cursor-pointer group">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat aspect-[2/3] bg-cover rounded-md w-12 shadow-inner" data-alt="Movie poster for Oppenheimer showing intense face close up with flames" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCl3nxJWOI6mTSWdUjSYr0GHtaH6-mrhNfC4-Qstk_L_B0y_j_NMrRq8zMypE1c8B6fFWHplDRdw-a7OVbjpcUq-92zwJvUOQ8Tesgg-GLKlF79lFRILSfeViSGo-wSK_SLxSAPi9uqfXv2ng7OkIzqd-r4XWbKAlUZCYqBfFq5HTOBU1Tm4h12aCazktSAwZ4mO0tLp-YW3vCiuezpVprcAi-fFbGVwXLFQinGKZe0kPvfT9vCdBSGnafqyIMhTyMHaxrKAhE0dzKp");'></div>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-gray-900 dark:text-white text-sm font-semibold leading-snug line-clamp-1 group-hover:text-primary transition-colors">Oppenheimer (IMAX)</p>
+<p class="text-gray-900 dark:text-white text-sm font-bold leading-snug shrink-0 ml-2">$18.50</p>
+</div>
+<div class="flex justify-between items-end mt-1">
+<p class="text-gray-500 dark:text-text-secondary text-xs font-medium leading-normal line-clamp-1">Oct 24, 2023 • 7:30 PM</p>
+<span class="inline-flex items-center rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-500 ring-1 ring-inset ring-emerald-500/20">Paid</span>
+</div>
+</div>
+</div>
+<!-- Item 2: Subscription -->
+<div class="flex items-center gap-4 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800/60 rounded-xl p-3 shadow-sm hover:bg-gray-50 dark:hover:bg-surface-highlight transition-colors cursor-pointer group">
+<div class="relative shrink-0 flex items-center justify-center w-12 h-[72px] bg-gradient-to-br from-primary to-rose-900 rounded-md shadow-inner text-white">
+<span class="material-symbols-outlined" style="font-size: 24px;">stars</span>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-gray-900 dark:text-white text-sm font-semibold leading-snug line-clamp-1 group-hover:text-primary transition-colors">CineSocial Premium</p>
+<p class="text-gray-900 dark:text-white text-sm font-bold leading-snug shrink-0 ml-2">$9.99</p>
+</div>
+<div class="flex justify-between items-end mt-1">
+<p class="text-gray-500 dark:text-text-secondary text-xs font-medium leading-normal line-clamp-1">Oct 01, 2023 • Monthly</p>
+<span class="inline-flex items-center rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-500 ring-1 ring-inset ring-emerald-500/20">Paid</span>
+</div>
+</div>
+</div>
+<!-- Item 3: Food -->
+<div class="flex items-center gap-4 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800/60 rounded-xl p-3 shadow-sm hover:bg-gray-50 dark:hover:bg-surface-highlight transition-colors cursor-pointer group">
+<div class="relative shrink-0 flex items-center justify-center w-12 h-[72px] bg-amber-900/30 rounded-md border border-amber-500/20 text-amber-500">
+<span class="material-symbols-outlined" style="font-size: 24px;">lunch_dining</span>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-gray-900 dark:text-white text-sm font-semibold leading-snug line-clamp-1 group-hover:text-primary transition-colors">Popcorn Combo L</p>
+<p class="text-gray-400 dark:text-gray-500 text-sm font-bold leading-snug shrink-0 ml-2 line-through">$12.00</p>
+</div>
+<div class="flex justify-between items-end mt-1">
+<p class="text-gray-500 dark:text-text-secondary text-xs font-medium leading-normal line-clamp-1">Sept 28, 2023 • Snacks</p>
+<span class="inline-flex items-center rounded-full bg-gray-500/10 px-2 py-0.5 text-[10px] font-medium text-gray-400 ring-1 ring-inset ring-gray-500/20">Refunded</span>
+</div>
+</div>
+</div>
+<!-- Item 4: Movie Ticket -->
+<div class="flex items-center gap-4 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800/60 rounded-xl p-3 shadow-sm hover:bg-gray-50 dark:hover:bg-surface-highlight transition-colors cursor-pointer group">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat aspect-[2/3] bg-cover rounded-md w-12 shadow-inner" data-alt="Movie poster for Barbie showing pink aesthetic and main characters" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuApylEsnnWamGKpyOEiK0T6SnC8gSNyZqoRrYlLxdPsodcjNVeUKnribYb-nxCTwM-2qdbg-i_em2JZX38L-Z_k2sJAz_hctP0oGoCAflHaIyXzmQqThMmWAbnrmmbSVw91lI_RZIQWZ8xqHtwvVgc9SzY-SX0riYb4HsxIJBNhtrzuDxZ9V0JSBQb8d4iIY-SVcGNZBVUUfuL5D3LSSfvyXI_5R6VuAlIrCf4bNvI1wOkipw08t9gtsru_iXhVgg4dNvpGl0xMuImm");'></div>
+</div>
+<div class="flex flex-col justify-center flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-gray-900 dark:text-white text-sm font-semibold leading-snug line-clamp-1 group-hover:text-primary transition-colors">Barbie</p>
+<p class="text-gray-900 dark:text-white text-sm font-bold leading-snug shrink-0 ml-2">$14.50</p>
+</div>
+<div class="flex justify-between items-end mt-1">
+<p class="text-gray-500 dark:text-text-secondary text-xs font-medium leading-normal line-clamp-1">Aug 15, 2023 • 5:15 PM</p>
+<span class="inline-flex items-center rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-500 ring-1 ring-inset ring-emerald-500/20">Paid</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="shrink-0 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark pb-6 pt-2 px-4 shadow-[0_-5px_20px_-5px_rgba(0,0,0,0.1)] z-20">
+<div class="flex justify-around items-center">
+<!-- Home -->
+<button class="flex flex-col items-center gap-1 p-2 text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<!-- Movies -->
+<button class="flex flex-col items-center gap-1 p-2 text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">movie</span>
+<span class="text-[10px] font-medium">Movies</span>
+</button>
+<!-- Social -->
+<button class="flex flex-col items-center gap-1 p-2 text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">groups</span>
+<span class="text-[10px] font-medium">Social</span>
+</button>
+<!-- Profile (Active) -->
+<button class="flex flex-col items-center gap-1 p-2 text-primary">
+<span class="material-symbols-outlined fill-current text-[26px]">person</span>
+<span class="text-[10px] font-semibold">Profile</span>
+</button>
+</div>
+</nav>
+</div>
+</body></html>

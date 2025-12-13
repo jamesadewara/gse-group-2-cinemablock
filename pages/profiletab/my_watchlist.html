@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - My Watchlist</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622", // Deep cinematic dark blue/black
+                        "card-dark": "#1a2233",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar hiding for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .glass-nav {
+            background: rgba(16, 22, 34, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
+    <!-- Mobile Wrapper -->
+    <div
+        class="relative min-h-screen flex flex-col mx-auto max-w-md w-full shadow-2xl overflow-hidden bg-background-light dark:bg-background-dark">
+        <!-- Header -->
+        <header
+            class="sticky top-0 z-30 px-6 pt-12 pb-4 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm transition-all duration-300">
+            <div class="flex items-center justify-between">
+                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">My Watchlist</h1>
+                <button
+                    class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-white hover:bg-primary hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-2xl">tune</span>
+                </button>
+            </div>
+            <!-- Filter Tabs -->
+            <div class="flex gap-3 mt-6 overflow-x-auto no-scrollbar pb-2">
+                <button
+                    class="px-4 py-1.5 rounded-full bg-primary text-white text-sm font-medium whitespace-nowrap shadow-lg shadow-primary/25">All
+                    Movies</button>
+                <button
+                    class="px-4 py-1.5 rounded-full bg-slate-200 dark:bg-white/5 text-slate-600 dark:text-slate-400 text-sm font-medium whitespace-nowrap border border-transparent dark:border-white/10">Recently
+                    Added</button>
+                <button
+                    class="px-4 py-1.5 rounded-full bg-slate-200 dark:bg-white/5 text-slate-600 dark:text-slate-400 text-sm font-medium whitespace-nowrap border border-transparent dark:border-white/10">Action</button>
+                <button
+                    class="px-4 py-1.5 rounded-full bg-slate-200 dark:bg-white/5 text-slate-600 dark:text-slate-400 text-sm font-medium whitespace-nowrap border border-transparent dark:border-white/10">Sci-Fi</button>
+            </div>
+        </header>
+        <!-- Main Content: Movie List -->
+        <main class="flex-1 px-4 pb-24 space-y-4">
+            <!-- List Item 1: Dune Part Two -->
+            <div
+                class="group relative overflow-hidden rounded-xl bg-white dark:bg-card-dark shadow-sm border border-slate-100 dark:border-white/5">
+                <div class="flex p-3 gap-4">
+                    <!-- Poster -->
+                    <div
+                        class="relative w-[85px] aspect-[2/3] shrink-0 rounded-lg overflow-hidden bg-slate-800 shadow-lg">
+                        <div class="absolute inset-0 bg-cover bg-center"
+                            data-alt="Dune Part Two movie poster showing characters in desert"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5Kq64ABZzow1048F_3_cqyJX0zc-uvhJ4D6rUblI3hrThI7D8zLXfIrus8OViZdA7mqmEnWu8hD91Nls1oS76cW25Ac4oFhypZMqq3CimWVzLzubm_QaR5Mt_IXAJx7oJi6YzmDZiE3Qe81wihar2ig2jStb7-Hm8AoW3F2DHh5Sxq9UjyRcqSCeGKkzDe9u5YVs3dplBV-aXWHeU75o3jLGmbLQEBd_9Aa3O2yrcJ56yEQtDkH-ZvtxXcJjddFvRFWFqopq0UqH4');">
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="flex flex-col flex-1 py-1 justify-center">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-lg font-bold leading-tight text-slate-900 dark:text-white">Dune: Part Two
+                            </h3>
+                            <button class="text-slate-400 hover:text-white">
+                                <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-1.5 mb-2">
+                            <span class="material-symbols-outlined text-yellow-500 text-[16px] fill-1">star</span>
+                            <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">8.8</span>
+                            <span class="text-xs text-slate-400">•</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400">2024</span>
+                        </div>
+                        <div class="mt-auto">
+                            <span
+                                class="inline-flex items-center rounded-md bg-slate-100 dark:bg-white/5 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-500/10">Sci-Fi</span>
+                            <span
+                                class="inline-flex items-center rounded-md bg-slate-100 dark:bg-white/5 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-500/10 ml-2">Adventure</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- List Item 2: Past Lives (Simulating Swipe Action) -->
+            <div class="relative h-[130px] w-full rounded-xl overflow-hidden">
+                <!-- Background Actions (Revealed on Swipe) -->
+                <div
+                    class="absolute inset-0 flex flex-row-reverse items-center justify-end w-full h-full bg-slate-900 rounded-xl pr-4">
+                    <button class="flex flex-col items-center justify-center w-16 h-full bg-red-600 text-white">
+                        <span class="material-symbols-outlined mb-1">delete</span>
+                        <span class="text-[10px] font-medium uppercase tracking-wider">Remove</span>
+                    </button>
+                    <button class="flex flex-col items-center justify-center w-16 h-full bg-primary text-white">
+                        <span class="material-symbols-outlined mb-1">check_circle</span>
+                        <span class="text-[10px] font-medium uppercase tracking-wider">Seen</span>
+                    </button>
+                </div>
+                <!-- Foreground Content (Shifted Left) -->
+                <div
+                    class="absolute inset-0 transform -translate-x-32 bg-white dark:bg-card-dark rounded-xl shadow-sm border border-slate-100 dark:border-white/5 z-10 transition-transform duration-300 ease-out">
+                    <div class="flex p-3 gap-4 h-full">
+                        <!-- Poster -->
+                        <div
+                            class="relative w-[85px] aspect-[2/3] shrink-0 rounded-lg overflow-hidden bg-slate-800 shadow-lg">
+                            <div class="absolute inset-0 bg-cover bg-center"
+                                data-alt="Past Lives movie poster showing two people walking"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpmTJ-pEgjevk53nFKdyhao6m2zJ2ffC5ptjmz-yBxoUQn5IAadvkjnxOSAR68671GpPOG_ZPkGBQJWzK8sGyDvssxykwwSGuVjcyS_zaQ2aCytaTO4wZJjNWUiixF8BieucBHY0jzmJx2XK2inQS6lVwh1bcOJQlNOfBbEqSMy9KdoJuAkpTqZ3PP0wVfgjyt9McP4WvPq8RkQ2BU7MNW6nm21wHua-ATJzOR5O1oPMMLLhkF3hJkiC5ZJjieJReHUduwG1JlevrG');">
+                            </div>
+                        </div>
+                        <!-- Content -->
+                        <div class="flex flex-col flex-1 py-1 justify-center">
+                            <div class="flex justify-between items-start mb-1">
+                                <h3 class="text-lg font-bold leading-tight text-slate-900 dark:text-white">Past Lives
+                                </h3>
+                                <button class="text-slate-400 hover:text-white">
+                                    <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                </button>
+                            </div>
+                            <div class="flex items-center gap-1.5 mb-2">
+                                <span class="material-symbols-outlined text-yellow-500 text-[16px] fill-1">star</span>
+                                <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">8.1</span>
+                                <span class="text-xs text-slate-400">•</span>
+                                <span class="text-sm text-slate-500 dark:text-slate-400">2023</span>
+                            </div>
+                            <div class="mt-auto">
+                                <span
+                                    class="inline-flex items-center rounded-md bg-slate-100 dark:bg-white/5 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-500/10">Romance</span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-slate-100 dark:bg-white/5 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-500/10 ml-2">Drama</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- List Item 3: The Batman -->
+            <div
+                class="group relative overflow-hidden rounded-xl bg-white dark:bg-card-dark shadow-sm border border-slate-100 dark:border-white/5">
+                <div class="flex p-3 gap-4">
+                    <!-- Poster -->
+                    <div
+                        class="relative w-[85px] aspect-[2/3] shrink-0 rounded-lg overflow-hidden bg-slate-800 shadow-lg">
+                        <div class="absolute inset-0 bg-cover bg-center"
+                            data-alt="The Batman movie poster dark red and black color scheme"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCLZcaHOCQX7XBiVZ9peZXU3VCKJhFd5SLaHrJ92mFFgCY7g3rj7CpuYe7YB4QIxLvPEkzwUm4ehAorB9_dp34FsdpwE3H0wfSl-OlxMcdw6FAB3g9tPXStMUPhlDK0FlkwR3AAzJ6lc1RrFkc14dAggiy01_0bBhnbOtmoNLu52OgwV61MNxWAITeEIDMAP3hxyRXUR4kq5eTxq_j0cpgoz77sTzbeeWS8G0m3Zt7uqpGgs1YZKwxX6gyL3X7n0XuCs4Ho3tdPjMzn');">
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="flex flex-col flex-1 py-1 justify-center">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-lg font-bold leading-tight text-slate-900 dark:text-white">The Batman</h3>
+                            <button class="text-slate-400 hover:text-white">
+                                <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-1.5 mb-2">
+                            <span class="material-symbols-outlined text-yellow-500 text-[16px] fill-1">star</span>
+                            <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">7.9</span>
+                            <span class="text-xs text-slate-400">•</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400">2022</span>
+                        </div>
+                        <div class="mt-auto">
+                            <span
+                                class="inline-flex items-center rounded-md bg-slate-100 dark:bg-white/5 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-500/10">Action</span>
+                            <span
+                                class="inline-flex items-center rounded-md bg-slate-100 dark:bg-white/5 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-500/10 ml-2">Crime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- List Item 4: Oppenheimer -->
+            <div
+                class="group relative overflow-hidden rounded-xl bg-white dark:bg-card-dark shadow-sm border border-slate-100 dark:border-white/5">
+                <div class="flex p-3 gap-4">
+                    <!-- Poster -->
+                    <div
+                        class="relative w-[85px] aspect-[2/3] shrink-0 rounded-lg overflow-hidden bg-slate-800 shadow-lg">
+                        <div class="absolute inset-0 bg-cover bg-center"
+                            data-alt="Oppenheimer movie poster showing main character looking serious"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6RWIjUcj1OhhMqwXH92HryY6-7zMS8f_Udl2_wZjcMfkawHqAcwxqW8iGYzc_CE0bNv2Wsf4cwr9mDKyWfBA3OHEk6qcfP5e3aAmahgQ5N9r-BKoI2QuxPOe9Z1LQGkRB-k44AjUqyPWvd7gKS4N__rJOq7vkheci4AQpyf0E2HHVErJktvoVc2Do5wbOWhWLNgnvC5IsHhY9_BFP9jgSqMaD9vJ8vIgDzN_m62rRhXFo4Hx0vrfpfDyO5CM5iDlnL011CnzCxxU1');">
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="flex flex-col flex-1 py-1 justify-center">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-lg font-bold leading-tight text-slate-900 dark:text-white">Oppenheimer</h3>
+                            <button class="text-slate-400 hover:text-white">
+                                <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-1.5 mb-2">
+                            <span class="material-symbols-outlined text-yellow-500 text-[16px] fill-1">star</span>
+                            <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">8.4</span>
+                            <span class="text-xs text-slate-400">•</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400">2023</span>
+                        </div>
+                        <div class="mt-auto">
+                            <span
+                                class="inline-flex items-center rounded-md bg-slate-100 dark:bg-white/5 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-500/10">Biography</span>
+                            <span
+                                class="inline-flex items-center rounded-md bg-slate-100 dark:bg-white/5 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-500/10 ml-2">History</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- List Item 5: Civil War -->
+            <div
+                class="group relative overflow-hidden rounded-xl bg-white dark:bg-card-dark shadow-sm border border-slate-100 dark:border-white/5">
+                <div class="flex p-3 gap-4">
+                    <!-- Poster -->
+                    <div
+                        class="relative w-[85px] aspect-[2/3] shrink-0 rounded-lg overflow-hidden bg-slate-800 shadow-lg">
+                        <div class="absolute inset-0 bg-cover bg-center"
+                            data-alt="Civil War movie poster with statue of liberty torch"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGiKHegNU88wECpBGk-YVlP4VA3DkQ888Q5RiUN52TtdshVWEwzq8Zre9Xx5RlOoS-pQy6rkeSFiORv_-Cf8MjmXd8fQFJcwBTEWaFezD9eP-30r1HDPRSg8-4r_Jf5ahxauQTNPMsnRWPwuNCQMKHVpz691QVqU7NPz7KEny0R5Eu2Izpll5rlXBoZGVcZPeWbK0x6ZdeVR0lD3iFg1NZjovy5V6b795ZbzOD322KgHmXozmf4gO5kLBpqCS_aSc69SNDHJi5PmNl');">
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="flex flex-col flex-1 py-1 justify-center">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-lg font-bold leading-tight text-slate-900 dark:text-white">Civil War</h3>
+                            <button class="text-slate-400 hover:text-white">
+                                <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-1.5 mb-2">
+                            <span class="material-symbols-outlined text-yellow-500 text-[16px] fill-1">star</span>
+                            <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">7.5</span>
+                            <span class="text-xs text-slate-400">•</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400">2024</span>
+                        </div>
+                        <div class="mt-auto">
+                            <span
+                                class="inline-flex items-center rounded-md bg-slate-100 dark:bg-white/5 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-500/10">Thriller</span>
+                            <span
+                                class="inline-flex items-center rounded-md bg-slate-100 dark:bg-white/5 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-500/10 ml-2">Action</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Bottom Navigation -->
+        <nav class="fixed bottom-0 left-0 right-0 z-50 glass-nav pb-safe max-w-md mx-auto">
+            <div class="flex justify-around items-center h-16 px-2">
+                <button
+                    class="flex flex-col items-center justify-center w-full h-full text-slate-400 dark:text-slate-400 hover:text-primary transition-colors gap-1 group">
+                    <span
+                        class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform">home</span>
+                    <span class="text-[10px] font-medium">Home</span>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center w-full h-full text-slate-400 dark:text-slate-400 hover:text-primary transition-colors gap-1 group">
+                    <span
+                        class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform">search</span>
+                    <span class="text-[10px] font-medium">Search</span>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center w-full h-full text-primary gap-1 group relative">
+                    <span class="material-symbols-outlined text-[26px] fill-1 scale-110">bookmark</span>
+                    <span class="text-[10px] font-bold">Watchlist</span>
+                    <!-- Active Indicator -->
+                    <span
+                        class="absolute top-2 right-6 w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(13,89,242,0.8)]"></span>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center w-full h-full text-slate-400 dark:text-slate-400 hover:text-primary transition-colors gap-1 group">
+                    <div
+                        class="w-[26px] h-[26px] rounded-full bg-gradient-to-tr from-primary to-purple-500 overflow-hidden border border-white/20 group-hover:border-primary transition-colors">
+                        <img alt="User Profile" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuACIRmbxsD6g1TciOVOyk2YSrsvspGL9fcuAu9shp-uvded6f30XfWDE6yDDq7fLex1ytWoLHwe-r_kf9J3kp6dkyx63xqMF8HNClFFG0mTuVgv_rIRUp39oO9HComfuDY0-m3i4TEwARfpRWWWse0FOEgHxaBCIsgejrlpNCveds4WkfckFwAZvqocf5J-ttPGlMMCSM3Yys3XWJpd5euOdysEksGYd-mEp9i6xbBlu1MF4OMzvIqIOvLDEkyxE_sBbBuK9C4BCcOE" />
+                    </div>
+                    <span class="text-[10px] font-medium">Profile</span>
+                </button>
+            </div>
+            <!-- Safe Area Spacer for iOS Home Indicator -->
+            <div class="h-[env(safe-area-inset-bottom)] w-full"></div>
+        </nav>
+        <!-- Gradient Fade at Bottom of Content -->
+        <div
+            class="fixed bottom-16 left-0 right-0 h-12 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent pointer-events-none z-40 max-w-md mx-auto">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial Home Feed</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#1b212d",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    animation: {
+                        'fade-out': 'fadeOut 1s ease-out 1.5s forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeOut: {
+                            '0%': { opacity: '1', visibility: 'visible' },
+                            '100%': { opacity: '0', visibility: 'hidden' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar hiding */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Glassmorphism for Nav */
+        .glass-nav {
+            background: rgba(16, 22, 34, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display antialiased overflow-hidden selection:bg-primary selection:text-white">
+    <!-- Loading Transition Overlay -->
+    <div
+        class="fixed inset-0 z-50 flex items-center justify-center bg-background-dark animate-fade-out pointer-events-none">
+        <div class="flex flex-col items-center gap-4">
+            <div class="w-12 h-12 rounded-full border-2 border-primary/30 border-t-primary animate-spin"></div>
+            <span class="text-primary font-bold tracking-widest text-sm uppercase animate-pulse-slow">CineSocial</span>
+        </div>
+    </div>
+    <!-- Main App Container -->
+    <div
+        class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-2xl overflow-y-auto hide-scrollbar pb-24">
+        <!-- Top App Bar -->
+        <header
+            class="sticky top-0 z-30 flex items-center justify-between p-4 pb-2 bg-background-dark/95 backdrop-blur-sm transition-all duration-300">
+            <div>
+                <p class="text-gray-400 text-xs font-medium uppercase tracking-wider mb-0.5">Welcome back</p>
+                <h2 class="text-white text-xl font-bold leading-tight tracking-tight">Good Evening, Alex</h2>
+            </div>
+            <div class="flex items-center gap-3">
+                <button
+                    class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-dark text-white hover:bg-primary/20 transition-colors relative">
+                    <span class="material-symbols-outlined !text-[24px]">notifications</span>
+                    <span
+                        class="absolute top-2.5 right-2.5 w-2 h-2 bg-primary rounded-full border border-background-dark"></span>
+                </button>
+                <div class="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+                    <img alt="User Avatar" class="w-full h-full object-cover"
+                        data-alt="User profile avatar showing a smiling face"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQpTmNvxUw6cYTkhxatTKEm5ybvFw7CFrfi2wPVbxDP3TQjBG-v23J2vTHPZgugqWig1cdrk7sVUtHNMdtboCyJc-xEp8NKAbbYPMk8B0ixnGI6HyYeigWm0Nd9XDf5V2T8IJuLPlQrgqc8G6wuswyfzLxkDYugtBqFBHvs_BoQblvIxrl4Z9CFCesOlah4o8F9lt3PnqQKMzs3NEvOZt9nVKVMAlb8mVBb44_ZWnDXO2IgkvzAJMSBIfsvKIN7MDDG5F3heT0ja_H" />
+                </div>
+            </div>
+        </header>
+        <!-- Spacer -->
+        <div class="h-2"></div>
+        <!-- Featured Carousel (Hero) -->
+        <section class="flex flex-col gap-3">
+            <div class="px-4 flex items-center justify-between">
+                <h3 class="text-white text-lg font-bold tracking-tight">Featured Premiere</h3>
+                <button class="text-primary text-sm font-medium hover:text-primary/80 transition-colors">View
+                    All</button>
+            </div>
+            <div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4 px-4 gap-4">
+                <!-- Card 1 -->
+                <div
+                    class="snap-center shrink-0 w-[85vw] relative rounded-xl overflow-hidden aspect-[16/9] group cursor-pointer shadow-lg shadow-black/40">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Dune Part Two movie scene featuring a desert landscape with intense orange and blue lighting"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBkz2JugCYO3UajazUwQ2tPAyfcn0ScGmQ4lHAec_A5_0BKuAIom9qsSOAeNsGr8qG9vYsVmg20H3Y3eqhQi63uuaOviv4BO3qn5VIVaPLyn3zPzM9vIc6vd7aZqs2sWeiNaE085Gh_dVGsCKlN7bBeJm5Q_VISKNnyuU_d3DgxEWfg3XgdDy7-cXVcftpvq9RtHHfdPIuJ2YZdBifzrkim35Ew8LtgJmswqgWmXA9_8SnC043eWTizvrYQjXHh1yzft87Ir4tJS8Y-');">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/40 to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-1 items-start">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span
+                                class="px-2 py-0.5 rounded bg-white/20 backdrop-blur-sm text-[10px] font-bold text-white uppercase tracking-wider">Sci-Fi</span>
+                            <span class="flex items-center text-yellow-500 text-xs font-bold gap-0.5">
+                                <span class="material-symbols-outlined !text-[14px] fill-1">star</span> 8.9
+                            </span>
+                        </div>
+                        <h2 class="text-white text-2xl font-bold leading-tight">Dune: Part Two</h2>
+                        <div class="flex items-center justify-between w-full mt-2">
+                            <p class="text-gray-300 text-xs font-medium">2h 46m • IMAX</p>
+                            <button
+                                class="bg-primary hover:bg-primary/90 text-white text-xs font-bold py-2 px-4 rounded-lg flex items-center gap-1.5 transition-colors shadow-lg shadow-primary/25">
+                                <span class="material-symbols-outlined !text-[16px]">confirmation_number</span>
+                                Book Ticket
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="snap-center shrink-0 w-[85vw] relative rounded-xl overflow-hidden aspect-[16/9] group cursor-pointer shadow-lg shadow-black/40">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Civil War movie scene showing a chaotic urban environment with smoke and intensity"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuADMQX5aa9Z_o6JIq9TzZw4ILRhpwX1KEIxMD5djpYPwBu1q1yAGEIAB6uaBbajuZjveUpgaf_0coayr8ux11_VhTfG5OUd6KIGzZSAPTcBxye47F62CINvrRl0nwj_y42fz5ro1zqKEh6Rmfr2h0a88oot7kJ1aMk9FqE5HMvhiVWadOSevOuXzSlP6CyzSqg-F-P3rNqWx3rn4Daq0HDPkvIPgvHZe_NTa9EElcok1DtC8YhgRhkCwvtnFAsjDB5FpyFw53y-PlNp');">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/40 to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-1 items-start">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span
+                                class="px-2 py-0.5 rounded bg-white/20 backdrop-blur-sm text-[10px] font-bold text-white uppercase tracking-wider">Action</span>
+                            <span class="flex items-center text-yellow-500 text-xs font-bold gap-0.5">
+                                <span class="material-symbols-outlined !text-[14px] fill-1">star</span> 7.5
+                            </span>
+                        </div>
+                        <h2 class="text-white text-2xl font-bold leading-tight">Civil War</h2>
+                        <div class="flex items-center justify-between w-full mt-2">
+                            <p class="text-gray-300 text-xs font-medium">1h 49m • Dolby</p>
+                            <button
+                                class="bg-surface-dark/80 hover:bg-surface-dark text-white backdrop-blur-md text-xs font-bold py-2 px-4 rounded-lg flex items-center gap-1.5 transition-colors border border-white/10">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Friends Activity (Horizontal Scroll) -->
+        <section class="mt-4">
+            <h3 class="text-white text-lg font-bold tracking-tight px-4 mb-3">Friends are Watching</h3>
+            <div class="flex overflow-x-auto hide-scrollbar px-4 gap-4 pb-2">
+                <!-- Friend Item 1 -->
+                <div class="flex flex-col items-center gap-2 min-w-[64px]">
+                    <div class="relative w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-primary to-purple-500">
+                        <div
+                            class="w-full h-full rounded-full border-2 border-background-dark overflow-hidden bg-surface-dark">
+                            <img alt="Sarah" class="w-full h-full object-cover"
+                                data-alt="Portrait of a friend named Sarah smiling"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGd4uI40vrB0fM_Zd9OT7DdjdiGyQeF1DFIoYtYpJkY3Sf_MJkFoJyikyPzC9Cv5xwj39h5gaYj2_gbTlYWgLuxHR0NzhpqR_Pe0cjNfSZh4QPEfSK7t027gIuVfi9MPS29QuszjgGPic-VScK3slEDjtS-e2EeAFxfHxKN4M_dFyaGeCkEzFuND_VZ_ILU_z7Fbc01DmfWHCla1TqY2JCKqAit7bSwSpZiO3j9pJ9eLxcXtYgwPJVFpRxg7pxInTS63aNDhGani1n" />
+                        </div>
+                        <div
+                            class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full border-2 border-background-dark overflow-hidden bg-black">
+                            <img alt="Movie" class="w-full h-full object-cover opacity-80"
+                                data-alt="Small poster thumbnail of the movie Challengers"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9L8TMPeyA1y3s864W6y7nQVdpBvtCxF93oZ9jNiynYItMhc3XHcxN3EYJDBewUF2f1z_OpB4S44uLnmrChXT648WA78iAU_EvOsubaieyFVyU9fKmGa0EIh1DUuT83DEw9g403E_tBeslKInQAfj5ASuGvrcjIoSfYliaqnJghTZcEpsnXQVzxtBWZJziNveSp6cEB_DhEanAWfDVtWGQyd9-HvcjJsUcEolW1ObiFR3Y2VP60qmHzhwa88yjwuDBF4H4SwF1_3bJ" />
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400 font-medium truncate w-full text-center">Sarah</span>
+                </div>
+                <!-- Friend Item 2 -->
+                <div class="flex flex-col items-center gap-2 min-w-[64px]">
+                    <div class="relative w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-primary to-purple-500">
+                        <div
+                            class="w-full h-full rounded-full border-2 border-background-dark overflow-hidden bg-surface-dark">
+                            <img alt="Mike" class="w-full h-full object-cover"
+                                data-alt="Portrait of a friend named Mike looking cool"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjB2VLxjmH-B7Cxe73DOv7KNlbbG9kv-62bkOxRy6khGv-Z9PuhjAeOrhKRaFO9ynnOSi_SRCssGbKV5nA_l6beYZMmKqpeMKnMo9A_ZbQ-czUTw1JgfFYQgrFNd5L2OutqzTFTrhWRzyUe7vZWyil0PwZBHM0zvLaAjo--s4gMeC9JNEQKkYLgtC3GB_bAnwPLRRPr70p7JqHoWy0rSTLn0_tOHZoG-3S4ieADh9_WFO737IdGdg1-DOFxnMFwzjI1FBsVNfGKsQb" />
+                        </div>
+                        <div
+                            class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full border-2 border-background-dark overflow-hidden bg-black">
+                            <img alt="Movie" class="w-full h-full object-cover opacity-80"
+                                data-alt="Small poster thumbnail of the movie The Fall Guy"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCssovZd233GifMf3eNkWY6k9r4927KEQMNudC33wBSQBRWxJgXDpMYUXCkNI5ywQ6V2dwlJrWBzWIzuVtT7GtD5bF-SL-6QRncglpDNQmuaoevmv5O_VqWR4_YG-KYaNzPU8Ep6tyKFJLES5oEd007oGOs_zXfYtM_kMCuqqDvw9_9Dd9ornI0lChpiyk14Pqs6R4HSsvd_HSSZauuzd_4Hzcq7FolZV8ofuUechRRWqvIqmQOOYbe2XFT_tuhAf9003KJH1BMIJE4" />
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400 font-medium truncate w-full text-center">Mike</span>
+                </div>
+                <!-- Friend Item 3 -->
+                <div class="flex flex-col items-center gap-2 min-w-[64px]">
+                    <div class="relative w-16 h-16 rounded-full p-0.5 bg-surface-dark border border-white/10">
+                        <div
+                            class="w-full h-full rounded-full border-2 border-background-dark overflow-hidden bg-surface-dark opacity-50">
+                            <img alt="Jessica" class="w-full h-full object-cover grayscale"
+                                data-alt="Portrait of a friend named Jessica"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5KrlUpHmyscATxjw3NT3fxiyfbplUKoaPpOGVf5imwQw-jq4nLBsAbrKZ-Ux5YGzm7rPlyOQVO3oqk2xfDCEY9PsgUJhN9dLC_iRgBCxuqh6rqCe1Ttle9ptvKvuRJElKD9jc9SzG0mcFUlckpAfR33url9t3SJP4jR5PnYPdLhi7bFMlBRV1Y-MyjV_7LfW3_1Aya8eeKbuzKKlMbcClZVU6whF3SMK3ZdYURtPZFO_79W15_TUVC79BmCXAbJTEWVb3KIF9PpZo" />
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-500 font-medium truncate w-full text-center">Jessica</span>
+                </div>
+                <!-- Add Friend -->
+                <div class="flex flex-col items-center gap-2 min-w-[64px]">
+                    <div
+                        class="flex items-center justify-center w-16 h-16 rounded-full bg-surface-dark border border-white/10 text-white cursor-pointer hover:bg-surface-dark/80 transition-colors">
+                        <span class="material-symbols-outlined">add</span>
+                    </div>
+                    <span class="text-xs text-gray-500 font-medium truncate w-full text-center">Invite</span>
+                </div>
+            </div>
+        </section>
+        <!-- Recommended Grid -->
+        <section class="mt-6 px-4">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-white text-lg font-bold tracking-tight">Recommended for You</h3>
+                <div class="flex gap-2">
+                    <button
+                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-dark text-white/70 hover:text-white">
+                        <span class="material-symbols-outlined text-[20px]">tune</span>
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Grid Item 1 -->
+                <div class="relative group rounded-xl overflow-hidden aspect-[2/3] bg-surface-dark shadow-lg">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Movie poster for Challengers showing three tennis players"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7ZMHdMD1TFoBGPGmHQHMmw0VQ3hP1yIRKzRL7HR7faQ5dHhce5QG2Zz1POYcu9SSOYioCAWrGFa6K5HjQwlDDXMgnabe1RtzQi69X7G2xaPHsU-pNYSCQD_DZ1IgW3LZxGTeg7-t7QMb0rcLNWXqyMm6nVxlJ3g7I-inq-mUXheA49KHdY76bHcSTJISKmBFgfbvMXebd8b6nqF3LhQoUeAH6aHx7W-xxUTGR5J1ENB0-BSbSdKIiBZ0LdZr7wfY-ekIovbnaOqfc');">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                    </div>
+                    <div class="absolute top-2 right-2">
+                        <div
+                            class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white/80 hover:bg-primary hover:text-white transition-colors cursor-pointer">
+                            <span class="material-symbols-outlined text-[18px]">bookmark</span>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-3">
+                        <h4 class="text-white font-bold leading-tight mb-1 truncate">Challengers</h4>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-400">Romance</span>
+                            <span class="text-xs font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">94%</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Grid Item 2 -->
+                <div class="relative group rounded-xl overflow-hidden aspect-[2/3] bg-surface-dark shadow-lg">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Movie poster for The Fall Guy featuring a stuntman falling"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBWWdVguC5RVNtXfJ45Im67qovZ77FUfEfwpon75HsgUoYrg7h2Cd9VlekuAf-X4F-4HSNpHog0Z1LcDZ6c7CyEaF_HcWmrkN2wH74gO3NTYp4vVZRy4BZ1GdYjywXbOu1l--zJY5QuQwh5C6lhxyNuTAUjzRp3XypIRUkuRnY6ImYYlIHvLlVE3SlSV9GZR5fLtAC2uXFOgSSf6yJpFzabKiN9mIWBJsk05BmwYp2i2XJ5BqUCyd8bqozSAvtO3MBPpRFgrWYM3yG0');">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                    </div>
+                    <div class="absolute top-2 right-2">
+                        <div
+                            class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white/80 hover:bg-primary hover:text-white transition-colors cursor-pointer">
+                            <span class="material-symbols-outlined text-[18px]">bookmark</span>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-3">
+                        <h4 class="text-white font-bold leading-tight mb-1 truncate">The Fall Guy</h4>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-400">Action/Comedy</span>
+                            <span
+                                class="text-xs font-bold text-green-400 bg-green-400/10 px-1.5 py-0.5 rounded">88%</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Grid Item 3 -->
+                <div class="relative group rounded-xl overflow-hidden aspect-[2/3] bg-surface-dark shadow-lg">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Movie poster for Kingdom of the Planet of the Apes showing an ape on a horse"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDu1-kAUITDKNq51QKx7VBYx7D35L3eGO53fQpTZOyJw_43KCzSGK1-A0qMLyEXcRFiLgvTOqbUP9_UVzw1AhSv1m3yEqvx52Pq3DHTighB7MGlfh25suOmJw7qDVBlU2AAfQNgeg_xWpxDJlhFerc8tYqWr94r-diHvpioYg0zcrE4fYDEClJJBVQbEQjpjohk_N1GXLeqKQpt9R1DoE4HOGFETq6YdMUS2kosoaQvKMWA2MWRL0WKcHvNRDCsyLmobps0pxtoTmmO');">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                    </div>
+                    <div class="absolute top-2 right-2">
+                        <div
+                            class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white/80 hover:bg-primary hover:text-white transition-colors cursor-pointer">
+                            <span class="material-symbols-outlined text-[18px]">bookmark</span>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-3">
+                        <h4 class="text-white font-bold leading-tight mb-1 line-clamp-1">Kingdom of the Planet of the
+                            Apes</h4>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-400">Sci-Fi</span>
+                            <span
+                                class="text-xs font-bold text-yellow-500 bg-yellow-500/10 px-1.5 py-0.5 rounded">82%</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Grid Item 4 -->
+                <div class="relative group rounded-xl overflow-hidden aspect-[2/3] bg-surface-dark shadow-lg">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Movie poster for Furiosa showing a woman with war paint in a desert"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfhijPRGmIF05MeB7rff0JaG7k0vlj3tCKtSemea7jk1UUm0flR2vGYcVF2ohX1I6MVKdFQMs1OTe7G3rjuP5R-p0s6Qt3Q6NqlUn9eym5G-QFmYcn_thB4Vo5gZ5B-1mujVdMevHjGyUh58Zegg6FY_TUp0PKsqaQNYIRk1yNyRpEQ-0_S0zVwQ5XZvzS9Pqumkl2o4XWTh-KSgnhIF87OMv1uwQiZbMbBDM0EnQ6rVNJGiWYhI261nHS5TqVJnXyGWFi84dMca3h');">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                    </div>
+                    <div class="absolute top-2 right-2">
+                        <div
+                            class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white/80 hover:bg-primary hover:text-white transition-colors cursor-pointer">
+                            <span class="material-symbols-outlined text-[18px]">bookmark</span>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-3">
+                        <h4 class="text-white font-bold leading-tight mb-1 truncate">Furiosa</h4>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-400">Action</span>
+                            <span class="text-xs font-bold text-gray-400 bg-white/5 px-1.5 py-0.5 rounded">TBA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button
+                class="w-full mt-6 py-3 rounded-xl border border-white/10 text-sm font-medium text-gray-400 hover:text-white hover:border-white/20 transition-colors">
+                View All Recommendations
+            </button>
+        </section>
+        <div class="h-6"></div>
+        <!-- Bottom Navigation Bar -->
+        <nav class="fixed bottom-0 left-0 right-0 glass-nav pb-safe pt-2 px-6 z-40 max-w-md mx-auto">
+            <div class="flex justify-between items-center h-16">
+                <!-- Home (Active) -->
+                <button class="flex flex-col items-center justify-center gap-1 w-12 group">
+                    <span class="material-symbols-outlined text-primary group-hover:text-primary transition-colors"
+                        style="font-variation-settings: 'FILL' 1;">home</span>
+                    <span class="text-[10px] font-bold text-primary">Home</span>
+                </button>
+                <!-- Explore -->
+                <button
+                    class="flex flex-col items-center justify-center gap-1 w-12 group text-gray-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined group-hover:scale-110 transition-transform">explore</span>
+                    <span class="text-[10px] font-medium">Explore</span>
+                </button>
+                <!-- Ticket (Center FAB) -->
+                <button
+                    class="flex items-center justify-center w-12 h-12 rounded-full bg-primary shadow-[0_0_15px_rgba(13,89,242,0.4)] transform -translate-y-4 hover:-translate-y-5 transition-transform">
+                    <span class="material-symbols-outlined text-white text-[28px]">local_activity</span>
+                </button>
+                <!-- Social -->
+                <button
+                    class="flex flex-col items-center justify-center gap-1 w-12 group text-gray-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined group-hover:scale-110 transition-transform">group</span>
+                    <span class="text-[10px] font-medium">Social</span>
+                </button>
+                <!-- Profile -->
+                <button
+                    class="flex flex-col items-center justify-center gap-1 w-12 group text-gray-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined group-hover:scale-110 transition-transform">person</span>
+                    <span class="text-[10px] font-medium">Profile</span>
+                </button>
+            </div>
+            <!-- iOS Home Indicator Safe Area Spacer -->
+            <div class="h-4 w-full"></div>
+        </nav>
+    </div>
+</body>
+
+</html>

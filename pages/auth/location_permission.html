@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - Location Permission</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display antialiased overflow-hidden h-screen w-full relative">
+    <!-- Cinematic Background Layer -->
+    <!-- This layer acts as the immersive backdrop, blurred to focus attention on the modal -->
+    <div class="absolute inset-0 z-0">
+        <div class="w-full h-full bg-cover bg-center bg-no-repeat blur-sm scale-105 opacity-60 transition-opacity duration-700"
+            data-alt="Blurred atmospheric view of an empty cinema theater with red seats and dark lighting"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrNLo_iS4Jf3HVF9xsc0cznlv5WmEfmtFN4n2XAx0OZz1FgEmdhblZJvqwhuc_jFDImd_i0GG0kguYLyZtZncd_pZ-TYR61T0cHJbfK4LNoji35aAyoY6YOD2fk4KdqTGJddwW6dN4M_UzUsEwXnl7sT5Pr7AHnxg_dTrBv_sgm_E0X8yOa1LwUt8upiNZVjJ0AvOqiiqEJ5dw6U_Vk7l7nDcmXbdkEgfyvSQQ208G5fQ1ie2I59uWiW5JIIG0UAVJMv194Tr2-DZU");'>
+        </div>
+        <!-- Gradient Overlay for better text contrast and mood -->
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-background-dark/60 via-background-dark/80 to-background-dark/95">
+        </div>
+    </div>
+    <!-- Main Content Area - Centered Modal -->
+    <div class="relative z-10 flex flex-col items-center justify-end md:justify-center h-full w-full p-4 pb-8 md:p-6">
+        <!-- Glass Modal Container -->
+        <!-- Utilizing backdrop-blur and semi-transparent dark background for the glassmorphism effect -->
+        <div
+            class="w-full max-w-sm bg-[#1b1f27]/85 dark:bg-[#1b1f27]/85 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden flex flex-col items-center text-center p-6 gap-6 transform transition-all">
+            <!-- Iconography: Floating Pin Effect -->
+            <div
+                class="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center relative group mt-2 ring-1 ring-primary/20">
+                <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
+                <span
+                    class="material-symbols-outlined text-4xl text-primary drop-shadow-[0_0_8px_rgba(13,89,242,0.5)] z-10">location_on</span>
+            </div>
+            <!-- Typography: Title & Body -->
+            <div class="flex flex-col gap-3 px-2">
+                <h2 class="text-white text-2xl font-bold tracking-tight leading-tight">Allow Location Access?</h2>
+                <p class="text-[#9ca6ba] text-base leading-relaxed font-normal">
+                    We need your location to suggest the best movies and showtimes playing near you.
+                </p>
+            </div>
+            <!-- Action Buttons -->
+            <div class="w-full flex flex-col gap-3 pt-2">
+                <!-- Primary Button -->
+                <button
+                    class="w-full h-12 bg-primary hover:bg-primary/90 active:scale-[0.98] transition-all duration-200 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(13,89,242,0.3)] border border-primary/50">
+                    <span class="material-symbols-outlined text-[20px]">near_me</span>
+                    <span>Allow Once</span>
+                </button>
+                <!-- Secondary Button (Ghost) -->
+                <button
+                    class="w-full h-12 bg-transparent hover:bg-white/5 active:scale-[0.98] transition-all duration-200 text-[#9ca6ba] hover:text-white font-bold text-sm rounded-xl flex items-center justify-center border border-transparent hover:border-white/10">
+                    <span>Don't Allow</span>
+                </button>
+            </div>
+            <!-- Meta Text Footer -->
+            <div class="border-t border-white/5 w-full pt-4 mt-1">
+                <p class="text-[#6b7280] text-xs font-normal">
+                    You can change this anytime in settings.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

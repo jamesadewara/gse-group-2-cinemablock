@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - Profile Setup</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3b4354;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #556075;
+        }
+
+        .genre-checkbox:checked+div {
+            border-color: #0d59f2;
+            background-color: rgba(13, 89, 242, 0.1);
+            color: white;
+            box-shadow: 0 0 15px rgba(13, 89, 242, 0.3);
+        }
+
+        .genre-checkbox:checked+div .check-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Input autofill fix for dark mode */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px #101622 inset !important;
+            -webkit-text-fill-color: white !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display min-h-screen flex flex-col antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+    <!-- Top Navigation -->
+    <nav
+        class="sticky top-0 z-50 flex items-center justify-between p-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-transparent dark:border-white/5">
+        <button
+            class="flex items-center justify-center w-10 h-10 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+            <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <button
+            class="px-4 py-2 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">
+            Skip
+        </button>
+    </nav>
+    <!-- Main Scrollable Content -->
+    <main class="flex-1 w-full max-w-md mx-auto px-6 pb-24 pt-4 flex flex-col gap-8">
+        <!-- Headline -->
+        <div class="text-center animate-fade-in-up">
+            <h1 class="text-3xl font-bold tracking-tight mb-2">Let's get to know you</h1>
+            <p class="text-slate-500 dark:text-slate-400 text-sm">Create your CineSocial identity</p>
+        </div>
+        <!-- Photo Picker -->
+        <div class="flex flex-col items-center gap-4">
+            <div class="relative group cursor-pointer">
+                <div
+                    class="w-32 h-32 rounded-full bg-slate-200 dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-700 overflow-hidden relative group-hover:border-primary transition-colors duration-300">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-60"
+                        data-alt="Abstract gradient placeholder for user avatar"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDF-1xOLQlXP8e0I8Mg0M0v97lLfQYQJB8sPA0pkp5x5AUHaNqCe9JwJ3KmjSUiFxDvBA2W7p2XETQW1UX4ujyS2dsKL5NQ6yKKJGrZf5NalxltuSiXjxDnnJKo1wQvH7A3m3JLxPd7sU90yKBdnE1CQ9jID-xKH4uCOGJGRZl6gGQFO9mJ53WFZX2ss9nicfdgrXWB_GBn8hTLT7p72oxmsgJeGeyYgI29g3pvJBcJduULfMpTcftSsk12FzEcd5GK5qpBgZAyblaW');">
+                    </div>
+                    <!-- Camera Icon Overlay -->
+                    <div
+                        class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-200">
+                            <span class="material-symbols-outlined text-white text-xl">photo_camera</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-primary text-sm font-medium text-center mt-3">Change Photo</p>
+            </div>
+        </div>
+        <!-- Form Inputs (Minimalist Lines) -->
+        <div class="space-y-6">
+            <div class="group">
+                <label
+                    class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-1 group-focus-within:text-primary transition-colors"
+                    for="display-name">Display Name</label>
+                <input
+                    class="block w-full bg-transparent border-0 border-b border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white px-0 py-3 focus:ring-0 focus:border-primary placeholder-slate-400 dark:placeholder-slate-600 transition-colors text-lg"
+                    id="display-name" placeholder="e.g. Movie Buff" type="text" />
+            </div>
+            <div class="group">
+                <label
+                    class="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-1 group-focus-within:text-primary transition-colors"
+                    for="handle">Handle</label>
+                <div
+                    class="flex items-center border-b border-slate-300 dark:border-slate-700 focus-within:border-primary transition-colors">
+                    <span class="text-slate-400 dark:text-slate-600 text-lg py-3 pr-1">@</span>
+                    <input
+                        class="block w-full bg-transparent border-0 text-slate-900 dark:text-white px-0 py-3 focus:ring-0 placeholder-slate-400 dark:placeholder-slate-600 text-lg"
+                        id="handle" placeholder="username" type="text" />
+                </div>
+            </div>
+        </div>
+        <!-- Genre Selection Grid -->
+        <div class="pt-4">
+            <h3 class="text-lg font-semibold mb-4 text-slate-900 dark:text-white">Favorite Genres</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4 -mt-3 uppercase tracking-wider font-medium">Select
+                at least 3</p>
+            <div class="grid grid-cols-3 gap-3">
+                <!-- Genre Item -->
+                <label class="cursor-pointer relative group">
+                    <input checked="" class="genre-checkbox sr-only" type="checkbox" />
+                    <div
+                        class="h-24 rounded-lg bg-slate-100 dark:bg-[#1a202c] border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all duration-200 hover:bg-slate-200 dark:hover:bg-slate-800 active:scale-95">
+                        <span class="material-symbols-outlined text-2xl">rocket_launch</span>
+                        <span class="text-xs font-medium tracking-wide">Sci-Fi</span>
+                    </div>
+                </label>
+                <label class="cursor-pointer relative group">
+                    <input class="genre-checkbox sr-only" type="checkbox" />
+                    <div
+                        class="h-24 rounded-lg bg-slate-100 dark:bg-[#1a202c] border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all duration-200 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 active:scale-95">
+                        <span class="material-symbols-outlined text-2xl">sports_martial_arts</span>
+                        <span class="text-xs font-medium tracking-wide">Action</span>
+                    </div>
+                </label>
+                <label class="cursor-pointer relative group">
+                    <input class="genre-checkbox sr-only" type="checkbox" />
+                    <div
+                        class="h-24 rounded-lg bg-slate-100 dark:bg-[#1a202c] border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all duration-200 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 active:scale-95">
+                        <span class="material-symbols-outlined text-2xl">mood</span>
+                        <span class="text-xs font-medium tracking-wide">Comedy</span>
+                    </div>
+                </label>
+                <label class="cursor-pointer relative group">
+                    <input class="genre-checkbox sr-only" type="checkbox" />
+                    <div
+                        class="h-24 rounded-lg bg-slate-100 dark:bg-[#1a202c] border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all duration-200 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 active:scale-95">
+                        <span class="material-symbols-outlined text-2xl">theater_comedy</span>
+                        <span class="text-xs font-medium tracking-wide">Drama</span>
+                    </div>
+                </label>
+                <label class="cursor-pointer relative group">
+                    <input checked="" class="genre-checkbox sr-only" type="checkbox" />
+                    <div
+                        class="h-24 rounded-lg bg-slate-100 dark:bg-[#1a202c] border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all duration-200 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 active:scale-95">
+                        <span class="material-symbols-outlined text-2xl">skull</span>
+                        <span class="text-xs font-medium tracking-wide">Horror</span>
+                    </div>
+                </label>
+                <label class="cursor-pointer relative group">
+                    <input class="genre-checkbox sr-only" type="checkbox" />
+                    <div
+                        class="h-24 rounded-lg bg-slate-100 dark:bg-[#1a202c] border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all duration-200 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 active:scale-95">
+                        <span class="material-symbols-outlined text-2xl">local_movies</span>
+                        <span class="text-xs font-medium tracking-wide">Thriller</span>
+                    </div>
+                </label>
+                <label class="cursor-pointer relative group">
+                    <input class="genre-checkbox sr-only" type="checkbox" />
+                    <div
+                        class="h-24 rounded-lg bg-slate-100 dark:bg-[#1a202c] border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all duration-200 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 active:scale-95">
+                        <span class="material-symbols-outlined text-2xl">favorite</span>
+                        <span class="text-xs font-medium tracking-wide">Romance</span>
+                    </div>
+                </label>
+                <label class="cursor-pointer relative group">
+                    <input class="genre-checkbox sr-only" type="checkbox" />
+                    <div
+                        class="h-24 rounded-lg bg-slate-100 dark:bg-[#1a202c] border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all duration-200 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 active:scale-95">
+                        <span class="material-symbols-outlined text-2xl">menu_book</span>
+                        <span class="text-xs font-medium tracking-wide">Docu</span>
+                    </div>
+                </label>
+                <label class="cursor-pointer relative group">
+                    <input class="genre-checkbox sr-only" type="checkbox" />
+                    <div
+                        class="h-24 rounded-lg bg-slate-100 dark:bg-[#1a202c] border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all duration-200 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 active:scale-95">
+                        <span class="material-symbols-outlined text-2xl">palette</span>
+                        <span class="text-xs font-medium tracking-wide">Animation</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </main>
+    <!-- Sticky Footer CTA -->
+    <div
+        class="fixed bottom-0 left-0 w-full p-6 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark dark:to-transparent z-40 pointer-events-none">
+        <div class="max-w-md mx-auto pointer-events-auto">
+            <button
+                class="w-full bg-primary hover:bg-blue-600 text-white font-semibold text-lg py-4 rounded-xl shadow-lg shadow-blue-900/20 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2">
+                <span>Complete Setup</span>
+                <span class="material-symbols-outlined text-xl">arrow_forward</span>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

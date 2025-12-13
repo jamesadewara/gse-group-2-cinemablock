@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Post Detail View - CineSocial</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "cinematic-black": "#050505",
+                        "cinematic-surface": "#121212",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .safe-top {
+            padding-top: max(20px, env(safe-area-inset-top));
+        }
+
+        .safe-bottom {
+            padding-bottom: max(20px, env(safe-area-inset-bottom));
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-cinematic-black font-display text-slate-900 dark:text-white antialiased overflow-hidden h-screen w-full flex flex-col group/design-root">
+    <!-- Video Header / Media Player -->
+    <div class="relative w-full h-[45vh] shrink-0 bg-black shadow-2xl z-0">
+        <!-- Floating Back Button (TopAppBar equivalent) -->
+        <div class="absolute top-0 left-0 z-30 p-4 safe-top w-full pointer-events-none">
+            <button
+                class="pointer-events-auto flex items-center justify-center size-10 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50 transition-colors border border-white/5">
+                <span class="material-symbols-outlined" style="font-size: 20px;">arrow_back_ios_new</span>
+            </button>
+        </div>
+        <!-- Video Content -->
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center"
+            data-alt="Cinematic still from Dune Part Two showing dramatic desert landscape with deep orange and black contrast"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADFpChfT6E5iEIw4-l3vFK2luxgLhk-C8TIaOSKre6Qi1aQcrGxzDvuXQyktr8s59f_F9DrLOhM3DUDLGTcukBxjdJQT20Qs12E-Wxeom4fPpLltM0WW5pVuQzP950sR58yMfFd1kn2IJ-xzME9OxBhozXd9Ep1cgk_r-XA2vc8F1fNYjldt3kEi492dUcg6yrUmx53z36LH23cyTn7ybmX7fVxdcYNCa_Li96t-Q5Ifudfi4lT-AtWHQkDNLxlL-_ML9qYzK8wmHI");'>
+            <!-- Video Gradient Overlays -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-cinematic-black"></div>
+            <!-- Play Button (Centered) -->
+            <div class="absolute inset-0 flex items-center justify-center z-20">
+                <button
+                    class="flex shrink-0 items-center justify-center rounded-full size-16 bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:scale-110 hover:bg-white/20 transition-all duration-300 shadow-[0_0_40px_rgba(13,89,242,0.3)]">
+                    <span class="material-symbols-outlined filled"
+                        style="font-size: 36px; font-variation-settings: 'FILL' 1;">play_arrow</span>
+                </button>
+            </div>
+            <!-- Video Info Overlay -->
+            <div class="absolute bottom-6 right-4 z-20 flex gap-3">
+                <button
+                    class="flex items-center justify-center size-9 rounded-full bg-black/40 backdrop-blur-md text-white/90 hover:text-white border border-white/10">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">volume_up</span>
+                </button>
+                <button
+                    class="flex items-center justify-center size-9 rounded-full bg-black/40 backdrop-blur-md text-white/90 hover:text-white border border-white/10">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">fullscreen</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Scrollable Detail Content -->
+    <div
+        class="flex-1 overflow-y-auto no-scrollbar relative z-10 -mt-6 bg-background-light dark:bg-cinematic-black rounded-t-[32px] border-t border-white/10 shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.8)]">
+        <!-- Drag Handle -->
+        <div
+            class="sticky top-0 z-30 flex justify-center pt-3 pb-2 bg-inherit rounded-t-[32px] bg-background-light dark:bg-cinematic-black">
+            <div class="w-10 h-1 rounded-full bg-slate-300 dark:bg-white/20"></div>
+        </div>
+        <!-- Profile Header & Meta -->
+        <div class="px-5 pb-4 pt-1">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="relative">
+                        <div class="size-11 rounded-full bg-cover bg-center ring-2 ring-background-light dark:ring-cinematic-black"
+                            data-alt="Profile picture of user AlexCrits"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBYnMCJxt6hWRpv3-NvCUR_-rFCFI-9NBeEXcAwMlJrdq6p8SeNRFbRJSiXBMJGFKW0jgr_nn0g8BPdyS7d52lxc8g-ra7ki--TpYZYViMujHkXJ5-DIHuOowmYy1bOdzzX6cuc_PxtcFSx2rtREWr-e4ndBWTJPboW-c9DdP0tuiqp98301127Rd2k3OxPgU89io3Wqi36O9YVkuUOKZ63blYSVqPWl61Jeby85LITXRMHF9tzR20DZGJv3XuAchDT9tJyiuiUXPAB");'>
+                        </div>
+                        <!-- Online/Verified Indicator -->
+                        <div
+                            class="absolute -bottom-0 -right-0 size-4 bg-cinematic-black rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary text-[14px] filled"
+                                style="font-variation-settings: 'FILL' 1;">verified</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <h3 class="text-[17px] font-bold text-slate-900 dark:text-white leading-tight tracking-tight">
+                            AlexCrits</h3>
+                        <span class="text-xs font-medium text-slate-500 dark:text-slate-400">2 hours ago</span>
+                    </div>
+                </div>
+                <button
+                    class="px-5 py-1.5 h-9 rounded-full bg-primary/10 dark:bg-primary/20 text-primary text-sm font-bold hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+                    Follow
+                </button>
+            </div>
+        </div>
+        <!-- Body Text (Caption) -->
+        <div class="px-5 pb-2">
+            <p class="text-slate-800 dark:text-gray-200 text-[15px] leading-relaxed font-normal">
+                The cinematography in the new <span class="text-primary font-medium cursor-pointer">#DunePartTwo</span>
+                is absolutely mind-bending. Look at this lighting setup! The scale is just unimaginable. 🪐 <span
+                    class="text-primary font-medium cursor-pointer">#Cinematography</span>
+            </p>
+        </div>
+        <!-- Actions Bar -->
+        <div class="px-5 py-4">
+            <div
+                class="flex items-center justify-between p-3 rounded-2xl bg-white dark:bg-cinematic-surface border border-slate-200 dark:border-white/5">
+                <div class="flex items-center gap-6 pl-2">
+                    <!-- Like -->
+                    <button
+                        class="group flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-red-500 transition-colors">
+                        <span
+                            class="material-symbols-outlined group-hover:fill-current group-active:scale-125 transition-transform"
+                            style="font-size: 24px;">favorite</span>
+                        <span class="text-sm font-semibold">1.2k</span>
+                    </button>
+                    <!-- Comment -->
+                    <button
+                        class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined" style="font-size: 24px;">chat_bubble</span>
+                        <span class="text-sm font-semibold">342</span>
+                    </button>
+                    <!-- Share -->
+                    <button
+                        class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-white transition-colors">
+                        <span class="material-symbols-outlined" style="font-size: 24px;">ios_share</span>
+                    </button>
+                </div>
+                <!-- Bookmark -->
+                <button class="pr-2 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined" style="font-size: 24px;">bookmark</span>
+                </button>
+            </div>
+        </div>
+        <!-- Comments Thread -->
+        <div class="px-5 pb-28 pt-2">
+            <div class="flex items-center justify-between mb-5">
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white/50 uppercase tracking-widest">Discussion
+                </h4>
+                <div class="flex items-center gap-1 text-slate-400">
+                    <span class="text-xs font-medium">Top Comments</span>
+                    <span class="material-symbols-outlined text-[16px]">expand_more</span>
+                </div>
+            </div>
+            <div class="space-y-5">
+                <!-- Comment 1 -->
+                <div class="flex gap-3 group">
+                    <div class="size-9 rounded-full bg-cover bg-center shrink-0 mt-0.5 shadow-sm"
+                        data-alt="User avatar for SarahM"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCXdyJiFb2EHfM5ZSbcvUYQm2CXdDiKgpl29xySX1Yi7EQW9F5H7NpjBnhq8LJNbPxevbUKQ1aSPnzMVCbgkDbVO8VII_mJu4JlbUkGMwVMEPmp9ZDr7tGzZk7xWG6b4HOeH-ymvlXIShC_3nvrs02ZMJB7xEg1WwvCtTsJ07OphMlYpa65OPzM9fYVMa_Ut01Y-SFf_TUAG4BxBntXzjiyGKL4d9RcGqED6eHNBTh7d331KW1yHyAvBgJ8P9dY7lb9kCV8fKKBaM2S");'>
+                    </div>
+                    <div class="flex flex-col gap-1 w-full">
+                        <div
+                            class="bg-white dark:bg-cinematic-surface p-3.5 rounded-2xl rounded-tl-none border border-slate-100 dark:border-white/5 shadow-sm">
+                            <div class="flex justify-between items-start mb-1">
+                                <span class="text-sm font-bold text-slate-900 dark:text-gray-100">SarahM</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-gray-300 leading-snug">Totally agree, the color
+                                grading is insane. Every frame looks like a painting. 🎨</p>
+                        </div>
+                        <div class="flex items-center gap-5 pl-1 mt-0.5">
+                            <span class="text-[11px] text-slate-400 font-medium">12m</span>
+                            <button
+                                class="text-[11px] text-slate-500 dark:text-slate-400 font-bold hover:text-primary transition-colors">Reply</button>
+                            <button
+                                class="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 hover:text-red-500 transition-colors ml-auto">
+                                <span class="material-symbols-outlined text-[14px]">favorite</span> 24
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Comment 2 -->
+                <div class="flex gap-3 group">
+                    <div class="size-9 rounded-full bg-cover bg-center shrink-0 mt-0.5 shadow-sm"
+                        data-alt="User avatar for MovieBuff99"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBE_Gx5Wvs_ERasBAXexG_vmm-mzgmWyMJfjkIk_Css7KrhvlrqJakDYc7StdsfJ_Wn02giExd0u406b8lMPgG4BM2sFM1hSE7SY83dw6zGIErcxq98COLQE9kv1yiF-keYCEZ6pjXbBKaGm3MaCZ_QcYVppDvINV6qzs2iBrq5YDzQVQzSXrZg7pFjsTWVrrnOS-XAcFrA1Htyux8wPBGZn8SDvGleI74znYdy8kgZQEPiRLByIh_laxoDch1KN1eOhcziFnM7-Cti");'>
+                    </div>
+                    <div class="flex flex-col gap-1 w-full">
+                        <div
+                            class="bg-white dark:bg-cinematic-surface p-3.5 rounded-2xl rounded-tl-none border border-slate-100 dark:border-white/5 shadow-sm">
+                            <div class="flex justify-between items-start mb-1">
+                                <span class="text-sm font-bold text-slate-900 dark:text-gray-100">MovieBuff99</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-gray-300 leading-snug">Is this IMAX footage? The
+                                aspect ratio looks taller than the standard release.</p>
+                        </div>
+                        <div class="flex items-center gap-5 pl-1 mt-0.5">
+                            <span class="text-[11px] text-slate-400 font-medium">45m</span>
+                            <button
+                                class="text-[11px] text-slate-500 dark:text-slate-400 font-bold hover:text-primary transition-colors">Reply</button>
+                            <button
+                                class="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 hover:text-red-500 transition-colors ml-auto">
+                                <span class="material-symbols-outlined text-[14px]">favorite</span> 8
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Comment 3 -->
+                <div class="flex gap-3 group">
+                    <div class="size-9 rounded-full bg-cover bg-center shrink-0 mt-0.5 shadow-sm"
+                        data-alt="User avatar for DuneFan"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB9zJ8URGH_jqSKLw5mYmLYSaVVE7-ez-THRU62oG9vGmD3WP6EIQL9m0jA0xaQgUmwwifkkEKrvDfWlVAY2qGi18oM0yQw9ruzqCmwwn10BnzrDnb_DYhF3IWBAaaYQzRql0cU_E6G5u9iFqnVogUVOSDEhY0lj32IBCE4gQQv77dLeXcudWnYt8kcESspVRWJOpNLnPQROdIE--DCGxn2J2_TFlBNAdu1iXIeYGJQIU6r--xjoNfXD2tNYyJ-WzuXtcHFTo9j5nzu");'>
+                    </div>
+                    <div class="flex flex-col gap-1 w-full">
+                        <div
+                            class="bg-white dark:bg-cinematic-surface p-3.5 rounded-2xl rounded-tl-none border border-slate-100 dark:border-white/5 shadow-sm">
+                            <div class="flex justify-between items-start mb-1">
+                                <span class="text-sm font-bold text-slate-900 dark:text-gray-100">DuneFan</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-gray-300 leading-snug">I need to see this in
+                                Dolby Cinema immediately! Does anyone know when tickets drop? 🎫</p>
+                        </div>
+                        <div class="flex items-center gap-5 pl-1 mt-0.5">
+                            <span class="text-[11px] text-slate-400 font-medium">1h</span>
+                            <button
+                                class="text-[11px] text-slate-500 dark:text-slate-400 font-bold hover:text-primary transition-colors">Reply</button>
+                            <button
+                                class="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 hover:text-red-500 transition-colors ml-auto">
+                                <span class="material-symbols-outlined text-[14px]">favorite</span> 156
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fixed Glassmorphism Input Bar -->
+    <div
+        class="absolute bottom-0 left-0 w-full z-40 bg-white/80 dark:bg-[#050505]/80 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 safe-bottom">
+        <div class="px-4 py-3 flex items-center gap-3">
+            <div class="size-9 rounded-full bg-cover bg-center shrink-0 opacity-100 ring-1 ring-white/20"
+                data-alt="Current user avatar"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDuhk7BC6bu9FH45U-d1U5x8g9UYkAlCDPqLfOXwvDOdwa3OIc3HLY7aJKI_miMZ6sdUuxWCHSOt9awhDfspUs1jNT6pkgxox06WZNmnkM6x5H3fVMXNXS9sMasmOoh7xdtzQ1YV4lYjCEktG6LCi_0RMJOIxos5maZNFbOebv8uvxQky3ByYaPviyB5SkyH4bihqTIa-mMyfyxm_RVV6KUAtr8b9CYXV-EiqvlAns-TKh2LTQ5fnlGzRXPisQHOYRm44_7SqDOC3DL");'>
+            </div>
+            <div class="flex-1 relative group/input">
+                <input
+                    class="w-full bg-slate-100 dark:bg-cinematic-surface text-slate-900 dark:text-white text-[15px] rounded-full py-3 pl-5 pr-12 outline-none border border-transparent focus:border-primary/50 focus:ring-1 focus:ring-primary/50 placeholder-slate-500 dark:placeholder-white/30 transition-all"
+                    placeholder="Add a comment..." type="text" />
+                <button
+                    class="absolute right-2 top-1/2 -translate-y-1/2 size-8 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors flex items-center justify-center shadow-lg shadow-primary/30">
+                    <span class="material-symbols-outlined" style="font-size: 18px;">arrow_upward</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

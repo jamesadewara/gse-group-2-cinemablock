@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial Video Player</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom range thumb styling for a more native feel if we were using input range, 
+           but here we build a custom div-based slider for more control */
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black text-white font-display overflow-hidden antialiased h-screen w-screen selection:bg-primary selection:text-white">
+<!-- Main Player Container -->
+<!-- bg-black is enforced here for immersion as per requirements -->
+<div class="relative w-full h-full flex flex-col justify-between group/player bg-black">
+<!-- Background Video Layer (Simulated with Image) -->
+<div class="absolute inset-0 z-0 flex items-center justify-center bg-black">
+<!-- In a real app, this would be a <video> tag -->
+<img class="w-full h-full object-cover opacity-90" data-alt="Cinematic dark scene from the movie Dune with desert hues" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpeVJTezuqZGQNqPF_YKgbRbNppVYvhTalbqIU5JBLpBtt_Ca1787jt_8Eo1VBMHq9-y0wgOpY4MBa1VLdZfG9gxznGwOlbPs00XlA6HruNAMwldIm_sz91rJId-XU2kfLsOZMFzM4i6UXT_P-7hakXCsYfU0EJoAYGns0aenBRRGiboeMf0Qkjl_kOU3rgSwjvUHnD30uS6Wu_Tjm1X5W8qo_3p6LBhePfUlHuCVBpCjsGY6M7DwzmG7b1LVww37qLYkCG-LAoW6-"/>
+<!-- Cinematic Vignette Overlay: Improves text readability at top and bottom -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none"></div>
+</div>
+<!-- Top Bar (Transient UI) -->
+<!-- Matches TopAppBar component but adapted for overlay -->
+<div class="relative z-20 flex items-start justify-between px-6 pt-14 pb-4 w-full opacity-100 transition-opacity duration-300">
+<!-- Back / Close Button -->
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-white/10 transition-colors text-white backdrop-blur-sm">
+<span class="material-symbols-outlined text-2xl">expand_more</span>
+</button>
+<!-- Metadata (Optional, centered) -->
+<div class="flex flex-col items-center flex-1 mx-4 mt-1">
+<h2 class="text-white text-base font-bold tracking-tight drop-shadow-md text-center">Dune: Part Two</h2>
+<span class="text-white/70 text-xs font-medium tracking-wide">Denis Villeneuve</span>
+</div>
+<!-- Cast / Options -->
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-white/10 transition-colors text-white backdrop-blur-sm">
+<span class="material-symbols-outlined text-2xl">cast</span>
+</button>
+</div>
+<!-- Center Controls Area -->
+<div class="relative z-10 flex-1 flex items-center justify-center gap-8 md:gap-16 w-full px-6">
+<!-- Rewind Button (Hidden on very small screens if crowded, but good for phones) -->
+<button class="hidden min-[380px]:flex items-center justify-center size-14 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all active:scale-95 backdrop-blur-sm">
+<span class="material-symbols-outlined text-4xl">replay_10</span>
+</button>
+<!-- Main Play/Pause Button -->
+<!-- Matches MediaPlayer component style but enhanced -->
+<button class="group/play flex items-center justify-center size-20 rounded-full bg-primary/20 text-white backdrop-blur-md border border-white/10 hover:bg-primary hover:border-primary transition-all duration-300 transform active:scale-90 shadow-2xl shadow-black/50">
+<span class="material-symbols-outlined text-5xl icon-filled pl-1">play_arrow</span>
+</button>
+<!-- Forward Button -->
+<button class="hidden min-[380px]:flex items-center justify-center size-14 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all active:scale-95 backdrop-blur-sm">
+<span class="material-symbols-outlined text-4xl">forward_10</span>
+</button>
+</div>
+<!-- Bottom Controls Bar -->
+<!-- Combines Slider, MetaText, and ToolBar components -->
+<div class="relative z-20 px-6 pb-10 pt-8 w-full flex flex-col gap-2 bg-gradient-to-t from-black via-black/80 to-transparent">
+<!-- Scrubber (Slider Component Adapted) -->
+<div class="w-full group/scrubber cursor-pointer py-3 select-none">
+<!-- Hover Timestamp Preview -->
+<div class="relative w-full">
+<div class="absolute left-[32%] bottom-3 -translate-x-1/2 opacity-0 group-hover/scrubber:opacity-100 transition-opacity duration-200 pointer-events-none">
+<div class="bg-white/10 backdrop-blur-md border border-white/10 rounded-md px-2 py-1 shadow-lg">
+<span class="text-xs font-bold text-white">01:24</span>
+</div>
+</div>
+</div>
+<!-- Progress Track -->
+<div class="flex items-center h-4 w-full">
+<div class="relative flex-1 h-1 bg-white/20 rounded-full group-hover/scrubber:h-1.5 transition-all duration-200">
+<!-- Buffered Bar -->
+<div class="absolute h-full w-[45%] bg-white/10 rounded-full"></div>
+<!-- Progress Bar -->
+<div class="absolute h-full w-[32%] bg-primary rounded-full"></div>
+<!-- Knob / Handle -->
+<div class="absolute left-[32%] top-1/2 -translate-y-1/2 -translate-x-1/2 size-3 bg-white rounded-full scale-0 group-hover/scrubber:scale-100 shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-transform duration-200"></div>
+</div>
+</div>
+</div>
+<!-- Controls Row -->
+<div class="flex items-center justify-between w-full -mt-1">
+<!-- MetaText Component Content -->
+<div class="flex items-center gap-4">
+<p class="text-gray-300 text-xs font-medium tracking-wide">
+<span class="text-white font-bold">01:24</span>
+<span class="opacity-50 mx-1">/</span>
+<span>02:45</span>
+</p>
+</div>
+<!-- ToolBar Component Content -->
+<div class="flex items-center gap-1">
+<!-- Audio/Subs -->
+<button aria-label="Audio and Subtitles" class="p-2.5 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[22px]">closed_caption</span>
+</button>
+<!-- Volume -->
+<button aria-label="Volume" class="p-2.5 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[22px]">volume_up</span>
+</button>
+<!-- Fullscreen -->
+<button aria-label="Fullscreen" class="ml-1 p-2.5 rounded-full text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

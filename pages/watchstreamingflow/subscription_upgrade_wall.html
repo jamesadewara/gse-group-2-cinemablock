@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial Pro Upgrade</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        /* Custom utilities for the gradient overlay */
+        .scrim-gradient {
+            background: linear-gradient(to top, #101622 10%, #101622 E0%, rgba(16, 22, 34, 0.4) 100%);
+        }
+
+        /* More aggressive gradient for text readability */
+        .scrim-gradient-strong {
+            background: linear-gradient(to top, #101622 0%, #101622 45%, rgba(16, 22, 34, 0.8) 70%, rgba(16, 22, 34, 0.2) 100%);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display antialiased overflow-hidden">
+    <div class="relative flex h-screen w-full flex-col overflow-hidden bg-background-dark group/design-root">
+        <!-- Immersive Background Image -->
+        <div class="absolute inset-0 z-0">
+            <div class="h-full w-full bg-cover bg-center bg-no-repeat"
+                data-alt="Cinematic movie theater audience in dark silhouette watching a screen"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuASn8bvxJ99W5N_L5_M_2MeyMxXFfXVtYSoDGUFN-w_8GiZWAvALBMvLXLoRXqG1_ctHDcHFc00ZOGQsswuEacDojVsaqXynlIjgpyf72XTqEsHhoHtkTDt8nDue6kDQW7ArrL4Py6Yyld_wzSBjpEQV09tF6z29oZ0LFt1i1n2qIkJdGb9Dn_kiaunxN2hrQruRg_fy2Z5VzazbCqza98wbUd_1PVbyStBlKQFcfoKZZ6s2KFyD0yG7gs1azB4WLwdpRKyQI1MT0Rm');">
+            </div>
+            <!-- Gradient Overlay for readability -->
+            <div class="absolute inset-0 scrim-gradient-strong"></div>
+        </div>
+        <!-- Main Content Wrapper -->
+        <div class="relative z-10 flex h-full flex-col px-6 py-6">
+            <!-- Top Bar: Close Button -->
+            <div class="flex items-center justify-end pt-2">
+                <button
+                    class="flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md p-2 text-white hover:bg-white/20 transition-colors duration-200">
+                    <span class="material-symbols-outlined text-white" style="font-size: 24px;">close</span>
+                </button>
+            </div>
+            <!-- Spacer to push content down -->
+            <div class="flex-1"></div>
+            <!-- Content Area -->
+            <div class="flex flex-col items-center pb-8 animate-fade-in-up">
+                <!-- Headline Section -->
+                <div class="mb-2 text-center">
+                    <h1 class="text-white tracking-tight text-4xl font-black leading-tight">CineSocial Pro</h1>
+                </div>
+                <!-- Subheadline -->
+                <div class="mb-8 text-center px-4">
+                    <p class="text-gray-300 text-lg font-medium leading-normal">Unlock the full experience. Join the
+                        inner circle today.</p>
+                </div>
+                <!-- Benefits List -->
+                <div class="w-full max-w-sm space-y-3 mb-8">
+                    <!-- Item 1 -->
+                    <div
+                        class="flex items-center gap-4 rounded-xl bg-[#232f48]/40 border border-[#232f48] backdrop-blur-sm px-4 py-3">
+                        <div class="text-primary flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined" style="font-size: 24px;">check_circle</span>
+                        </div>
+                        <p class="text-white text-base font-medium flex-1">No Booking Fees</p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div
+                        class="flex items-center gap-4 rounded-xl bg-[#232f48]/40 border border-[#232f48] backdrop-blur-sm px-4 py-3">
+                        <div class="text-primary flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined" style="font-size: 24px;">check_circle</span>
+                        </div>
+                        <p class="text-white text-base font-medium flex-1">Unlimited Watchlists</p>
+                    </div>
+                    <!-- Item 3 -->
+                    <div
+                        class="flex items-center gap-4 rounded-xl bg-[#232f48]/40 border border-[#232f48] backdrop-blur-sm px-4 py-3">
+                        <div class="text-primary flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined" style="font-size: 24px;">check_circle</span>
+                        </div>
+                        <p class="text-white text-base font-medium flex-1">Exclusive Director's Cuts</p>
+                    </div>
+                </div>
+                <!-- Pricing -->
+                <div class="mb-6 text-center">
+                    <p class="text-white/80 text-sm font-medium">
+                        <span class="text-white text-lg font-bold">$4.99</span> / month, cancel anytime.
+                    </p>
+                </div>
+                <!-- CTA Button -->
+                <button
+                    class="w-full max-w-sm rounded-full bg-primary py-4 px-6 text-center text-base font-bold text-white shadow-[0_0_20px_rgba(17,82,212,0.4)] hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(17,82,212,0.6)] active:scale-[0.98] transition-all duration-200">
+                    Upgrade Now
+                </button>
+                <!-- Secondary Actions -->
+                <div class="mt-6 flex gap-6">
+                    <button class="text-xs font-medium text-gray-400 hover:text-white transition-colors">Restore
+                        Purchase</button>
+                    <button class="text-xs font-medium text-gray-400 hover:text-white transition-colors">Terms &amp;
+                        Conditions</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

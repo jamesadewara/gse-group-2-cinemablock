@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial - Report Bug</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#050505", // Deep black for OLED
+                        "surface-dark": "#121212", // Slightly lighter for cards/inputs
+                        "surface-highlight": "#1E1E1E",
+                        "text-secondary": "#9CA3AF",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for textarea */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background-color: #333;
+            border-radius: 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-slate-900 dark:text-white overflow-hidden flex flex-col items-center justify-center">
+<!-- Mobile Container -->
+<div class="relative w-full max-w-md h-[100dvh] flex flex-col bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
+<!-- Top App Bar -->
+<header class="flex items-center justify-between px-4 py-4 pt-10 z-10 bg-background-light dark:bg-background-dark sticky top-0">
+<button aria-label="Go back" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-2xl dark:text-white text-slate-900">arrow_back</span>
+</button>
+<h1 class="text-lg font-semibold tracking-wide text-center flex-1 pr-10 dark:text-white text-slate-900">Report an Issue</h1>
+</header>
+<!-- Main Content Scroll Area -->
+<main class="flex-1 overflow-y-auto px-5 pt-2 pb-24 scroll-smooth">
+<!-- Context/Instructions -->
+<div class="mb-6 animate-fade-in-up">
+<p class="text-sm text-text-secondary font-normal leading-relaxed text-center">
+                    Found a glitch in the matrix? Let us know so we can fix it before the next screening.
+                </p>
+</div>
+<!-- Segmented Buttons (Category) -->
+<div class="mb-6">
+<div class="flex p-1 bg-gray-200 dark:bg-surface-dark rounded-xl relative">
+<!-- Active background pill (using css logic or js logic usually, simplified here with static styling for the first option) -->
+<label class="flex-1 relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="report_type" type="radio" value="bug"/>
+<div class="h-10 flex items-center justify-center rounded-lg text-sm font-medium transition-all duration-300 text-slate-500 dark:text-gray-400 peer-checked:bg-white dark:peer-checked:bg-surface-highlight peer-checked:text-primary dark:peer-checked:text-white peer-checked:shadow-sm">
+<span class="material-symbols-outlined mr-2 text-[18px]">bug_report</span>
+                            Bug Report
+                        </div>
+</label>
+<label class="flex-1 relative cursor-pointer group">
+<input class="peer sr-only" name="report_type" type="radio" value="feedback"/>
+<div class="h-10 flex items-center justify-center rounded-lg text-sm font-medium transition-all duration-300 text-slate-500 dark:text-gray-400 peer-checked:bg-white dark:peer-checked:bg-surface-highlight peer-checked:text-primary dark:peer-checked:text-white peer-checked:shadow-sm">
+<span class="material-symbols-outlined mr-2 text-[18px]">lightbulb</span>
+                            Feedback
+                        </div>
+</label>
+</div>
+</div>
+<!-- Text Input Area -->
+<div class="space-y-4">
+<div class="relative group">
+<label class="sr-only" for="description">Description</label>
+<textarea class="w-full bg-gray-100 dark:bg-surface-dark text-slate-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-600 rounded-2xl p-4 min-h-[240px] border-2 border-transparent focus:border-primary focus:ring-0 focus:outline-none resize-none transition-all duration-300 text-base leading-relaxed selection:bg-primary selection:text-white" id="description" placeholder="Describe the bug you encountered or share your ideas for CineSocial..."></textarea>
+<!-- Floating attach button inside the textarea container -->
+<div class="absolute bottom-3 right-3">
+<button aria-label="Attach file" class="flex items-center justify-center p-2 rounded-full text-primary bg-primary/10 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">attach_file</span>
+</button>
+</div>
+</div>
+<!-- Helper Text / Meta -->
+<div class="flex items-start gap-3 px-1">
+<span class="material-symbols-outlined text-text-secondary text-lg mt-0.5">info</span>
+<p class="text-xs text-text-secondary leading-normal">
+                        Screenshots and screen recordings help us troubleshoot issues much faster. Max file size: 10MB.
+                    </p>
+</div>
+<!-- Attachment Preview (Empty state hidden, showing a populated state example) -->
+<!-- 
+                <div class="flex gap-3 overflow-x-auto pb-2">
+                    <div class="relative w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-white/10 group">
+                        <img src="https://placehold.co/100x100/1e1e1e/FFF?text=IMG" alt="Attached screenshot" class="w-full h-full object-cover opacity-70">
+                        <button class="absolute top-0.5 right-0.5 bg-black/50 rounded-full p-0.5 text-white hover:bg-red-500/80 transition-colors">
+                            <span class="material-symbols-outlined text-[14px]">close</span>
+                        </button>
+                    </div>
+                </div> 
+                -->
+</div>
+</main>
+<!-- Bottom Action Area -->
+<div class="absolute bottom-0 left-0 w-full p-5 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark dark:to-transparent z-20 pb-8">
+<button class="w-full h-14 bg-primary hover:bg-blue-600 text-white font-bold text-base rounded-xl shadow-lg shadow-blue-900/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group">
+<span>Submit Report</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform text-[20px]">send</span>
+</button>
+</div>
+</div>
+</body></html>

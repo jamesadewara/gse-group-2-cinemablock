@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - My Groups</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts: Spline Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#050505", /* Deep Black for cinematic feel */
+                        "surface-dark": "#121212", /* Slightly lighter for cards */
+                        "surface-dark-hover": "#1A1A1A",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        /* Subtle texture overlay for cinematic feel */
+        .cinematic-bg {
+            background-color: #050505;
+            background-image: radial-gradient(circle at 50% 0%, #1a2235 0%, #050505 60%);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-hidden h-screen w-screen flex flex-col cinematic-bg">
+    <!-- Top App Bar -->
+    <header
+        class="flex items-center px-4 pt-12 pb-2 justify-between shrink-0 z-10 sticky top-0 bg-transparent backdrop-blur-sm">
+        <h2 class="text-white text-2xl font-bold leading-tight tracking-tight flex-1">My Groups</h2>
+        <div class="flex w-12 items-center justify-end">
+            <button
+                class="flex items-center justify-center rounded-full h-10 w-10 bg-primary/20 text-primary hover:bg-primary hover:text-white transition-colors duration-200">
+                <span class="material-symbols-outlined text-2xl">add</span>
+            </button>
+        </div>
+    </header>
+    <!-- Scrollable Content Area -->
+    <main class="flex-1 overflow-y-auto px-4 pb-24 scroll-smooth">
+        <!-- Search Bar -->
+        <div class="py-4 sticky top-0 z-10 bg-gradient-to-b from-[#050505] via-[#050505] to-transparent">
+            <div class="relative w-full">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <span class="material-symbols-outlined text-gray-400">search</span>
+                </div>
+                <input
+                    class="block w-full p-3 pl-10 text-sm text-white bg-surface-dark border-none rounded-xl focus:ring-2 focus:ring-primary focus:bg-surface-dark-hover placeholder-gray-500 transition-all shadow-lg shadow-black/50"
+                    placeholder="Search groups..." type="text" />
+            </div>
+        </div>
+        <!-- Groups List -->
+        <div class="flex flex-col gap-3 mt-2">
+            <!-- Item 1: Unread -->
+            <button
+                class="group relative w-full flex items-center gap-4 bg-surface-dark p-3 rounded-xl hover:bg-surface-dark-hover active:scale-[0.98] transition-all duration-200 border border-white/5">
+                <div class="relative shrink-0">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full h-14 w-14 shadow-lg ring-2 ring-white/5 group-hover:ring-primary/50 transition-all"
+                        data-alt="Iron Man mask with red and gold metallic texture"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuApXk2Dt-B_F1DdkibPz-IwXqVgOykcKX7yyzwmvQPDK_GX1aUyHIlr7Lh1XcMM4HOO6DDhKU9mt00i4_144tsps5GiwdEBbgFaf4c25nZtHmy2HXYuB-vRiL_54aKX9imXG9vsxdbobmawv0Kb5c_8NTE7nKE812d4T1niPj5FaI1f-LCxZbQ2ZF_t-rWilbrvKpLlOs74gmU1MuO8d7xBUFnVo-nebRL06FqRJ4XCnfZVni0kTUnlFw4StGXmqMSeSj-x2W0Fa2S4");'>
+                    </div>
+                    <!-- Online/Unread Dot -->
+                    <div class="absolute bottom-0 right-0 h-3 w-3 bg-primary rounded-full ring-2 ring-surface-dark">
+                    </div>
+                </div>
+                <div class="flex flex-col flex-1 items-start min-w-0">
+                    <div class="flex w-full justify-between items-baseline mb-0.5">
+                        <p class="text-white text-base font-bold leading-normal truncate">Marvel Cinematic Universe</p>
+                        <p class="text-primary text-xs font-medium shrink-0 ml-2">5m ago</p>
+                    </div>
+                    <p class="text-gray-300 text-sm font-normal leading-normal truncate w-full text-left">Did you see
+                        the post-credits scene?? 😱</p>
+                </div>
+                <!-- Unread Badge count -->
+                <div
+                    class="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span class="material-symbols-outlined text-gray-500">chevron_right</span>
+                </div>
+            </button>
+            <!-- Item 2 -->
+            <button
+                class="group relative w-full flex items-center gap-4 bg-surface-dark p-3 rounded-xl hover:bg-surface-dark-hover active:scale-[0.98] transition-all duration-200 border border-white/5">
+                <div class="shrink-0">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full h-14 w-14 shadow-lg ring-1 ring-white/5"
+                        data-alt="Spooky dark forest with fog"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDG_MPZCYU6vfZqN-j8HCkQpMOhRwJvVdWlnaeZXXlr53WtNEVHuP5bPjR4mCeFvhfBaus5Lnnjc7h2kuUdgJFabou0LTSj3E_DD0XOmuo0Qb6zqISnhQOcPUDWpb2Kc12v7jqkXvmRHVpK6jIcH0UH4ajUJMCDr9fVMb7m0bQoH-R5WwPi9uqwh5AVecP4AC6YTLUkoDYDESOCgEZoLBBWmQNUgc7guX9mzMjHXZqMDno6Bdnp-aJmSJ6pi4brlTO4f6YLWNmRBx3d");'>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-1 items-start min-w-0">
+                    <div class="flex w-full justify-between items-baseline mb-0.5">
+                        <p class="text-white text-base font-semibold leading-normal truncate">Horror Buffs</p>
+                        <p class="text-gray-500 text-xs font-normal shrink-0 ml-2">1h ago</p>
+                    </div>
+                    <p class="text-gray-400 text-sm font-normal leading-normal truncate w-full text-left">The lighting
+                        in that shot was incredible.</p>
+                </div>
+            </button>
+            <!-- Item 3 -->
+            <button
+                class="group relative w-full flex items-center gap-4 bg-surface-dark p-3 rounded-xl hover:bg-surface-dark-hover active:scale-[0.98] transition-all duration-200 border border-white/5">
+                <div class="shrink-0">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full h-14 w-14 shadow-lg ring-1 ring-white/5"
+                        data-alt="Vintage film camera lens close up"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA6rumxXO_P6mPz3FXBL-gNeAhpAMFTW_tCDEquJCmOqre8s0DTSEjirynlhvPsKcSMCe-nKFbv69Zw7FdMqvAZRmTOY1V2FgI1tWNgTCE4iL9Hyf60JWb5vtKThpTrWEDlbHAOz_2TVUon19xY4ZncnT2QFSwZvws8b65CndLKIegQjY0Pq-R8dsyLy23ie2x3Uob22t5gGzd-ftxVW7PqksRv9q72WF4dfPi1flz4jsnEKybtv3VofZPJmjAt93a3oTnxUEkyp6Xv");'>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-1 items-start min-w-0">
+                    <div class="flex w-full justify-between items-baseline mb-0.5">
+                        <p class="text-white text-base font-semibold leading-normal truncate">Indie Film Club</p>
+                        <p class="text-gray-500 text-xs font-normal shrink-0 ml-2">Yesterday</p>
+                    </div>
+                    <p class="text-gray-400 text-sm font-normal leading-normal truncate w-full text-left">Meeting at the
+                        Alamo Drafthouse at 7?</p>
+                </div>
+            </button>
+            <!-- Item 4 -->
+            <button
+                class="group relative w-full flex items-center gap-4 bg-surface-dark p-3 rounded-xl hover:bg-surface-dark-hover active:scale-[0.98] transition-all duration-200 border border-white/5">
+                <div class="shrink-0">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full h-14 w-14 shadow-lg ring-1 ring-white/5"
+                        data-alt="Abstract neon lights at night"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDDom2XNWoN1mHk6R_gbrC_R377JBsir05SS3ccu7xmMqHBBf8PzkCXuUQlruey__UjQdBPqehuqI_uUNuGLnvUUo-b7oGlHCh4B8QffweDyAqOhHYspPTwGEETAVRzW5-6RCmA9cNpO41JXEIZnLDO7zCbiMVFI0StFifkhukDVOA0AwrCq_SdMqZgbJN3bqCb44WnvAkd3byNVWqkyU2BcuIqEu5KkGzR_0DcEEN8E4KeUxDASbmU2JPyOUsCctfsueRZyv4zRbdT");'>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-1 items-start min-w-0">
+                    <div class="flex w-full justify-between items-baseline mb-0.5">
+                        <p class="text-white text-base font-semibold leading-normal truncate">A24 Devotees</p>
+                        <p class="text-gray-500 text-xs font-normal shrink-0 ml-2">2d ago</p>
+                    </div>
+                    <div class="flex items-center gap-1 text-gray-400 text-sm font-normal">
+                        <span class="material-symbols-outlined text-[16px]">image</span>
+                        <span class="truncate">Photo</span>
+                    </div>
+                </div>
+            </button>
+            <!-- Item 5 -->
+            <button
+                class="group relative w-full flex items-center gap-4 bg-surface-dark p-3 rounded-xl hover:bg-surface-dark-hover active:scale-[0.98] transition-all duration-200 border border-white/5">
+                <div class="shrink-0">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full h-14 w-14 shadow-lg ring-1 ring-white/5"
+                        data-alt="Sci-fi futuristic city skyline"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOprRW7Hfr6L5YkeYNz0oCRItoJEbluHx4QH7NCO-Yc_LXW9tgA71frBBnLct6pA7o1sW1wgzXPbjDQLLLo1zWRnpc2qqA0wT_2ckNBo35o-97_ECALNUqM943DvOgnoj4ve4eQLvOJAjYx8Ry2_2ZcQ2RMmgg1Q7QYBpaZb9zQqzGXSOQLGij5UdhnMMHwJb0MKAp-WYrXV97e2Y1-fs0uzS5RymoBn1LXXZ3Den3t9dQs2vAe3kXUeXImgd5RHRUjPq3lVfFHcWa");'>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-1 items-start min-w-0">
+                    <div class="flex w-full justify-between items-baseline mb-0.5">
+                        <p class="text-white text-base font-semibold leading-normal truncate">Sci-Fi Fanatics</p>
+                        <p class="text-gray-500 text-xs font-normal shrink-0 ml-2">1w ago</p>
+                    </div>
+                    <p class="text-gray-400 text-sm font-normal leading-normal truncate w-full text-left">Dune Part 2
+                        discussion thread starts here.</p>
+                </div>
+            </button>
+            <!-- Item 6: Muted -->
+            <button
+                class="group relative w-full flex items-center gap-4 bg-surface-dark/50 p-3 rounded-xl hover:bg-surface-dark-hover active:scale-[0.98] transition-all duration-200 border border-white/5 opacity-70 hover:opacity-100">
+                <div class="shrink-0 relative">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full h-14 w-14 shadow-lg grayscale"
+                        data-alt="Classic black and white movie scene"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDK5WYWpetSMCTKy7k6vYO9h95FjyoIZSYFxrh9g7k56DLFzrOoOV_i1vnaPYCxpfpSn82ZGZzAgMZ8rXwRcBEL4XB72mC1w4FqtWG4NrVwJv2VFd-XfuzbXOoXRNo4DKCsfQejSy5KDY6z6e5V1U3k5wkzFezkXMN_ei95G768Fsyi2pth0PfxwDUNdxbHBqzgxwDPhY71dqlwR6DQHHoZrE3glYqn_kucdIA5fml01pdGKn_j9ZT0CvF6F2jg9I4VxZ8_Va7KN4WK");'>
+                    </div>
+                    <div class="absolute -bottom-1 -right-1 bg-surface-dark rounded-full p-0.5">
+                        <span class="material-symbols-outlined text-[14px] text-gray-500">notifications_off</span>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-1 items-start min-w-0">
+                    <div class="flex w-full justify-between items-baseline mb-0.5">
+                        <p class="text-gray-300 text-base font-medium leading-normal truncate">Classic Cinema</p>
+                        <p class="text-gray-600 text-xs font-normal shrink-0 ml-2">2w ago</p>
+                    </div>
+                    <p class="text-gray-500 text-sm font-normal leading-normal truncate w-full text-left">Poll: Best
+                        Hitchcock film?</p>
+                </div>
+            </button>
+        </div>
+        <!-- Bottom padding for scroll -->
+        <div class="h-8"></div>
+    </main>
+    <!-- Bottom Navigation Bar (iOS style translucent) -->
+    <nav
+        class="shrink-0 w-full bg-[#121212]/90 backdrop-blur-md border-t border-white/10 pb-6 pt-3 px-6 fixed bottom-0 z-50">
+        <div class="flex justify-between items-center max-w-lg mx-auto">
+            <button class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-[26px]">home</span>
+                <span class="text-[10px] font-medium">Home</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-[26px]">movie</span>
+                <span class="text-[10px] font-medium">Movies</span>
+            </button>
+            <!-- Active State -->
+            <button class="flex flex-col items-center gap-1 text-primary animate-pulse-subtle">
+                <span class="material-symbols-outlined text-[26px] fill-current">groups</span>
+                <span class="text-[10px] font-medium">Groups</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition-colors">
+                <div class="h-[26px] w-[26px] rounded-full bg-gray-600 overflow-hidden border border-gray-500">
+                    <img class="w-full h-full object-cover" data-alt="User profile avatar"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY_mq7t0ivImbE2c2ApnTMS6A86iZzfawcUT7ZrwJZGUPwGi3r5LagHocaOZJ83bfab4o45x546-AeRboX_xOZJS_spYsRMhU1azuVlPeWFGRtaRUmF8L0YJ6PSMZID7puj9j2qWIh2FnahSu3qTjvLUwbv4-613sasaD1YHCVq1zQhrOO7UVZv97sJH-U5MigIQmmsvHzTkuUb9ZoTGfPOiEwCUOqZNcts3h2rxa9SHeeK51pR-uyQ2nPwVEeF-79U8vDLst8IQqG" />
+                </div>
+                <span class="text-[10px] font-medium">Profile</span>
+            </button>
+        </div>
+    </nav>
+</body>
+
+</html>

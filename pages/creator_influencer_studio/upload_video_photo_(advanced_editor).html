@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>CineSocial - Advanced Media Editor</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Theme Configuration -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1152d4",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+            "surface-dark": "#1E1E1E", // Added for the timeline background mentioned in plan
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    /* Custom scrollbar hiding for clean timeline */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Glassmorphism utility */
+    .glass-panel {
+      background: rgba(16, 22, 34, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body class="bg-background-dark text-white font-display h-screen w-full overflow-hidden flex flex-col">
+  <!-- Top Header (Floating/Overlay) -->
+  <header
+    class="absolute top-0 left-0 w-full z-50 flex items-center justify-between px-5 pt-14 pb-4 bg-gradient-to-b from-black/80 via-black/40 to-transparent pointer-events-none">
+    <!-- Close Button -->
+    <button
+      class="pointer-events-auto flex items-center justify-center size-10 rounded-full bg-black/20 backdrop-blur-md text-white hover:bg-white/10 transition-colors">
+      <span class="material-symbols-outlined" style="font-size: 24px;">close</span>
+    </button>
+    <!-- Post Action -->
+    <button
+      class="pointer-events-auto px-6 py-2 bg-primary hover:bg-primary/90 text-white text-sm font-semibold rounded-full shadow-lg shadow-primary/20 transition-all transform active:scale-95">
+      Post
+    </button>
+  </header>
+  <!-- Main Preview Area -->
+  <main class="flex-1 relative w-full h-full bg-black flex items-center justify-center overflow-hidden group">
+    <!-- Cinematic Background/Video Preview -->
+    <div class="absolute inset-0 w-full h-full bg-cover bg-center opacity-100 transition-opacity"
+      data-alt="Cinematic movie scene showing a dark moody landscape"
+      style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_eFh37AqGvA69eDc1NyrAzvxS-mLTSxjnOz56i9GL2ezPMJ8tFtnODo-8uQb1BR6iT7pqxZN-Q4D-8Q1FeXQBu35PTopKwQdDj_8lmYHM-0XwhQsdE4oor_9r9l3Nw3GvDV-VqRd4P82P5o0hvNyV3qgO-kYzbQs_riHfE_CJN32XmoSkE8_RIE_aFbiyG8yvUYMmNSezwySWFPQwZl-veZwwLAwBtrcDsN0RTq5bUE7VGbuiPwjDlSPrZFQB0G3bpd4sDW16oj2z');">
+    </div>
+    <!-- Video Overlay Gradient (Cinematic feel) -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none"></div>
+    <!-- Play Button (Centered) -->
+    <button
+      class="relative z-10 size-16 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all group-active:scale-90">
+      <span class="material-symbols-outlined fill-current" style="font-size: 32px;">play_arrow</span>
+    </button>
+    <!-- Contextual Hint -->
+    <div
+      class="absolute bottom-1/3 text-center pointer-events-none opacity-0 group-active:opacity-100 transition-opacity duration-300">
+      <span
+        class="text-xs font-medium tracking-wider text-white/80 uppercase bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm">Release
+        to pause</span>
+    </div>
+  </main>
+  <!-- Editor Controls (Footer) -->
+  <footer
+    class="w-full bg-surface-dark/95 backdrop-blur-xl border-t border-white/5 z-40 pb-8 pt-2 rounded-t-2xl shadow-[0_-8px_32px_rgba(0,0,0,0.6)]">
+    <!-- Current Time Display -->
+    <div class="flex justify-center py-2">
+      <div
+        class="flex items-center gap-2 text-xs font-mono text-gray-400 bg-black/30 px-3 py-1 rounded-full border border-white/5">
+        <span class="text-primary font-bold">00:04:12</span>
+        <span class="w-px h-3 bg-white/20"></span>
+        <span>00:15:00</span>
+      </div>
+    </div>
+    <!-- Toolbar Icons -->
+    <div class="flex items-center justify-between px-6 py-3 mb-2">
+      <!-- Tool: Trim (Active) -->
+      <button class="flex flex-col items-center gap-1 group">
+        <div
+          class="size-10 flex items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/25 transition-all">
+          <span class="material-symbols-outlined" style="font-size: 20px;">content_cut</span>
+        </div>
+        <span class="text-[10px] font-medium text-white tracking-wide uppercase mt-1">Trim</span>
+      </button>
+      <!-- Tool: Text -->
+      <button class="flex flex-col items-center gap-1 group">
+        <div
+          class="size-10 flex items-center justify-center rounded-full text-gray-400 group-hover:bg-white/5 group-hover:text-white transition-all">
+          <span class="material-symbols-outlined" style="font-size: 22px;">title</span>
+        </div>
+        <span
+          class="text-[10px] font-medium text-gray-500 group-hover:text-gray-300 tracking-wide uppercase mt-1">Text</span>
+      </button>
+      <!-- Tool: Polls -->
+      <button class="flex flex-col items-center gap-1 group">
+        <div
+          class="size-10 flex items-center justify-center rounded-full text-gray-400 group-hover:bg-white/5 group-hover:text-white transition-all">
+          <span class="material-symbols-outlined" style="font-size: 20px;">poll</span>
+        </div>
+        <span
+          class="text-[10px] font-medium text-gray-500 group-hover:text-gray-300 tracking-wide uppercase mt-1">Poll</span>
+      </button>
+      <!-- Tool: Filters -->
+      <button class="flex flex-col items-center gap-1 group">
+        <div
+          class="size-10 flex items-center justify-center rounded-full text-gray-400 group-hover:bg-white/5 group-hover:text-white transition-all">
+          <span class="material-symbols-outlined" style="font-size: 20px;">auto_fix_high</span>
+        </div>
+        <span
+          class="text-[10px] font-medium text-gray-500 group-hover:text-gray-300 tracking-wide uppercase mt-1">FX</span>
+      </button>
+      <!-- Tool: Adjust -->
+      <button class="flex flex-col items-center gap-1 group">
+        <div
+          class="size-10 flex items-center justify-center rounded-full text-gray-400 group-hover:bg-white/5 group-hover:text-white transition-all">
+          <span class="material-symbols-outlined" style="font-size: 20px;">tune</span>
+        </div>
+        <span
+          class="text-[10px] font-medium text-gray-500 group-hover:text-gray-300 tracking-wide uppercase mt-1">Adjust</span>
+      </button>
+    </div>
+    <!-- Timeline Area -->
+    <div class="relative w-full h-24 px-0 mt-2 select-none">
+      <!-- Playhead Indicator (Top Triangle) -->
+      <div class="absolute left-1/2 top-0 -translate-x-1/2 -mt-1 z-30 text-primary drop-shadow-md">
+        <svg fill="currentColor" height="8" viewbox="0 0 12 8" width="12">
+          <path d="M6 8L0 0H12L6 8Z"></path>
+        </svg>
+      </div>
+      <!-- Timeline Scroller -->
+      <div class="w-full h-full overflow-x-auto no-scrollbar flex items-center px-[50%] snap-x">
+        <!-- Spacer -->
+        <div class="w-full flex-shrink-0"></div>
+        <!-- Video Track Container -->
+        <div class="relative flex h-16 bg-black rounded-lg overflow-hidden ring-1 ring-white/10 shrink-0 mx-1">
+          <!-- Trim Handle Left -->
+          <div
+            class="absolute left-0 top-0 bottom-0 w-4 bg-primary z-20 cursor-ew-resize flex items-center justify-center rounded-l-lg shadow-lg">
+            <div class="h-6 w-0.5 bg-white/50 rounded-full"></div>
+          </div>
+          <!-- Selected Area Highlight (Border) -->
+          <div
+            class="absolute inset-y-0 left-0 w-[320px] border-y-[3px] border-primary z-10 pointer-events-none bg-primary/10">
+          </div>
+          <!-- Trim Handle Right -->
+          <div
+            class="absolute left-[320px] top-0 bottom-0 w-4 bg-primary z-20 cursor-ew-resize flex items-center justify-center rounded-r-lg shadow-lg">
+            <div class="h-6 w-0.5 bg-white/50 rounded-full"></div>
+          </div>
+          <!-- Frames Strip -->
+          <div class="flex h-full opacity-60">
+            <img class="h-full w-auto aspect-[3/4] object-cover border-r border-black/30 grayscale contrast-125"
+              data-alt="Video frame thumbnail"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1p4TiXVUgMm9Gk1lD6R80VQriAj1hyEt6NG8cyJF_f5bVvvdlRImhtxZpk6dKGnPBiITCjMuTv5idGd57cn_VmhEoTQn4T9SKs79HRrw-zg-qS-BMcebZ3-LTRN8O0y7a-JzoiqYsKlvnn0yQRgTaVLshzk8TIkaKzXw8FLnOd_JWdmdlJXU7HH_XoMO6bSX1M_vyEOA2ouKzEDyQ6CBJyHsxnZopXE2BlOD6SeEpqsto5gTciRLuDy6cgWEPK2HGBfwSQbW6CgHE" />
+            <img class="h-full w-auto aspect-[3/4] object-cover border-r border-black/30 grayscale contrast-125"
+              data-alt="Video frame thumbnail"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7_yMHizlrsKLezxbvr10EPLq8WIp3nh757Lzac3LyoIYXx2MpqQ9-BNFJSSJyRkptT1ytuzQPeGHQTKUpLGnKQ-J23cLPybmsafl28yBeWSbBiE8v2z6uOQAqT9SteMtQO33M14BYAFIYtCVoEqruOXQGAdFV-o09JfCWCPI-PdFTcr1uQP18qoza8OAT2aRQWAtK-cxQ8ya_DS5R1lkqdLLmEjSkREqH8NmxPn_oUBcPjycpPVs5aRRa8uZZoK2PcWLlKwJBuB5U" />
+            <img class="h-full w-auto aspect-[3/4] object-cover border-r border-black/30 grayscale contrast-125"
+              data-alt="Video frame thumbnail"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxJgJG4l7vM_qj5j8FVi4AOa929_eGqfThiOi6r7KWIA4Yl8pUtCau-0ic5EYAB4qMesU8R2-spiRK7dle8yg-s_E0sAb6aNhqrdNkFcBKlDYB-78y9g-_S0zx-S5fjHZQ8ZeEhcV1J1mADq9lyxfLp8DKIhwvw0jivBy7L6clvhErPp8FVEFxGnOdvDgNaxSXUUDPu88JOf3HFOMFmBP5COSzI3xgTqePmm5Nw-_vLA19vg5m9G4p33nbjOMb_F_OOJ8zP-GU8lM0" />
+            <img class="h-full w-auto aspect-[3/4] object-cover border-r border-black/30 grayscale contrast-125"
+              data-alt="Video frame thumbnail"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk9xSUvWX_oBDhGw-8YyhLOJ8VyExxRQniQ0OVldhLJnQR6mEv0sTFrC0UsmF_Un1eo43b8RB_7_l8Sq39fOz-D0g827tfCStr2wiRyv8B0cROZ5QTtkilyDAFa7vitTfAMfWeEY5jonykAprzIZ1eM0wMygTxsSTb_2AM48XCMkfeCv6wcmUJQJZG1emY-Frky8XLXbmwzqGSNedNtn-JCbOCRPMlHXeBSiBJwDOyz_8CHuqMF0D5DiCQqplbqb3tRojVxjisDnqM" />
+            <img class="h-full w-auto aspect-[3/4] object-cover border-r border-black/30 grayscale contrast-125"
+              data-alt="Video frame thumbnail"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYEb5CWz4S7xXnQ4doKPafXPPbCiJaSAHaoIgp0-tVTogKr9ooYjoYBuhOgyTF6NDDn37L1FreQepkAGcoIeFlDzLVfwr4FM7SH8rLMyCm24e1WC5RM0ExPTmuYLVh-xyCIAyyxiArbJ1hBGxslNxR7yyi_MpVVJxlFUH5n7tgQ2gl1imP3AlQd3FhIcf-O6nvZHPVaYcUQ38mkHVEsBeJwy8ctiK4ECH-AKE7IaUI9mTZ4PfObntUIt3iVUaiWIpJO80Qok2RHzdJ" />
+            <img class="h-full w-auto aspect-[3/4] object-cover border-r border-black/30 grayscale contrast-125"
+              data-alt="Video frame thumbnail"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxkz-k-VzFK_DuksKQK_qBAcOBQSR0OiBLXReaEcksV63Npfe9z2u2yYLNUJ3xyL27-nzMaNPFjxCcdYbtFSmOQUMQ3wmK_9pgPufK71zRsWsexMdxmKb7ffaywrSadAvKYknaia7rU54eRdpT4H3hS2rTdOTVmxsQ9xEsM1HIRSUXQ66IK4oYC4zDQkG_-ASs4FMsvbCBT9CixNmtVxhUy3daK1jwFlOTXmcM8HtX0uUr_C1lY6npeAzUiEZyM3mdB0TErezHdw85" />
+          </div>
+        </div>
+        <!-- Additional clips/space -->
+        <div class="w-12 shrink-0"></div>
+      </div>
+      <!-- Playhead Line -->
+      <div
+        class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary z-20 -translate-x-1/2 shadow-[0_0_8px_rgba(17,82,212,0.8)] pointer-events-none h-full">
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

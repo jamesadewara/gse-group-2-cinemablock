@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Discover Hub - CineSocial</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar hiding */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Material Symbols Fill Utility */
+        .material-symbols-outlined.fill-1 {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display overflow-hidden antialiased">
+    <div
+        class="relative flex h-full min-h-screen w-full flex-col overflow-hidden bg-background-light dark:bg-background-dark">
+        <!-- Main Scrollable Content -->
+        <!-- Added padding bottom to account for fixed navigation bar -->
+        <main class="flex-1 overflow-y-auto pb-28 no-scrollbar">
+            <!-- Header Section -->
+            <div class="pt-8 px-5 pb-2">
+                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Discover</h1>
+            </div>
+            <!-- Sticky Search Bar with Glassmorphism -->
+            <div
+                class="px-5 py-3 sticky top-0 z-30 bg-background-light/95 dark:bg-background-dark/90 backdrop-blur-md transition-all duration-300">
+                <label class="flex flex-col h-12 w-full shadow-lg dark:shadow-none">
+                    <div
+                        class="flex w-full flex-1 items-stretch rounded-xl h-full overflow-hidden border border-gray-200 dark:border-white/5">
+                        <div
+                            class="text-gray-400 dark:text-gray-500 flex border-none bg-white dark:bg-[#1e2330] items-center justify-center pl-4 pr-2">
+                            <span class="material-symbols-outlined text-[24px]">search</span>
+                        </div>
+                        <input
+                            class="flex w-full min-w-0 flex-1 resize-none outline-none text-slate-900 dark:text-white bg-white dark:bg-[#1e2330] h-full placeholder:text-gray-400 dark:placeholder:text-gray-600 px-2 text-base font-normal leading-normal"
+                            placeholder="Search movies, actors, or genres..." />
+                    </div>
+                </label>
+            </div>
+            <!-- Categories / Chips (Horizontal Scroll) -->
+            <div class="flex gap-3 px-5 py-2 overflow-x-auto no-scrollbar items-center">
+                <!-- Active Category -->
+                <button
+                    class="flex h-9 shrink-0 items-center justify-center rounded-full bg-primary px-6 transition-transform active:scale-95">
+                    <p class="text-white text-sm font-medium">All</p>
+                </button>
+                <!-- Inactive Categories -->
+                <button
+                    class="flex h-9 shrink-0 items-center justify-center rounded-full bg-white dark:bg-[#1e2330] border border-gray-200 dark:border-white/5 px-6 transition-transform active:scale-95">
+                    <p class="text-slate-600 dark:text-gray-300 text-sm font-medium">Action</p>
+                </button>
+                <button
+                    class="flex h-9 shrink-0 items-center justify-center rounded-full bg-white dark:bg-[#1e2330] border border-gray-200 dark:border-white/5 px-6 transition-transform active:scale-95">
+                    <p class="text-slate-600 dark:text-gray-300 text-sm font-medium">Sci-Fi</p>
+                </button>
+                <button
+                    class="flex h-9 shrink-0 items-center justify-center rounded-full bg-white dark:bg-[#1e2330] border border-gray-200 dark:border-white/5 px-6 transition-transform active:scale-95">
+                    <p class="text-slate-600 dark:text-gray-300 text-sm font-medium">Romance</p>
+                </button>
+                <button
+                    class="flex h-9 shrink-0 items-center justify-center rounded-full bg-white dark:bg-[#1e2330] border border-gray-200 dark:border-white/5 px-6 transition-transform active:scale-95">
+                    <p class="text-slate-600 dark:text-gray-300 text-sm font-medium">Horror</p>
+                </button>
+                <button
+                    class="flex h-9 shrink-0 items-center justify-center rounded-full bg-white dark:bg-[#1e2330] border border-gray-200 dark:border-white/5 px-6 transition-transform active:scale-95">
+                    <p class="text-slate-600 dark:text-gray-300 text-sm font-medium">Docu</p>
+                </button>
+            </div>
+            <!-- Trending Now Section (Carousel) -->
+            <div class="pt-8 pb-3 px-5">
+                <h2 class="text-xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white">Trending Now
+                </h2>
+            </div>
+            <div class="flex overflow-x-auto no-scrollbar px-5 pb-4 gap-4 snap-x snap-mandatory">
+                <!-- Trending Card 1 -->
+                <div class="snap-start flex-none w-[160px] flex flex-col gap-3 group">
+                    <div class="w-full aspect-[2/3] rounded-xl bg-cover bg-center relative overflow-hidden shadow-lg shadow-black/20"
+                        data-alt="Dune Part Two movie poster depicting a desert landscape with warm orange tones"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZoK2IHT7y0vOsP87ZLcHmuPGLilRnoM6bfeBshgjoPVm73HShfKFcuP00R2f6khswaVT2UAHi5XvNYNoyPJJvUjI_gMOl5KgL44BQohFGL8G6y6O0CNSLDnYyK4qqPLelZAszgVDTlHSB61Dom6SLQjpHOX0ypF6sdKFICe-SHQUKnArkmKaDif4yoJUVkyyleRSFbhFtRIZPb5nRMQWYMsHSau0sb07i5-zKr2xmu8RsKUOQLkkXv-BdIHbv_1zW34vsAB6nu9PF');">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity">
+                        </div>
+                        <!-- Rating Badge -->
+                        <div
+                            class="absolute top-2 right-2 bg-black/40 backdrop-blur-md border border-white/10 px-1.5 py-0.5 rounded-md flex items-center gap-1">
+                            <span class="material-symbols-outlined text-yellow-400 text-[14px] fill-1">star</span>
+                            <span class="text-white text-xs font-bold">4.8</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-base font-semibold truncate text-slate-900 dark:text-white">Dune: Part Two</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs mt-0.5">Sci-Fi • 2024</p>
+                    </div>
+                </div>
+                <!-- Trending Card 2 -->
+                <div class="snap-start flex-none w-[160px] flex flex-col gap-3 group">
+                    <div class="w-full aspect-[2/3] rounded-xl bg-cover bg-center relative overflow-hidden shadow-lg shadow-black/20"
+                        data-alt="Oppenheimer movie poster abstract fiery explosion visual"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpf3LO6JXEP5dPmLz2NV-pc0zz51ybr-7KRi2gIp8QaAyPTscTdEn5JSt7IEb5P8VWXx-PvjW6fQQh_tpTqDGivUYAduS7Tu_QgCEk613uUtOoDpfaGYkkv1QxgthC3ZVOVu0Z6z7pQSozNzCAPaixbNKyu-zfqbRtQkqtu7dagALSMuanUQqPT6RIjkFBibkr7SVMhUY94Qxg39OPIw5ycZEb2DKqAxRHwz2eRjhblXaK_Q1mAx4-s_Q5BaWjxI3Ay65f1-Qvw03Q');">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity">
+                        </div>
+                        <div
+                            class="absolute top-2 right-2 bg-black/40 backdrop-blur-md border border-white/10 px-1.5 py-0.5 rounded-md flex items-center gap-1">
+                            <span class="material-symbols-outlined text-yellow-400 text-[14px] fill-1">star</span>
+                            <span class="text-white text-xs font-bold">4.9</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-base font-semibold truncate text-slate-900 dark:text-white">Oppenheimer</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs mt-0.5">Drama • 2023</p>
+                    </div>
+                </div>
+                <!-- Trending Card 3 -->
+                <div class="snap-start flex-none w-[160px] flex flex-col gap-3 group">
+                    <div class="w-full aspect-[2/3] rounded-xl bg-cover bg-center relative overflow-hidden shadow-lg shadow-black/20"
+                        data-alt="Civil War movie poster showing gritty action scene"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAde5n1bxcr044LuRlHD-EKMUY6gRK6y91zyFmtc5IcImKABUTaFtjcDwyfLvND0-9PlqLKzjwNDkT85KEC47z-3uZjjqCerXBrWbO9mXSCVoumHIWJs3Cypybv_7VO4i1smxNMHPb2Ol6nUZzVYHt4xS_rQ7jTnv6ZOT1buSknaeIJ_dPL06QaAZlIqC1vugDgKG384p-Av0KBAfi9rkfd0t_7PClFBL-w027ht5AzG4D_vEJatNV7r_r9mnOII9l4O5tz2ktcJlQ');">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity">
+                        </div>
+                        <div
+                            class="absolute top-2 right-2 bg-black/40 backdrop-blur-md border border-white/10 px-1.5 py-0.5 rounded-md flex items-center gap-1">
+                            <span class="material-symbols-outlined text-yellow-400 text-[14px] fill-1">star</span>
+                            <span class="text-white text-xs font-bold">4.7</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-base font-semibold truncate text-slate-900 dark:text-white">Civil War</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs mt-0.5">Action • 2024</p>
+                    </div>
+                </div>
+            </div>
+            <!-- New Releases Section (Grid) -->
+            <div class="pt-6 pb-3 px-5 flex justify-between items-end">
+                <h2 class="text-xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white">New Releases
+                </h2>
+                <a class="text-primary text-sm font-medium hover:text-primary/80 transition-colors" href="#">See All</a>
+            </div>
+            <div class="grid grid-cols-2 gap-x-4 gap-y-6 px-5">
+                <!-- Grid Item 1 -->
+                <div class="flex flex-col gap-2 group">
+                    <div class="w-full aspect-[2/3] rounded-xl bg-cover bg-center relative overflow-hidden"
+                        data-alt="The Creator movie poster showing futuristic neon lighting"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAOXYahv_cBvPYYWLOyclKHM_a3nSMI64V-XcaisN8C7DPK7NFkdfPa0FQrPsk3TqqTcgO8Jdll2Fub0_rEh0RfkRk85edx5tFdEFmPaImANwYlDjOif5ec9rV-q2YPMgE4jgvlDH0_B0HW2G6sMYTmxqbfj3QN-qpxHMo8PZ9hU_igGxXUcvoVYIuvcOp6FMlI-GVXT4F-4Uywu-EO1GHlKuYvcCGi5az1ybY4TdJ42iOfHevf772asyEwZTDmwLWYmjdUHpPq8jWP');">
+                        <!-- New Badge -->
+                        <div
+                            class="absolute top-2 left-2 bg-primary/90 px-2 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-wider shadow-sm">
+                            New</div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold truncate text-slate-900 dark:text-white">The Creator</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs">Sci-Fi</p>
+                    </div>
+                </div>
+                <!-- Grid Item 2 -->
+                <div class="flex flex-col gap-2 group">
+                    <div class="w-full aspect-[2/3] rounded-xl bg-cover bg-center relative overflow-hidden"
+                        data-alt="Past Lives movie poster showing emotional romantic scene"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-6RcL3dGzOx10EI4ONqwRtaogIgCWdI29PDg8Ucoh7VZtfiQrvhNaPIWO3W1XwQ2RmRZ4WKJ2DuV04b2WhUjJyRa0NKr7vGysdNlvhKPi5vbqT_AZMINATm8w9upOjTzC_fLmhi6Ave6ADl1W0Qwj_JTxqDVKvjp62lmv_APoqXJNJflDE29otI9gHRg_NrJU55lGLDz0cz-iwt9zN-y9uAj79BUDk0Nk-2vBFK0aPC7cP2MwEU2ug6GMTi_KMHdX0wcGw9sU7dPw');">
+                        <div
+                            class="absolute top-2 left-2 bg-primary/90 px-2 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-wider shadow-sm">
+                            New</div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold truncate text-slate-900 dark:text-white">Past Lives</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs">Romance</p>
+                    </div>
+                </div>
+                <!-- Grid Item 3 -->
+                <div class="flex flex-col gap-2 group">
+                    <div class="w-full aspect-[2/3] rounded-xl bg-cover bg-center relative overflow-hidden"
+                        data-alt="Poor Things movie poster abstract surreal artistic"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCYtVYF5rzo1lQwBgYUIwgDrcsfQr3X358KVVnvJHyOMDDCxzisQvL1zKCy_C4niIz1nTvrY_6DpLYouCyuZr2Yo4NfXATeefp39kDpTUzHtavC385Ua2HCQcPOiSvvg-KshMXVHarWlWgoxmgDL0RLQygyE3OV-qJ-UXA91PaFMO8xMw1HNJ8pbJQNr6ZKR5FMqYMaCVr_43wpACJ2GhslozxeaSfiuc_Zr3iDe0UNL-TCUAjPWZi4I9TER1K-1SDKHqTM_OREaJW');">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold truncate text-slate-900 dark:text-white">Poor Things</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs">Comedy</p>
+                    </div>
+                </div>
+                <!-- Grid Item 4 -->
+                <div class="flex flex-col gap-2 group">
+                    <div class="w-full aspect-[2/3] rounded-xl bg-cover bg-center relative overflow-hidden"
+                        data-alt="Godzilla x Kong movie poster showing monster silhouette"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB_geSbSUhMPZ5Q4EmlvwKSsAZETxtcET-Rsh14KaNCbAW5oHPVybo6HLAf1cboNblaMmONKt3XpRqEFI6QySwS6HnNsHbqec8rCrZD_qH7WXGR_VZOUhYPu7iz1-Ay2eBZ6RYLJ6AS8TsKys4nspnDNepu7rTtkmvPxLVvsQ4vAiqSCfBU6w8j9SBcm_R0ncfklYxwYJTiMDFVY4DaEOe7zmubIyfu6R5ha4iThRhJMcowa2QjMcKqtPswsQa05Ml-WI7eRlfvu2Dc');">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold truncate text-slate-900 dark:text-white">Godzilla x Kong</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs">Action</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Bottom Navigation Bar -->
+        <nav
+            class="fixed bottom-0 left-0 w-full bg-background-light/80 dark:bg-background-dark/90 backdrop-blur-xl border-t border-gray-200 dark:border-white/5 pb-6 pt-3 px-6 z-50">
+            <div class="flex justify-between items-center max-w-lg mx-auto">
+                <!-- Home Tab -->
+                <button
+                    class="flex flex-col items-center gap-1.5 text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors w-16 group">
+                    <span
+                        class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform">home</span>
+                    <span class="text-[10px] font-medium tracking-wide">Home</span>
+                </button>
+                <!-- Discover Tab (Active) -->
+                <button class="flex flex-col items-center gap-1.5 text-primary w-16">
+                    <span
+                        class="material-symbols-outlined text-[26px] fill-1 drop-shadow-[0_0_8px_rgba(13,89,242,0.5)]">explore</span>
+                    <span class="text-[10px] font-medium tracking-wide">Discover</span>
+                </button>
+                <!-- Tickets Tab -->
+                <button
+                    class="flex flex-col items-center gap-1.5 text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors w-16 group">
+                    <span
+                        class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform">confirmation_number</span>
+                    <span class="text-[10px] font-medium tracking-wide">Tickets</span>
+                </button>
+                <!-- Profile Tab -->
+                <button
+                    class="flex flex-col items-center gap-1.5 text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors w-16 group">
+                    <span
+                        class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform">person</span>
+                    <span class="text-[10px] font-medium tracking-wide">Profile</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial - Rating Prompt</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#182234",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.empty {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for immersion */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased overflow-hidden">
+<!-- Simulated App Background (Blurred/Dimmed context) -->
+<div class="relative h-screen w-full overflow-hidden">
+<!-- Header of the underlying app -->
+<header class="flex items-center justify-between px-6 py-5 bg-background-dark/90 backdrop-blur-md sticky top-0 z-10 border-b border-white/5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-size: 28px;">movie_filter</span>
+<h1 class="text-white text-xl font-bold tracking-tight">CineSocial</h1>
+</div>
+<div class="h-10 w-10 rounded-full bg-surface-dark bg-cover bg-center border border-white/10" data-alt="User profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDHMdE3YLsBs8gVMAeHwJD0TeMh1D2QgC24EHNOoYevAo_67C_XalDR4v9Syr_koqvrC7QKmi3nYDj9aeK7k6XFuKTHwacp1hgt6e-QcA42htbXEZwAB76H3E2fns5GFolXlzvonO2ByrC0xhLvbBdcNlS1D6JukDVI5EAWVSaWtN1eDrhbvtn70A5ZlghubZjzVH8wSuuzn-Kn1kGbX6gd0bxkzYWwj_IHkVYwkEz9l9Ai3Ok1dZRAFeQfY9ulxT_MDx1tIqNb8WrY');"></div>
+</header>
+<!-- Main Content of the underlying app (Grid of Movies) -->
+<main class="px-4 py-6 grid grid-cols-2 gap-4 opacity-40 grayscale-[50%]">
+<!-- Movie 1 -->
+<div class="flex flex-col gap-2">
+<div class="aspect-[2/3] w-full rounded-xl bg-surface-dark bg-cover bg-center" data-alt="Sci-fi movie poster with neon lights" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDYMBgKLN_tjLO-OiCQcOhdjAusTSLSak0uZAbXXs6SoMdBzsBqXpqM96Qc5r266gdmNHha_myGZ2LailNn2zTLI1mdrT8jmK4bfZLwBHO8mil9eNHN410r68M7B7fKM82eRr_6MHJTr1gJ5QJb5Zc1rU1v1VfcPQzefW8l1WEOw2Dx9rNn2nv4VynM8u3PZscOgdBsG874ueLuZdUYFyo8-fJom0LnlPWCi1z0Ktc5WYiRaZ0F-tUtemovaGy86FEggj0lT3AT3Krx');"></div>
+<div class="h-4 w-3/4 bg-surface-dark rounded"></div>
+<div class="h-3 w-1/2 bg-surface-dark/50 rounded"></div>
+</div>
+<!-- Movie 2 -->
+<div class="flex flex-col gap-2">
+<div class="aspect-[2/3] w-full rounded-xl bg-surface-dark bg-cover bg-center" data-alt="Action movie poster with dark moody lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDYCX-NIw1sM71PH3ji9H-qzn06ww1zTSyRx-wr7oLtmEEl1Q0ZOTCTdTdWXPC4XfKfFvSEPm3B1FmQplfK-b79Gzms_xqxRWaObrE6L9QBJxtYrOGp9WVYvUvPiUSxa6V9SKwppe5sc6AUEoOXr8mwbMc5H4CoYbdHk4EiidCtj6Hh8r8cUWUc6MI7ZGU-xMPpsNr0kh_z3-Ga0kQZTA1niHyNhHKFPJAEsU06ibAlQKPEZqGxv19AO9vviToJ-xGVlj9WcF2wtm6B');"></div>
+<div class="h-4 w-3/4 bg-surface-dark rounded"></div>
+<div class="h-3 w-1/2 bg-surface-dark/50 rounded"></div>
+</div>
+<!-- Movie 3 -->
+<div class="flex flex-col gap-2">
+<div class="aspect-[2/3] w-full rounded-xl bg-surface-dark bg-cover bg-center" data-alt="Drama movie poster cinematic shot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCLC8EO5UIANJ0wf6IcckIWMfoxfBSoLCSDdigj0cV3l1huEA26GK3yy8ORowSgS7zSY8RztV4I31_J3wkjPSgktRqE7hYvXjmoQ8JgnJ79Ab_CDa6eHNlrjHx8qsp9GuasplR8lur1Bg_iWSC73mPdETWKFe0LDHQrPWjaPrV6Fqc192TimB5rgDtOirwq8qTMez8uI1eZATBDQ4TxBzl_aGaO8UDUl8hQBjZW7cDyzSgWD9x0xxQaX9M85tgaMjCebCCfL0MjFOQ3');"></div>
+<div class="h-4 w-3/4 bg-surface-dark rounded"></div>
+<div class="h-3 w-1/2 bg-surface-dark/50 rounded"></div>
+</div>
+<!-- Movie 4 -->
+<div class="flex flex-col gap-2">
+<div class="aspect-[2/3] w-full rounded-xl bg-surface-dark bg-cover bg-center" data-alt="Classic noir movie poster" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5Cak-Uzm8xh9mHyTBW4jRgXAvOqCQSbcdACR2EMyuw7-uFuVZO8E6ZOpErlD094W6j4bTC602F6X5hlzI9xVu_vBDegLztlcA2Gqq_-FL7Js66dHppDf-4tvE2AiRF1GKvdsrcK-fEQoXTRN7J3pMB4XruP5oql4xVcqtkcyGx2MPr1_fA5suHdu61uSYJkyqu163QTbyETXDqymX8SIE6mTFynVBgBFr9VgZa7gtUJrBKBqkdcZ4Q7vW554CLttYDQBe3zzvHmLp');"></div>
+<div class="h-4 w-3/4 bg-surface-dark rounded"></div>
+<div class="h-3 w-1/2 bg-surface-dark/50 rounded"></div>
+</div>
+</main>
+<!-- Dimmed Backdrop Overlay -->
+<div class="absolute inset-0 z-40 bg-black/80 backdrop-blur-[2px] animate-fade-in"></div>
+<!-- Rating Modal -->
+<div class="absolute inset-0 z-50 flex items-center justify-center p-4">
+<div class="w-full max-w-[340px] bg-background-dark rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-white/10 overflow-hidden relative flex flex-col items-center">
+<!-- Close Button (Subtle) -->
+<button class="absolute top-3 right-3 p-2 text-gray-500 hover:text-white transition-colors rounded-full hover:bg-white/5">
+<span class="material-symbols-outlined empty text-xl">close</span>
+</button>
+<!-- Modal Content Wrapper -->
+<div class="w-full p-6 flex flex-col items-center">
+<!-- Header Text -->
+<h2 class="text-white text-xl font-bold tracking-tight text-center mb-6">Rate your experience</h2>
+<!-- Movie Card Preview -->
+<div class="flex flex-col items-center gap-4 mb-8 w-full group cursor-pointer">
+<div class="relative w-32 aspect-[2/3] shadow-lg rounded-lg overflow-hidden ring-1 ring-white/10 group-hover:ring-primary/50 transition-all duration-300">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Desert landscape movie poster for Dune Part Two" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDbA19JUfmD7PlwlADMbhW-qxdZ0mMqOrcetpPfHcF1jwrF6WVgyKXllcMSW7OwQIao2uIDy8Yf6nxZkh87PhEqALNSGmKkfN-EyMFWMKSVVu1zVK1A2c9u60Gxfdsp5vXID--PAkyNIxPhxqolP89Pz5CsnXOvQyWCKIf2tmQuAbuZTn-nuFe4pRwEqQw3j3sGRQao57eHks_lYtQU1V_qEK_xtqJfwa8V-0vNCrLkGFf0ZtuGkxgq-RYmwncAlMdNnBtDH90q0VTK');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<div class="text-center">
+<h3 class="text-white text-lg font-bold leading-tight mb-1">Dune: Part Two</h3>
+<p class="text-gray-400 text-xs font-medium uppercase tracking-wider">Sci-Fi • Adventure</p>
+</div>
+</div>
+<!-- Star Interaction Area -->
+<div class="flex flex-col items-center w-full gap-3 mb-8">
+<div class="flex items-center justify-center gap-2">
+<!-- Star 1 (Filled) -->
+<button class="text-primary hover:text-primary transition-transform active:scale-90 hover:scale-110 focus:outline-none">
+<span class="material-symbols-outlined text-[32px]">star</span>
+</button>
+<!-- Star 2 (Filled) -->
+<button class="text-primary hover:text-primary transition-transform active:scale-90 hover:scale-110 focus:outline-none">
+<span class="material-symbols-outlined text-[32px]">star</span>
+</button>
+<!-- Star 3 (Filled) -->
+<button class="text-primary hover:text-primary transition-transform active:scale-90 hover:scale-110 focus:outline-none">
+<span class="material-symbols-outlined text-[32px]">star</span>
+</button>
+<!-- Star 4 (Filled) -->
+<button class="text-primary hover:text-primary transition-transform active:scale-90 hover:scale-110 focus:outline-none">
+<span class="material-symbols-outlined text-[32px]">star</span>
+</button>
+<!-- Star 5 (Empty/Outline) -->
+<button class="text-[#3b475c] hover:text-primary/50 transition-transform active:scale-90 hover:scale-110 focus:outline-none group">
+<span class="material-symbols-outlined text-[32px] group-hover:text-primary/50">star</span>
+</button>
+</div>
+<p class="text-gray-400 text-sm font-normal">Tap a star to rate</p>
+</div>
+<!-- Review Text Input (Collapsed/Clean state) -->
+<div class="w-full mb-6 relative">
+<textarea class="w-full bg-surface-dark border border-white/5 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary/50 resize-none h-20 transition-all" placeholder="Write a review (optional)..."></textarea>
+</div>
+<!-- Actions -->
+<div class="flex flex-col w-full gap-3">
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-semibold h-12 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-[0_4px_12px_rgba(37,106,244,0.3)]">
+<span>Submit Review</span>
+</button>
+<button class="w-full bg-transparent hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium h-10 rounded-lg transition-colors">
+                            Maybe Later
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

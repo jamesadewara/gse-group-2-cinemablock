@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - My Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#05080f", /* Deepened for cinematic black feel */
+                        "surface-dark": "#121826",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Hide scrollbar for cleaner UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary selection:text-white">
+    <div
+        class="relative flex min-h-screen w-full flex-col overflow-x-hidden mx-auto max-w-md bg-background-light dark:bg-background-dark shadow-2xl pb-24">
+        <!-- TopAppBar -->
+        <header
+            class="sticky top-0 z-30 flex items-center justify-between bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-4 py-3 border-b border-transparent dark:border-white/5 transition-colors duration-200">
+            <div
+                class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer text-slate-900 dark:text-white">
+                <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+            </div>
+            <h2 class="text-slate-900 dark:text-white text-base font-bold tracking-wide uppercase opacity-90">
+                Alex_Cinephile</h2>
+            <div
+                class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer text-slate-900 dark:text-white">
+                <span class="material-symbols-outlined text-[24px]">more_horiz</span>
+            </div>
+        </header>
+        <!-- Profile Header Section -->
+        <div class="flex flex-col items-center px-6 pt-6 pb-4">
+            <!-- Avatar -->
+            <div class="relative mb-4 group cursor-pointer">
+                <div
+                    class="size-28 rounded-full bg-surface-dark p-1 ring-2 ring-primary/30 group-hover:ring-primary transition-all">
+                    <div class="size-full rounded-full bg-cover bg-center"
+                        data-alt="Close up portrait of a young person with artistic lighting"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHx7hQId3S1qF6-ICbGcu19J4LBBCKBCco1RxJfLpnIZ1RPUWTXtkqapC6nvDJYUY-mWD3cl2qrUZYUyDdnL9L69Ir7ElxaRzThvxQPPMqYVriYBQtSBmqHtifRF7ctDdaM3PoaXb-YaE_JZ9Qr2e2efTvcFh2xAcUdha03aT6gz33_doy1M6TRMJUaPN9GtOSg-Rr7YQIL0-IB_0ZVeXMyFILPf_Ztbj2KOWNJaDB-qZg6B7iHMTkWQlc2ZBaeJH5K4CegkvtoJIX");'>
+                    </div>
+                </div>
+                <div
+                    class="absolute bottom-1 right-1 bg-primary text-white rounded-full p-1.5 flex items-center justify-center border-2 border-background-dark">
+                    <span class="material-symbols-outlined text-[16px] leading-none">add</span>
+                </div>
+            </div>
+            <!-- Name & Bio -->
+            <div class="text-center space-y-2 mb-6 max-w-[280px]">
+                <h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Alex Morgan</h1>
+                <p class="text-slate-500 dark:text-gray-400 text-sm leading-relaxed font-normal">
+                    Film Noir enthusiast. Sci-fi dreamer. <br />Based in NYC. 🎬 🍿
+                </p>
+            </div>
+            <!-- Stats Row (Minimalist) -->
+            <div class="flex w-full justify-between px-4 mb-6 border-y border-slate-200 dark:border-white/5 py-4">
+                <div class="flex flex-col items-center flex-1 cursor-pointer group">
+                    <span
+                        class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">142</span>
+                    <span
+                        class="text-xs font-medium text-slate-500 dark:text-gray-500 uppercase tracking-wider">Posts</span>
+                </div>
+                <div class="w-px bg-slate-200 dark:bg-white/10 h-10 self-center"></div>
+                <div class="flex flex-col items-center flex-1 cursor-pointer group">
+                    <span
+                        class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">1.2k</span>
+                    <span
+                        class="text-xs font-medium text-slate-500 dark:text-gray-500 uppercase tracking-wider">Followers</span>
+                </div>
+                <div class="w-px bg-slate-200 dark:bg-white/10 h-10 self-center"></div>
+                <div class="flex flex-col items-center flex-1 cursor-pointer group">
+                    <span
+                        class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">300</span>
+                    <span
+                        class="text-xs font-medium text-slate-500 dark:text-gray-500 uppercase tracking-wider">Following</span>
+                </div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="flex w-full gap-3 px-2">
+                <button
+                    class="flex-1 h-11 bg-primary hover:bg-blue-600 active:bg-blue-700 text-white text-sm font-bold rounded-lg transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                    Follow
+                </button>
+                <button
+                    class="size-11 flex items-center justify-center bg-slate-200 dark:bg-surface-dark hover:dark:bg-white/10 text-slate-900 dark:text-white rounded-lg transition-colors border border-transparent dark:border-white/5">
+                    <span class="material-symbols-outlined text-[20px]">mail</span>
+                </button>
+            </div>
+        </div>
+        <!-- Tabs -->
+        <div class="sticky top-[60px] z-20 bg-background-light dark:bg-background-dark pt-2">
+            <div class="flex border-b border-slate-200 dark:border-white/10">
+                <button class="flex flex-1 flex-col items-center justify-center pb-3 pt-3 gap-1.5 relative group">
+                    <span class="material-symbols-outlined text-[24px] text-primary">grid_view</span>
+                    <div class="absolute bottom-0 h-0.5 w-full bg-primary rounded-t-full"></div>
+                </button>
+                <button class="flex flex-1 flex-col items-center justify-center pb-3 pt-3 gap-1.5 relative group">
+                    <span
+                        class="material-symbols-outlined text-[24px] text-slate-400 dark:text-gray-500 group-hover:text-slate-600 dark:group-hover:text-gray-300 transition-colors">bookmark</span>
+                    <div
+                        class="absolute bottom-0 h-0.5 w-full bg-transparent group-hover:bg-slate-300 dark:group-hover:bg-white/10 rounded-t-full transition-colors">
+                    </div>
+                </button>
+                <button class="flex flex-1 flex-col items-center justify-center pb-3 pt-3 gap-1.5 relative group">
+                    <span
+                        class="material-symbols-outlined text-[24px] text-slate-400 dark:text-gray-500 group-hover:text-slate-600 dark:group-hover:text-gray-300 transition-colors">star</span>
+                    <div
+                        class="absolute bottom-0 h-0.5 w-full bg-transparent group-hover:bg-slate-300 dark:group-hover:bg-white/10 rounded-t-full transition-colors">
+                    </div>
+                </button>
+            </div>
+        </div>
+        <!-- Image Grid (Immersive 3-column) -->
+        <div class="grid grid-cols-3 gap-0.5 p-0.5 min-h-[500px]">
+            <!-- Item 1 -->
+            <div class="relative aspect-[2/3] group overflow-hidden bg-surface-dark cursor-pointer">
+                <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Dune movie poster artwork with desert tones"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCafkxxVBEy413y6QiSH6Lhn6cnenMpb9LanLBMlfUe2NpcOQ1vq9dL8KeRVwZliPBbfo4R_aWRlGPPqpJViQ0mI2ZQbFFdEE62c7iCUoxdJdT8ytUBZ2gjOEBlXLF54fln10yNLVrV8D6cZeos-Wre940k3KI1UtEDlZ-gunKzOimBx-kTuPicGB-bCfmvVrePqt8-x6X4VLCjqaD4QfR8FFxh1f_bYT6rUhbmtMPU07SgOoDkDugM9kyk07AK8TAF0TL4dOZM9Z_N");'>
+                </div>
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
+            </div>
+            <!-- Item 2 -->
+            <div class="relative aspect-[2/3] group overflow-hidden bg-surface-dark cursor-pointer">
+                <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Neon noir city street scene at night"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDd0TD64YXbQBU40lYekzMff76x8fkxaH6Uevex9a9Zdgr_hHb6B0AGCooSLOAExtiBqvPWZVqFY8qhSh2d20Ov4WCucKs_KYvkc6Xh1GpZO8DC-s9r-Ke4l-47IMtEfKCWP3aTzXT2Ea6Wz6DgNFXUnCP2gm32daCrEv0RscXG9IEK4ISnkwnfhsfn38CVyRmJ6SKOH0nmo3hREYKXr1FKqNhUWCLN5oG8utjH9BLn-pu1-tgiM3HcIJzlIhr1Whagm_-SMg57_RW3");'>
+                </div>
+                <div class="absolute top-2 right-2 text-white drop-shadow-md">
+                    <span class="material-symbols-outlined fill-current text-[18px]">movie</span>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="relative aspect-[2/3] group overflow-hidden bg-surface-dark cursor-pointer">
+                <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Black and white classic cinema photography"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7LqG5o02OzRbVFZD2P_PamAVqiUi93XDqzlsl-oNG3PE8qc7WfiTdU7QMnfFgW0vvI8OPHJNgcCGduaJxkgW0_O11Cz3Pmrzp2PnPYZ0bylZwWporz7ipcxwKO95cmYKnLmGy0s4ogwxkhs2dhCmP_2DH3VJXTw9D_-_TJkVY8weqKrcNk2KMMViQ_noS-ov-XEcQ06oW5iiQ9n6nP2Wyhzkh3ryFGfcd-Bz8_vnV52IYQEN4dtTobIcqBeb_fik-UPXjWfZ6gvaM");'>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="relative aspect-[2/3] group overflow-hidden bg-surface-dark cursor-pointer">
+                <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Abstract red cinema lighting background"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBzy7ufRdYuQmYbTVUjdJycL8-pH27D76Ut9a2IbeHfIizEw1CwssVYlxEFR3lf1XlmugFUA5pmrik5_QQtyYjGKxCh-ng9ZtdoP6lWLgrvPFtFCXZIVPzpF0pqQInkqDSzGs9TH3Qi2Lupn5fgP7PXC6BVMIDr9c1DjkpLcr7aq2FzP2TV4dztegeoYRvtwvm5TOF4cPTy-uFG0Ju1NJehADuLt5JWgHbu7thcQUkX3x0NUtnD8j8Z2Pc4fgjY1rAblwngz-OgTAZs");'>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="relative aspect-[2/3] group overflow-hidden bg-surface-dark cursor-pointer">
+                <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Person holding a cinema ticket in dim light"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBnZR_V9QUs4DqIaWbHtfMlkNSPIhWCNLCWltTvvzYPaXyYBxuwL-e0yx50Q1bMFloA5X0SM4T8CqIsI_jH_tCIxYewAFPYQpe5GckW_1VoPDtWhDSL-KxsdlAbOAWDVDh2QOO0Hl0JerV66UhCMyXiycGtPEFR60VjjwHTlON2H6RpBqy-hU6L6UbGTzXh_eY1uPbK1FHc00EZTK5375OsEv4rjqPrgI36P0kkOf3Yc3XPo0vHdhs2HycT0nBJlsHv0qCHinlLJtXf");'>
+                </div>
+                <div class="absolute top-2 right-2 text-white drop-shadow-md">
+                    <span class="material-symbols-outlined fill-current text-[18px]">collections</span>
+                </div>
+            </div>
+            <!-- Item 6 -->
+            <div class="relative aspect-[2/3] group overflow-hidden bg-surface-dark cursor-pointer">
+                <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Vintage film projector lens close up"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDDVE0OVRSmDrXdONs2yR75dP9moV_N06nl_ZeIuA6wUZGQZtkuxNxUgCueWZOoBV_UypIPK1KTuuGWRbG4PZwcVKDPE7seC7OaV88MG7TYcH0FC_uFPUsD7JfoBVBpNxK38-ix-MqQKj1GVm5lC1EAPqUqO2S3kH65wnneKJl9LPhjK3oXlSvU3uCKqCD3egLXYCXjp1j99rFwDD4yPec5RYUrSbGQMsVvL_yTwn1ZIO64wXCALjq2_t7lpqjDKmS7x8ZFKGX6ZjZF");'>
+                </div>
+            </div>
+            <!-- Item 7 -->
+            <div class="relative aspect-[2/3] group overflow-hidden bg-surface-dark cursor-pointer">
+                <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Sci-fi futuristic hallway corridor"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtaN3BEOMHXO2eB9vMYTEwvuKHAn572FvT8kNP7jlj_3kH0lFG4Z4WCntnqgZzRNMaGk5k_v7ogXC-2Gzz9yoBkFJY0kppp4ajbSS1J6ZeA6DU1UD7w70zYqxSoo0ySxLiO5d-JFJh_mwm4kR_I8dLIo_IjupxxrZPOqUXEsWfb9u1shKXe5mYjEHqY2aS-OQ3r3Sjr_PF5XABlgsFZzqmIm6c9IOEqGd4JwppVO9s2xLNzPbHBQuyY5oL9HG8qo-e79nai9TbMfr5");'>
+                </div>
+            </div>
+            <!-- Item 8 -->
+            <div class="relative aspect-[2/3] group overflow-hidden bg-surface-dark cursor-pointer">
+                <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Silhouette of person in front of bright screen"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDJnIMwulCdbAh6nhP-DuGWPObJMbvNk1bSCxyrkOeseliRWT5qYKxVzBcqBXolg3GYYlWoA7077oDYOI1mCUE7T1srv78xNtkkcrZdBg-vtdp1fru3T0gCprOsdwx8M8qwCtTLL0Wppmv4Bp2hyNI8z1YTk87srmIqtDky9Ymr58m4oWCwFYq1NscFI8KCSGJd_DXoranfvFenyZSFTxoTfPmbQUnvpYzbsPee1TTYpOszzidV3aoeE8zJq18BRIi2J9jKsdhp49ZQ");'>
+                </div>
+            </div>
+            <!-- Item 9 -->
+            <div class="relative aspect-[2/3] group overflow-hidden bg-surface-dark cursor-pointer">
+                <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    data-alt="Retro drive-in movie theater sign at night"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAp2dQf-BZPphtV0NK94E0EDeFvGh-2UayXy-DXh_WO7jbZKyTmVEDWDI_bF9um6Wn85P9UD3AjG6bX9VX6_KuzZT2SS89_vfmisJZBHKaUKQK6uXd5qeJ6drTkBtnogmCTBOkhE25UMNig-kNF0fY4vawVq-hrhjuB43QumdGaqA8Rey_z0MIH4z08FZKA_VnGvCJwK_VJoq8z9XZsCpHyEqscXXaZpmb7DVtlJZDDCHCKOArNfC9MaVSWBrnZjfKq5r1FDO6YKSgy");'>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Navigation Bar -->
+        <nav
+            class="fixed bottom-0 left-0 right-0 z-40 mx-auto max-w-md bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-xl border-t border-slate-200 dark:border-white/5 pb-5 pt-3 px-6">
+            <div class="flex items-center justify-between">
+                <a class="flex flex-col items-center gap-1 group" href="#">
+                    <span
+                        class="material-symbols-outlined text-[26px] text-slate-400 dark:text-gray-500 group-hover:text-primary transition-colors">home</span>
+                </a>
+                <a class="flex flex-col items-center gap-1 group" href="#">
+                    <span
+                        class="material-symbols-outlined text-[26px] text-slate-400 dark:text-gray-500 group-hover:text-primary transition-colors">search</span>
+                </a>
+                <div class="relative -top-5">
+                    <button
+                        class="size-14 rounded-full bg-primary text-white shadow-lg shadow-primary/40 flex items-center justify-center transform transition-transform active:scale-95">
+                        <span class="material-symbols-outlined text-[28px]">movie</span>
+                    </button>
+                </div>
+                <a class="flex flex-col items-center gap-1 group" href="#">
+                    <span
+                        class="material-symbols-outlined text-[26px] text-slate-400 dark:text-gray-500 group-hover:text-primary transition-colors">confirmation_number</span>
+                </a>
+                <a class="flex flex-col items-center gap-1 group" href="#">
+                    <div class="size-7 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden ring-2 ring-primary">
+                        <div class="w-full h-full bg-cover bg-center" data-alt="Small user avatar icon"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAazBvQqhZ-iL3reZg2LKECUczzYPb2RPQXWHANl21nsKze7UrYUxJ4EneXE4zhItc76Z2uvcZ_3hi3gz-SSmcOdvgl1kBQzjCtgyIIXddup905EIufCl6rw-3ps47-D3TopwCJGeyzMexAHsrSljj_t06VXV-wEovCZ8f1H4H_inMTDjPEmm7lJn8hV0Hg8BSxTlOYlwdZr9A37E_fhSnEWR8_QuByT1WghTmkLI1LWBDybfSN8nq_O5DJ8WYJXf9WNGeolyygQMeE");'>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

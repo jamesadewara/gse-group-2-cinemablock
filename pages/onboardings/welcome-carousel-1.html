@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial Welcome</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Smooth fade for the gradient */
+        .gradient-fade-bottom {
+            background: linear-gradient(to top, #101622 10%, rgba(16, 22, 34, 0.9) 30%, rgba(16, 22, 34, 0.4) 60%, transparent 100%);
+        }
+
+        /* Ensure safe area spacing for iOS devices */
+        .safe-area-top {
+            padding-top: max(1.5rem, env(safe-area-inset-top));
+        }
+
+        .safe-area-bottom {
+            padding-bottom: max(2rem, env(safe-area-inset-bottom));
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-dark font-display antialiased text-white overflow-hidden">
+    <div class="relative h-screen w-full flex flex-col group/design-root">
+        <!-- Background Layer -->
+        <div class="absolute inset-0 z-0">
+            <!-- Full bleed cinematic image -->
+            <div class="h-full w-full bg-cover bg-center bg-no-repeat"
+                data-alt="Dark cinematic sci-fi movie scene with moody lighting and futuristic architecture"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCqKGgStmw-h4tIMYphjejByMyDPw3gZjBnHiibBHxj4kpzVmUhzxEFRtbRIFwS98XjrGe68F1no0BorTORcVTFWC3SV5I_-Hg-b48KRkJsCoJJmg0TDmYG43qhc46B4qAoM6iX0IgqvEzCiPNSoFUT4PEFN_5m_9seOGRonBKdnAgSJNGa97WwkVSPIgbifwzkT7Frv9Y9vJR69hUkWWRY9O7e_HsCNOTgF4e6VSruVSbapTK8esqnSvmACbr_eoj69PvtOHGNNa_4');">
+            </div>
+            <!-- Dark Overlay for readability -->
+            <div class="absolute inset-0 bg-background-dark/30"></div>
+            <div class="absolute inset-0 gradient-fade-bottom"></div>
+        </div>
+        <!-- Foreground Content -->
+        <div class="relative z-10 flex h-full flex-col justify-between safe-area-top safe-area-bottom px-6">
+            <!-- Top App Bar / Skip Button -->
+            <div class="flex w-full items-center justify-end pt-2">
+                <button
+                    class="flex items-center justify-center rounded-full border border-white/10 bg-black/20 px-5 py-2 backdrop-blur-md transition-all active:bg-white/10 active:scale-95">
+                    <span class="text-sm font-medium tracking-wide text-white/90">Skip</span>
+                </button>
+            </div>
+            <!-- Main Content Area -->
+            <div class="flex flex-col items-center pb-8">
+                <!-- Headline & Body -->
+                <div class="mb-10 w-full max-w-md text-center">
+                    <h1 class="mb-4 text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-lg">
+                        Curated for <span class="text-primary">You</span>
+                    </h1>
+                    <p class="px-2 text-base font-normal leading-relaxed text-gray-300/90">
+                        Explore a personalized feed of movies based on what your friends are watching and rating.
+                    </p>
+                </div>
+                <!-- Page Indicators -->
+                <div class="flex w-full flex-row items-center justify-center gap-3 py-4">
+                    <!-- Active Dot -->
+                    <div class="h-2 w-6 rounded-full bg-primary shadow-[0_0_12px_rgba(13,89,242,0.6)] transition-all">
+                    </div>
+                    <!-- Inactive Dots -->
+                    <div class="h-2 w-2 rounded-full bg-white/20 transition-all"></div>
+                    <div class="h-2 w-2 rounded-full bg-white/20 transition-all"></div>
+                </div>
+                <!-- Optional Next Action Hint (Subtle) -->
+                <div
+                    class="mt-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/5 text-white/40 opacity-0 md:opacity-100">
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

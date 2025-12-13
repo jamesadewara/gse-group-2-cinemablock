@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - Group Detail</title>
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS with Config -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "card-dark": "#1C2333",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white overflow-x-hidden antialiased">
+    <!-- Main Container -->
+    <div class="relative flex min-h-screen w-full flex-col pb-24">
+        <!-- Hero Section (Immersive Header) -->
+        <div class="relative w-full h-[55vh] min-h-[400px]">
+            <!-- Background Image -->
+            <div class="absolute inset-0 bg-cover bg-center"
+                data-alt="Cinematic abstract space tunnel visual reminiscent of 2001 A Space Odyssey"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBurEEW2ercE4PP275uMC_qXk0YtsOpMRo-nHnrxr_9i2nm-5dFl3qQCyTIP1Y-x_xREQUAe3A5iNUFm3yVGmjqBOV7E_gfz7SPacAp4EqOVt13QHAUI9ouHWwYN14dSAs7WrCzFHKERP42fk0ji1jIXRoRricN5SRpi7nUEqvbq5nttRr72jikuaej3CH3gQdnpmzdQGD6odqh0JTsMJWp9SMgR42URk0gl39Qso9HkzjglEUufPZWNOTa9DlyKARKGJR_e1IVluvG");'>
+            </div>
+            <!-- Gradient Overlay for readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-background-dark"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/60 to-transparent">
+            </div>
+            <!-- Top Navigation (Absolute & Transparent) -->
+            <div class="absolute top-0 left-0 w-full flex items-center justify-between p-4 pt-12 z-20">
+                <button
+                    class="flex items-center justify-center w-10 h-10 rounded-full bg-black/20 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <div class="flex gap-3">
+                    <button
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-black/20 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition">
+                        <span class="material-symbols-outlined">share</span>
+                    </button>
+                    <button
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-black/20 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition">
+                        <span class="material-symbols-outlined">more_vert</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Group Info (Bottom of Header) -->
+            <div class="absolute bottom-0 left-0 w-full px-6 pb-6 z-10 flex flex-col gap-3">
+                <!-- Tags -->
+                <div class="flex gap-2">
+                    <span
+                        class="px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 text-primary text-xs font-bold uppercase tracking-wider">Kubrick</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white text-xs font-bold uppercase tracking-wider">Sci-Fi</span>
+                </div>
+                <h1 class="text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-lg">
+                    The Kubrick Fan Club
+                </h1>
+                <!-- Stats Row -->
+                <div class="flex items-center gap-4 text-gray-300 text-sm font-medium">
+                    <div class="flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-primary text-[20px]">group</span>
+                        <span>1.2k Cinephiles</span>
+                    </div>
+                    <div class="w-1 h-1 rounded-full bg-gray-500"></div>
+                    <div class="flex items-center gap-1.5">
+                        <span
+                            class="material-symbols-outlined text-green-400 text-[20px] filled">fiber_manual_record</span>
+                        <span>452 Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sticky Actions & Tabs Wrapper -->
+        <div
+            class="sticky top-0 z-30 bg-background-dark/95 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-black/50">
+            <!-- Main CTA -->
+            <div class="px-6 py-4">
+                <button
+                    class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 bg-primary text-white gap-2 px-6 text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/20 hover:bg-primary/90 transition transform active:scale-95">
+                    <span class="material-symbols-outlined">add</span>
+                    <span class="truncate">Join Group</span>
+                </button>
+            </div>
+            <!-- Tabs -->
+            <div class="flex px-6 gap-8">
+                <button class="relative flex flex-col items-center justify-center pb-4 pt-2 text-white flex-1 group">
+                    <span class="text-sm font-bold tracking-wide">Pinned Posts</span>
+                    <div
+                        class="absolute bottom-0 w-full h-[3px] bg-primary rounded-t-full shadow-[0_0_10px_rgba(13,89,242,0.5)]">
+                    </div>
+                </button>
+                <button
+                    class="relative flex flex-col items-center justify-center pb-4 pt-2 text-gray-500 hover:text-gray-300 flex-1 group transition">
+                    <span class="text-sm font-bold tracking-wide">Group Chat</span>
+                    <div
+                        class="absolute bottom-0 w-full h-[3px] bg-transparent group-hover:bg-gray-700 rounded-t-full transition">
+                    </div>
+                </button>
+            </div>
+        </div>
+        <!-- Tab Content (Pinned Posts) -->
+        <div class="flex flex-col gap-6 px-4 py-6">
+            <!-- Post Card 1: Watch Party -->
+            <div class="bg-card-dark rounded p-4 border border-white/5 shadow-lg">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="size-10 rounded-full bg-gray-700 overflow-hidden border border-white/10">
+                            <img class="w-full h-full object-cover" data-alt="Portrait of admin user"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxms5mdUxFhGgccoYE8eFQVTXIN3hHE2LJ1dv65yB9gr7xPJSFzNHKuCkZkJTBb7WY2nDtDFA0tCEUwK8NuCiY4TxyMPEAxkV_b_0y6ruAYYgGE7u6VieiRAVS8JWi2474FnMNKkDclkqFoSFQOc2O1_cUIJrB9jKv-Ef5QXj1rrwydeyZ9JnHjP_BhIADGSkv2GUxnL_2XTXjKOblbyd6zwW9DkdOPSyDtvrdrWP6MRg7xCL10dXYorQEj2gt7gVPs-o3nEjmsWkn" />
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-bold text-white leading-none">Marcus Reed</span>
+                            <span class="text-xs text-primary font-medium mt-1">Admin • 2h ago</span>
+                        </div>
+                    </div>
+                    <button class="text-gray-400 hover:text-white">
+                        <span class="material-symbols-outlined">more_horiz</span>
+                    </button>
+                </div>
+                <p class="text-gray-300 text-sm mb-3 leading-relaxed">
+                    Reminder: We are re-watching <span class="text-white font-bold">The Shining</span> this Friday at 8
+                    PM EST. Don't forget to RSVP! 🪓
+                </p>
+                <div class="relative w-full h-48 rounded overflow-hidden mb-4 group/image">
+                    <div
+                        class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-2 border border-white/10 z-10">
+                        <span class="material-symbols-outlined text-red-500 text-sm">event</span>
+                        <span class="text-xs font-bold text-white">Fri, Oct 24 • 8 PM</span>
+                    </div>
+                    <img class="w-full h-full object-cover group-hover/image:scale-105 transition duration-500"
+                        data-alt="Creepy hallway scene representing The Shining"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3M9KqIITfa9vHphnf_Ee-y9Qfj7CT91GjlaMfVzA8cXPiMZBPDzsxEZ98l3qg4-5nF34utn8YbwOn3MiPsuxovsZnZsGWKyhtfNhbdXqc44R0WN-PauW4LOeB2dxBxWX4uxdFipVoJm8JNOko7NNCboKKwwUwiqRws7Tj0zlovmUQwgooGLDIcjh8Axm3zSR1VMXSpDQW2uDeNCbhCxPS07idkd69O9VKaJQz6cy7EALrIB0iC39fKEZ-ySB6DBzTbifAbRS0ILBt" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-3 left-3 right-3">
+                        <h3 class="text-white font-bold text-lg">Weekly Watch Party</h3>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between border-t border-white/5 pt-3">
+                    <div class="flex -space-x-2">
+                        <img class="w-7 h-7 rounded-full border-2 border-card-dark" data-alt="Member avatar"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpDt9GMUoSuSCgVKDnMUsubVhJk1E-C5A6ofOKxFqaW0hRnZ_FfamF4u3eJIOQCLcvmEubaa0OREp7IEktyNveVHJKQu2ZO1RWeMS7orKG4FjRdj1B8Fd4FA6G5Z3j7c6J3Q7aHX6t5EFzaoucH4X9Qk96szkBCqHiJAqeQvBoVIks606XAqdz7Qo2jHbX2rCaHPLPHNOm1_jBd9J_KY9TeiBaPwDIj6vdZXjJRQ9W4mUxxigxfYI8uEWSzCM61jadEv28Ayqhx83S" />
+                        <img class="w-7 h-7 rounded-full border-2 border-card-dark" data-alt="Member avatar"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUOUqSHiQdHIYn9alQ03Jsgi9y0xI4tVVbmsv0y1cE7wcFkEcEU_AJ_E_f9u19abKUDThFU09kWAdyKnYgrOuEFtNe7p_jCnxSrGJXDdeY8ockjmoupR4oO6y8T5sXJhTXIPjmnY_MJqhaSRTBC56pgr6Fg5QeZsXGeRGqCYre_JXqWyUEAQK4e-NZmvH3UO0KV4yFUS9StOMjLDrZEQoJ4cqZr3GXj4cv6KeJtXQLLK7VajFDuJc0YtM8Gc9OE2iSThJKHZu2YkQZ" />
+                        <img class="w-7 h-7 rounded-full border-2 border-card-dark" data-alt="Member avatar"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSLZaIPcChWM4xs7Ik-fPUWBuLYeYCSo81AIXB3LimRpdzR1GZ0Zy8HndP8Fvl3PKOISYhZ6CFOOruxZ1Vkeqlk9ZA4GJJ5nHcpV4ocaTVoKH6c0glql6Iim9cEJK00UKNNTpuUAg0So7y12QlYH6D81xLyo3dDb6RlMnsCJcfPffDmQOZMXks97eXitZwe7uIkJCOz9AeG1fzqrh6xcM-8QnGBOtG9GqEmQmV0wPg-_I8esEsBTKnfVBbZXLB1KytZiRHcoT2peeC" />
+                        <div
+                            class="w-7 h-7 rounded-full border-2 border-card-dark bg-gray-700 flex items-center justify-center text-[10px] font-bold text-white">
+                            +24</div>
+                    </div>
+                    <button
+                        class="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-4 py-2 rounded-full transition">
+                        RSVP Now
+                    </button>
+                </div>
+            </div>
+            <!-- Post Card 2: Discussion -->
+            <div class="bg-card-dark rounded p-4 border border-white/5 shadow-lg">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="size-10 rounded-full bg-purple-900/50 overflow-hidden border border-white/10 flex items-center justify-center text-purple-200 font-bold">
+                            SL
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-bold text-white leading-none">Sarah Lee</span>
+                            <span class="text-xs text-gray-500 font-medium mt-1">Cinephile • 5h ago</span>
+                        </div>
+                    </div>
+                    <button class="text-gray-400 hover:text-white">
+                        <span class="material-symbols-outlined">more_horiz</span>
+                    </button>
+                </div>
+                <h3 class="text-white font-bold text-base mb-2">Unpopular Opinion: Eyes Wide Shut is his best work.</h3>
+                <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-3">
+                    The visual storytelling, the use of color, the tension... it's all perfect. I know 2001 gets all the
+                    love, but the atmosphere in EWS is unmatched. Thoughts?
+                </p>
+                <div class="flex items-center gap-6 text-gray-400">
+                    <button class="flex items-center gap-2 hover:text-primary transition group">
+                        <span
+                            class="material-symbols-outlined text-[20px] group-hover:scale-110 transition">favorite</span>
+                        <span class="text-xs font-medium">84</span>
+                    </button>
+                    <button class="flex items-center gap-2 hover:text-white transition group">
+                        <span
+                            class="material-symbols-outlined text-[20px] group-hover:scale-110 transition">chat_bubble</span>
+                        <span class="text-xs font-medium">32</span>
+                    </button>
+                    <button class="flex items-center gap-2 hover:text-white transition group ml-auto">
+                        <span
+                            class="material-symbols-outlined text-[20px] group-hover:scale-110 transition">ios_share</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Post Card 3: Poll -->
+            <div class="bg-card-dark rounded p-4 border border-white/5 shadow-lg">
+                <div class="flex items-center gap-2 mb-3">
+                    <span
+                        class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Poll</span>
+                    <span class="text-gray-400 text-xs">Ended yesterday</span>
+                </div>
+                <h3 class="text-white font-bold text-lg mb-4">Best Opening Scene?</h3>
+                <div class="space-y-3">
+                    <div class="relative w-full h-10 bg-white/5 rounded overflow-hidden flex items-center px-4">
+                        <div class="absolute left-0 top-0 bottom-0 bg-primary/30 w-[75%]"></div>
+                        <span class="relative z-10 text-sm font-medium text-white flex-1">2001: A Space Odyssey</span>
+                        <span class="relative z-10 text-xs font-bold text-white">75%</span>
+                    </div>
+                    <div class="relative w-full h-10 bg-white/5 rounded overflow-hidden flex items-center px-4">
+                        <div class="absolute left-0 top-0 bottom-0 bg-gray-700/30 w-[15%]"></div>
+                        <span class="relative z-10 text-sm font-medium text-gray-300 flex-1">A Clockwork Orange</span>
+                        <span class="relative z-10 text-xs font-bold text-gray-400">15%</span>
+                    </div>
+                    <div class="relative w-full h-10 bg-white/5 rounded overflow-hidden flex items-center px-4">
+                        <div class="absolute left-0 top-0 bottom-0 bg-gray-700/30 w-[10%]"></div>
+                        <span class="relative z-10 text-sm font-medium text-gray-300 flex-1">Full Metal Jacket</span>
+                        <span class="relative z-10 text-xs font-bold text-gray-400">10%</span>
+                    </div>
+                </div>
+                <div class="mt-4 text-xs text-gray-500 text-center">452 votes total</div>
+            </div>
+        </div>
+    </div>
+    <!-- Bottom Navigation Bar -->
+    <div
+        class="fixed bottom-0 left-0 w-full bg-[#101622]/80 backdrop-blur-lg border-t border-white/5 pb-6 pt-3 px-6 z-50">
+        <div class="flex justify-between items-center">
+            <button class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition">
+                <span class="material-symbols-outlined text-[26px]">home</span>
+                <span class="text-[10px] font-medium">Home</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition">
+                <span class="material-symbols-outlined text-[26px]">search</span>
+                <span class="text-[10px] font-medium">Explore</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 text-primary">
+                <div class="w-12 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[26px] filled">groups</span>
+                </div>
+                <span class="text-[10px] font-bold">Groups</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition">
+                <span class="material-symbols-outlined text-[26px]">local_activity</span>
+                <span class="text-[10px] font-medium">Tickets</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition">
+                <span class="material-symbols-outlined text-[26px]">person</span>
+                <span class="text-[10px] font-medium">Profile</span>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

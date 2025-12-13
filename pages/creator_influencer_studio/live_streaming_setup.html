@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - Live Stream Setup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f42525",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#221010",
+                        "surface-dark": "#2d1515",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar hide for chips */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display antialiased selection:bg-primary/30 selection:text-white">
+    <div
+        class="relative mx-auto flex h-full min-h-screen w-full max-w-md flex-col overflow-hidden bg-background-light dark:bg-background-dark shadow-2xl">
+        <!-- Top Navigation / Controls -->
+        <div class="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-6 pt-8">
+            <button
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-black/20 backdrop-blur-md text-white transition hover:bg-black/40">
+                <span class="material-symbols-outlined" style="font-size: 24px;">close</span>
+            </button>
+            <div class="flex items-center gap-4">
+                <button
+                    class="flex h-10 w-10 items-center justify-center rounded-full bg-black/20 backdrop-blur-md text-white transition hover:bg-black/40">
+                    <span class="material-symbols-outlined" style="font-size: 24px;">settings</span>
+                </button>
+                <button
+                    class="flex h-10 w-10 items-center justify-center rounded-full bg-black/20 backdrop-blur-md text-white transition hover:bg-black/40">
+                    <span class="material-symbols-outlined" style="font-size: 24px;">flip_camera_ios</span>
+                </button>
+            </div>
+        </div>
+        <!-- Camera Preview Area (Hero) -->
+        <div class="relative flex-1 w-full bg-black">
+            <!-- Simulated Camera Feed -->
+            <div class="absolute inset-0 h-full w-full overflow-hidden">
+                <img alt="Abstract dark cinematic studio lighting with red hues"
+                    class="h-full w-full object-cover opacity-80"
+                    data-alt="Abstract dark cinematic studio lighting with red hues"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsy84rQOswZQITM7AdHzK0PM7VTTNGzz4rkJbeODaDqOuOysOZlHeU_Mv-xa1UHv5PTLfN4VR2GD7fWg3T-fKL-im4uaXkATKqArtiwZdQMmQSuGmjjnNgjRaXzBNtuLD9uIoYbtlbwHSLANAWspp8VAccD0RR3AVelhIwUoPs29YVmUvpeeVeRfT18ya1cRAhEh3ZTDbQDppW36aSD0TcLxXZbn8Owf294l2j3U71otg9OL0PGcQH9YVqESeXskw0-aYtETqlpIPt" />
+                <!-- Gradient Overlay for Text Legibility -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent">
+                </div>
+            </div>
+            <!-- Content Overlay -->
+            <div class="absolute inset-0 flex flex-col justify-end px-6 pb-8 pt-24">
+                <!-- Headline -->
+                <div class="mb-6 text-center">
+                    <h2 class="text-white text-3xl font-bold tracking-tight drop-shadow-lg">Setup Stream</h2>
+                </div>
+                <!-- Input Group -->
+                <div class="space-y-5">
+                    <!-- Title Input -->
+                    <div
+                        class="group relative rounded-2xl bg-white/5 p-1 backdrop-blur-xl transition-all focus-within:bg-white/10 ring-1 ring-white/10 focus-within:ring-primary/50">
+                        <div class="relative flex items-center px-4 py-3">
+                            <span class="material-symbols-outlined text-white/50 mr-3">edit</span>
+                            <div class="flex-1">
+                                <label class="block text-xs font-medium text-white/60 uppercase tracking-wider mb-0.5"
+                                    for="stream-title">Stream Title</label>
+                                <input
+                                    class="w-full bg-transparent p-0 text-lg font-medium text-white placeholder-white/30 focus:outline-none border-none focus:ring-0"
+                                    id="stream-title" placeholder="e.g. Dune: Part Two Reaction" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tags Section -->
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between px-1">
+                            <span class="text-sm font-medium text-white/70">Topic Tags</span>
+                            <button
+                                class="text-xs font-semibold text-primary hover:text-red-400 uppercase tracking-wide">Edit</button>
+                        </div>
+                        <!-- Horizontal Scrollable Chips -->
+                        <div class="flex gap-3 overflow-x-auto no-scrollbar pb-2 mask-linear-fade">
+                            <!-- Active Chip -->
+                            <button
+                                class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary text-white pl-4 pr-4 shadow-lg shadow-primary/20 transition hover:bg-red-600">
+                                <span class="material-symbols-outlined text-[18px]">local_fire_department</span>
+                                <span class="text-sm font-medium">#Reaction</span>
+                            </button>
+                            <!-- Inactive Chips -->
+                            <button
+                                class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white/10 text-white/90 pl-4 pr-4 backdrop-blur-sm border border-white/5 transition hover:bg-white/20">
+                                <span class="text-sm font-medium">#Review</span>
+                            </button>
+                            <button
+                                class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white/10 text-white/90 pl-4 pr-4 backdrop-blur-sm border border-white/5 transition hover:bg-white/20">
+                                <span class="text-sm font-medium">#WatchParty</span>
+                            </button>
+                            <button
+                                class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white/10 text-white/90 pl-4 pr-4 backdrop-blur-sm border border-white/5 transition hover:bg-white/20">
+                                <span class="text-sm font-medium">#SpoilerTalk</span>
+                            </button>
+                            <button
+                                class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white/10 text-white/90 pl-4 pr-4 backdrop-blur-sm border border-white/5 transition hover:bg-white/20">
+                                <span class="text-sm font-medium">#Cinema</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Camera Controls (Mic, Flash, etc. simplified) -->
+                    <div class="flex items-center justify-center gap-8 py-2">
+                        <button class="group flex flex-col items-center gap-1 opacity-70 hover:opacity-100 transition">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-full bg-surface-dark border border-white/10 text-white group-hover:border-primary/50 group-hover:text-primary transition">
+                                <span class="material-symbols-outlined">mic</span>
+                            </div>
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-white/60">Mic On</span>
+                        </button>
+                        <button class="group flex flex-col items-center gap-1 opacity-70 hover:opacity-100 transition">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-full bg-surface-dark border border-white/10 text-white group-hover:border-primary/50 group-hover:text-primary transition">
+                                <span class="material-symbols-outlined">flash_off</span>
+                            </div>
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-white/60">Flash</span>
+                        </button>
+                        <button class="group flex flex-col items-center gap-1 opacity-70 hover:opacity-100 transition">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-full bg-surface-dark border border-white/10 text-white group-hover:border-primary/50 group-hover:text-primary transition">
+                                <span class="material-symbols-outlined">videocam</span>
+                            </div>
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-white/60">Video</span>
+                        </button>
+                    </div>
+                    <!-- Spacer -->
+                    <div class="h-2"></div>
+                    <!-- Main Action Button -->
+                    <button
+                        class="relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl bg-primary h-14 text-white shadow-lg shadow-red-900/40 transition-transform active:scale-[0.98] group">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite]">
+                        </div>
+                        <span class="material-symbols-outlined mr-2 fill-current">sensors</span>
+                        <span class="text-lg font-bold tracking-wide">GO LIVE</span>
+                    </button>
+                    <p class="text-center text-xs text-white/40 mt-2 font-medium">
+                        Your followers will be notified instantly.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Safe Area Spacer (Simulated for iOS) -->
+        <div class="h-6 w-full bg-background-dark"></div>
+    </div>
+    <style>
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Gradient mask for chips scrolling */
+        .mask-linear-fade {
+            mask-image: linear-gradient(to right, black 85%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+        }
+    </style>
+</body>
+
+</html>

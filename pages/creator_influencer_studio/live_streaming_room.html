@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - Live Stream Host View</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f42525",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar hiding for cleaner look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Gradient mask for chat */
+        .mask-gradient-top {
+            mask-image: linear-gradient(to bottom, transparent, black 15%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-display overflow-hidden h-screen w-screen relative">
+    <!-- 1. Background Video Layer -->
+    <div class="absolute inset-0 z-0 h-full w-full bg-black">
+        <!-- Placeholder for the live video feed -->
+        <div class="h-full w-full bg-cover bg-center opacity-80"
+            data-alt="Cinematic movie scene with dramatic lighting and a host reacting"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0fRr6s3VE-rsxbV1EYAzl4YHKJN1mOyH2Gd6TbU0ij3qkTGvNlP9k8m2U3MXlGDu-hZjxGnJjW_i3-WiOh-X3HRJ8Wwg2jWbzxUtISErOry_KdKcs96Q-p-nwjjPqCqw5K24xqU0Fs70bbh1Wo-RbN1HuN8WLPuyQZdtuH5TYy2V6k0YhRHgZctdPk3njLZ3UzA8WPk6xoskFLLRX322nhLtQNYInowXuBPRIw8kf6d3T70yOQb_VRpNW5XAreIgHuD691PvD5cFT');">
+            <!-- Simulated Video Overlay Gradient for readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80"></div>
+        </div>
+    </div>
+    <!-- 2. Top Bar Overlay -->
+    <div
+        class="absolute top-0 left-0 right-0 z-20 pt-12 pb-4 px-4 flex items-center justify-between pointer-events-none">
+        <!-- Live Status & Info -->
+        <div class="flex items-center gap-3 pointer-events-auto">
+            <div class="flex items-center bg-black/40 backdrop-blur-md rounded-full px-3 py-1.5 border border-white/10">
+                <span class="relative flex h-2.5 w-2.5 mr-2">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+                </span>
+                <span class="text-xs font-bold tracking-wider mr-3">LIVE</span>
+                <span class="w-px h-3 bg-white/20 mr-3"></span>
+                <span class="text-xs font-medium tabular-nums tracking-wide">45:20</span>
+            </div>
+            <div
+                class="flex items-center bg-black/40 backdrop-blur-md rounded-full px-3 py-1.5 border border-white/10 gap-1.5 text-xs font-medium">
+                <span class="material-symbols-outlined text-[16px]">visibility</span>
+                <span>1.2k</span>
+            </div>
+        </div>
+        <!-- Close / Minimize -->
+        <button
+            class="pointer-events-auto flex items-center justify-center size-10 rounded-full bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-white/10 transition-colors">
+            <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+    </div>
+    <!-- 3. Main Content Area -->
+    <div class="absolute inset-0 z-10 flex flex-col justify-end pb-24 px-4 pointer-events-none">
+        <!-- Chat Area (Floating Bottom Left/Center mostly, but styled as side overlay requested) -->
+        <!-- Modified to be a bottom-left/bottom-center chat stream appropriate for mobile -->
+        <div class="w-full max-w-md self-start pointer-events-auto mb-4">
+            <div
+                class="relative h-64 overflow-y-auto no-scrollbar flex flex-col justify-end mask-gradient-top space-y-3 pl-2 pr-4">
+                <!-- Message 1 -->
+                <div class="group flex gap-3 items-start animate-fade-in-up">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full size-8 shrink-0 border border-white/10 shadow-sm"
+                        data-alt="Portrait of a user looking excited"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB7_oaZqmlg7xJDFYAE-HjGMO8hnv90Y8eRzNrqafURtQhi2axWrtulAU1kEqzyO-lW6Fmi7bN9fqkDmQ9JKd0PUDxlskRPT9MrZXnuxI2i7wr61vPnmGfPtyD39C_69xCTZrmT9FULZpNvDexnFOPC7j0wOm47mAnAAe1qMenVDipWMY6PPf_epwt7XnLamuAG0bz-K4ilVifcbTdIx2gmyVlfbIEq6MW217msyhnhOnMPl1YS5THIiYSDaMP5gVe2yWpc8sZYZYYK");'>
+                    </div>
+                    <div class="flex flex-col gap-0.5">
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-white/90 text-sm font-bold shadow-black drop-shadow-md">User123</span>
+                        </div>
+                        <p
+                            class="text-white/80 text-sm leading-snug shadow-black drop-shadow-md bg-black/20 backdrop-blur-sm rounded-r-xl rounded-bl-xl p-2 px-3 inline-block">
+                            The lighting in this scene is incredible.</p>
+                    </div>
+                </div>
+                <!-- Message 2 -->
+                <div class="group flex gap-3 items-start animate-fade-in-up">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full size-8 shrink-0 border border-white/10 shadow-sm"
+                        data-alt="Portrait of a movie buff"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBe8nqV3Dmo9o4DdxKFSV5YbZiuvd5BrcHO7snoQt6z0GyPQME7EnhQSqexGmAVj1zn3yUuy91qVjqOH693G5zTu6SpkkKs1WRhRwvgZoNm9o6TFr_LCdb5jQnBjJevsu6sJITRCYfglDdTxH8bcQw7ZvQFtMfDsNJJRT3qb-caogA9LwRAfK7JOi5r6lu-3XC0-sebTuEV7GjaaDjBby3H1DBBRZHCJ_7BstGKdDQoGn361zYsgZmIl7KAyl0izivfhHbOrMk-Z1Db");'>
+                    </div>
+                    <div class="flex flex-col gap-0.5">
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-white/90 text-sm font-bold shadow-black drop-shadow-md">MovieBuff</span>
+                        </div>
+                        <p
+                            class="text-white/80 text-sm leading-snug shadow-black drop-shadow-md bg-black/20 backdrop-blur-sm rounded-r-xl rounded-bl-xl p-2 px-3 inline-block">
+                            Wait, who is the director again?</p>
+                    </div>
+                </div>
+                <!-- Message 3 (Host) -->
+                <div class="group flex gap-3 items-start animate-fade-in-up">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full size-8 shrink-0 border-2 border-primary shadow-sm"
+                        data-alt="Host profile picture"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCIyvQWm1Skl__1C1BefDf2pPJ_TcqyGdBrtNUELdTRNL1_jW6NEnhIX7i5efTKww9gtsDv1n3E_n2KMYUXfqhFN1nEAtG_jswAOH9ebK9hHP-P_DpSqusaTlwypZZHz5UFki2_NxZTCJHj-3n-PprKctYUaIW_JLqTCv8_amnqdc02q494RhYM6SZ3eQEpK_M1hdVD24KIMjjk4HZjv8jLJSR3a49Qu4ETkto5jkT4P5O1upaxEo4P_2F4F8Xl0prPoL_d7BTcYNZT");'>
+                    </div>
+                    <div class="flex flex-col gap-0.5">
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-primary text-sm font-bold shadow-black drop-shadow-md">You</span>
+                        </div>
+                        <p
+                            class="text-white text-sm leading-snug shadow-black drop-shadow-md bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-r-xl rounded-bl-xl p-2 px-3 inline-block">
+                            Christopher Nolan, of course!</p>
+                    </div>
+                </div>
+                <!-- Latest Message Incoming Animation Placeholder -->
+                <div class="group flex gap-3 items-start opacity-70 scale-95 origin-left">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full size-8 shrink-0 border border-white/10 shadow-sm"
+                        data-alt="New user joining chat"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsdT-7IF1HZyos61lrlH9YPvHIjqWtpmF7GXVw9dh0vmferLvW_8J-DBmMYFHmERZ_xSkvlrW8DMVsTtEvagmiJ-ySIGDmizUGNqc7U-GKbhPuMPpv2xyaLE-WpZvknk0gdECGMIAs2LB0fyPu7xgCCHAyOIP6HrVQs8a8ARkHcJEEAmB2IH-8w4FPm4P_hQnGOwTsOKQVRgKrvAIVGdFBNgq4k_2isyFG_NmojFpP_mk_s0rg-q7FAuhtbhnIPV_yApQL4j14OOa4");'>
+                    </div>
+                    <div class="flex flex-col gap-0.5">
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-white/90 text-sm font-bold shadow-black drop-shadow-md">Sarah_J</span>
+                        </div>
+                        <p
+                            class="text-white/80 text-sm leading-snug shadow-black drop-shadow-md bg-black/20 backdrop-blur-sm rounded-r-xl rounded-bl-xl p-2 px-3 inline-block">
+                            Mind blown 🤯</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Quick Chat Input for Host -->
+            <div class="mt-2 flex items-center gap-2">
+                <input
+                    class="w-full bg-black/40 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/30 transition-all"
+                    placeholder="Reply to chat..." type="text" />
+            </div>
+        </div>
+        <!-- Floating Reactions (Decorative) -->
+        <div class="absolute bottom-32 right-4 flex flex-col items-center gap-4 pointer-events-none">
+            <div
+                class="flex items-center justify-center size-10 rounded-full bg-transparent text-primary animate-bounce delay-75">
+                <span class="material-symbols-outlined text-3xl drop-shadow-lg"
+                    style="font-variation-settings: 'FILL' 1;">favorite</span>
+            </div>
+            <div
+                class="flex items-center justify-center size-8 rounded-full bg-transparent text-pink-500 animate-pulse delay-100 opacity-60">
+                <span class="material-symbols-outlined text-2xl drop-shadow-lg"
+                    style="font-variation-settings: 'FILL' 1;">favorite</span>
+            </div>
+        </div>
+    </div>
+    <!-- 4. Host Control Dock (Bottom Overlay) -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 pointer-events-auto w-full max-w-sm px-4">
+        <div
+            class="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-2 flex items-center justify-between shadow-2xl transition-opacity duration-300 hover:opacity-100 opacity-90">
+            <!-- Standard Controls -->
+            <div class="flex items-center gap-1">
+                <button
+                    class="flex flex-col items-center justify-center size-12 rounded-xl text-white hover:bg-white/10 active:bg-white/20 transition-colors group">
+                    <span
+                        class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">mic</span>
+                    <span class="text-[10px] mt-0.5 font-medium opacity-60">Mute</span>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center size-12 rounded-xl text-white hover:bg-white/10 active:bg-white/20 transition-colors group">
+                    <span
+                        class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">cameraswitch</span>
+                    <span class="text-[10px] mt-0.5 font-medium opacity-60">Flip</span>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center size-12 rounded-xl text-white hover:bg-white/10 active:bg-white/20 transition-colors group relative">
+                    <span
+                        class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">chat_bubble</span>
+                    <span class="text-[10px] mt-0.5 font-medium opacity-60">Chat</span>
+                    <span class="absolute top-2 right-2 size-2 bg-primary rounded-full"></span>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center size-12 rounded-xl text-white hover:bg-white/10 active:bg-white/20 transition-colors group">
+                    <span
+                        class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">settings</span>
+                    <span class="text-[10px] mt-0.5 font-medium opacity-60">Settings</span>
+                </button>
+            </div>
+            <!-- Destructive Action -->
+            <button
+                class="flex items-center justify-center px-4 h-10 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-red-600 active:bg-red-700 transition-colors ml-2 shadow-lg shadow-red-900/20">
+                End
+            </button>
+        </div>
+    </div>
+    <!-- Safe Area Bottom Spacer if needed for home indicator visual balance -->
+    <div class="absolute bottom-0 w-full h-1 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-0">
+    </div>
+</body>
+
+</html>

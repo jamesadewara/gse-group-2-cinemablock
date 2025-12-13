@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Create Post / Upload Trailer - CineSocial</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#050505", /* Adjusted to Deepest Black per user request */
+                        "surface-dark": "#121212",
+                        "surface-light": "#ffffff",
+                        "text-secondary-dark": "#9ca6ba",
+                        "text-secondary-light": "#6b7280"
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar hide for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white transition-colors duration-200">
+    <div
+        class="relative flex h-full min-h-screen w-full max-w-md mx-auto flex-col overflow-hidden bg-background-light dark:bg-background-dark shadow-2xl border-x border-gray-200 dark:border-gray-800/50">
+        <!-- Header -->
+        <header
+            class="flex items-center justify-between px-4 py-3 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md sticky top-0 z-50">
+            <button
+                class="text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                Cancel
+            </button>
+            <h1 class="text-lg font-bold tracking-tight">New Trailer</h1>
+            <button
+                class="px-5 py-1.5 rounded-full bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95">
+                Share
+            </button>
+        </header>
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col px-4 pt-4 pb-20 overflow-y-auto no-scrollbar gap-6">
+            <!-- Video Picker / Empty State -->
+            <div class="w-full">
+                <div
+                    class="relative group cursor-pointer w-full aspect-[4/5] sm:aspect-video rounded-2xl border border-dashed border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-surface-dark overflow-hidden transition-all hover:border-primary/50 hover:bg-gray-200 dark:hover:bg-[#1a1a1a]">
+                    <!-- Background gradient overlay for cinematic feel -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none z-10">
+                    </div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-20">
+                        <div
+                            class="w-16 h-16 mb-4 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-4xl">movie</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Upload Trailer</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 max-w-[240px]">Tap to select a cinematic clip
+                            from your library</p>
+                    </div>
+                    <!-- Hidden Input simulation -->
+                    <input accept="video/*" class="absolute inset-0 opacity-0 cursor-pointer z-30" type="file" />
+                </div>
+            </div>
+            <!-- Inputs Section -->
+            <div class="flex flex-col gap-4">
+                <!-- Caption Input -->
+                <div class="relative">
+                    <label class="sr-only" for="caption">Caption</label>
+                    <textarea
+                        class="w-full bg-transparent text-lg font-normal placeholder:text-gray-400 dark:placeholder:text-gray-600 border-none focus:ring-0 p-0 resize-none min-h-[80px]"
+                        id="caption" placeholder="Write a caption about this movie..."></textarea>
+                </div>
+                <!-- Tags Input -->
+                <div class="relative flex items-center py-3 border-t border-b border-gray-200 dark:border-gray-800">
+                    <span class="material-symbols-outlined text-gray-400 dark:text-gray-500 mr-3">tag</span>
+                    <input
+                        class="flex-1 bg-transparent border-none focus:ring-0 p-0 text-base placeholder:text-gray-400 dark:placeholder:text-gray-600"
+                        placeholder="Add tags (e.g. #SciFi #Indie)" type="text" />
+                </div>
+                <!-- Location Input -->
+                <div class="relative flex items-center py-3 border-b border-gray-200 dark:border-gray-800">
+                    <span class="material-symbols-outlined text-gray-400 dark:text-gray-500 mr-3">location_on</span>
+                    <input
+                        class="flex-1 bg-transparent border-none focus:ring-0 p-0 text-base placeholder:text-gray-400 dark:placeholder:text-gray-600"
+                        placeholder="Add location" type="text" />
+                </div>
+            </div>
+        </main>
+        <!-- Bottom Toolbar (Fixed above keyboard area) -->
+        <div
+            class="sticky bottom-0 w-full bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800 p-3 pb-6 sm:pb-3">
+            <div class="flex items-center justify-between px-2">
+                <div class="flex items-center gap-1">
+                    <button aria-label="Tag People"
+                        class="p-3 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-dark transition-colors">
+                        <span class="material-symbols-outlined">alternate_email</span>
+                    </button>
+                    <button aria-label="Visibility"
+                        class="p-3 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-dark transition-colors">
+                        <span class="material-symbols-outlined">visibility</span>
+                    </button>
+                    <button aria-label="Add to Collection"
+                        class="p-3 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-surface-dark transition-colors">
+                        <span class="material-symbols-outlined">playlist_add</span>
+                    </button>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs font-medium text-gray-400 dark:text-gray-600">Draft saved</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

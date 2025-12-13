@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>CineSocial - Chat Thread</title>
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0d59f2",
+            "background-light": "#f5f6f8",
+            "background-dark": "#050505", /* Deep cinematic black as requested */
+            "surface-dark": "#121212",
+            "bubble-incoming": "#1F1F1F", /* Dark Slate Gray */
+            "bubble-outgoing": "#0d59f2", /* Primary Blue */
+          },
+          fontFamily: {
+            "display": ["Spline Sans", "Noto Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    /* Material Symbols overrides for size adjustment */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden h-screen w-full flex flex-col relative">
+  <!-- Header: Minimal & Cinematic -->
+  <header
+    class="flex items-center justify-between px-4 py-3 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md z-30 border-b border-slate-200 dark:border-white/5 sticky top-0 transition-colors">
+    <div class="flex items-center gap-1">
+      <button
+        class="w-10 h-10 flex items-center justify-center text-slate-500 dark:text-white/70 hover:text-primary dark:hover:text-white transition-colors rounded-full -ml-2">
+        <span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span>
+      </button>
+      <div class="flex items-center gap-3 ml-1">
+        <div class="relative group cursor-pointer">
+          <div
+            class="w-9 h-9 rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-primary/50 transition-all">
+            <img alt="Sarah Connor Portrait" class="w-full h-full object-cover" data-alt="Portrait of Sarah Connor"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2DhQOdhiVndKKPm8e_sUbDsG0mEHaY_lIx2XVETqBSmbN6otQAZ84SbESch_ZMd8ivevrImnRFAN-4jlXWLe5c76CtJ_FsJTDiulGCG_lpXyE4ToVQVDcdLdS8x650S18Mp9pYEGoLn1LbbsK_73xJvnYlrxSInyOiMsM-SsfPSnJL2AC1Za_YQhJXdmcm3l6dO9jZdBg09aQAvC4S1RO5LhGER1KRWXm-YqVsMTflf3iZGWrda5_hH301jRIR0zjDXjH7FhNR1_G" />
+          </div>
+          <span
+            class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-background-light dark:border-background-dark rounded-full"></span>
+        </div>
+        <div class="flex flex-col justify-center">
+          <h2 class="text-slate-900 dark:text-white text-[15px] font-bold leading-none tracking-tight">Sarah Connor</h2>
+          <span class="text-primary text-[11px] font-medium leading-tight mt-0.5">Online</span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="w-10 h-10 flex items-center justify-center text-slate-500 dark:text-white/70 hover:text-primary dark:hover:text-white transition-colors rounded-full">
+      <span class="material-symbols-outlined text-[24px]">more_vert</span>
+    </button>
+  </header>
+  <!-- Chat Thread Area -->
+  <main class="flex-1 overflow-y-auto no-scrollbar p-4 flex flex-col gap-6 pb-40 w-full max-w-2xl mx-auto">
+    <!-- Date MetaText -->
+    <div class="flex justify-center py-2">
+      <span
+        class="text-slate-400 dark:text-white/30 text-[11px] font-medium uppercase tracking-widest bg-slate-100 dark:bg-white/5 px-3 py-1 rounded-full backdrop-blur-sm">Today,
+        10:42 PM</span>
+    </div>
+    <!-- Message 1 (Incoming) -->
+    <div class="flex items-end gap-3 group animate-fade-in-up">
+      <div class="w-7 h-7 shrink-0 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800">
+        <img alt="Sarah Connor Avatar" class="w-full h-full object-cover" data-alt="Small avatar of Sarah Connor"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7A7SKExjTe_8DUqoXl7BHMPW_ZJb2LxTShGZLw7sTDZ7f7wP6Nz6xZguJ1aYYUdbIPHw1l0j8s47CjqDNLKAeuyVzN9s5ugEWzs9U78i5Y3Bi7nVtumq2woDvTz_KIgjzlDEJxrjPrIFBUQV2uTiNrDLUpZvxDWgjRJQnfX_Pw69PiyngsaKZa6jSK2MEyLDWeeFL6Flb4AS6rtoDwaj_3zUoR0pYrN0nj1Aizks7LElurNM-LohNEDnHg2cb10Dbki8ec7m3Vi7t" />
+      </div>
+      <div class="flex flex-col items-start gap-1 max-w-[80%] sm:max-w-[70%]">
+        <div
+          class="bg-white dark:bg-bubble-incoming p-3.5 rounded-2xl rounded-bl-none text-slate-700 dark:text-white text-[15px] leading-relaxed shadow-sm border border-slate-100 dark:border-white/5">
+          Have you seen the trailer for the new sci-fi flick?
+        </div>
+      </div>
+    </div>
+    <!-- Message 2 (Outgoing) -->
+    <div class="flex items-end gap-3 justify-end group animate-fade-in-up" style="animation-delay: 0.1s;">
+      <div class="flex flex-col items-end gap-1 max-w-[80%] sm:max-w-[70%]">
+        <div
+          class="bg-primary p-3.5 rounded-2xl rounded-br-none text-white text-[15px] leading-relaxed shadow-md shadow-primary/20">
+          Yeah, the cinematography looks insane. Literally stunning.
+        </div>
+        <div class="flex items-center gap-1 px-1">
+          <span class="text-slate-400 dark:text-white/30 text-[10px]">Read 10:43 PM</span>
+          <span class="material-symbols-outlined text-[12px] text-primary">done_all</span>
+        </div>
+      </div>
+    </div>
+    <!-- Message 3 (Incoming with Media) -->
+    <div class="flex items-end gap-3 group animate-fade-in-up" style="animation-delay: 0.2s;">
+      <div class="w-7 h-7 shrink-0 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800">
+        <img alt="Sarah Connor Avatar" class="w-full h-full object-cover" data-alt="Small avatar of Sarah Connor"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYGZ4KikSgUuIc9Qz7zI8YY3jq0hT4TVMckNiGfrZLD26pyAs9IeY1JKjr0pbdxHLyS6PnKmnOH2FAsCP3fvn5LMFq6ceKqnaS81z0Szwu18d7A-pIBA0RoVIql_j73_ezTEZuia_LlrGQDs-rxHtuQR-kFyWRFby3hVBsra2aJH4FImUUr5uUzWa8jEThOuQAQmx-um4uDDrYWhhZI9L6E40Ijcdn59PTGwWLDRjRYtU6keinqJTA9ifc1nNAe_QsRwzgT91JOFVn" />
+      </div>
+      <div class="flex flex-col items-start gap-1 max-w-[85%] sm:max-w-[70%]">
+        <div
+          class="bg-white dark:bg-bubble-incoming p-3 rounded-2xl rounded-bl-none text-slate-700 dark:text-white text-[15px] leading-relaxed shadow-sm border border-slate-100 dark:border-white/5 flex flex-col gap-2.5">
+          <span>I'm thinking we book tickets for Friday?</span>
+          <!-- Media Attachment -->
+          <div class="relative w-full aspect-video rounded-lg overflow-hidden group/media cursor-pointer">
+            <img alt="Movie Trailer Thumbnail"
+              class="w-full h-full object-cover opacity-90 group-hover/media:opacity-100 group-hover/media:scale-105 transition-all duration-500"
+              data-alt="Futuristic neon city movie scene"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCwipDBXJmKhKivlwD2HOQwYV4H-yxCBpm4rehdi2BLXMkqtkf-1LoA2fOKPhewL45rUBx0TX1I_Jf5fKL348BYc4Grq4U7XXD-Gzm5MBP9pCx0WPU51imA3Hd9kxtsGrdfG0Y5het3YwqMGAikY2G3BnxXEwKhPVcRraf5_OVwitLZggfTjG_dWHzc-edSLUgUiOyGhWH-nhpw60ytVZ9x9mARhz_2DGWmgNG5rmoCNq6FsmnCGO22i7UY2-wZbumBroaNK7LrOsg" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center">
+              <div
+                class="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 group-hover/media:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-white text-[28px] fill-1 ml-1">play_arrow</span>
+              </div>
+            </div>
+            <div class="absolute bottom-2 left-2 text-white text-xs font-bold drop-shadow-md">
+              Neon Genesis: The Arising
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer: Floating Input + Tab Bar -->
+  <div class="fixed bottom-0 w-full z-40 flex flex-col items-center pointer-events-none">
+    <!-- Input Field (Floating) -->
+    <div class="w-full max-w-2xl px-4 pb-2 pointer-events-auto">
+      <div
+        class="flex items-center gap-2 bg-white dark:bg-[#1A1A1A] p-1.5 pr-2 rounded-[24px] border border-slate-200 dark:border-white/10 shadow-xl shadow-black/20 backdrop-blur-xl">
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full text-slate-400 dark:text-white/40 hover:bg-slate-100 dark:hover:bg-white/10 hover:text-slate-600 dark:hover:text-white transition-all shrink-0">
+          <span class="material-symbols-outlined text-[22px]">add</span>
+        </button>
+        <div class="h-6 w-[1px] bg-slate-200 dark:bg-white/10"></div>
+        <input
+          class="flex-1 bg-transparent border-none text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-white/30 focus:ring-0 text-[15px] h-10 px-1 font-normal"
+          placeholder="Message..." type="text" value="Sounds good, let me check..." />
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full text-slate-400 dark:text-white/40 hover:text-primary dark:hover:text-primary transition-colors shrink-0">
+          <span class="material-symbols-outlined text-[22px]">confirmation_number</span>
+        </button>
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/30 hover:bg-blue-600 active:scale-95 transition-all shrink-0">
+          <span class="material-symbols-outlined text-[20px] fill-1 ml-0.5">send</span>
+        </button>
+      </div>
+    </div>
+    <!-- Bottom Navigation Bar -->
+    <nav
+      class="w-full bg-white/90 dark:bg-background-dark/95 backdrop-blur-xl border-t border-slate-200 dark:border-white/5 pb-6 pt-2 px-6 flex justify-between items-center pointer-events-auto">
+      <button
+        class="flex flex-col items-center justify-center w-12 h-12 gap-1 text-slate-400 dark:text-white/40 hover:text-primary dark:hover:text-white transition-colors group">
+        <span class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform">home</span>
+      </button>
+      <button
+        class="flex flex-col items-center justify-center w-12 h-12 gap-1 text-slate-400 dark:text-white/40 hover:text-primary dark:hover:text-white transition-colors group">
+        <span class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform">search</span>
+      </button>
+      <button
+        class="flex flex-col items-center justify-center w-12 h-12 gap-1 text-primary transition-colors relative group">
+        <span
+          class="material-symbols-outlined text-[26px] fill-1 group-hover:scale-110 transition-transform">chat_bubble</span>
+        <span
+          class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border border-white dark:border-background-dark"></span>
+      </button>
+      <button
+        class="flex flex-col items-center justify-center w-12 h-12 gap-1 text-slate-400 dark:text-white/40 hover:text-primary dark:hover:text-white transition-colors group">
+        <span
+          class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform">local_activity</span>
+      </button>
+      <button
+        class="flex flex-col items-center justify-center w-12 h-12 gap-1 text-slate-400 dark:text-white/40 hover:text-primary dark:hover:text-white transition-colors">
+        <div
+          class="w-[26px] h-[26px] rounded-full overflow-hidden border border-transparent hover:border-white transition-colors">
+          <img alt="User Profile" class="w-full h-full object-cover" data-alt="User profile picture"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzGhurdGlX62kE_Eyck3fMfLZWwJ34fxBQp3gOP93dXrEg9OEAea4M6pEAC1_5X73LzUN2Lc9FxRiUqLOARxH2OtzPRhvI3UDFlt2ndGcUEtODnXjGApwkQWJjooXKfYK8IAx3tk2R2mLPEtvKGaukNolFiODPutr0WL_pm4coY0B-6QbWhv92buZIKdmQRLp-kicTrDgc88Zul9VuL8WLf4bAx4aT6jUDsh-qItS5_nezNK1WP8qdwbqghUmRbE9S8CQ_07cwQdgk" />
+        </div>
+      </button>
+    </nav>
+  </div>
+</body>
+
+</html>

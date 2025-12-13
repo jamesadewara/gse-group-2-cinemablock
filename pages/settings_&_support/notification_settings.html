@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Settings - CineSocial</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2979FF", 
+                        "background-dark": "#000000",
+                        "surface-card": "#0F0F0F",
+                        "border-subtle": "#1F1F1F",
+                        "text-main": "#F2F2F2",
+                        "text-muted": "#666666",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+        .toggle-checkbox {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        .toggle-track {
+            width: 44px;
+            height: 24px;
+            background-color: #27272a; 
+            border-radius: 9999px;
+            position: relative;
+            transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .toggle-knob {
+            height: 20px;
+            width: 20px;
+            background-color: #71717a;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        .toggle-checkbox:checked + .toggle-track {
+            background-color: #2979FF; 
+        }
+        .toggle-checkbox:checked + .toggle-track .toggle-knob {
+            transform: translateX(20px);
+            background-color: #ffffff;
+        }
+        .toggle-checkbox:focus-visible + .toggle-track {
+            outline: 2px solid #2979FF;
+            outline-offset: 2px;
+        }
+        body {
+            background-color: #000000;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display text-text-main antialiased min-h-screen selection:bg-primary/30">
+<div class="max-w-md mx-auto min-h-screen relative flex flex-col">
+<div class="sticky top-0 z-30 bg-background-dark/80 backdrop-blur-xl border-b border-border-subtle pt-12 pb-4 px-6 flex items-center justify-between">
+<button class="group flex items-center justify-center -ml-2 p-2 rounded-full text-white/70 hover:text-white hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined font-light text-[24px]">arrow_back</span>
+</button>
+<h1 class="text-[17px] font-semibold tracking-wide text-white absolute left-1/2 -translate-x-1/2">Notification Settings</h1>
+<div class="w-10"></div>
+</div>
+<div class="flex-1 px-5 py-6 flex flex-col gap-8">
+<div class="bg-surface-card rounded-2xl p-5 border border-border-subtle shadow-2xl shadow-black">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-white/5 flex items-center justify-center text-white/80 border border-white/5">
+<span class="material-symbols-outlined text-[20px]">notifications_paused</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[15px] font-medium text-white">Pause All</span>
+<span class="text-[13px] text-text-muted">Temporarily silence alerts</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+</div>
+<div class="space-y-8">
+<section>
+<h3 class="text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-3 px-1">Social Activity</h3>
+<div class="bg-surface-card rounded-2xl border border-border-subtle overflow-hidden">
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors border-b border-border-subtle last:border-0">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-muted text-[20px]">chat_bubble</span>
+<div class="flex flex-col gap-0.5">
+<span class="text-[15px] font-medium">New Messages</span>
+<span class="text-[12px] text-text-muted">Direct chats from friends</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors border-b border-border-subtle last:border-0">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-muted text-[20px]">alternate_email</span>
+<div class="flex flex-col gap-0.5">
+<span class="text-[15px] font-medium">Mentions</span>
+<span class="text-[12px] text-text-muted">Tags in discussions</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors last:border-0">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-muted text-[20px]">group_add</span>
+<div class="flex flex-col gap-0.5">
+<span class="text-[15px] font-medium">Friend Requests</span>
+<span class="text-[12px] text-text-muted">New connection invites</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-3 px-1">Cinema &amp; Booking</h3>
+<div class="bg-surface-card rounded-2xl border border-border-subtle overflow-hidden">
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors border-b border-border-subtle last:border-0">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-muted text-[20px]">confirmation_number</span>
+<div class="flex flex-col gap-0.5">
+<span class="text-[15px] font-medium">Tickets</span>
+<span class="text-[12px] text-text-muted">Confirmations &amp; receipts</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors border-b border-border-subtle last:border-0">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-muted text-[20px]">timer</span>
+<div class="flex flex-col gap-0.5">
+<span class="text-[15px] font-medium">Showtime Alert</span>
+<span class="text-[12px] text-text-muted">1 hour before start</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors last:border-0">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-muted text-[20px]">movie_filter</span>
+<div class="flex flex-col gap-0.5">
+<span class="text-[15px] font-medium">New Releases</span>
+<span class="text-[12px] text-text-muted">Trailers &amp; watchlist updates</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-3 px-1">System</h3>
+<div class="bg-surface-card rounded-2xl border border-border-subtle overflow-hidden">
+<div class="group flex items-center justify-between p-4 active:bg-white/[0.02] transition-colors last:border-0">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-muted text-[20px]">campaign</span>
+<div class="flex flex-col gap-0.5">
+<span class="text-[15px] font-medium">Promotions</span>
+<span class="text-[12px] text-text-muted">Deals and special offers</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="toggle-checkbox" type="checkbox"/>
+<div class="toggle-track">
+<div class="toggle-knob"></div>
+</div>
+</label>
+</div>
+</div>
+</section>
+</div>
+<p class="text-center text-[10px] uppercase tracking-widest text-white/10 mt-4 pb-8">
+                CineSocial v2.4.0
+            </p>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>In-App Browser - CineSocial</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <!-- Material Icons -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind Config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#256af4",
+            "background-light": "#f5f6f8",
+            "background-dark": "#101622",
+            "surface-dark": "#182132",
+            "surface-dark-light": "#1f2b40"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    /* Custom scrollbar for webkit to match theme */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #101622;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #256af4;
+      border-radius: 4px;
+    }
+
+    /* Status bar simulation */
+    .ios-status-bar {
+      height: 44px;
+      width: 100%;
+      background-color: rgba(16, 22, 34, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 50;
+    }
+  </style>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-hidden">
+  <div
+    class="relative flex h-screen w-full flex-col overflow-hidden max-w-md mx-auto shadow-2xl bg-background-light dark:bg-background-dark">
+    <!-- iOS Status Bar Simulation -->
+    <div
+      class="ios-status-bar flex justify-between items-end px-6 pb-2 text-white text-xs font-medium fixed top-0 left-0 right-0 max-w-md mx-auto">
+      <span>9:41</span>
+      <div class="flex gap-1.5 items-center">
+        <span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span>
+        <span class="material-symbols-outlined text-[16px]">wifi</span>
+        <span class="material-symbols-outlined text-[16px]">battery_full</span>
+      </div>
+    </div>
+    <!-- Spacer for Status Bar -->
+    <div class="h-[44px] bg-background-dark shrink-0"></div>
+    <!-- Top Navigation Bar -->
+    <header
+      class="flex flex-col bg-background-dark/95 backdrop-blur-md border-b border-surface-dark-light shrink-0 z-40">
+      <div class="flex items-center justify-between px-4 py-3">
+        <!-- Navigation Controls -->
+        <div class="flex gap-1 w-20">
+          <button class="p-2 text-white hover:bg-surface-dark-light rounded-full transition-colors group">
+            <span class="material-symbols-outlined group-hover:text-primary transition-colors">arrow_back</span>
+          </button>
+          <button class="p-2 text-gray-500 hover:text-white rounded-full transition-colors cursor-not-allowed">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+        <!-- URL/Title Display -->
+        <div class="flex flex-col items-center justify-center flex-1 px-2">
+          <div class="flex items-center gap-1.5 opacity-90">
+            <span class="material-symbols-outlined text-[14px] text-gray-400">lock</span>
+            <h2 class="text-white text-sm font-semibold tracking-wide truncate max-w-[150px]">rottentomatoes.com</h2>
+          </div>
+          <p class="text-gray-500 text-[10px] truncate max-w-[140px] leading-tight">Rotten Tomatoes: Movies...</p>
+        </div>
+        <!-- Action Button -->
+        <div class="flex w-20 items-center justify-end">
+          <button
+            class="text-primary text-[15px] font-bold tracking-wide hover:opacity-80 transition-opacity px-2 py-1">
+            Done
+          </button>
+        </div>
+      </div>
+      <!-- Progress Bar -->
+      <div class="h-[2px] w-full bg-surface-dark">
+        <div class="h-full bg-primary shadow-[0_0_10px_rgba(37,106,244,0.6)] animate-pulse w-[45%] rounded-r-full">
+        </div>
+      </div>
+    </header>
+    <!-- Main Web Content Area -->
+    <main class="flex-1 relative overflow-y-auto bg-surface-dark scroll-smooth w-full">
+      <!-- Simulated Loaded Web Content (Skeleton) -->
+      <div class="flex flex-col w-full min-h-full pb-20">
+        <!-- Hero Section of Website -->
+        <div class="relative w-full aspect-[4/3] bg-surface-dark-light flex items-end">
+          <!-- Background Image -->
+          <div class="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-overlay"
+            data-alt="Dark moody cinema scene with dramatic lighting"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCO0_Xjubyqec7oQoyL9UFXCa2w098xQhunKzWBWIiqm5fQY9Z8cjXcYPeLmGoWxe5eorO0vmwQCmQh6NZ5SOEsd7UJIAAc4e6-jx4kWwabgpLejLlGAFb7mM2ReeXZCNBgoCXYUWtMRlaPRJ9Ogy5oGb2lWl2MoQmU63HLtUHoCLB69uqxdFJ5gzYIiNxHRZ81eafBrL0lNIGpt-3AgfVY1aDaYIRdm3gsLzOADsk0GBf1RmLb0vN1xPm30MKzlA6T8MeK1fWR7_RR')">
+          </div>
+          <!-- Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-dark via-surface-dark/50 to-transparent"></div>
+          <!-- Content Text -->
+          <div class="relative p-5 w-full z-10 flex flex-col gap-3">
+            <div class="h-8 w-3/4 bg-gray-700/50 rounded animate-pulse"></div>
+            <div class="h-4 w-1/2 bg-gray-700/30 rounded animate-pulse"></div>
+          </div>
+        </div>
+        <!-- Content Body -->
+        <div class="p-5 flex flex-col gap-6">
+          <!-- Rating block -->
+          <div class="flex items-center gap-4 p-4 bg-background-dark rounded-xl border border-surface-dark-light">
+            <div class="h-12 w-12 bg-red-600/20 rounded-full flex items-center justify-center border border-red-500/30">
+              <span class="material-symbols-outlined text-red-500">local_activity</span>
+            </div>
+            <div class="flex-1 flex flex-col gap-2">
+              <div class="h-4 w-24 bg-gray-700/50 rounded"></div>
+              <div class="h-3 w-16 bg-gray-700/30 rounded"></div>
+            </div>
+            <div class="text-2xl font-bold text-white">96%</div>
+          </div>
+          <!-- Paragraph lines -->
+          <div class="space-y-3">
+            <div class="h-3 w-full bg-gray-800 rounded"></div>
+            <div class="h-3 w-full bg-gray-800 rounded"></div>
+            <div class="h-3 w-5/6 bg-gray-800 rounded"></div>
+            <div class="h-3 w-4/6 bg-gray-800 rounded"></div>
+          </div>
+          <!-- Image Grid -->
+          <div class="grid grid-cols-2 gap-3 mt-2">
+            <div class="aspect-square bg-surface-dark-light rounded-lg relative overflow-hidden">
+              <div class="absolute inset-0 bg-cover bg-center opacity-70" data-alt="Film reel and movie camera close up"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD3soJE4EKhyldlpVwPuRJDtDL_slSTx71cwfXmY0OQel5MWA0J4nEwFt7BTWfohoPQxrqNwttyL3KTOJni9ibUmSIr2of-kpgJXyu-XOZyLuQtKS_39BCOPky7kChjAo1yOUp4WEMhFzXSWXbTw3JAJy9iaqIWzeHPdcN3eCtVBRUkLeshXL4Aq3jcRBBzrH2jEua-HvQYme8WieRH1raEnERzzVjTjqQKv2OrPAvY6WLjPMEFXYgq5fHnIfctu0O58GEMbmUIqMyU')">
+              </div>
+            </div>
+            <div class="aspect-square bg-surface-dark-light rounded-lg relative overflow-hidden">
+              <div class="absolute inset-0 bg-cover bg-center opacity-70" data-alt="Cinema theatre seats in dark room"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAi-Fdv1NbX3r9WXHPQFqiBH8mxeSa3GWZz1nEl1gyBKK-VEaIxRegEBUE_xKKLhKtIv-z_xgQr515DOQgEt_GLzUKgUyk3Dvqc34y4TuSyUA28kJMvAVgt9cBhX4_AOvL-TXcJDIqf71nQCIfoginesQL0g1mI7cmmVekE_3it7EgCUo2vKAJOpxSkxaw2Pxc8oI-UNOpw7KkzlBSeNyB4RJLW_sYKqlv3EyDN-xgRj1V6tsYBmfShrtndzYbaNO0OpZPwKriXDrhX')">
+              </div>
+            </div>
+          </div>
+          <!-- More Paragraph lines -->
+          <div class="space-y-3 mt-2">
+            <div class="h-3 w-full bg-gray-800 rounded"></div>
+            <div class="h-3 w-11/12 bg-gray-800 rounded"></div>
+            <div class="h-3 w-full bg-gray-800 rounded"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Loading Overlay (Optional for demo - currently hidden) -->
+      <!-- 
+            <div class="absolute inset-0 bg-background-dark/90 backdrop-blur-sm z-30 flex flex-col items-center justify-center gap-6 hidden">
+                 <div class="w-12 h-12 border-4 border-surface-dark-light border-t-primary rounded-full animate-spin"></div>
+                 <p class="text-sm font-medium text-gray-400 animate-pulse">Loading content...</p>
+            </div> 
+            -->
+      <!-- Floating Action Button for Share -->
+      <div class="fixed bottom-8 right-6 z-50">
+        <button
+          class="flex items-center justify-center w-14 h-14 bg-surface-dark-light/80 backdrop-blur-md border border-white/10 text-white rounded-full shadow-lg shadow-black/40 hover:bg-primary transition-all group active:scale-95">
+          <span
+            class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">ios_share</span>
+        </button>
+      </div>
+    </main>
+    <!-- Bottom Safe Area Spacer -->
+    <div class="h-6 bg-surface-dark shrink-0"></div>
+  </div>
+</body>
+
+</html>

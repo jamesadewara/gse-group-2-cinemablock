@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>CineSocial - Hashtag Page</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Theme Configuration -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0d59f2",
+            "background-light": "#f5f6f8",
+            "background-dark": "#101622",
+            "card-dark": "#161e2e",
+            "text-secondary": "#90a4cb",
+          },
+          fontFamily: {
+            "display": ["Spline Sans", "sans-serif"],
+            "body": ["Noto Sans", "sans-serif"],
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-hidden">
+  <div
+    class="relative flex h-full max-h-screen w-full flex-col mx-auto max-w-md bg-background-dark shadow-2xl overflow-hidden">
+    <!-- Header Section -->
+    <header class="flex flex-col bg-background-dark/95 backdrop-blur-md z-20 shrink-0 border-b border-[#314368]/30">
+      <!-- Top App Bar -->
+      <div class="flex items-center p-4 pb-2 justify-between">
+        <button
+          class="text-white flex size-10 shrink-0 items-center justify-center hover:bg-white/5 rounded-full transition-colors">
+          <span class="material-symbols-outlined text-2xl">arrow_back</span>
+        </button>
+        <div class="flex flex-col items-center flex-1 mx-2">
+          <h2 class="text-white text-lg font-bold leading-tight tracking-tight">#CyberpunkMovies</h2>
+          <p class="text-text-secondary text-xs font-medium tracking-wide">45.2K Posts</p>
+        </div>
+        <div class="flex w-10 items-center justify-end">
+          <!-- Placeholder to balance layout if needed, or action menu -->
+          <span class="material-symbols-outlined text-text-secondary">more_vert</span>
+        </div>
+      </div>
+      <!-- Stats/Actions Row -->
+      <div class="px-4 pb-4 pt-1 flex justify-center">
+        <button
+          class="bg-primary/10 hover:bg-primary/20 text-primary px-6 py-1.5 rounded-full text-sm font-bold tracking-wide transition-colors">
+          Follow Hashtag
+        </button>
+      </div>
+      <!-- Tabs -->
+      <div class="flex px-4 justify-between w-full">
+        <a class="flex flex-col items-center justify-center border-b-2 border-primary text-white pb-3 pt-2 flex-1 transition-colors"
+          href="#">
+          <p class="text-sm font-bold tracking-wide">Top</p>
+        </a>
+        <a class="flex flex-col items-center justify-center border-b-2 border-transparent text-text-secondary hover:text-white pb-3 pt-2 flex-1 transition-colors"
+          href="#">
+          <p class="text-sm font-bold tracking-wide">Recent</p>
+        </a>
+        <a class="flex flex-col items-center justify-center border-b-2 border-transparent text-text-secondary hover:text-white pb-3 pt-2 flex-1 transition-colors"
+          href="#">
+          <p class="text-sm font-bold tracking-wide">Reels</p>
+        </a>
+      </div>
+    </header>
+    <!-- Main Feed Scroll Area -->
+    <main class="flex-1 overflow-y-auto pb-24 scrollbar-hide">
+      <!-- Post 1: Image -->
+      <article class="flex flex-col border-b border-[#314368]/20 pb-6 mb-2 bg-background-dark">
+        <!-- User Header -->
+        <div class="flex items-center gap-3 px-4 py-3">
+          <div class="w-10 h-10 rounded-full bg-cover bg-center border border-[#314368]"
+            data-alt="User avatar of a man with glasses"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdtGFm3_df4peEEgkHhTzokXrElq2McoOSSxxz7SN6lE9HLxCTHDTa0tfFC1DbjX9n1KbSDyqSkqK92Lv3-BrnDphWk26jeU0Xt-fOUyLJ2v14Erc1tFo-glhyiWWsCXKN6CrDOhaWvR-p-Rr9vUoS3gfw0yoQ5bEn0czZ2ivDsUObFPM_WC3KrDWOFiwo1L9BsCH_QPE34UEGVSg6qfUuuSY8q1M5UrHdX4TOh_ipnPjzugAlkryBWz4gQtaz1jmV5HFIv5WaskAF");'>
+          </div>
+          <div class="flex flex-col">
+            <p class="text-white text-sm font-bold">@film_buff_01</p>
+            <p class="text-text-secondary text-xs">2h ago</p>
+          </div>
+        </div>
+        <!-- Media Content -->
+        <div class="w-full aspect-[4/5] bg-neutral-800 relative group overflow-hidden">
+          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
+            data-alt="Futuristic neon city street at night with cybernetic elements"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDCba3iq-eHr3YyOsFY-8CiWxNkTIs5DHjeQGGrGKitbLxUhpNys2HIaHpOKFaFpPx6yPDhgPWY9IQ-No4aTJQ8hzn-RwAKyCUBl6Ly-NVuZPI10VEswJ5bA4EFyLTaFZ7hgEIyjjJ6AqemgdOl4W25yuXSDfmxt0Xw15SHy_RLpNdvB6r5xya4yFALNXV8WZ_cRxfZbmUGfjPIprxyJKHZfS7CEwfN1b_RQ0ScZzzoPRk9gIMbDrmHYFqEuDtqddKwQzPskVeKVdJ8");'>
+          </div>
+          <!-- Tag overlay -->
+          <div class="absolute bottom-4 left-4">
+            <span
+              class="bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded font-medium border border-white/10">Blade
+              Runner 2049</span>
+          </div>
+        </div>
+        <!-- Action Bar -->
+        <div class="flex items-center justify-between px-4 pt-3">
+          <div class="flex gap-4">
+            <button class="flex items-center gap-1.5 group">
+              <span
+                class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors">favorite</span>
+              <span class="text-white text-sm font-medium">1.2k</span>
+            </button>
+            <button class="flex items-center gap-1.5 group">
+              <span
+                class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors">chat_bubble</span>
+              <span class="text-white text-sm font-medium">45</span>
+            </button>
+            <button class="flex items-center gap-1.5 group">
+              <span
+                class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors">send</span>
+            </button>
+          </div>
+          <button class="text-white hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">bookmark</span>
+          </button>
+        </div>
+        <!-- Caption -->
+        <div class="px-4 pt-2">
+          <p class="text-white/90 text-sm leading-relaxed">
+            <span class="font-bold">@film_buff_01</span> Visually stunning masterpiece. The cinematography is unmatched.
+            <span class="text-primary">#CyberpunkMovies</span> <span class="text-primary">#SciFi</span>
+          </p>
+        </div>
+      </article>
+      <!-- Post 2: Video/Reel Style -->
+      <article class="flex flex-col border-b border-[#314368]/20 pb-6 mb-2 bg-background-dark">
+        <!-- User Header -->
+        <div class="flex items-center gap-3 px-4 py-3">
+          <div class="w-10 h-10 rounded-full bg-cover bg-center border border-[#314368]"
+            data-alt="User avatar of a smiling woman"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGDgB6V2Fj6k0Rb-v6-1w5mJqnseCghy5slqhcIgYAPGAgmDNRetX8pw3rev8AWnjWOXhKtS24BY11C39YD-2iam3DEKgX4-KPkK109Wl-dtJKTPuRPNwzjbpOY-ZJbwF0Kxz2s_fmYqRU3vuGdeNuwH0fJb4cRCnzZBkIVKk3wK7leoQucxWI4JxyfPwMiwopQOXYNZTNOGfLO_9iMV63YY0T3W5rWyb2uSdsIZu7fwMid4Ipuw2mbs-6-wph5YFD81wfk3KuXBKU");'>
+          </div>
+          <div class="flex flex-col">
+            <p class="text-white text-sm font-bold">@neo_noir_fan</p>
+            <p class="text-text-secondary text-xs">5h ago</p>
+          </div>
+          <button class="ml-auto bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Book Now</button>
+        </div>
+        <!-- Media Content -->
+        <div class="w-full aspect-video bg-neutral-900 relative group overflow-hidden">
+          <div class="absolute inset-0 bg-cover bg-center opacity-90"
+            data-alt="Abstract green digital rain matrix code pattern"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQ3LDFf8Rgqi9TAiZhSi2yCjk4zaQDMTGmkDLVTm5_aONdDoOwtiWyGiQIF9VvfFpdmRRnLEuZxQEHgEeNfDAodZYHMEYeXojNqGrCfspsWMtxrxp8D_CTQ1IGA-aY3DbVgUAChQndLKzlyVNxxMMQAfvvq8sMcveohdS3G03oRdZ7bFiYIwJx8yyn5_CmMo6LSpbWm0Nz63Anu7mHrTqPwfN-kTfHDPXJiWMjTH1dalvkQKdCiDhzGqIXmOCpnPqCia6V_qouYdwT");'>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center bg-black/20">
+            <div
+              class="bg-white/20 backdrop-blur-md rounded-full p-3 pl-4 flex items-center justify-center border border-white/20 hover:scale-110 transition-transform cursor-pointer">
+              <span class="material-symbols-outlined text-white text-3xl">play_arrow</span>
+            </div>
+          </div>
+        </div>
+        <!-- Action Bar -->
+        <div class="flex items-center justify-between px-4 pt-3">
+          <div class="flex gap-4">
+            <button class="flex items-center gap-1.5 group">
+              <span
+                class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors">favorite</span>
+              <span class="text-white text-sm font-medium">8.5k</span>
+            </button>
+            <button class="flex items-center gap-1.5 group">
+              <span
+                class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors">chat_bubble</span>
+              <span class="text-white text-sm font-medium">320</span>
+            </button>
+            <button class="flex items-center gap-1.5 group">
+              <span
+                class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors">send</span>
+            </button>
+          </div>
+          <button class="text-white hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">bookmark</span>
+          </button>
+        </div>
+        <!-- Caption -->
+        <div class="px-4 pt-2">
+          <p class="text-white/90 text-sm leading-relaxed">
+            <span class="font-bold">@neo_noir_fan</span> Rewatching the classics before the new release. Still blows my
+            mind. <span class="text-primary">#TheMatrix</span> <span class="text-primary">#CyberpunkMovies</span>
+          </p>
+        </div>
+      </article>
+      <!-- Post 3: Art Style -->
+      <article class="flex flex-col border-b border-[#314368]/20 pb-6 mb-2 bg-background-dark">
+        <!-- User Header -->
+        <div class="flex items-center gap-3 px-4 py-3">
+          <div class="w-10 h-10 rounded-full bg-cover bg-center border border-[#314368]"
+            data-alt="User avatar of a man with beard"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDpbSEUSzH-V_O4NXzP07OIsaNeX-bl0CXG-wXf-0N8iNYoC9cFSYwNyso8vbU68JadAheYYdyqsDLqfkXODjbzgboV4BNMR7F-KZs7gOXVePCzp01Bs2nQpm49H-QkT_wYTf3gBRqqKEqcQCri_LpLfJuNs-YeVtVXNImj4kR9lbrA5AM86ZHFpfJ5bZkm0rkPU7ZYZhP6fRCbM17t7EE4LRPgm1wrTHuWedPp6L6L0DxYS_Qf2FP5KWVJrEiPE9nDHk_Aklsp48j5");'>
+          </div>
+          <div class="flex flex-col">
+            <p class="text-white text-sm font-bold">@akira_designs</p>
+            <p class="text-text-secondary text-xs">1d ago</p>
+          </div>
+        </div>
+        <!-- Media Content -->
+        <div class="w-full aspect-square bg-neutral-800 relative group overflow-hidden">
+          <div class="absolute inset-0 bg-cover bg-center"
+            data-alt="Abstract red and black digital art resembling a futuristic explosion or energy"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDaQSVigwy5fN6hU3MaOcaTIedbxqDDnnNV2NCes8_yb33XgONP7oCdsczFpX4_GO0E8tymNiikjUvwW9wK2A60s-y068E1PfETRFr2mOuL7_c43PoIMESliZbMlInKrkRwat3s3rTaFDf9R5IslDxzp_HJH74gfPpWkU-urRl5CNIuOZ-6iJ1XiAHmt4NSXPRGHF0dGp9bnlXNJo1xs0yJNPWxqzedM0KZSdLHqgs0_tts30IwLegLwzly4r5VbtmQXf-tqqToiQtf");'>
+          </div>
+        </div>
+        <!-- Action Bar -->
+        <div class="flex items-center justify-between px-4 pt-3">
+          <div class="flex gap-4">
+            <button class="flex items-center gap-1.5 group">
+              <span
+                class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors">favorite</span>
+              <span class="text-white text-sm font-medium">12k</span>
+            </button>
+            <button class="flex items-center gap-1.5 group">
+              <span
+                class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors">chat_bubble</span>
+              <span class="text-white text-sm font-medium">89</span>
+            </button>
+            <button class="flex items-center gap-1.5 group">
+              <span
+                class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors">send</span>
+            </button>
+          </div>
+          <button class="text-white hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">bookmark</span>
+          </button>
+        </div>
+        <!-- Caption -->
+        <div class="px-4 pt-2">
+          <p class="text-white/90 text-sm leading-relaxed">
+            <span class="font-bold">@akira_designs</span> Neo-Tokyo is about to explode. My tribute to the legend. <span
+              class="text-primary">#Akira</span> <span class="text-primary">#Anime</span> <span
+              class="text-primary">#CyberpunkMovies</span>
+          </p>
+        </div>
+      </article>
+      <!-- Spacer for bottom nav -->
+      <div class="h-10"></div>
+    </main>
+    <!-- Bottom Navigation -->
+    <nav
+      class="absolute bottom-0 w-full bg-background-dark/80 backdrop-blur-xl border-t border-white/5 pb-5 pt-3 px-6 z-30">
+      <div class="flex justify-between items-center">
+        <button class="flex flex-col items-center gap-1 text-text-secondary hover:text-white transition-colors group">
+          <span class="material-symbols-outlined group-hover:scale-110 transition-transform">home</span>
+          <span class="text-[10px] font-medium">Home</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-primary transition-colors group">
+          <span class="material-symbols-outlined fill-current group-hover:scale-110 transition-transform">search</span>
+          <span class="text-[10px] font-medium">Search</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-text-secondary hover:text-white transition-colors group">
+          <span class="material-symbols-outlined group-hover:scale-110 transition-transform">confirmation_number</span>
+          <span class="text-[10px] font-medium">Tickets</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-text-secondary hover:text-white transition-colors group">
+          <div
+            class="w-6 h-6 rounded-full overflow-hidden border border-transparent group-hover:border-white transition-colors">
+            <img class="w-full h-full object-cover" data-alt="Small user profile avatar in navigation bar"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgTYkfPrV_t1Fl4QixnfwEBNjasvUAzP-RcRYD9p-VGu52HI10mUWLMVfPd27a129Na0XRztLqvEEMfhRDA5kIGhgMJz4dih-IQFjXPX6aEx_SH5h6N6N-7rqrl_r--gwwL6c-gnvpXMWydtTjKYgxbRzEV9yWHaZbdZdWZYxajL2QDGuT9y9phGgr4BaIdKA0hz40kCMwQE2kZt7dukiw-fa02OUsPaYHN3tVYg0SVqvMF3aExQCckbXUwKr__ST119D4myKvfYiQ" />
+          </div>
+          <span class="text-[10px] font-medium">Profile</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</body>
+
+</html>

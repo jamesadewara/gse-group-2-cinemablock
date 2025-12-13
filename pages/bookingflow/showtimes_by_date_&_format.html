@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Showtimes - CineSocial</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0A0A0A", // Deep black/grey for cinematic feel
+                        "surface-dark": "#1C1C1E",
+                        "surface-light": "#FFFFFF",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar hiding for horizontal scrolls */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased selection:bg-primary selection:text-white">
+    <div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden pb-24">
+        <!-- Hero Section with Background Image -->
+        <div class="relative w-full h-[220px] shrink-0">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover opacity-60"
+                    data-alt="Dune movie poster atmosphere with desert dunes and sci-fi aesthetic"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8R8jkWj8RBgKP2bz1ozPRrOUskJUBzjStwMJvij9_esnRVpXlmWYNQD4RWMRVUPhiC7dfFjvtu19FH8iiNfkwV-cy2WGNYdIGAdFBHni-PJKhxQDkHyb2NXv9v_Fut2_YwnhtGdaGZF2GwftUovGfE00Sgx9ri-wmZlZC3Cs025bRF071PGIGSnSD1dPysjvHC_7yCGBiJ_TCMyQLcS3FQr9NMsgSciyYfmu2c_8dAGGwnn-Xn7fboJ-2_Q2iSH2t8dcFTKgKyQdF" />
+                <!-- Gradient Overlay for fade effect -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-background-dark/30 via-background-dark/80 to-background-dark">
+                </div>
+            </div>
+            <!-- Top Navigation -->
+            <div class="relative z-10 flex items-center justify-between p-4 pt-12"> <!-- pt-12 for status bar area -->
+                <button
+                    class="flex size-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors">
+                    <span class="material-symbols-outlined text-white" style="font-size: 24px;">arrow_back</span>
+                </button>
+                <div class="flex items-center gap-4">
+                    <button
+                        class="flex size-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors">
+                        <span class="material-symbols-outlined text-white" style="font-size: 24px;">share</span>
+                    </button>
+                    <button
+                        class="flex size-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors">
+                        <span class="material-symbols-outlined text-white" style="font-size: 24px;">favorite</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Movie Info -->
+            <div class="relative z-10 px-4 pt-2 text-center">
+                <h1 class="text-white text-3xl font-bold leading-tight tracking-tight drop-shadow-lg">Dune: Part Two
+                </h1>
+                <p
+                    class="text-gray-300 text-sm font-medium leading-normal pt-2 flex items-center justify-center gap-2 drop-shadow-md">
+                    <span>2h 46m</span>
+                    <span class="size-1 rounded-full bg-gray-400"></span>
+                    <span>PG-13</span>
+                    <span class="size-1 rounded-full bg-gray-400"></span>
+                    <span>Sci-Fi</span>
+                    <span class="ml-2 flex items-center gap-1 text-yellow-400">
+                        <span class="material-symbols-outlined filled"
+                            style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="text-white">4.8</span>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <!-- Sticky Date Picker -->
+        <div class="sticky top-0 z-30 bg-background-dark/95 backdrop-blur-xl border-b border-white/5 pb-2 pt-2">
+            <div class="flex w-full overflow-x-auto no-scrollbar px-4 py-2 gap-3">
+                <!-- Selected Date -->
+                <button
+                    class="group flex flex-col items-center justify-center min-w-[64px] h-[72px] rounded-xl bg-primary shadow-lg shadow-primary/25 shrink-0 transition-all transform active:scale-95">
+                    <span class="text-white/80 text-xs font-medium uppercase tracking-wide">Today</span>
+                    <span class="text-white text-2xl font-bold">14</span>
+                </button>
+                <!-- Unselected Dates -->
+                <button
+                    class="group flex flex-col items-center justify-center min-w-[64px] h-[72px] rounded-xl bg-surface-dark border border-white/5 shrink-0 transition-all active:scale-95">
+                    <span
+                        class="text-gray-400 text-xs font-medium uppercase tracking-wide group-hover:text-white">Fri</span>
+                    <span class="text-white text-xl font-bold">15</span>
+                </button>
+                <button
+                    class="group flex flex-col items-center justify-center min-w-[64px] h-[72px] rounded-xl bg-surface-dark border border-white/5 shrink-0 transition-all active:scale-95">
+                    <span
+                        class="text-gray-400 text-xs font-medium uppercase tracking-wide group-hover:text-white">Sat</span>
+                    <span class="text-white text-xl font-bold">16</span>
+                </button>
+                <button
+                    class="group flex flex-col items-center justify-center min-w-[64px] h-[72px] rounded-xl bg-surface-dark border border-white/5 shrink-0 transition-all active:scale-95">
+                    <span
+                        class="text-gray-400 text-xs font-medium uppercase tracking-wide group-hover:text-white">Sun</span>
+                    <span class="text-white text-xl font-bold">17</span>
+                </button>
+                <button
+                    class="group flex flex-col items-center justify-center min-w-[64px] h-[72px] rounded-xl bg-surface-dark border border-white/5 shrink-0 transition-all active:scale-95">
+                    <span
+                        class="text-gray-400 text-xs font-medium uppercase tracking-wide group-hover:text-white">Mon</span>
+                    <span class="text-white text-xl font-bold">18</span>
+                </button>
+                <button
+                    class="group flex flex-col items-center justify-center min-w-[64px] h-[72px] rounded-xl bg-surface-dark border border-white/5 shrink-0 transition-all active:scale-95">
+                    <span
+                        class="text-gray-400 text-xs font-medium uppercase tracking-wide group-hover:text-white">Tue</span>
+                    <span class="text-white text-xl font-bold">19</span>
+                </button>
+            </div>
+        </div>
+        <!-- Format Chips Filters -->
+        <div class="flex w-full overflow-x-auto no-scrollbar px-4 py-4 gap-3 border-b border-white/5">
+            <button
+                class="px-4 py-1.5 rounded-full bg-white text-background-dark text-sm font-semibold whitespace-nowrap">All
+                Formats</button>
+            <button
+                class="px-4 py-1.5 rounded-full bg-surface-dark border border-white/10 text-gray-300 text-sm font-medium whitespace-nowrap hover:border-white/30 hover:text-white transition-colors">IMAX
+                Laser</button>
+            <button
+                class="px-4 py-1.5 rounded-full bg-surface-dark border border-white/10 text-gray-300 text-sm font-medium whitespace-nowrap hover:border-white/30 hover:text-white transition-colors">Dolby
+                Cinema</button>
+            <button
+                class="px-4 py-1.5 rounded-full bg-surface-dark border border-white/10 text-gray-300 text-sm font-medium whitespace-nowrap hover:border-white/30 hover:text-white transition-colors">Standard
+                2D</button>
+        </div>
+        <!-- Showtimes List -->
+        <div class="flex flex-col gap-6 px-4 py-6">
+            <!-- IMAX Section -->
+            <div class="flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary" style="font-size: 20px;">theaters</span>
+                        <h3 class="text-white text-lg font-bold tracking-tight">IMAX Laser 2D</h3>
+                    </div>
+                    <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Screen 1</span>
+                </div>
+                <div class="grid grid-cols-3 gap-3">
+                    <!-- Time Slot 1 -->
+                    <button
+                        class="relative flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-surface-dark border border-white/10 hover:bg-surface-dark/80 active:scale-95 transition-all group">
+                        <span class="text-white font-semibold text-base mb-0.5">10:30 AM</span>
+                        <span class="text-[10px] text-gray-400 group-hover:text-primary transition-colors">Almost
+                            Full</span>
+                        <div class="absolute top-2 right-2 size-1.5 rounded-full bg-red-500"></div>
+                    </button>
+                    <!-- Time Slot 2 -->
+                    <button
+                        class="relative flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-surface-dark border border-white/10 hover:bg-surface-dark/80 active:scale-95 transition-all group">
+                        <span class="text-white font-semibold text-base mb-0.5">1:45 PM</span>
+                        <span
+                            class="text-[10px] text-gray-400 group-hover:text-primary transition-colors">Available</span>
+                    </button>
+                    <!-- Time Slot 3 (Selected) -->
+                    <button
+                        class="relative flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-primary/20 border border-primary text-primary shadow-[0_0_15px_rgba(13,89,242,0.3)] active:scale-95 transition-all">
+                        <span class="text-primary-light font-bold text-base mb-0.5">5:00 PM</span>
+                        <span class="text-[10px] text-primary/80 font-medium">Filling Fast</span>
+                    </button>
+                    <!-- Time Slot 4 -->
+                    <button
+                        class="relative flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-surface-dark border border-white/10 hover:bg-surface-dark/80 active:scale-95 transition-all group">
+                        <span class="text-white font-semibold text-base mb-0.5">8:15 PM</span>
+                        <span
+                            class="text-[10px] text-gray-400 group-hover:text-primary transition-colors">Available</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Dolby Section -->
+            <div class="flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-gray-400"
+                            style="font-size: 20px;">surround_sound</span>
+                        <h3 class="text-white text-lg font-bold tracking-tight">Dolby Cinema</h3>
+                    </div>
+                    <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Screen 4</span>
+                </div>
+                <div class="grid grid-cols-3 gap-3">
+                    <button
+                        class="relative flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-surface-dark border border-white/10 hover:bg-surface-dark/80 active:scale-95 transition-all group">
+                        <span class="text-white font-semibold text-base mb-0.5">4:00 PM</span>
+                        <span
+                            class="text-[10px] text-gray-400 group-hover:text-primary transition-colors">Available</span>
+                    </button>
+                    <button
+                        class="relative flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-surface-dark border border-white/10 hover:bg-surface-dark/80 active:scale-95 transition-all group">
+                        <span class="text-white font-semibold text-base mb-0.5">7:30 PM</span>
+                        <span class="text-[10px] text-gray-400 group-hover:text-primary transition-colors">Selling
+                            Fast</span>
+                        <div class="absolute top-2 right-2 size-1.5 rounded-full bg-orange-500"></div>
+                    </button>
+                </div>
+            </div>
+            <!-- Standard Section -->
+            <div class="flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-gray-400" style="font-size: 20px;">movie</span>
+                        <h3 class="text-white text-lg font-bold tracking-tight">Standard 2D</h3>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-3">
+                    <button
+                        class="relative flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-surface-dark border border-white/10 hover:bg-surface-dark/80 active:scale-95 transition-all group">
+                        <span class="text-white font-semibold text-base mb-0.5">11:00 AM</span>
+                        <span
+                            class="text-[10px] text-gray-400 group-hover:text-primary transition-colors">Available</span>
+                    </button>
+                    <button
+                        class="relative flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-surface-dark border border-white/10 hover:bg-surface-dark/80 active:scale-95 transition-all group">
+                        <span class="text-white font-semibold text-base mb-0.5">12:15 PM</span>
+                        <span
+                            class="text-[10px] text-gray-400 group-hover:text-primary transition-colors">Available</span>
+                    </button>
+                    <button
+                        class="relative flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-surface-dark border border-white/10 hover:bg-surface-dark/80 active:scale-95 transition-all group opacity-50 cursor-not-allowed">
+                        <span class="text-gray-300 font-semibold text-base mb-0.5">2:30 PM</span>
+                        <span class="text-[10px] text-gray-500">Sold Out</span>
+                    </button>
+                    <button
+                        class="relative flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-surface-dark border border-white/10 hover:bg-surface-dark/80 active:scale-95 transition-all group">
+                        <span class="text-white font-semibold text-base mb-0.5">3:45 PM</span>
+                        <span
+                            class="text-[10px] text-gray-400 group-hover:text-primary transition-colors">Available</span>
+                    </button>
+                    <button
+                        class="relative flex flex-col items-center justify-center py-3 px-2 rounded-lg bg-surface-dark border border-white/10 hover:bg-surface-dark/80 active:scale-95 transition-all group">
+                        <span class="text-white font-semibold text-base mb-0.5">6:00 PM</span>
+                        <span
+                            class="text-[10px] text-gray-400 group-hover:text-primary transition-colors">Available</span>
+                    </button>
+                </div>
+            </div>
+            <div class="h-8"></div> <!-- Spacer for bottom nav -->
+        </div>
+        <!-- Floating Selection Summary (Action Button) -->
+        <div class="fixed bottom-24 left-4 right-4 z-40">
+            <button
+                class="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-xl shadow-primary/30 flex items-center justify-between px-6 active:scale-[0.98] transition-all">
+                <div class="flex flex-col items-start">
+                    <span class="text-xs font-medium opacity-80 uppercase tracking-wide">Selected</span>
+                    <span class="text-base">5:00 PM • IMAX Laser</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span>Book Seats</span>
+                    <span class="material-symbols-outlined" style="font-size: 20px;">arrow_forward</span>
+                </div>
+            </button>
+        </div>
+        <!-- Bottom Navigation Bar -->
+        <div
+            class="fixed bottom-0 w-full h-[84px] bg-background-dark/90 backdrop-blur-xl border-t border-white/5 flex justify-around items-start pt-3 z-50">
+            <button class="flex flex-col items-center gap-1 w-16 group">
+                <span class="material-symbols-outlined text-gray-500 group-hover:text-white transition-colors"
+                    style="font-size: 26px;">home</span>
+                <span class="text-[10px] font-medium text-gray-500 group-hover:text-white transition-colors">Home</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 w-16 group">
+                <span class="material-symbols-outlined text-gray-500 group-hover:text-white transition-colors"
+                    style="font-size: 26px;">search</span>
+                <span
+                    class="text-[10px] font-medium text-gray-500 group-hover:text-white transition-colors">Search</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 w-16 group">
+                <span class="material-symbols-outlined text-primary"
+                    style="font-size: 26px; font-variation-settings: 'FILL' 1;">confirmation_number</span>
+                <span class="text-[10px] font-medium text-primary">Tickets</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 w-16 group">
+                <span class="material-symbols-outlined text-gray-500 group-hover:text-white transition-colors"
+                    style="font-size: 26px;">person</span>
+                <span
+                    class="text-[10px] font-medium text-gray-500 group-hover:text-white transition-colors">Profile</span>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

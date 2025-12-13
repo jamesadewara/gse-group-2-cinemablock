@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>CineSocial - Profile</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Theme Configuration -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0d59f2",
+            "background-light": "#f5f6f8",
+            "background-dark": "#101622",
+            "surface-dark": "#1a2233",
+          },
+          fontFamily: {
+            "display": ["Spline Sans", "sans-serif"],
+            "body": ["Noto Sans", "sans-serif"],
+          },
+          borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+  <div class="relative min-h-screen w-full flex flex-col pb-24">
+    <!-- Hero Header with Top Bar Overlay -->
+    <div class="relative w-full h-[340px] shrink-0">
+      <!-- Top App Bar (Absolute) -->
+      <div class="absolute top-0 left-0 w-full z-20 flex items-center justify-between p-4 pt-6">
+        <button
+          class="flex items-center justify-center size-10 rounded-full bg-black/20 backdrop-blur-md text-white hover:bg-black/40 transition-colors">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <button
+          class="flex items-center justify-center size-10 rounded-full bg-black/20 backdrop-blur-md text-white hover:bg-black/40 transition-colors">
+          <span class="material-symbols-outlined">more_vert</span>
+        </button>
+      </div>
+      <!-- Background Image -->
+      <div class="w-full h-full bg-center bg-no-repeat bg-cover relative"
+        data-alt="Cinematic dark movie set with camera equipment and misty lighting"
+        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDPjzYLbdU3t3krzR9g5vYOMVCaOcrh06HBWgIcP2FSdy4UtVOMrZeeabAUONStI-g1QXg4P6OtIVZTc1QV-cewzWoT2K96rp-Qo-tj6q8gJ51Ztb22tBrENoii98_K5UjrvJCHd9k2IXc8J5PPDxzsbqZCT-rGrOBMXcTc7YeOYQb9fpxihdJ8Sn9bVDYbG7eEyG_oldtqsPYbPVRcmHcglTF1NzQx6MGk8xx6RCdR4HtiZwXmz9-jib2zfIT46LfhzC02PTqtdOQe");'>
+        <!-- Gradient Overlay for readability and seamless transition -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-background-dark"></div>
+      </div>
+    </div>
+    <!-- Profile Info Section -->
+    <div class="relative px-4 flex flex-col items-center -mt-20 z-10">
+      <!-- Avatar -->
+      <div class="relative group">
+        <div class="size-36 rounded-full border-4 border-background-dark bg-cover bg-center shadow-2xl"
+          data-alt="Professional headshot of a man with a serious expression in black and white"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBo0Bg-wkjXv59bgnu5dBQkInxiN0Y9XIL_SsG8SXdZ0Odkho4YCBboDzH4lm_o51FS04E1b5PH6qD7YsRf42QLBxM406OYF4gYpz7teAJN5isprmeeOF2KkB2-XcmLciDG9UZa6hk3ESbZwsPgtHDlzw0KITldHLoZWLSivgWVPx8zAdXy6JpwM6R5xa7sTLpV8M1U_rjAmQBLFIot2ofwmO57o4aI6riDZECjCA-bul0mG8fESmjWvSWrF50PSp_2ur-Nyjd4OjTr");'>
+        </div>
+        <div
+          class="absolute bottom-1 right-1 bg-primary border-2 border-background-dark rounded-full p-1.5 flex items-center justify-center">
+          <span class="material-symbols-outlined text-[16px] text-white">verified</span>
+        </div>
+      </div>
+      <!-- Name & Title -->
+      <div class="flex flex-col items-center justify-center mt-3 gap-1">
+        <h1 class="text-white text-3xl font-bold tracking-tight text-center">Christopher Nolan</h1>
+        <p class="text-[#90a4cb] text-base font-normal tracking-wide text-center">Director &amp; Producer</p>
+      </div>
+      <!-- Stats -->
+      <div class="flex items-center justify-center gap-6 mt-6 w-full max-w-xs">
+        <div class="flex flex-col items-center">
+          <span class="text-white font-bold text-xl">2.1M</span>
+          <span class="text-[#90a4cb] text-xs uppercase tracking-wider">Followers</span>
+        </div>
+        <div class="h-8 w-px bg-[#314368]"></div>
+        <div class="flex flex-col items-center">
+          <span class="text-white font-bold text-xl">15</span>
+          <span class="text-[#90a4cb] text-xs uppercase tracking-wider">Movies</span>
+        </div>
+        <div class="h-8 w-px bg-[#314368]"></div>
+        <div class="flex flex-col items-center">
+          <span class="text-white font-bold text-xl">4.9</span>
+          <span class="text-[#90a4cb] text-xs uppercase tracking-wider">Rating</span>
+        </div>
+      </div>
+      <!-- Action Buttons -->
+      <div class="flex gap-3 w-full mt-6 max-w-md">
+        <button
+          class="flex-1 h-12 bg-primary hover:bg-blue-600 text-white font-medium rounded-full flex items-center justify-center gap-2 transition-colors shadow-lg shadow-primary/20">
+          <span class="material-symbols-outlined">add</span>
+          Follow
+        </button>
+        <button
+          class="size-12 bg-[#314368]/30 hover:bg-[#314368]/50 text-white rounded-full flex items-center justify-center transition-colors border border-[#314368]/50">
+          <span class="material-symbols-outlined">mail</span>
+        </button>
+        <button
+          class="size-12 bg-[#314368]/30 hover:bg-[#314368]/50 text-white rounded-full flex items-center justify-center transition-colors border border-[#314368]/50">
+          <span class="material-symbols-outlined">share</span>
+        </button>
+      </div>
+      <!-- Bio -->
+      <div class="mt-6 w-full max-w-md">
+        <p class="text-[#90a4cb] text-[15px] leading-relaxed text-center line-clamp-3">
+          British-American film director, producer, and screenwriter. Known for his Hollywood blockbusters with complex
+          storytelling and non-linear narratives.
+        </p>
+      </div>
+    </div>
+    <!-- Sticky Tabs -->
+    <div class="sticky top-0 z-20 bg-background-dark/95 backdrop-blur-sm mt-6 border-b border-[#314368]/30">
+      <div class="flex items-center justify-between px-6 pt-2">
+        <button class="flex-1 pb-3 text-center text-white font-medium border-b-2 border-primary relative">
+          Filmography
+        </button>
+        <button
+          class="flex-1 pb-3 text-center text-[#90a4cb] font-medium hover:text-white transition-colors border-b-2 border-transparent">
+          Posts
+        </button>
+        <button
+          class="flex-1 pb-3 text-center text-[#90a4cb] font-medium hover:text-white transition-colors border-b-2 border-transparent">
+          Lists
+        </button>
+      </div>
+    </div>
+    <!-- Content Grid (Filmography) -->
+    <div class="grid grid-cols-2 gap-4 p-4 mt-2">
+      <!-- Movie Card 1 -->
+      <div class="group relative flex flex-col gap-2 cursor-pointer">
+        <div class="aspect-[2/3] w-full rounded-xl bg-cover bg-center overflow-hidden relative shadow-lg"
+          data-alt="Poster art showing a nuclear explosion cloud abstract design"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCxa4mFhbUEYuUMgepOTCitIFAVxp6-YI7iJAG2jyuYmJ0J8qu2C-goZg-rMg2paGNGtcrB-qBnVyviC-UOqG7pezlj8BrQaDr58_eMvIpHaK_LgDDBjZBxcGJAB3XEpByUQasYFAuMRz23B7ptu8AUXh03lNypql-G55aFEMlk9lxJi2irgLgX8DXcQ_iV2ba87DHvmuSJHzD-YZuVOOQY5nsVbwf_wI23FrJ879Yue6gphphbwYbrtnqhDMlK89nc5wU-76j6f0IM");'>
+          <div
+            class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-xs font-bold text-white flex items-center gap-1">
+            <span class="material-symbols-outlined text-[12px] text-yellow-400 fill-1">star</span> 9.2
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-sm truncate">Oppenheimer</h3>
+          <p class="text-[#90a4cb] text-xs">2023 • Drama</p>
+        </div>
+      </div>
+      <!-- Movie Card 2 -->
+      <div class="group relative flex flex-col gap-2 cursor-pointer">
+        <div class="aspect-[2/3] w-full rounded-xl bg-cover bg-center overflow-hidden relative shadow-lg"
+          data-alt="Dark abstract movie poster with time warp visual effects"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUHxa5vYzSW_RKy7kNgNFG_-r_oinShYTyvHQD4uH6QZH-AWQntvYBQ43Poaez6lvQY2PQ9rfqXahqg3wunArqfgR-emAg84D3imXzY2c1PNg6hza9reAMktYD49MzGBLEPtiztH5Mn2yqTpNCYGsWWuG3oHvXva2vyK6YyuocI8ZayZzsjZW3zKzmgVvL9G3zL53SsOGkHtwgsHqgj4ZW_U1SVKY4vorZCayBUeLUeBv56hI4sqMU04YmRfS6kgSySruSVldI4zNS");'>
+          <div
+            class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-xs font-bold text-white flex items-center gap-1">
+            <span class="material-symbols-outlined text-[12px] text-yellow-400 fill-1">star</span> 8.8
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-sm truncate">Tenet</h3>
+          <p class="text-[#90a4cb] text-xs">2020 • Sci-Fi</p>
+        </div>
+      </div>
+      <!-- Movie Card 3 -->
+      <div class="group relative flex flex-col gap-2 cursor-pointer">
+        <div class="aspect-[2/3] w-full rounded-xl bg-cover bg-center overflow-hidden relative shadow-lg"
+          data-alt="Space themed poster with astronauts and wormhole"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfNJacUBgTFaKtz8b3W45m8le7xgQDdXrzfmgv7a8id1DZNlS51d6ltI_WqeG7dVs9cQUjpsGCTVj367_kE539_fXfMVYU38NJVwmx_hPDEXQXiO7r2IxKbTnJpRlFPk2iPu_F8fAsLfBJoW4BYbsirzuTl35ixWnvta02pEgrYwPuMZipICFXBUBKWCS4QleLODNZvempfCIjxIl3TF7LCiZNTxZX9OogDOy8SFWjkQR47g8iXkx2j7oClTMIj394gqtd5Xke7lnc");'>
+          <div
+            class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-xs font-bold text-white flex items-center gap-1">
+            <span class="material-symbols-outlined text-[12px] text-yellow-400 fill-1">star</span> 8.6
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-sm truncate">Interstellar</h3>
+          <p class="text-[#90a4cb] text-xs">2014 • Sci-Fi</p>
+        </div>
+      </div>
+      <!-- Movie Card 4 -->
+      <div class="group relative flex flex-col gap-2 cursor-pointer">
+        <div class="aspect-[2/3] w-full rounded-xl bg-cover bg-center overflow-hidden relative shadow-lg"
+          data-alt="City skyline at night with a dark vigilante figure silhouette"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhIBCevHvL2hBj7VhcRyrf6Mg2-KrMYI00EvAKWvFwLJfQcineQ0qPuffExBiNchhOAykuBUPJLUAb7zntEZo8diUguYS8NklHKwBeUkKzDLTWK00DgQWv8922hYk9ftG67O0Hd1Bylt6jLZKRdQxaHs89RWedHB2yL_IEOcAlL30fffQ2hfWB1XZegexMaJCRJXPURbdzVqqCIjiAqziPxx2b0xPhsF0k8p4mvZmbQpe3NbAQX4Mky75RRoTvbH4aYuZIzP-T8MhL");'>
+          <div
+            class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-xs font-bold text-white flex items-center gap-1">
+            <span class="material-symbols-outlined text-[12px] text-yellow-400 fill-1">star</span> 9.0
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-sm truncate">The Dark Knight</h3>
+          <p class="text-[#90a4cb] text-xs">2008 • Action</p>
+        </div>
+      </div>
+      <!-- Movie Card 5 -->
+      <div class="group relative flex flex-col gap-2 cursor-pointer">
+        <div class="aspect-[2/3] w-full rounded-xl bg-cover bg-center overflow-hidden relative shadow-lg"
+          data-alt="Surreal dreamscape with folding city architecture"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDjI5Jtg935kNFMIP5QXK-1C-Tu82Cy8YNfQk2TRJ8bsN0vhtT-ANLITiqkLglmvuE13nPASrRbFuWYYVLZ78hrRwleExh76RvtxB3g0AjB7jZvqMrjtxLPZsukTkO-wtNeFTTWe3jTZoU9ETg2IKmEXg2t4Fmav0rtNE2wKAtZeDxtGZaJAZj66YRz9qMOIdcHKKB3w7cDYTl0eBgRU9NhM-9iySX8BsWJbYwBMb38GufDrxRaAky_5EeJL6fLG9eQysWC3Oi86BT6");'>
+          <div
+            class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-xs font-bold text-white flex items-center gap-1">
+            <span class="material-symbols-outlined text-[12px] text-yellow-400 fill-1">star</span> 8.8
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-sm truncate">Inception</h3>
+          <p class="text-[#90a4cb] text-xs">2010 • Sci-Fi</p>
+        </div>
+      </div>
+      <!-- Movie Card 6 -->
+      <div class="group relative flex flex-col gap-2 cursor-pointer">
+        <div class="aspect-[2/3] w-full rounded-xl bg-cover bg-center overflow-hidden relative shadow-lg"
+          data-alt="Vintage magical stage setting with top hats"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAaUW8y2Oj3nMwc4Vta5KBC_g59tFLSisL8x5dsYcvpaWI56P_37mn6B5Nx1sZMJyXOnbJjkk9vc22o3zxTYcKKM7M8TYAfkYspPh4bJ8OZzLisvWfKNspz6BXeaRvfi4tFgHT4Kx1G0Arg7891ukYKjTY4Wm4L4PIDCc8V0Da6ZlZ934KfuOH_kfzQD8XeybF222JLKuoBKoMWcaQu9tkDjQiiOWp4c3ISKBT5-5saLmclaW4nF1Pp2f5zu-HYHjvx3rkhodtXj3Vh");'>
+          <div
+            class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-xs font-bold text-white flex items-center gap-1">
+            <span class="material-symbols-outlined text-[12px] text-yellow-400 fill-1">star</span> 8.5
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-sm truncate">The Prestige</h3>
+          <p class="text-[#90a4cb] text-xs">2006 • Mystery</p>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Navigation -->
+    <div class="fixed bottom-0 w-full z-40 px-4 pb-6 pt-2">
+      <div
+        class="w-full bg-[#1a2233]/80 backdrop-blur-xl border border-white/5 rounded-2xl flex items-center justify-around py-3 shadow-2xl">
+        <button class="flex flex-col items-center gap-1 text-[#90a4cb] hover:text-white transition-colors">
+          <span class="material-symbols-outlined">home</span>
+          <span class="text-[10px] font-medium">Home</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-[#90a4cb] hover:text-white transition-colors">
+          <span class="material-symbols-outlined">search</span>
+          <span class="text-[10px] font-medium">Search</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-[#90a4cb] hover:text-white transition-colors">
+          <span class="material-symbols-outlined">confirmation_number</span>
+          <span class="text-[10px] font-medium">Tickets</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-primary">
+          <span class="material-symbols-outlined fill-1">person</span>
+          <span class="text-[10px] font-medium">Profile</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

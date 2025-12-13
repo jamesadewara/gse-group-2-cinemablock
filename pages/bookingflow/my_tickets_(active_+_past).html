@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>My Tickets - CineSocial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "card-dark": "#182234",
+                        "card-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary/30">
+    <div class="relative min-h-screen w-full flex flex-col pb-24 overflow-x-hidden">
+        <!-- Top App Bar & Tabs -->
+        <header
+            class="sticky top-0 z-30 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+            <div class="flex items-center justify-center p-4">
+                <h2 class="text-lg font-bold leading-tight tracking-tight">My Tickets</h2>
+            </div>
+            <!-- Tabs -->
+            <div class="px-4">
+                <div class="flex w-full">
+                    <a class="relative flex flex-1 flex-col items-center justify-center pb-3 pt-2 group cursor-pointer"
+                        href="#">
+                        <p class="text-primary text-sm font-bold leading-normal tracking-wide">Active Tickets</p>
+                        <div
+                            class="absolute bottom-0 h-[3px] w-full rounded-t-full bg-primary shadow-[0_-2px_8px_rgba(13,89,242,0.4)]">
+                        </div>
+                    </a>
+                    <a class="relative flex flex-1 flex-col items-center justify-center pb-3 pt-2 group cursor-pointer"
+                        href="#">
+                        <p
+                            class="text-slate-500 dark:text-slate-400 text-sm font-bold leading-normal tracking-wide group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors">
+                            Past Tickets</p>
+                        <div
+                            class="absolute bottom-0 h-[3px] w-full rounded-t-full bg-transparent group-hover:bg-slate-300 dark:group-hover:bg-slate-700 transition-colors">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!-- Content List -->
+        <main class="flex flex-col gap-6 p-5">
+            <!-- Ticket Card 1: Dune -->
+            <article
+                class="group relative flex flex-col overflow-hidden rounded-xl bg-card-light dark:bg-card-dark shadow-md border border-slate-200 dark:border-slate-800/50">
+                <!-- Image Section with Gradient Overlay -->
+                <div class="relative h-48 w-full overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-card-light dark:from-card-dark via-transparent to-transparent opacity-90 z-10">
+                    </div>
+                    <div class="h-full w-full bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Cinematic desert landscape with dunes"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhGfpMvMaYLIQ9C29XfQe2Czo7yS-DUfTXerylYxi0A0YchB6pncIQiQbPZ9qN4sEAWeP22TLYxBQvvpPet8cYi83XKQPBhey8nOTSzd9ioEDCMLsNvNL62x7pWgmfF_zK4FaPk5IELo8mNL-4V-zNvO4tUYWfVwu_lBa38pD93TeEalvNN-xD6rSCeuryUtMXN-PdmkOeQ9DAisPO1YWJZNEddv1X8agXIj9gV_1sAYDUiJgIIFnIT3nC01ngAmbQ17V_OyPNlT1L");'>
+                    </div>
+                    <!-- Floating Badge -->
+                    <div
+                        class="absolute top-3 right-3 z-20 rounded-full bg-black/40 backdrop-blur-md px-3 py-1 text-xs font-semibold text-white border border-white/10">
+                        IMAX
+                    </div>
+                </div>
+                <!-- Ticket Content -->
+                <div class="relative z-20 -mt-6 flex flex-col gap-4 px-5 pb-5">
+                    <div class="flex justify-between items-start">
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-xl font-extrabold leading-tight text-slate-900 dark:text-white">Dune: Part
+                                Two</h3>
+                            <div
+                                class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">
+                                <span class="material-symbols-outlined text-[16px]">calendar_month</span>
+                                <span>Today, 19:30</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Divider -->
+                    <div class="relative flex items-center justify-between">
+                        <div
+                            class="h-[20px] w-[10px] rounded-r-full bg-background-light dark:bg-background-dark -ml-[25px]">
+                        </div>
+                        <div class="h-[1px] flex-1 border-t-2 border-dashed border-slate-300 dark:border-slate-700">
+                        </div>
+                        <div
+                            class="h-[20px] w-[10px] rounded-l-full bg-background-light dark:bg-background-dark -mr-[25px]">
+                        </div>
+                    </div>
+                    <!-- Details Grid -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-slate-500 dark:text-slate-400">Cinema</span>
+                            <p class="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">AMC Lincoln Sq
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-slate-500 dark:text-slate-400">Seats</span>
+                            <p class="text-sm font-semibold text-slate-800 dark:text-slate-200">G12, G13</p>
+                        </div>
+                    </div>
+                    <!-- Action Button -->
+                    <button
+                        class="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-[0_0_15px_rgba(13,89,242,0.3)] transition-transform active:scale-[0.98]">
+                        <span class="material-symbols-outlined text-[20px]">qr_code_2</span>
+                        View Ticket
+                    </button>
+                </div>
+            </article>
+            <!-- Ticket Card 2: Civil War -->
+            <article
+                class="group relative flex flex-col overflow-hidden rounded-xl bg-card-light dark:bg-card-dark shadow-md border border-slate-200 dark:border-slate-800/50">
+                <!-- Image Section -->
+                <div class="relative h-48 w-full overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-card-light dark:from-card-dark via-transparent to-transparent opacity-90 z-10">
+                    </div>
+                    <div class="h-full w-full bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Abstract urban conflict scene or fire smoke"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDecxtRycf4nMccJIHxiUMz8uFOl4aLyRaPcjEICvWqEyMgTpDiZkQZZtM_5-KDCyx1ESXYbdWlQSdVK_1lx0mU00bCGJM406oIa85FowVD4mIryMWOc2lx_Ek5gRQpcDcHAsHp5m2VOz6xD-vvMbgkxkEPC2HnhsJacecStxAiR-o9w4bHFo3XLeMd8MzY0mJbARd2hzEfU2LCc9vwecMx-dnz1pbgljb_pG9oxRJQ_4MibuZvx04le_2xBH7cGIRCXQfL_3cHK2UE");'>
+                    </div>
+                    <div
+                        class="absolute top-3 right-3 z-20 rounded-full bg-black/40 backdrop-blur-md px-3 py-1 text-xs font-semibold text-white border border-white/10">
+                        Dolby
+                    </div>
+                </div>
+                <!-- Ticket Content -->
+                <div class="relative z-20 -mt-6 flex flex-col gap-4 px-5 pb-5">
+                    <div class="flex justify-between items-start">
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-xl font-extrabold leading-tight text-slate-900 dark:text-white">Civil War
+                            </h3>
+                            <div
+                                class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">
+                                <span class="material-symbols-outlined text-[16px]">calendar_month</span>
+                                <span>Tomorrow, 20:15</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Divider -->
+                    <div class="relative flex items-center justify-between">
+                        <div
+                            class="h-[20px] w-[10px] rounded-r-full bg-background-light dark:bg-background-dark -ml-[25px]">
+                        </div>
+                        <div class="h-[1px] flex-1 border-t-2 border-dashed border-slate-300 dark:border-slate-700">
+                        </div>
+                        <div
+                            class="h-[20px] w-[10px] rounded-l-full bg-background-light dark:bg-background-dark -mr-[25px]">
+                        </div>
+                    </div>
+                    <!-- Details Grid -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-slate-500 dark:text-slate-400">Cinema</span>
+                            <p class="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">Dolby Cinema
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-slate-500 dark:text-slate-400">Seats</span>
+                            <p class="text-sm font-semibold text-slate-800 dark:text-slate-200">F08, F09</p>
+                        </div>
+                    </div>
+                    <!-- Action Button -->
+                    <button
+                        class="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-[0_0_15px_rgba(13,89,242,0.3)] transition-transform active:scale-[0.98]">
+                        <span class="material-symbols-outlined text-[20px]">qr_code_2</span>
+                        View Ticket
+                    </button>
+                </div>
+            </article>
+            <!-- Bottom Spacer -->
+            <div class="h-4"></div>
+        </main>
+        <!-- Bottom Navigation Bar -->
+        <nav
+            class="fixed bottom-0 z-40 w-full border-t border-slate-200 dark:border-slate-800/60 bg-white/80 dark:bg-[#182234]/90 backdrop-blur-xl pb-6 pt-3 px-6">
+            <div class="flex items-center justify-between">
+                <a class="flex flex-col items-center justify-end gap-1 text-slate-400 hover:text-primary transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined text-[26px]">home</span>
+                    <span class="text-[10px] font-medium">Home</span>
+                </a>
+                <a class="flex flex-col items-center justify-end gap-1 text-slate-400 hover:text-primary transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined text-[26px]">search</span>
+                    <span class="text-[10px] font-medium">Search</span>
+                </a>
+                <a class="flex flex-col items-center justify-end gap-1 text-primary relative" href="#">
+                    <div
+                        class="absolute -top-10 rounded-full bg-primary p-3 shadow-lg shadow-primary/40 border-4 border-background-light dark:border-background-dark transform translate-y-2">
+                        <span class="material-symbols-outlined text-white text-[28px] fill">confirmation_number</span>
+                    </div>
+                    <div class="h-[28px]"></div> <!-- Spacer for floating icon -->
+                    <span class="text-[10px] font-bold mt-1">Tickets</span>
+                </a>
+                <a class="flex flex-col items-center justify-end gap-1 text-slate-400 hover:text-primary transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined text-[26px]">person</span>
+                    <span class="text-[10px] font-medium">Profile</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - Group Discovery</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#050505", // Deep black as requested
+                        "surface-dark": "#121212",
+                        "surface-highlight": "#1A1A1A",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "2xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar hiding */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary/30">
+    <div class="relative flex h-full min-h-screen w-full flex-col overflow-hidden pb-24">
+        <!-- Ambient Background Glow -->
+        <div
+            class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[500px] h-[300px] bg-primary/20 blur-[120px] rounded-full pointer-events-none z-0 opacity-40">
+        </div>
+        <!-- Top App Bar -->
+        <div
+            class="sticky top-0 z-20 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 pb-2 justify-between border-b border-white/5">
+            <h2 class="text-xl font-bold leading-tight tracking-[-0.015em] flex-1 text-slate-900 dark:text-white">
+                Discover Communities</h2>
+            <div class="flex items-center justify-end gap-2">
+                <button
+                    class="flex items-center justify-center rounded-full h-10 w-10 bg-surface-dark/50 hover:bg-surface-dark text-white transition-colors">
+                    <span class="material-symbols-outlined text-[24px]">search</span>
+                </button>
+            </div>
+        </div>
+        <!-- Chips / Categories -->
+        <div class="relative z-10 w-full pt-4 pb-2">
+            <div class="flex gap-3 px-4 overflow-x-auto no-scrollbar scroll-smooth">
+                <!-- Active Chip -->
+                <button
+                    class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-5 pr-5 shadow-lg shadow-primary/20 transition-transform active:scale-95">
+                    <p class="text-white text-sm font-semibold leading-normal">All</p>
+                </button>
+                <!-- Inactive Chips -->
+                <button
+                    class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white/10 dark:bg-surface-highlight border border-white/5 pl-5 pr-5 hover:bg-white/20 transition-colors active:scale-95">
+                    <p class="text-slate-600 dark:text-gray-300 text-sm font-medium leading-normal">Horror</p>
+                </button>
+                <button
+                    class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white/10 dark:bg-surface-highlight border border-white/5 pl-5 pr-5 hover:bg-white/20 transition-colors active:scale-95">
+                    <p class="text-slate-600 dark:text-gray-300 text-sm font-medium leading-normal">Sci-Fi</p>
+                </button>
+                <button
+                    class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white/10 dark:bg-surface-highlight border border-white/5 pl-5 pr-5 hover:bg-white/20 transition-colors active:scale-95">
+                    <p class="text-slate-600 dark:text-gray-300 text-sm font-medium leading-normal">Indie</p>
+                </button>
+                <button
+                    class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white/10 dark:bg-surface-highlight border border-white/5 pl-5 pr-5 hover:bg-white/20 transition-colors active:scale-95">
+                    <p class="text-slate-600 dark:text-gray-300 text-sm font-medium leading-normal">Oscar Watch</p>
+                </button>
+                <button
+                    class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white/10 dark:bg-surface-highlight border border-white/5 pl-5 pr-5 hover:bg-white/20 transition-colors active:scale-95">
+                    <p class="text-slate-600 dark:text-gray-300 text-sm font-medium leading-normal">Anime</p>
+                </button>
+            </div>
+        </div>
+        <!-- Featured Carousel -->
+        <div class="relative z-10 w-full pt-6">
+            <div class="px-4 pb-3 flex justify-between items-end">
+                <h2 class="text-slate-900 dark:text-white text-[20px] font-bold leading-tight">Trending Now</h2>
+            </div>
+            <div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory px-4 gap-4 pb-4">
+                <!-- Card 1 -->
+                <div
+                    class="snap-start relative flex-shrink-0 w-[280px] h-[360px] rounded-xl overflow-hidden group cursor-pointer shadow-lg shadow-black/50">
+                    <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="A moody, cinematic shot of a couple in a retro diner, neon lights reflecting"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBt1ywQyjS01qw-8W62Lv3tYsXxWs7sp7pzx1z-m8zm5UugMIuRJnJ0HSWdBR_a4CAnfs7QAfv169LFRx6KzdjmmAtfCuK7v2uJHCUUD2XgpUJQCFrZ7VMht3iSEBLdM2TNyDkl-3544_wfUBdSq7zD0TRogD0WiDDB4FCLroMoo_jkAlnk1SsFX61iECJOpIVaaccOHO2dVmlmiq62H7Om9t9YXEvpuLdtF3XMYQ5oGmhN0T0j5poimqQ598d3iPOZPikppIs3lrgc");'>
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/50 to-transparent opacity-90">
+                    </div>
+                    <div class="absolute top-3 left-3 bg-primary/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                        <p class="text-[10px] font-bold uppercase tracking-wider text-white">Featured</p>
+                    </div>
+                    <div class="absolute bottom-0 w-full p-5 flex flex-col gap-1">
+                        <p class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Indie Lovers</p>
+                        <h3 class="text-white text-2xl font-bold leading-tight">A24 Enthusiasts</h3>
+                        <div class="flex items-center gap-1 mt-2">
+                            <span class="material-symbols-outlined text-gray-400 text-[16px]">group</span>
+                            <p class="text-gray-300 text-sm">15.2k Members</p>
+                        </div>
+                        <button
+                            class="mt-4 w-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 text-white font-semibold py-2.5 rounded-full transition-all">
+                            Join Group
+                        </button>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="snap-start relative flex-shrink-0 w-[280px] h-[360px] rounded-xl overflow-hidden group cursor-pointer shadow-lg shadow-black/50">
+                    <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Futuristic cyberpunk city street with neon signs and rain"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAwaWltgiED42_R_bzgQBuEEYYtRDG4K66_EgS29Z0WAoFQ_IcdC6YhiRA-gl_n5NW3PG9Z2c5ipgIlQgG0FLxpGF6VIs5ielH8TxOww8FhobiJ4lt30OGDW9KkKqvzCuX1BV9vxnIL16To9gw7AbetYGXqZXrT63QXKWEtGfLbCZSd9wobuVfz38lz0Dj9-ibJGa9WZSQLXeR7YAIElFHwNV14Btn8AXQElu6g-1HHGufilAA_j4HSVMbLLSglo4amwUTGcGkkSbzC");'>
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/50 to-transparent opacity-90">
+                    </div>
+                    <div class="absolute bottom-0 w-full p-5 flex flex-col gap-1">
+                        <p class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Sci-Fi</p>
+                        <h3 class="text-white text-2xl font-bold leading-tight">Cyberpunk Cinema</h3>
+                        <div class="flex items-center gap-1 mt-2">
+                            <span class="material-symbols-outlined text-gray-400 text-[16px]">group</span>
+                            <p class="text-gray-300 text-sm">8.2k Members</p>
+                        </div>
+                        <button
+                            class="mt-4 w-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 text-white font-semibold py-2.5 rounded-full transition-all">
+                            Join Group
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Recommended Grid -->
+        <div class="relative z-10 w-full pt-4">
+            <h2 class="text-slate-900 dark:text-white tracking-tight text-[22px] font-bold leading-tight px-4 pb-4">
+                Recommended for you</h2>
+            <div class="grid grid-cols-2 gap-4 px-4 pb-6">
+                <!-- Grid Card 1 -->
+                <div
+                    class="relative aspect-[3/4] rounded-xl overflow-hidden group cursor-pointer shadow-md shadow-black/30">
+                    <div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Black and white film noir scene with high contrast shadows"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDIcKb054i1Bdb4PcNyKMk0fSAlA4QXHlDv25NqLuOd5TpHcsBh-sdn66ZbUCedPtHxDV65YuyDmXdD43Nl_JaXDOIt3CmeY1DsP0R_aV3rGAJNxt9KDM_6I0rewIds_MVueuzq2GQhM-DaUn5J3232R2J7kP5laB-wrtiaclO9mjzI0MlLUEN3F8uIIm8WBrzwfB8BCX9Nqx-Z3l2xaym5noBKoDQgROMc1_-DGvIfjpo3KGK6ZjBlugz3dO24yr-n-QZQOIND-2HP");'>
+                    </div>
+                    <!-- Immersive Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <!-- Content -->
+                    <div class="absolute bottom-0 p-4 w-full">
+                        <h3 class="text-white text-lg font-bold leading-snug mb-1">Nolan Fanatics</h3>
+                        <div class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-gray-400 text-[14px]">person</span>
+                            <p class="text-gray-300 text-xs font-medium">12.4k</p>
+                        </div>
+                    </div>
+                    <!-- Floating Action Button -->
+                    <button
+                        class="absolute top-3 right-3 h-8 w-8 bg-surface-dark/40 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">add</span>
+                    </button>
+                </div>
+                <!-- Grid Card 2 -->
+                <div
+                    class="relative aspect-[3/4] rounded-xl overflow-hidden group cursor-pointer shadow-md shadow-black/30">
+                    <div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Spooky dark forest with mist, horror theme"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAvfgVELGWPkxb5-kvjXH38oP-ljtcsfCjYQs_TCeGttExHy-U8WVMihKSGDxHnMK9_8D_o4Lesjfqp_NxPRlzj4fWma16GTbva_-SW9gGCnl-eXeYH1O3urBBkourk5o_n_gyq7z0g0w5b3nOkLSNa22bpkE5W6UAnt2sYotIrg6uRnR2R85o7hbU-Sx-WjjKIzzKQYmmljycc_Qk96AbhCrjtI5DRLL45V7Gg_szMW1CUaEgpcTyRE9LmxrXZOBD3GJieTXe5UVDt");'>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 p-4 w-full">
+                        <h3 class="text-white text-lg font-bold leading-snug mb-1">Horror Club</h3>
+                        <div class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-gray-400 text-[14px]">person</span>
+                            <p class="text-gray-300 text-xs font-medium">850</p>
+                        </div>
+                    </div>
+                    <button
+                        class="absolute top-3 right-3 h-8 w-8 bg-surface-dark/40 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">add</span>
+                    </button>
+                </div>
+                <!-- Grid Card 3 -->
+                <div
+                    class="relative aspect-[3/4] rounded-xl overflow-hidden group cursor-pointer shadow-md shadow-black/30">
+                    <div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Classic french cinema black and white scene"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCFMjpWkY9o55rYbuVF2RzmZGNR70JDjaK-Ba3-trW1_9m_f2Ej7rvW0xMxcA7Yx6emyOSeGxXSYclYMNl-Q9mjQ1w9_LKrOCIlqcVD7DdYIpR4m3Y_r3s-0W4cbIm5CJVeNPgT-thYf66iQGySxuULXH1T5Q4VjUPisiJgIJiBs-RdNigVu9moDpsQoS0iIzzT0mCBivXwgmYmT05iEa9fsGL2Hmk7YAHynAttR_tG6WXNXNawsSop1kedSCK8kJbBV0kXHHgwhqhx");'>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 p-4 w-full">
+                        <h3 class="text-white text-lg font-bold leading-snug mb-1">New Wave</h3>
+                        <div class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-gray-400 text-[14px]">person</span>
+                            <p class="text-gray-300 text-xs font-medium">3.2k</p>
+                        </div>
+                    </div>
+                    <button
+                        class="absolute top-3 right-3 h-8 w-8 bg-surface-dark/40 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">add</span>
+                    </button>
+                </div>
+                <!-- Grid Card 4 -->
+                <div
+                    class="relative aspect-[3/4] rounded-xl overflow-hidden group cursor-pointer shadow-md shadow-black/30">
+                    <div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Colorful comic book style art"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAbIIk5H-_u5xTz9kyPzeHJy1BEcbhpJxSZLqdb_V7VAz4tdIYsrCGYwTgb02P0pRxOQ_blOxbGuBtNq62JIBaGc90eBZr46aYIJRH4oE1Mi54OIFr13y7WUDdjfX1E59P-1WaPFxIeT5qTMX1mEPAI_yyz7zs7Q5k1kvt3i5qxnTfE_T2GSy5_TD02BvCL01UkwjBxG13OLcvHvKnaxL7VwiwyhM6gvbd4LxeaIVUmQgFdkf0EjnRwQDHWq-wS7vIyBjYTo6zmAsL");'>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 p-4 w-full">
+                        <h3 class="text-white text-lg font-bold leading-snug mb-1">MCU Theory</h3>
+                        <div class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-gray-400 text-[14px]">person</span>
+                            <p class="text-gray-300 text-xs font-medium">45k</p>
+                        </div>
+                    </div>
+                    <button
+                        class="absolute top-3 right-3 h-8 w-8 bg-surface-dark/40 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">add</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Floating Bottom Navigation -->
+        <div class="fixed bottom-6 left-4 right-4 z-50">
+            <div
+                class="flex items-center justify-around bg-[#151515]/90 dark:bg-[#151515]/90 backdrop-blur-xl border border-white/10 rounded-full h-16 shadow-2xl shadow-black">
+                <button
+                    class="flex flex-col items-center justify-center w-12 h-12 rounded-full text-gray-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-[24px]">home</span>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center w-12 h-12 rounded-full text-gray-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-[24px]">confirmation_number</span>
+                </button>
+                <button class="flex flex-col items-center justify-center w-12 h-12 rounded-full text-primary relative">
+                    <span class="material-symbols-outlined text-[28px] fill-current">groups</span>
+                    <span class="absolute -bottom-1 w-1 h-1 bg-primary rounded-full"></span>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center w-12 h-12 rounded-full text-gray-500 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-[24px]">person</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

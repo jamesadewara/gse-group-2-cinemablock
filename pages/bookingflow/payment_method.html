@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial - Payment Method</title>
+<!-- Fonts and Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#050505", /* customized for deep cinematic black */
+                        "surface-dark": "#121212",
+                        "surface-light": "#1e293b",
+                        "border-dark": "#314368",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased selection:bg-primary/30 selection:text-white">
+<!-- Cinematic Background Ambient -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-20 blur-2xl transform scale-110" data-alt="Abstract blurred cinematic movie theater lighting background"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark via-background-dark/90 to-background-dark"></div>
+</div>
+<div class="relative z-10 flex h-full min-h-screen w-full flex-col max-w-md mx-auto pb-32">
+<!-- Top App Bar -->
+<header class="flex items-center p-4 pt-6 pb-2 justify-between sticky top-0 z-20 bg-gradient-to-b from-background-dark to-transparent">
+<button class="text-white/80 hover:text-white flex size-10 items-center justify-center rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Payment Method</h2>
+</header>
+<main class="flex-1 px-4 py-4 space-y-4">
+<!-- Section Title -->
+<div class="px-1">
+<p class="text-white/60 text-sm font-medium uppercase tracking-wider">Select Option</p>
+</div>
+<!-- Option 1: Credit/Debit Card (Expanded/Active) -->
+<div class="rounded-xl overflow-hidden glass-panel transition-all duration-300 ring-1 ring-primary/50 shadow-[0_0_20px_rgba(13,89,242,0.15)]">
+<!-- Header of the expanded item -->
+<div class="flex items-center gap-4 p-4 cursor-pointer bg-primary/10">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-white flex items-center justify-center rounded-lg bg-primary shrink-0 size-10 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-semibold leading-tight">Credit or Debit Card</p>
+<span class="text-xs text-primary/80 mt-0.5 font-medium">Form expanded</span>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex size-6 items-center justify-center rounded-full border-2 border-primary bg-primary">
+<span class="material-symbols-outlined text-white text-[16px] font-bold">check</span>
+</div>
+</div>
+</div>
+<!-- Expanded Form Content -->
+<div class="p-4 pt-2 space-y-4 animate-fadeIn">
+<!-- Card Number -->
+<div class="space-y-2">
+<label class="text-white/80 text-sm font-medium ml-1">Card Number</label>
+<div class="relative group">
+<input class="w-full rounded-lg bg-surface-dark/50 border border-white/10 text-white placeholder:text-white/20 px-4 pl-12 h-12 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-3 text-white/40 group-focus-within:text-primary transition-colors">payment</span>
+<div class="absolute right-4 top-3.5 flex gap-2 opacity-50 grayscale group-focus-within:grayscale-0 transition-all">
+<!-- Simple CSS shapes to represent card logos for minimalism -->
+<div class="h-5 w-8 bg-white/20 rounded-sm"></div>
+<div class="h-5 w-8 bg-white/20 rounded-sm"></div>
+</div>
+</div>
+</div>
+<!-- Expiry & CVV Row -->
+<div class="flex gap-4">
+<div class="space-y-2 flex-1">
+<label class="text-white/80 text-sm font-medium ml-1">Expiry Date</label>
+<input class="w-full rounded-lg bg-surface-dark/50 border border-white/10 text-white placeholder:text-white/20 px-4 h-12 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="MM / YY" type="text"/>
+</div>
+<div class="space-y-2 flex-1">
+<label class="text-white/80 text-sm font-medium ml-1">CVV</label>
+<div class="relative group">
+<input class="w-full rounded-lg bg-surface-dark/50 border border-white/10 text-white placeholder:text-white/20 px-4 h-12 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="123" type="password"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-white/40 cursor-help hover:text-white text-lg">help</span>
+</div>
+</div>
+</div>
+<!-- Cardholder Name -->
+<div class="space-y-2">
+<label class="text-white/80 text-sm font-medium ml-1">Cardholder Name</label>
+<input class="w-full rounded-lg bg-surface-dark/50 border border-white/10 text-white placeholder:text-white/20 px-4 h-12 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="Name on Card" type="text"/>
+</div>
+<div class="flex items-center gap-2 pt-1 ml-1">
+<input checked="" class="rounded border-white/20 bg-white/5 text-primary focus:ring-0 focus:ring-offset-0 size-4" type="checkbox"/>
+<span class="text-xs text-white/60">Save card securely for future bookings</span>
+</div>
+</div>
+</div>
+<!-- Option 2: Apple Pay -->
+<div class="rounded-xl glass-panel flex items-center gap-4 p-4 min-h-[72px] justify-between cursor-pointer hover:bg-white/5 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-[#1e1e1e] shrink-0 size-10 border border-white/10">
+<span class="material-symbols-outlined">phone_iphone</span>
+</div>
+<p class="text-white text-base font-medium leading-normal">Apple Pay</p>
+</div>
+<div class="shrink-0 pr-1">
+<div class="size-5 rounded-full border-2 border-white/20 group-hover:border-white/40"></div>
+</div>
+</div>
+<!-- Option 3: Google Pay -->
+<div class="rounded-xl glass-panel flex items-center gap-4 p-4 min-h-[72px] justify-between cursor-pointer hover:bg-white/5 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-[#1e1e1e] shrink-0 size-10 border border-white/10">
+<span class="material-symbols-outlined">android</span>
+</div>
+<p class="text-white text-base font-medium leading-normal">Google Pay</p>
+</div>
+<div class="shrink-0 pr-1">
+<div class="size-5 rounded-full border-2 border-white/20 group-hover:border-white/40"></div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom CTA -->
+<div class="fixed bottom-0 left-0 right-0 p-4 pb-8 bg-gradient-to-t from-background-dark via-background-dark to-transparent z-30">
+<div class="max-w-md mx-auto w-full flex flex-col gap-4">
+<button class="w-full h-14 bg-primary hover:bg-primary/90 text-white font-bold text-lg rounded-xl shadow-lg shadow-primary/25 flex items-center justify-between px-6 transition-transform active:scale-[0.98]">
+<span>Confirm Payment</span>
+<span class="bg-black/20 px-2 py-1 rounded text-sm font-semibold">$28.50</span>
+</button>
+<div class="flex items-center justify-center gap-2 text-white/40">
+<span class="material-symbols-outlined text-sm">lock</span>
+<p class="text-xs font-medium">Payments are secure and end-to-end encrypted</p>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Movie Detail Page - CineSocial</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar hiding for horizontal scroll areas */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(16, 22, 34, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary selection:text-white">
+    <div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden pb-24">
+        <!-- Hero Section with Parallax-like feel -->
+        <!-- Image Container -->
+        <div class="absolute top-0 left-0 w-full h-[65vh] z-0">
+            <div class="w-full h-full bg-cover bg-top bg-no-repeat"
+                data-alt="Dune Part Two movie poster with orange desert tones"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCW1LW0xet8_xrn2tI3IBhDzv5AJf0mihEU6bFl97WY6A56eY7w4NKqIO-dEFrk0Ono98r7BfLyAaDnKMh1zsj0mIfTkQPFphgylrAjMKXnujZGT_kQu7e8Optdfv08aNa4ZZASv4IyzExPzmlzkDvn1bmvipS0xjMYY7P3XZZwfuNIfDw3nCsAbA4tRlOdb4aIdte2SzXS3ybI7xF375F2fbVvIBTRUZ2GjuYG-SCW7xAMxoLbf4eiCMOePIJKAsbAwFkbweR4isMt");'>
+            </div>
+            <!-- Gradient Overlay for legibility and seamless transition -->
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/40 to-transparent">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent h-32"></div>
+        </div>
+        <!-- Top Navigation Bar (Glassy/Transparent) -->
+        <div
+            class="fixed top-0 left-0 w-full z-50 flex items-center justify-between p-4 pt-12 transition-all duration-300">
+            <button
+                class="group flex h-10 w-10 items-center justify-center rounded-full bg-black/20 backdrop-blur-md border border-white/10 text-white transition-all hover:bg-primary active:scale-95">
+                <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+            </button>
+            <button
+                class="group flex h-10 w-10 items-center justify-center rounded-full bg-black/20 backdrop-blur-md border border-white/10 text-white transition-all hover:bg-white hover:text-black active:scale-95">
+                <span class="material-symbols-outlined text-[24px]">share</span>
+            </button>
+        </div>
+        <!-- Main Content Area -->
+        <!-- Pushed down to reveal hero image, positioned relative to sit on top of the fixed/absolute image -->
+        <div class="relative z-10 flex flex-col mt-[45vh] px-5 w-full max-w-lg mx-auto">
+            <!-- Headline Text -->
+            <div class="flex flex-col gap-2 mb-4 animate-fade-in-up">
+                <h1 class="text-white tracking-tight text-[40px] font-bold leading-[1.1] text-shadow-lg drop-shadow-md">
+                    Dune: Part Two
+                </h1>
+            </div>
+            <!-- Chips (Meta Data) -->
+            <div class="flex flex-wrap gap-2 mb-6">
+                <div
+                    class="flex h-7 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/5 px-3">
+                    <p class="text-white/90 text-xs font-medium">2024</p>
+                </div>
+                <div
+                    class="flex h-7 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/5 px-3">
+                    <p class="text-white/90 text-xs font-medium">PG-13</p>
+                </div>
+                <div
+                    class="flex h-7 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/5 px-3">
+                    <span class="material-symbols-outlined text-[14px] mr-1 text-white/70">schedule</span>
+                    <p class="text-white/90 text-xs font-medium">2h 46m</p>
+                </div>
+                <div
+                    class="flex h-7 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/5 px-3">
+                    <p class="text-white/90 text-xs font-medium">Sci-Fi</p>
+                </div>
+                <div
+                    class="flex h-7 shrink-0 items-center justify-center rounded-full bg-yellow-500/20 border border-yellow-500/30 px-3 gap-1">
+                    <span class="material-symbols-outlined text-[14px] text-yellow-500 fill-1">star</span>
+                    <p class="text-yellow-500 text-xs font-bold">8.8</p>
+                </div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="flex gap-3 mb-8 w-full">
+                <button
+                    class="flex-1 flex h-14 items-center justify-center gap-2 rounded-full bg-primary text-white text-[17px] font-bold tracking-wide shadow-lg shadow-primary/25 transition-transform active:scale-95 hover:bg-primary/90">
+                    <span class="material-symbols-outlined text-[20px]">confirmation_number</span>
+                    Book Tickets
+                </button>
+                <button
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/10 border border-white/10 text-white backdrop-blur-sm transition-transform active:scale-95 hover:bg-white/20">
+                    <span class="material-symbols-outlined text-[24px]">play_arrow</span>
+                </button>
+            </div>
+            <!-- Tab Navigation -->
+            <div
+                class="sticky top-[80px] z-40 -mx-5 px-5 bg-background-dark/95 backdrop-blur-xl border-b border-white/5 mb-6">
+                <div class="flex items-center gap-8">
+                    <button class="relative py-4 text-white font-semibold text-sm">
+                        Synopsis
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-t-full shadow-[0_0_10px_rgba(13,89,242,0.8)]"></span>
+                    </button>
+                    <button class="relative py-4 text-white/50 font-medium text-sm hover:text-white transition-colors">
+                        Cast
+                    </button>
+                    <button class="relative py-4 text-white/50 font-medium text-sm hover:text-white transition-colors">
+                        Reviews
+                    </button>
+                    <button class="relative py-4 text-white/50 font-medium text-sm hover:text-white transition-colors">
+                        More
+                    </button>
+                </div>
+            </div>
+            <!-- Synopsis Section -->
+            <div class="mb-8">
+                <p class="text-gray-300 text-base leading-relaxed font-light">
+                    Paul Atreides unites with Chani and the Fremen while on a warpath of revenge against the
+                    conspirators who destroyed his family. Facing a choice between the love of his life and the fate of
+                    the known universe, he endeavors to prevent a terrible future only he can foresee.
+                </p>
+            </div>
+            <!-- Cast Section -->
+            <div class="mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-white">Cast &amp; Crew</h3>
+                    <button class="text-primary text-xs font-semibold">See All</button>
+                </div>
+                <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide -mx-5 px-5">
+                    <!-- Actor 1 -->
+                    <div class="flex flex-col items-center gap-2 min-w-[80px]">
+                        <div
+                            class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/5 bg-gray-800 relative">
+                            <img alt="Timothée Chalamet" class="w-full h-full object-cover"
+                                data-alt="Timothée Chalamet portrait"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOusZvmNF3FHrGGX1jEqRsddPlpBeOfDFFr9pYtU7PP2QTR2RcYFpgZwwF9B8e41HjeopLza914y9K_ORj_p4sm0UJ9tZ05P3KY8yukkxIpAAk6P1PRG6XjhWM_TJCO4CXPQ-AtSnJJg8lJUYtkCIlVetcqCjmnUxSFMx-pABDhE8WGYWlAK1S7s_iAyRLIQ94cYzNAQr3LKW47ZiEGDZRBQ1nYjEUH5k1imibI4aMPa8inHRVS9-dIMMTvIsW2gMI-jQpOEaY0h9v" />
+                        </div>
+                        <div class="text-center">
+                            <p class="text-xs text-white font-medium truncate w-20">Timothée</p>
+                            <p class="text-[10px] text-gray-500 truncate w-20">Paul Atreides</p>
+                        </div>
+                    </div>
+                    <!-- Actor 2 -->
+                    <div class="flex flex-col items-center gap-2 min-w-[80px]">
+                        <div
+                            class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/5 bg-gray-800 relative">
+                            <img alt="Zendaya" class="w-full h-full object-cover" data-alt="Zendaya portrait"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtFfXMDQ8VhpVq1-l6Lh8bK_CTHhlqd_Sji5gOqPBAAmNdsSjE9Yefb-OR5MB_43jBoo3gyNtHX9JXjDM5MeRcZy1-6uR8TlW5MeFRW9By4oZXewRg4LAuxx6hOq-Ay7wSiabE9I1gYp8zQ07iK-LTPkghRqHGxZv3Lcb1uN4u6A_EzotlIl8khjbu1xSOvPdX_9YEtPLvczXMDvKOOlt1RlBp9_azqAzjYaYcOJvDHSzZECImTRH1huhugRYG_J3A41diiwHRRMFL" />
+                        </div>
+                        <div class="text-center">
+                            <p class="text-xs text-white font-medium truncate w-20">Zendaya</p>
+                            <p class="text-[10px] text-gray-500 truncate w-20">Chani</p>
+                        </div>
+                    </div>
+                    <!-- Actor 3 -->
+                    <div class="flex flex-col items-center gap-2 min-w-[80px]">
+                        <div
+                            class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/5 bg-gray-800 relative">
+                            <img alt="Austin Butler" class="w-full h-full object-cover"
+                                data-alt="Austin Butler portrait"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4wE_MJCYYOW62cE5Vl-juhxkqoB9eTzDRaEuk5fsthuMfpaDJSHizeR5QILd3c2DCxQI3NXMqyPb2hA2LylRU1EDfp5-hrTaVPJ31n_T7rrm6GWVqlSXwNrTUXOI4DM9OrvRTz8x1Eqemf35aMyBeePshMQPgwfGoiZX1D5k_dbFij2JEMvW_cyGfl7fdcBwxP5WPWN6cjdpjGNe1s0jVnzyvkMxm45kkVDUCdC4MrIE50KltNxR6ADkkN9sVa_pjP5uQBaFoXrQz" />
+                        </div>
+                        <div class="text-center">
+                            <p class="text-xs text-white font-medium truncate w-20">Austin B.</p>
+                            <p class="text-[10px] text-gray-500 truncate w-20">Feyd-Rautha</p>
+                        </div>
+                    </div>
+                    <!-- Actor 4 -->
+                    <div class="flex flex-col items-center gap-2 min-w-[80px]">
+                        <div
+                            class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/5 bg-gray-800 relative">
+                            <img alt="Florence Pugh" class="w-full h-full object-cover"
+                                data-alt="Florence Pugh portrait"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrmWY0_2wT770OBXb9gompPmF6ZxIAD9DU4sRfO-Xs8jsJdr9b-8prLQ4x3YsN4fl9Ft9f10xN_SqD15eMv66rFJBn5vRJdbbOifd9B_oJf5-wTvQNsaxr2cPIxCPr_b3bG1Uj4eOM1dKgB2bSVesJI8oLzQXTcksGkBm76oYVCxr_VBalmzDh_7BKsYgq8xkW6cPf4DdexjfpiX4y4X7iG5UFkQBnnlxZF1BglsWAVBr6QZSdbX5Cck1VHfEbabAHbo6vLntbsTcS" />
+                        </div>
+                        <div class="text-center">
+                            <p class="text-xs text-white font-medium truncate w-20">Florence P.</p>
+                            <p class="text-[10px] text-gray-500 truncate w-20">Princess Irulan</p>
+                        </div>
+                    </div>
+                    <!-- Actor 5 -->
+                    <div class="flex flex-col items-center gap-2 min-w-[80px]">
+                        <div
+                            class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/5 bg-gray-800 relative">
+                            <img alt="Rebecca Ferguson" class="w-full h-full object-cover"
+                                data-alt="Rebecca Ferguson portrait"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDenRLnhfLo30vCDWRVGwfUiHz5alypF2CaiWbzYpDTxmcfSGpjtpqOIudElf8OlBEMRp24YwqvBUyrRjS742Iean-X8_SfWpFGIA6ii0Eyfk09NFm9ntzqIQu8V7RTI6L6qXZUO7TCu7CfFVZSmRBGy7oMzUdVPuF-Krwz4gOlRivjtTXACgfHHgs0nK2QL5vHCrJHhjS6qQh0QQN0ikV4jJpY-fIqe4hsqrdRj4sQPS91DeHUE8tnpEnGpedahogrEDjPpyfH0EcU" />
+                        </div>
+                        <div class="text-center">
+                            <p class="text-xs text-white font-medium truncate w-20">Rebecca F.</p>
+                            <p class="text-[10px] text-gray-500 truncate w-20">Lady Jessica</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Reviews Preview -->
+            <div class="mb-4">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-white">Reviews</h3>
+                    <div class="flex items-center gap-1">
+                        <span class="text-yellow-500 material-symbols-outlined text-[18px] fill-1">star</span>
+                        <span class="text-white font-bold text-sm">8.8</span>
+                        <span class="text-gray-500 text-xs">(12k)</span>
+                    </div>
+                </div>
+                <div class="bg-[#1a2333] p-4 rounded-xl border border-white/5">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div
+                            class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-xs font-bold text-white">
+                            JD</div>
+                        <div>
+                            <p class="text-sm font-semibold text-white">John Doe</p>
+                            <div class="flex text-yellow-500">
+                                <span class="material-symbols-outlined text-[12px] fill-1">star</span>
+                                <span class="material-symbols-outlined text-[12px] fill-1">star</span>
+                                <span class="material-symbols-outlined text-[12px] fill-1">star</span>
+                                <span class="material-symbols-outlined text-[12px] fill-1">star</span>
+                                <span class="material-symbols-outlined text-[12px] fill-1">star</span>
+                            </div>
+                        </div>
+                        <span class="ml-auto text-xs text-gray-500">2h ago</span>
+                    </div>
+                    <p class="text-sm text-gray-300 leading-normal">
+                        "A masterpiece of visual storytelling. Villeneuve has outdone himself. The scale is massive, yet
+                        the characters feel intimate."
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Navigation -->
+        <div class="fixed bottom-0 left-0 w-full z-50 glass border-t border-white/5 px-6 pt-3 pb-6">
+            <div class="flex justify-between items-center max-w-lg mx-auto">
+                <button class="flex flex-col items-center gap-1 text-white/50 hover:text-white transition-colors group">
+                    <span class="material-symbols-outlined group-hover:scale-110 transition-transform">home</span>
+                    <span class="text-[10px] font-medium">Home</span>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-white/50 hover:text-white transition-colors group">
+                    <span class="material-symbols-outlined group-hover:scale-110 transition-transform">search</span>
+                    <span class="text-[10px] font-medium">Explore</span>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-primary transition-colors group">
+                    <div class="relative">
+                        <span class="material-symbols-outlined fill-1">confirmation_number</span>
+                        <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </div>
+                    <span class="text-[10px] font-medium">Tickets</span>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-white/50 hover:text-white transition-colors group">
+                    <span class="material-symbols-outlined group-hover:scale-110 transition-transform">person</span>
+                    <span class="text-[10px] font-medium">Profile</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

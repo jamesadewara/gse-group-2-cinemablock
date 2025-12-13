@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Creator Dashboard - CineSocial</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#1c2533", // Slightly lighter than background-dark for cards
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for webkit to keep it clean */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #334155;
+            border-radius: 20px;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-hidden select-none">
+    <div class="relative flex h-screen w-full flex-col overflow-hidden">
+        <!-- Header -->
+        <header
+            class="flex items-center justify-between px-5 py-4 z-20 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-sm sticky top-0">
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-primary/20"
+                        data-alt="Profile picture of a content creator with a cinematic lighting effect"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCA3HiVnALwHer_y0XVCaYp7yVXTU585A6ZPz0R9PahlCjoufynvRj7NmEsGBUGhze7pnykuYLUARQqNghErCHmF03ziYUhRm-ZiA2BZEc3sJzHfM-5o4j6oYHXmVZyRhB-nB7dfsoGPRqpGpj7a2SQI4hVXhmG6Z_R4SzFAciZqVaPRmFx4kQfUejuWZyS-PtsvsC6HIW9ZCyAd9ZIwoO1OSZ5FUmUXcRvfTQ-H_nKLDVfXtbBmaSxDmZHF1xIpRUHtMy_ynf7dpuL");'>
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 size-3 bg-green-500 border-2 border-background-dark rounded-full">
+                    </div>
+                </div>
+                <div>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Welcome
+                        back</p>
+                    <h2 class="text-lg font-bold leading-none tracking-tight">Alex</h2>
+                </div>
+            </div>
+            <button
+                class="flex items-center justify-center size-10 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors relative">
+                <span class="material-symbols-outlined text-slate-700 dark:text-slate-200">notifications</span>
+                <span class="absolute top-2 right-2 size-2 bg-primary rounded-full"></span>
+            </button>
+        </header>
+        <!-- Main Scrollable Content -->
+        <main class="flex-1 overflow-y-auto pb-28 px-4">
+            <!-- Hero Metric Card -->
+            <div class="mt-2 mb-6">
+                <div
+                    class="w-full rounded-2xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 p-5 shadow-sm relative overflow-hidden group">
+                    <!-- Subtle background decoration -->
+                    <div
+                        class="absolute -right-10 -top-10 size-40 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-500">
+                    </div>
+                    <div class="relative z-10 flex flex-col gap-1">
+                        <div class="flex items-center justify-between">
+                            <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Monthly Reach</p>
+                            <span class="material-symbols-outlined text-primary">trending_up</span>
+                        </div>
+                        <div class="flex items-end gap-3 mt-1">
+                            <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">124.5k
+                            </h1>
+                            <div
+                                class="flex items-center gap-1 mb-1.5 px-2 py-0.5 rounded-full bg-green-500/10 dark:bg-green-500/20">
+                                <span class="material-symbols-outlined text-green-600 dark:text-green-400 text-sm"
+                                    style="font-size: 16px;">arrow_upward</span>
+                                <span class="text-xs font-bold text-green-700 dark:text-green-400">+12%</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-xs mt-2">vs. last month</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Chart Section -->
+            <div class="mb-6">
+                <div class="flex items-baseline justify-between mb-4 px-1">
+                    <h3 class="text-lg font-bold">Activity Trend</h3>
+                    <select
+                        class="bg-transparent text-sm text-primary font-medium border-none focus:ring-0 cursor-pointer pr-6 py-0 outline-none">
+                        <option>Last 7 Days</option>
+                        <option>Last 30 Days</option>
+                    </select>
+                </div>
+                <div
+                    class="w-full rounded-2xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 p-4 pt-6 shadow-sm">
+                    <!-- Chart SVG -->
+                    <div class="relative w-full h-[180px]">
+                        <svg class="overflow-visible" fill="none" height="100%" preserveaspectratio="none"
+                            viewbox="0 0 478 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Gradient Defs -->
+                            <defs>
+                                <lineargradient gradientunits="userSpaceOnUse" id="chartGradient" x1="236" x2="236"
+                                    y1="20" y2="150">
+                                    <stop stop-color="#1152d4" stop-opacity="0.5"></stop>
+                                    <stop offset="1" stop-color="#1152d4" stop-opacity="0"></stop>
+                                </lineargradient>
+                                <filter height="140%" id="glow" width="140%" x="-20%" y="-20%">
+                                    <fegaussianblur result="blur" stddeviation="4"></fegaussianblur>
+                                    <fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+                                </filter>
+                            </defs>
+                            <!-- Filled Area -->
+                            <path
+                                d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V160H0V109Z"
+                                fill="url(#chartGradient)"></path>
+                            <!-- Stroke Line -->
+                            <path
+                                d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25"
+                                filter="url(#glow)" stroke="#1152d4" stroke-linecap="round" stroke-width="3"></path>
+                            <!-- Data Points (Circles) - Optional for interactivity hints -->
+                            <circle cx="217.846" cy="61" fill="#1152d4" r="4" stroke="#101622" stroke-width="2">
+                            </circle>
+                            <circle cx="363.077" cy="1" fill="#1152d4" r="4" stroke="#101622" stroke-width="2"></circle>
+                        </svg>
+                    </div>
+                    <!-- X Axis Labels -->
+                    <div class="flex justify-between mt-4 px-2">
+                        <p class="text-slate-400 dark:text-slate-500 text-[11px] font-bold uppercase tracking-wider">Mon
+                        </p>
+                        <p class="text-slate-400 dark:text-slate-500 text-[11px] font-bold uppercase tracking-wider">Tue
+                        </p>
+                        <p class="text-slate-400 dark:text-slate-500 text-[11px] font-bold uppercase tracking-wider">Wed
+                        </p>
+                        <p
+                            class="text-slate-400 dark:text-slate-500 text-[11px] font-bold uppercase tracking-wider text-primary">
+                            Thu</p>
+                        <p class="text-slate-400 dark:text-slate-500 text-[11px] font-bold uppercase tracking-wider">Fri
+                        </p>
+                        <p class="text-slate-400 dark:text-slate-500 text-[11px] font-bold uppercase tracking-wider">Sat
+                        </p>
+                        <p class="text-slate-400 dark:text-slate-500 text-[11px] font-bold uppercase tracking-wider">Sun
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <!-- Stat Card 1 -->
+                <div
+                    class="flex flex-col gap-2 rounded-2xl p-5 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="flex items-start justify-between">
+                        <div class="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-500/10">
+                            <span class="material-symbols-outlined text-indigo-500 text-[20px]">thumb_up</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs font-medium mb-1">Avg. Engagement</p>
+                        <div class="flex items-baseline gap-2">
+                            <p class="text-xl font-bold dark:text-white">4.8%</p>
+                            <span class="text-green-500 text-xs font-semibold">+0.5%</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Stat Card 2 -->
+                <div
+                    class="flex flex-col gap-2 rounded-2xl p-5 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="flex items-start justify-between">
+                        <div class="p-2 rounded-lg bg-orange-50 dark:bg-orange-500/10">
+                            <span class="material-symbols-outlined text-orange-500 text-[20px]">local_activity</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs font-medium mb-1">Ticket Conversions</p>
+                        <div class="flex items-baseline gap-2">
+                            <p class="text-xl font-bold dark:text-white">342</p>
+                            <span class="text-green-500 text-xs font-semibold">+22%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Content Section -->
+            <div class="mb-4">
+                <div class="flex items-center justify-between mb-4 px-1">
+                    <h3 class="text-lg font-bold">Recent Content</h3>
+                    <button class="text-sm text-primary font-medium hover:text-blue-400">View All</button>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <!-- Content Item 1 -->
+                    <div
+                        class="flex items-center gap-4 p-3 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors cursor-pointer group">
+                        <div class="relative w-16 h-20 shrink-0 rounded-lg overflow-hidden">
+                            <img alt="Abstract desert landscape representing Dune Part Two movie poster"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9KM_l7QqwOyPGem4RldAZ7rBiIPOLpyyZ8cUWYWgirbzE9Q1GkmmmEAYAFnWfInMOEtD5zvQK_fKJSSdgxosGFtuAkcBT4Rs1CQAkSpbxVR_sVnMXy3VRIBIhLvb-SK7s37_CiVEVO15Zmz_w2qizIDFG9kooREfjhxd7xEU_OEefzW9OGOWzoKYqhCJgjs7JMNVH2am_0xEqtbcOXKUy3_aBjoCYyW-v_buoX0OS56CEVT0V-_rP1eE3J7FlK3P3k_dxki2mbasr" />
+                            <div class="absolute inset-0 bg-black/20"></div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-slate-900 dark:text-white font-semibold truncate mb-1">Dune: Part Two Review
+                            </h4>
+                            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[14px]">visibility</span> 12k
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[14px]">favorite</span> 840
+                                </span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center justify-center size-8 rounded-full border border-slate-200 dark:border-slate-700">
+                            <span class="material-symbols-outlined text-slate-400 text-[18px]">chevron_right</span>
+                        </div>
+                    </div>
+                    <!-- Content Item 2 -->
+                    <div
+                        class="flex items-center gap-4 p-3 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors cursor-pointer group">
+                        <div class="relative w-16 h-20 shrink-0 rounded-lg overflow-hidden">
+                            <img alt="Moody urban street scene representing Past Lives movie aesthetic"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP6Gewye0kUmkWs0SxUGyzF_m2QQYKi1ItRBS9xJCS6jEsxc3iisXsEqLfE31D9ZAv9xnNOZPRhuT_Wd_VHKt0YaR6ZNci_3ycQ-0xleGnTCDfETwHEGn3cDNFs1dghcKcYznSRsL4r-BzCJ28kS0xYs-sM1d8ETQQXupN9BUXn8zBlprgPKJQBqYLmT5pRvJ_jezsgTpivCmrzqcubm1GeyM4YPBY5pVCaQ5cmZtHFsd3IhWAxwTHngN2Cj8nOdG0Z44I-dkQTWY_" />
+                            <div class="absolute inset-0 bg-black/20"></div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-slate-900 dark:text-white font-semibold truncate mb-1">Past Lives Analysis
+                            </h4>
+                            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[14px]">visibility</span> 8.2k
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[14px]">favorite</span> 600
+                                </span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center justify-center size-8 rounded-full border border-slate-200 dark:border-slate-700">
+                            <span class="material-symbols-outlined text-slate-400 text-[18px]">chevron_right</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Floating Bottom Navigation -->
+        <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-md z-30">
+            <nav
+                class="flex items-center justify-around h-16 px-2 rounded-2xl bg-white/80 dark:bg-[#1c2533]/80 backdrop-blur-xl border border-white/20 shadow-xl shadow-black/20">
+                <button class="flex flex-col items-center justify-center w-full gap-1 group">
+                    <span
+                        class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-[24px]">home</span>
+                    <span
+                        class="text-[10px] font-medium text-slate-400 group-hover:text-primary opacity-0 group-hover:opacity-100 transition-all absolute -bottom-1">Home</span>
+                </button>
+                <button class="flex flex-col items-center justify-center w-full gap-1 group">
+                    <span
+                        class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-[24px]">search</span>
+                    <span
+                        class="text-[10px] font-medium text-slate-400 group-hover:text-primary opacity-0 group-hover:opacity-100 transition-all absolute -bottom-1">Search</span>
+                </button>
+                <!-- Active Dashboard Tab -->
+                <div class="relative flex flex-col items-center justify-center w-full">
+                    <div class="absolute inset-0 bg-primary/10 rounded-xl scale-75 blur-sm"></div>
+                    <button class="relative flex flex-col items-center justify-center w-full gap-1 text-primary">
+                        <span class="material-symbols-outlined text-[24px] fill-current"
+                            style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                        <span class="text-[10px] font-bold">Dashboard</span>
+                    </button>
+                    <div
+                        class="absolute -bottom-[22px] w-12 h-1 bg-primary rounded-t-full shadow-[0_-4px_10px_rgba(17,82,212,0.5)]">
+                    </div>
+                </div>
+                <button class="flex flex-col items-center justify-center w-full gap-1 group">
+                    <span
+                        class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-[24px]">person</span>
+                    <span
+                        class="text-[10px] font-medium text-slate-400 group-hover:text-primary opacity-0 group-hover:opacity-100 transition-all absolute -bottom-1">Profile</span>
+                </button>
+            </nav>
+        </div>
+    </div>
+</body>
+
+</html>

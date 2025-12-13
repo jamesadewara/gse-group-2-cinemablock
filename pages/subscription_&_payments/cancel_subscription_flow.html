@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial - Cancel Subscription</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#f42525",
+              "background-light": "#f8f5f5",
+              "background-dark": "#221010",
+              "surface-dark": "#2a1515",
+            },
+            fontFamily: {
+              "display": ["Spline Sans", "sans-serif"],
+              "body": ["Noto Sans", "sans-serif"],
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+            animation: {
+                'slide-up': 'slideUp 0.3s ease-out forwards',
+            },
+            keyframes: {
+                slideUp: {
+                    '0%': { transform: 'translateY(100%)' },
+                    '100%': { transform: 'translateY(0)' },
+                }
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 1,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display antialiased text-white overflow-hidden h-screen w-full relative">
+<!-- Background Layer (Simulating the App Behind) -->
+<div class="absolute inset-0 z-0">
+<!-- Cinematic Background Image -->
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517604931442-71053e6837db?q=80&amp;w=2069&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-30" data-alt="Dark moody cinema theater interior with empty red seats"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/90 to-background-dark/40"></div>
+<!-- Mock Content behind modal to show depth -->
+<div class="relative z-10 p-6 opacity-30 pointer-events-none grayscale">
+<div class="h-8 w-1/2 bg-white/20 rounded-lg mb-6"></div>
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-[2/3] bg-white/10 rounded-xl"></div>
+<div class="aspect-[2/3] bg-white/10 rounded-xl"></div>
+</div>
+</div>
+</div>
+<!-- Modal Backdrop / Overlay -->
+<div class="fixed inset-0 z-50 flex flex-col justify-end bg-black/70 backdrop-blur-[4px]">
+<!-- Bottom Sheet Container -->
+<div class="relative w-full bg-background-dark rounded-t-[32px] shadow-[0_-8px_40px_rgba(0,0,0,0.8)] overflow-hidden animate-slide-up flex flex-col max-h-[90vh]">
+<!-- Handle -->
+<div class="flex w-full items-center justify-center pt-5 pb-3 bg-background-dark shrink-0 z-20">
+<div class="h-1.5 w-12 rounded-full bg-[#683131]/50"></div>
+</div>
+<!-- Scrollable Content Area -->
+<div class="px-6 pb-6 overflow-y-auto flex-1 overscroll-contain">
+<!-- Icon & Headline -->
+<div class="flex flex-col items-center pt-2">
+<div class="relative mb-6">
+<div class="absolute inset-0 bg-primary/20 blur-xl rounded-full"></div>
+<div class="relative h-20 w-20 flex items-center justify-center rounded-full bg-[#361515] border border-primary/20 text-primary">
+<span class="material-symbols-outlined text-[40px]">confirmation_number</span>
+</div>
+<!-- Broken/Alert indicator badge -->
+<div class="absolute -right-1 -top-1 h-7 w-7 bg-background-dark rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">warning</span>
+</div>
+</div>
+<h1 class="text-white tracking-tight text-[28px] font-bold leading-tight text-center mb-3">Wait, don't miss the show!</h1>
+<p class="text-white/70 text-base font-normal leading-relaxed text-center max-w-xs mx-auto">
+                        If you cancel now, you'll lose these premium benefits immediately:
+                    </p>
+</div>
+<!-- Benefits Lost List -->
+<div class="mt-8 space-y-3">
+<!-- Item 1 -->
+<div class="group flex items-center gap-4 bg-[#2c1414]/50 border border-white/5 p-4 rounded-2xl transition-all">
+<div class="flex items-center justify-center rounded-xl bg-[#492222] shrink-0 w-12 h-12 text-primary/90">
+<span class="material-symbols-outlined text-[24px]">local_activity</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-white text-[17px] font-medium truncate leading-tight">50% off all tickets</p>
+<p class="text-white/40 text-xs mt-0.5">Save on every booking</p>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-primary/60 transition-colors">
+<span class="material-symbols-outlined text-[24px]">cancel</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group flex items-center gap-4 bg-[#2c1414]/50 border border-white/5 p-4 rounded-2xl transition-all">
+<div class="flex items-center justify-center rounded-xl bg-[#492222] shrink-0 w-12 h-12 text-primary/90">
+<span class="material-symbols-outlined text-[24px]">chair</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-white text-[17px] font-medium truncate leading-tight">Priority seating</p>
+<p class="text-white/40 text-xs mt-0.5">Get the best view</p>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-primary/60 transition-colors">
+<span class="material-symbols-outlined text-[24px]">cancel</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group flex items-center gap-4 bg-[#2c1414]/50 border border-white/5 p-4 rounded-2xl transition-all">
+<div class="flex items-center justify-center rounded-xl bg-[#492222] shrink-0 w-12 h-12 text-primary/90">
+<span class="material-symbols-outlined text-[24px]">block</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-white text-[17px] font-medium truncate leading-tight">Ad-free browsing</p>
+<p class="text-white/40 text-xs mt-0.5">Pure cinematic experience</p>
+</div>
+<div class="shrink-0 text-white/20 group-hover:text-primary/60 transition-colors">
+<span class="material-symbols-outlined text-[24px]">cancel</span>
+</div>
+</div>
+</div>
+<!-- Spacer -->
+<div class="h-8"></div>
+</div>
+<!-- Fixed Bottom Actions Section -->
+<div class="p-6 pt-2 bg-background-dark z-20">
+<button class="w-full bg-primary hover:bg-red-600 text-white text-[17px] font-bold py-4 rounded-2xl shadow-[0_8px_30px_-6px_rgba(244,37,37,0.4)] transition-all transform active:scale-[0.98] flex items-center justify-center gap-2 mb-4">
+<span>Keep My Plan</span>
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</button>
+<button class="w-full bg-transparent text-white/40 text-sm font-medium py-2 hover:text-white transition-colors flex items-center justify-center">
+                    I still want to cancel
+                </button>
+<!-- Safe Area for Home Indicator -->
+<div class="h-6"></div>
+</div>
+</div>
+</div>
+</body></html>

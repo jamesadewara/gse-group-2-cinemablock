@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Post Options Bottom Sheet - CineSocial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #101622;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #282e39;
+            border-radius: 4px;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-black font-display antialiased overflow-hidden h-screen w-full relative">
+    <!-- Simulated App Background Context -->
+    <div class="absolute inset-0 z-0 opacity-40 pointer-events-none">
+        <!-- Abstract cinematic background -->
+        <img class="w-full h-full object-cover filter blur-[2px]"
+            data-alt="Dark moody cinema theater abstract background with blurred lights"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdTW848CBCsddFrIJIL3bElEMYZrayr01tRU7t1JJQ5VeTQJjMLdfdhjue8F3Vrgh6ap7OmXkXRV9SL_R6RnHZX9Acl7ZsrPGwh0BoPZ6hB_k9hc6WLw29CwKDr-3J0qejlDuCG35__Q9mKgQQQHwh4Wuw7qnNSQ7evWfHNHnDLoQigCu2XCytF53PNuyhGG_ijjeFmsTetW4aGyPKgxMeYRV4hSMkyNZ1PzfzBVM8FNBLmmsShQJeudXQiZ92COCncp5vwbexJDge" />
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background-dark/80 to-background-dark"></div>
+    </div>
+    <!-- Main Content Area (Behind Sheet) -->
+    <div class="relative z-10 flex flex-col h-full p-4 pointer-events-none">
+        <!-- Header placeholder -->
+        <div class="h-14 w-full flex items-center justify-between mb-6">
+            <div class="w-8 h-8 rounded-full bg-white/10"></div>
+            <div class="w-24 h-6 rounded bg-white/10"></div>
+            <div class="w-8 h-8 rounded-full bg-white/10"></div>
+        </div>
+        <!-- Feed placeholder -->
+        <div class="space-y-4">
+            <div class="w-full aspect-video rounded-xl bg-white/5"></div>
+            <div class="w-3/4 h-4 rounded bg-white/10"></div>
+            <div class="w-1/2 h-4 rounded bg-white/10"></div>
+        </div>
+    </div>
+    <!-- Backdrop Overlay -->
+    <div class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"></div>
+    <!-- Bottom Sheet Container -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 flex flex-col justify-end h-auto max-h-[85vh]">
+        <!-- Sheet Surface -->
+        <div
+            class="w-full bg-[#151a23] dark:bg-[#151a23] rounded-t-3xl shadow-2xl ring-1 ring-white/5 flex flex-col animate-in slide-in-from-bottom duration-300">
+            <!-- Drag Handle -->
+            <div class="flex w-full items-center justify-center pt-3 pb-1">
+                <div class="h-1.5 w-12 rounded-full bg-[#3b4354]"></div>
+            </div>
+            <!-- Header -->
+            <div class="px-6 py-4 border-b border-white/5">
+                <h2 class="text-white text-lg font-semibold tracking-wide">Post Options</h2>
+            </div>
+            <!-- Action List -->
+            <div class="flex flex-col py-2">
+                <!-- Share Post -->
+                <button
+                    class="group flex items-center gap-4 px-6 py-3.5 w-full hover:bg-white/5 transition-colors active:bg-white/10">
+                    <div class="flex items-center gap-4 flex-1">
+                        <div
+                            class="text-white flex items-center justify-center rounded-lg bg-[#282e39] group-hover:bg-primary group-hover:text-white transition-colors shrink-0 size-10">
+                            <span class="material-symbols-outlined text-[20px]">share</span>
+                        </div>
+                        <div class="flex flex-col items-start">
+                            <p class="text-white text-base font-medium leading-normal">Share Post</p>
+                        </div>
+                    </div>
+                    <div class="shrink-0 text-[#5f687a]">
+                        <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                    </div>
+                </button>
+                <!-- Edit Post -->
+                <button
+                    class="group flex items-center gap-4 px-6 py-3.5 w-full hover:bg-white/5 transition-colors active:bg-white/10">
+                    <div class="flex items-center gap-4 flex-1">
+                        <div
+                            class="text-white flex items-center justify-center rounded-lg bg-[#282e39] group-hover:bg-primary group-hover:text-white transition-colors shrink-0 size-10">
+                            <span class="material-symbols-outlined text-[20px]">edit</span>
+                        </div>
+                        <div class="flex flex-col items-start">
+                            <p class="text-white text-base font-medium leading-normal">Edit Post</p>
+                        </div>
+                    </div>
+                    <div class="shrink-0 text-[#5f687a]">
+                        <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                    </div>
+                </button>
+                <!-- Copy Link -->
+                <button
+                    class="group flex items-center gap-4 px-6 py-3.5 w-full hover:bg-white/5 transition-colors active:bg-white/10">
+                    <div class="flex items-center gap-4 flex-1">
+                        <div
+                            class="text-white flex items-center justify-center rounded-lg bg-[#282e39] group-hover:bg-primary group-hover:text-white transition-colors shrink-0 size-10">
+                            <span class="material-symbols-outlined text-[20px]">link</span>
+                        </div>
+                        <div class="flex flex-col items-start">
+                            <p class="text-white text-base font-medium leading-normal">Copy Link</p>
+                        </div>
+                    </div>
+                    <div class="shrink-0 text-[#5f687a]">
+                        <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                    </div>
+                </button>
+                <!-- Report Content -->
+                <button
+                    class="group flex items-center gap-4 px-6 py-3.5 w-full hover:bg-white/5 transition-colors active:bg-white/10">
+                    <div class="flex items-center gap-4 flex-1">
+                        <div
+                            class="text-white flex items-center justify-center rounded-lg bg-[#282e39] group-hover:bg-[#d97706] group-hover:text-white transition-colors shrink-0 size-10">
+                            <span class="material-symbols-outlined text-[20px]">flag</span>
+                        </div>
+                        <div class="flex flex-col items-start">
+                            <p class="text-white text-base font-medium leading-normal">Report Content</p>
+                        </div>
+                    </div>
+                    <div class="shrink-0 text-[#5f687a]">
+                        <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                    </div>
+                </button>
+                <!-- Separator -->
+                <div class="h-px bg-white/5 my-2 mx-6"></div>
+                <!-- Delete Post (Destructive) -->
+                <button
+                    class="group flex items-center gap-4 px-6 py-3.5 w-full hover:bg-red-500/10 transition-colors active:bg-red-500/20">
+                    <div class="flex items-center gap-4 flex-1">
+                        <div
+                            class="text-red-500 flex items-center justify-center rounded-lg bg-red-500/10 shrink-0 size-10 group-hover:bg-red-500 group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">delete</span>
+                        </div>
+                        <div class="flex flex-col items-start">
+                            <p class="text-red-500 text-base font-medium leading-normal">Delete Post</p>
+                        </div>
+                    </div>
+                    <div class="shrink-0 text-red-500/50">
+                        <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                    </div>
+                </button>
+            </div>
+            <!-- Safe Area Bottom Spacer -->
+            <div class="h-8 w-full bg-[#151a23]"></div>
+        </div>
+    </div>
+</body>
+
+</html>

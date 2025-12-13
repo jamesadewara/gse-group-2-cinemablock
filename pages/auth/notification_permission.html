@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial - Notification Permission</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622", // Deep dark blue-grey
+                        "surface-dark": "#1A1D26",    // Slightly lighter for cards
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                    backdropBlur: {
+                        'xs': '2px',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom Utilities for cinematic feel */
+        .glass-panel {
+            background: rgba(26, 29, 38, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .cinematic-glow {
+            background: radial-gradient(circle at center, rgba(13, 89, 242, 0.25) 0%, rgba(13, 89, 242, 0) 70%);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(13, 89, 242, 0.5);
+        }
+
+        /* Simulating the app behind being blurred */
+        .app-background-blur {
+            filter: blur(4px) brightness(0.7);
+            transform: scale(1.02);
+            /* Slight zoom for depth */
+            transition: all 0.5s ease;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-dark text-white font-display overflow-hidden h-screen relative selection:bg-primary selection:text-white">
+    <!-- Background Content (Simulating the App UI underneath) -->
+    <div class="app-background-blur absolute inset-0 w-full h-full overflow-y-auto pointer-events-none z-0">
+        <!-- Hero Section of a movie page -->
+        <div class="relative w-full h-[55vh]">
+            <div class="absolute inset-0 bg-cover bg-center"
+                data-alt="Abstract cinematic dark gradient pattern representing a movie poster"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzjS4P36FahWxaGXjSbPRJd0iMEpFxRviPW-WKm0cs2EH30FB8zRn4WPYLLyawkxrM-F9Xt006aQ6faZiSmq8j-qTafvfUimrMQQ6paoI08IlRlKRjLEJ2RNxAXGSzTJsfixKQG6jMHFzxyoTKcXfwMPl1TKfRikWbnwUDXXVQgOCpTWBuw2YDsuwtZAo1uQFVC11JsP_8e3ohjnvn1sqiP-scX0MMqBPFlJInidyYoSENVMUlUufKsTu4yJ4kBtzqQFnUu8shqknN');">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/50 to-transparent">
+            </div>
+            <!-- App Header -->
+            <div class="absolute top-0 left-0 right-0 p-6 flex justify-between items-center">
+                <span class="material-symbols-outlined text-white/80">arrow_back</span>
+                <span class="material-symbols-outlined text-white/80">ios_share</span>
+            </div>
+            <!-- Content preview -->
+            <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
+                <div class="flex gap-2 mb-2">
+                    <span
+                        class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-xs font-medium uppercase tracking-wider text-white/80">Sci-Fi</span>
+                    <span
+                        class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-xs font-medium uppercase tracking-wider text-white/80">2h
+                        34m</span>
+                </div>
+                <h1 class="text-4xl font-bold tracking-tight text-white mb-2">Interstellar Horizon</h1>
+                <div class="flex items-center gap-4 text-sm text-gray-400">
+                    <div class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-yellow-500 text-[18px] filled">star</span>
+                        <span class="text-white font-bold">4.8</span>
+                    </div>
+                    <span>•</span>
+                    <span>2024 Release</span>
+                </div>
+            </div>
+        </div>
+        <!-- Movie Details Body -->
+        <div class="px-6 py-4 space-y-6">
+            <div class="flex gap-4 overflow-x-hidden opacity-50">
+                <div class="flex-shrink-0 w-24 h-36 bg-surface-dark rounded-lg"></div>
+                <div class="flex-shrink-0 w-24 h-36 bg-surface-dark rounded-lg"></div>
+                <div class="flex-shrink-0 w-24 h-36 bg-surface-dark rounded-lg"></div>
+                <div class="flex-shrink-0 w-24 h-36 bg-surface-dark rounded-lg"></div>
+            </div>
+            <div class="space-y-3">
+                <div class="h-4 w-3/4 bg-surface-dark rounded animate-pulse"></div>
+                <div class="h-4 w-full bg-surface-dark rounded animate-pulse"></div>
+                <div class="h-4 w-5/6 bg-surface-dark rounded animate-pulse"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Permission Modal Overlay -->
+    <div class="relative z-50 flex h-full w-full items-center justify-center bg-black/40 backdrop-blur-[6px] p-4">
+        <!-- Modal Card -->
+        <div
+            class="glass-panel w-full max-w-[340px] flex flex-col items-center gap-6 rounded-2xl p-8 pt-10 text-center animate-in fade-in zoom-in-95 duration-300">
+            <!-- Icon with Glow -->
+            <div class="relative flex items-center justify-center">
+                <!-- Outer Glow -->
+                <div class="absolute inset-0 w-24 h-24 -m-4 rounded-full cinematic-glow blur-xl"></div>
+                <!-- Icon Container -->
+                <div
+                    class="relative flex h-16 w-16 items-center justify-center rounded-full bg-surface-dark border border-white/10 shadow-lg">
+                    <span class="material-symbols-outlined text-primary text-3xl"
+                        style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+                </div>
+            </div>
+            <!-- Text Content -->
+            <div class="flex flex-col gap-3">
+                <h2 class="text-xl font-bold text-white tracking-wide">Stay in the Loop</h2>
+                <p class="text-sm font-normal text-gray-400 leading-relaxed">
+                    Get real-time updates on showtimes, ticket availability, and friend activity.
+                </p>
+            </div>
+            <!-- Actions -->
+            <div class="flex w-full flex-col gap-3 pt-2">
+                <button
+                    class="group relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl bg-primary h-12 text-white shadow-[0_0_15px_rgba(13,89,242,0.4)] transition-all hover:bg-primary/90 hover:shadow-[0_0_25px_rgba(13,89,242,0.6)] active:scale-[0.98]">
+                    <span class="relative z-10 text-base font-semibold tracking-wide">Allow Notifications</span>
+                    <!-- Shine Effect on hover -->
+                    <div
+                        class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:animate-[shimmer_1.5s_infinite]">
+                    </div>
+                </button>
+                <button
+                    class="flex w-full cursor-pointer items-center justify-center rounded-xl h-12 text-gray-400 font-medium text-sm transition-colors hover:text-white hover:bg-white/5 active:scale-[0.98]">
+                    Don't Allow
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

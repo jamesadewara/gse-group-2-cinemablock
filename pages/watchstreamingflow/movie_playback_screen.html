@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CineSocial - Movie Playback</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#000000", // True black for cinematic feel
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom range slider styling for the scrubber */
+        .scrubber-track {
+            background: linear-gradient(to right, #1152d4 35%, rgba(255, 255, 255, 0.2) 35%);
+        }
+        
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .glass-panel {
+            background: rgba(16, 22, 34, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-white font-display overflow-hidden antialiased">
+<!-- Main Container -->
+<div class="relative h-screen w-full flex flex-col group/design-root">
+<!-- Background Video Layer -->
+<div class="absolute inset-0 w-full h-full z-0">
+<!-- Simulating a cinematic video frame -->
+<div class="w-full h-full bg-cover bg-center" data-alt="Cinematic sci-fi desert landscape at dusk with deep orange and blue hues" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC5sZQeqx1pwMX9q0wpIN1Pxye7Dr3hhVx3h9z-hdC5z1IA0WclPSzq7OwICcytlgDLISC5ETnuRP2epw7pAbJkLHaWEpS0R3CnMV9uWQK_Ruf-IhECjdhYtaj8frMj-l3bxgWvNI5Eg1Qmqv0t-vT0f6Zo31dDWkiM22C6Y66VF_C4GyvMHULwk982QWDm8mYsoEA1_NBu_7otu1huInKC1HN2UivTtCgeg5rOMv2qoHhoYMx1PXSWt5VfTiGzBG8mLT14I-0q6_lE");'>
+</div>
+<!-- Vignette Overlay for better text readability -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none"></div>
+</div>
+<!-- Foreground UI Layer -->
+<div class="relative z-10 flex flex-col h-full justify-between pointer-events-none">
+<!-- Top Toolbar -->
+<!-- Using Component: ToolBar (Modified for transparent overlay) -->
+<div class="w-full px-6 pt-12 pb-4 flex justify-between items-center pointer-events-auto transition-opacity duration-300">
+<button class="group p-2 rounded-full hover:bg-white/10 active:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-white text-[28px]">arrow_back</span>
+</button>
+<div class="flex gap-4">
+<button class="group p-2 rounded-full hover:bg-white/10 active:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-white text-[28px]">cast</span>
+</button>
+<!-- Settings button triggers the modal below -->
+<button class="group p-2 rounded-full hover:bg-white/10 active:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-white text-[28px]">settings</span>
+</button>
+</div>
+</div>
+<!-- Center Area: Action Panel (Settings Modal) & Play Button -->
+<div class="flex-1 flex items-center justify-center relative w-full px-6 pointer-events-auto">
+<!-- Play Button (Background layer of center) -->
+<button class="absolute z-10 flex items-center justify-center rounded-full w-20 h-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 hover:scale-105 transition-all duration-200">
+<span class="material-symbols-outlined text-white text-[48px] fill-1">play_arrow</span>
+</button>
+<!-- Component: ActionPanel (Settings Modal Overlay) -->
+<!-- Positioned as if user just clicked settings while paused -->
+<div class="absolute right-6 bottom-24 z-20 w-full max-w-[320px] animate-fade-in-up">
+<div class="glass-panel border border-white/10 rounded-2xl p-5 shadow-2xl">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-white text-lg font-bold">Playback Settings</h3>
+<button class="text-white/60 hover:text-white">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Audio Option -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex gap-3 items-center">
+<span class="material-symbols-outlined text-white/70">volume_up</span>
+<div>
+<p class="text-sm font-medium text-white">Audio</p>
+<p class="text-xs text-white/50">English (Original)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-white/40 text-[20px]">chevron_right</span>
+</div>
+<!-- Subtitles Toggle -->
+<div class="flex items-center justify-between py-2 border-t border-white/10">
+<div class="flex gap-3 items-center">
+<span class="material-symbols-outlined text-white/70">subtitles</span>
+<div>
+<p class="text-sm font-medium text-white">Subtitles</p>
+<p class="text-xs text-white/50">English [CC]</p>
+</div>
+</div>
+<!-- Toggle Switch from ActionPanel component -->
+<label class="relative flex h-[24px] w-[44px] cursor-pointer items-center rounded-full border-none bg-primary p-0.5 justify-end">
+<div class="h-5 w-5 rounded-full bg-white shadow-sm absolute right-0.5"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+<!-- Quality Option -->
+<div class="flex items-center justify-between pt-2 border-t border-white/10 group cursor-pointer">
+<div class="flex gap-3 items-center">
+<span class="material-symbols-outlined text-white/70">hd</span>
+<div>
+<p class="text-sm font-medium text-white">Quality</p>
+<p class="text-xs text-white/50">4K HDR</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-white/40 text-[20px]">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Controls -->
+<!-- Using Component: MediaPlayer + BottomSheetHandle -->
+<div class="w-full pb-8 pt-12 px-6 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-auto">
+<!-- Progress Scrubber -->
+<div class="relative w-full h-8 flex items-center group cursor-pointer">
+<!-- Track Background -->
+<div class="absolute inset-x-0 h-1 bg-white/20 rounded-full overflow-hidden">
+<!-- Progress Fill -->
+<div class="h-full w-[35%] bg-primary rounded-full relative"></div>
+</div>
+<!-- Handle (Thumb) -->
+<div class="absolute left-[35%] h-4 w-4 bg-white rounded-full shadow-lg transform -translate-x-1/2 scale-100 group-hover:scale-125 transition-transform"></div>
+</div>
+<!-- Timestamps -->
+<div class="flex items-center justify-between -mt-1 mb-6">
+<p class="text-xs font-medium text-white/90 tracking-wide">0:45:12</p>
+<p class="text-xs font-medium text-white/50 tracking-wide">2:34:00</p>
+</div>
+<!-- Bottom Sheet Handle / Swipe Up Cue -->
+<div class="flex flex-col items-center gap-2 opacity-80 animate-pulse">
+<p class="text-[10px] font-bold uppercase tracking-widest text-white/40">Swipe for details</p>
+<div class="w-12 h-1.5 rounded-full bg-white/20"></div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

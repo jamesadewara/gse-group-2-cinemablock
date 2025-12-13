@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CineSocial Account Settings</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6", // Electric Blue
+                        "primary-glow": "rgba(59, 130, 246, 0.5)",
+                        "background-dark": "#050505", // Deepest Black
+                        "surface-dark": "#121212", // Cinematic Dark Gray
+                        "surface-lighter": "#1E1E1E",
+                        "text-main": "#FFFFFF",
+                        "text-secondary": "#71717a", // Zinc 500
+                        "border-subtle": "#27272a", // Zinc 800
+                        "input-bg": "#0a0a0a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "xl": "1rem",
+                        "2xl": "1.5rem"
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f3f46;
+        }
+
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #3b82f6;
+        }
+
+        .toggle-checkbox:checked+.toggle-label {
+            background-color: #3b82f6;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px #0a0a0a inset !important;
+            -webkit-text-fill-color: white !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+    </style>
+    <style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gray-50 dark:bg-background-dark text-slate-900 dark:text-text-main font-display antialiased min-h-screen flex flex-col selection:bg-primary selection:text-white">
+    <div
+        class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-b border-gray-200 dark:border-border-subtle/50 transition-colors duration-300">
+        <div class="flex items-center px-4 h-14 justify-between max-w-md mx-auto w-full">
+            <button
+                class="flex items-center justify-center size-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-text-secondary dark:text-white">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <h1 class="text-[17px] font-semibold tracking-tight text-center">Account Settings</h1>
+            <button
+                class="flex items-center justify-center h-10 px-3 rounded-full text-primary hover:bg-primary/10 transition-colors text-sm font-medium">
+                Save
+            </button>
+        </div>
+    </div>
+    <main class="flex-1 w-full max-w-md mx-auto pb-12">
+        <div class="px-4 py-8 flex flex-col items-center justify-center">
+            <div class="relative group cursor-pointer">
+                <div class="size-24 rounded-full bg-cover bg-center ring-4 ring-surface-dark dark:ring-surface-lighter shadow-2xl relative overflow-hidden"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrRP5PHkEJDoUDyh0U6MIAdHzHqr-kVBJ-cR6XM_nmG4jz1McA-5WLlw9NAriqnbb254h7l2qdlQbG6sZ_37iGXnjY-R5_VEJsxL5DtrkhgPyFqWXUKuYPx7PqswLX59AWxvvSZttId99eHG8y42wh1gg-J1EyeLDqKzYnMERTlgDQa0N_Qo8L6WjpXyl60VoBX30qulq58ieDbi5_N7EAv9cIDqufFR65aRPz77xZBXc230nBP0zDNcbT0jAKa_nPruaQ-GjBGW-s');">
+                    <div
+                        class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="material-symbols-outlined text-white">photo_camera</span>
+                    </div>
+                </div>
+                <button
+                    class="absolute bottom-0 right-0 bg-primary text-white rounded-full p-2 border-4 border-white dark:border-background-dark shadow-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                    <span class="material-symbols-outlined text-[16px]">edit</span>
+                </button>
+            </div>
+            <p class="mt-4 text-sm text-text-secondary">Change Profile Photo</p>
+        </div>
+        <div class="space-y-8 px-4">
+            <div>
+                <h3 class="px-2 pb-3 text-[11px] font-bold text-text-secondary uppercase tracking-[0.15em]">Personal
+                    Details</h3>
+                <div
+                    class="rounded-2xl bg-white dark:bg-surface-dark border border-gray-100 dark:border-border-subtle overflow-hidden">
+                    <div
+                        class="group px-4 py-3 flex flex-col gap-1 border-b border-gray-100 dark:border-border-subtle hover:bg-gray-50 dark:hover:bg-surface-lighter/30 transition-colors focus-within:bg-gray-50 dark:focus-within:bg-surface-lighter/30">
+                        <label
+                            class="text-xs font-medium text-text-secondary group-focus-within:text-primary transition-colors"
+                            for="name">Full Name</label>
+                        <input
+                            class="block w-full p-0 bg-transparent border-none text-slate-900 dark:text-white placeholder-gray-400 focus:ring-0 sm:text-sm leading-6"
+                            id="name" type="text" value="Alex Cinephile" />
+                    </div>
+                    <div
+                        class="group px-4 py-3 flex flex-col gap-1 border-b border-gray-100 dark:border-border-subtle hover:bg-gray-50 dark:hover:bg-surface-lighter/30 transition-colors focus-within:bg-gray-50 dark:focus-within:bg-surface-lighter/30">
+                        <label
+                            class="text-xs font-medium text-text-secondary group-focus-within:text-primary transition-colors"
+                            for="username">Username</label>
+                        <div class="flex items-center">
+                            <span class="text-text-secondary mr-1 text-sm">@</span>
+                            <input
+                                class="block w-full p-0 bg-transparent border-none text-slate-900 dark:text-white placeholder-gray-400 focus:ring-0 sm:text-sm leading-6"
+                                id="username" type="text" value="alexcinephile" />
+                        </div>
+                    </div>
+                    <div
+                        class="group px-4 py-3 flex flex-col gap-1 hover:bg-gray-50 dark:hover:bg-surface-lighter/30 transition-colors focus-within:bg-gray-50 dark:focus-within:bg-surface-lighter/30">
+                        <label
+                            class="text-xs font-medium text-text-secondary group-focus-within:text-primary transition-colors"
+                            for="bio">Bio</label>
+                        <textarea
+                            class="block w-full p-0 bg-transparent border-none text-slate-900 dark:text-white placeholder-gray-400 focus:ring-0 sm:text-sm leading-normal resize-none"
+                            id="bio"
+                            rows="2">Just a movie buff exploring the cinematic universe one frame at a time. 🎬🍿</textarea>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="px-2 pb-3 text-[11px] font-bold text-text-secondary uppercase tracking-[0.15em]">Contact Info
+                </h3>
+                <div
+                    class="rounded-2xl bg-white dark:bg-surface-dark border border-gray-100 dark:border-border-subtle overflow-hidden">
+                    <div
+                        class="group px-4 py-3 flex flex-col gap-1 border-b border-gray-100 dark:border-border-subtle hover:bg-gray-50 dark:hover:bg-surface-lighter/30 transition-colors focus-within:bg-gray-50 dark:focus-within:bg-surface-lighter/30">
+                        <label
+                            class="text-xs font-medium text-text-secondary group-focus-within:text-primary transition-colors"
+                            for="email">Email Address</label>
+                        <input
+                            class="block w-full p-0 bg-transparent border-none text-slate-900 dark:text-white placeholder-gray-400 focus:ring-0 sm:text-sm leading-6"
+                            id="email" type="email" value="alex@example.com" />
+                    </div>
+                    <div
+                        class="group px-4 py-3 flex flex-col gap-1 hover:bg-gray-50 dark:hover:bg-surface-lighter/30 transition-colors focus-within:bg-gray-50 dark:focus-within:bg-surface-lighter/30">
+                        <label
+                            class="text-xs font-medium text-text-secondary group-focus-within:text-primary transition-colors"
+                            for="phone">Phone Number</label>
+                        <input
+                            class="block w-full p-0 bg-transparent border-none text-slate-900 dark:text-white placeholder-gray-400 focus:ring-0 sm:text-sm leading-6"
+                            id="phone" type="tel" value="+1 (555) 123-4567" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="px-2 pb-3 text-[11px] font-bold text-text-secondary uppercase tracking-[0.15em]">Security
+                </h3>
+                <div
+                    class="rounded-2xl bg-white dark:bg-surface-dark border border-gray-100 dark:border-border-subtle overflow-hidden">
+                    <button
+                        class="w-full flex items-center justify-between px-4 py-4 hover:bg-gray-50 dark:hover:bg-surface-lighter/30 transition-colors border-b border-gray-100 dark:border-border-subtle text-left group">
+                        <div class="flex flex-col gap-0.5">
+                            <span class="text-sm font-medium text-slate-900 dark:text-white">Change Password</span>
+                            <span class="text-xs text-text-secondary">Last changed 3 months ago</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-text-secondary text-[20px] group-hover:text-white transition-colors">chevron_right</span>
+                    </button>
+                    <div
+                        class="flex items-center justify-between px-4 py-3.5 hover:bg-gray-50 dark:hover:bg-surface-lighter/30 transition-colors">
+                        <div class="flex flex-col gap-0.5">
+                            <span class="text-sm font-medium text-slate-900 dark:text-white">Two-Factor
+                                Authentication</span>
+                            <span class="text-xs text-text-secondary">Extra security for your account</span>
+                        </div>
+                        <div
+                            class="relative inline-block w-11 h-6 align-middle select-none transition duration-200 ease-in mr-1">
+                            <input
+                                class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border border-gray-300 dark:border-transparent appearance-none cursor-pointer checked:right-0.5 right-[1.35rem] top-0.5 transition-all duration-300 z-10"
+                                id="toggle-2fa" name="toggle" type="checkbox" />
+                            <label
+                                class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-200 dark:bg-surface-lighter cursor-pointer border border-transparent dark:border-border-subtle"
+                                for="toggle-2fa"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="px-2 pb-3 text-[11px] font-bold text-text-secondary uppercase tracking-[0.15em]">Connected
+                    Accounts</h3>
+                <div
+                    class="rounded-2xl bg-white dark:bg-surface-dark border border-gray-100 dark:border-border-subtle overflow-hidden">
+                    <div
+                        class="flex items-center justify-between px-4 py-3.5 border-b border-gray-100 dark:border-border-subtle hover:bg-gray-50 dark:hover:bg-surface-lighter/30 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <div class="flex items-center justify-center size-8 rounded-full bg-[#1877F2] text-white">
+                                <span class="font-bold text-lg">f</span>
+                            </div>
+                            <span class="text-sm font-medium text-slate-900 dark:text-white">Facebook</span>
+                        </div>
+                        <span class="text-xs font-medium text-primary cursor-pointer hover:underline">Connected</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-between px-4 py-3.5 border-b border-gray-100 dark:border-border-subtle hover:bg-gray-50 dark:hover:bg-surface-lighter/30 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <div class="flex items-center justify-center size-8 rounded-full bg-white text-black">
+                                <img alt="Google" class="w-5 h-5"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgbmM9TObIIuc0JHwkOBnydoPbvVX7OR5dKyG1PHJzb7sodn26SdJ011ctTvcxsiYXQFqhlQ13dmdgKv1YstneFGBXsoiIY_rceeae90qpuftgyT0K6os2JH-KmIGUrRHjd3f_l_bGFfjM-eX6bMnnhsppBI9n09tWeq9WQ-2eg7KpHPk_lHl_xGSUA2Ys2w_hYlEh4nEk_z5Y058wWJuPnQdCL5yFcNQIdLEvGVGtOAsgSSoPi_vkxEyQoQHXZ6H98IgcVUdPOMsS" />
+                            </div>
+                            <span class="text-sm font-medium text-slate-900 dark:text-white">Google</span>
+                        </div>
+                        <span
+                            class="text-xs font-medium text-text-secondary cursor-pointer hover:text-white transition-colors">Connect</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-between px-4 py-3.5 hover:bg-gray-50 dark:hover:bg-surface-lighter/30 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="flex items-center justify-center size-8 rounded-full bg-black text-white border border-gray-700">
+                                <span class="font-bold text-sm">𝕏</span>
+                            </div>
+                            <span class="text-sm font-medium text-slate-900 dark:text-white">Twitter</span>
+                        </div>
+                        <span
+                            class="text-xs font-medium text-text-secondary cursor-pointer hover:text-white transition-colors">Connect</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-4 pb-8">
+                <button
+                    class="w-full rounded-xl border border-red-500/20 bg-red-500/5 active:bg-red-500/10 text-red-500 text-sm font-medium py-3.5 transition-all flex items-center justify-center gap-2 hover:bg-red-500/10">
+                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                    Delete Account
+                </button>
+                <p class="mt-3 text-center text-[10px] text-text-secondary/60">
+                    Deleting your account is permanent and cannot be undone.
+                </p>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
